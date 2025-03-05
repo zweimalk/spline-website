@@ -2,7 +2,7 @@
 
 import { Link } from "@/components/link";
 import ThemeToggler from "@/components/theme-toggler";
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Button, Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
@@ -24,14 +24,14 @@ export const Header = () => {
           <Image alt="" src="/images/logo.svg" width={70} height={20} />
         </Link>
         <div className="flex lg:hidden">
-          <button
+          <Button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 cursor-pointer"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
-          </button>
+          </Button>
         </div>
         <div className="hidden lg:flex lg:gap-x-20 items-center">
           {navigation.map((item) => (
@@ -50,14 +50,14 @@ export const Header = () => {
               <span className="sr-only">Spline</span>
               <Image alt="" src="/images/logo.svg" width={70} height={20} />
             </Link>
-            <button
+            <Button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 rounded-md p-2.5 cursor-pointer"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
-            </button>
+            </Button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
