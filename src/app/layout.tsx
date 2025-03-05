@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 
 const neueHaasGroteskDisplayPro = localFont({
   src: [
+    {
+      path: "../../public/fonts/NeueHaasGrotesk/NeueHaasDisplayLight.ttf",
+      weight: "300",
+      style: "normal",
+    },
     {
       path: "../../public/fonts/NeueHaasGrotesk/NeueHaasDisplayRoman.ttf",
       weight: "400",
@@ -34,8 +40,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

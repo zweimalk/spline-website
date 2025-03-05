@@ -1,11 +1,11 @@
 "use client";
 
 import { Link } from "@/components/link";
+import ThemeToggler from "@/components/theme-toggler";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-
 const navigation = [
   { name: "Our Services", href: "#" },
   { name: "Useful Documents", href: "#" },
@@ -32,12 +32,13 @@ export default function Home() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-20 items-center">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900">
+            <Link key={item.name} href={item.href} className="text-sm/6 text-gray-900">
               {item.name}
             </Link>
           ))}
+          <ThemeToggler />
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -64,11 +65,12 @@ export default function Home() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
                   </Link>
                 ))}
+                <ThemeToggler />
               </div>
             </div>
           </div>
