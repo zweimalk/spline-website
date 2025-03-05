@@ -45,7 +45,7 @@ export default function RootLayout({
       <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
-          <main className="pt-24">{children}</main>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
