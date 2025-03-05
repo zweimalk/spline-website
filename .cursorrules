@@ -1,0 +1,97 @@
+# Cashflow App
+Everytime you choose to apply a rule(s), explicitly state the fule(s) in th eoutput. You can abbreviate the rule description to a single word or phrase.
+
+## Project Context
+We are building a corporate landing page for Spline. Technology driven company focused on delivering innovative solutions to teams #IT #engineering #design
+
+## Core Functionalities
+
+## Code Style and Structure
+- Write concise, technical TypeScript code with accurate examples
+- Use functional and declarative programming patterns; avoid classes
+- Prefer iteration and modularization over code duplication
+- Use describe variable names with auxiliary verbs (e.g. isLoading, hasError)
+- Structure repository files as follows:
+
+|-- src - main application directory
+  |-- app - main directory for NextJS App
+    |-- globals.css - main styles from TailwindCSS
+    |-- layout.tsx - root layout
+    |-- page.tsx - root page
+  |-- components - reusable UI components
+  |-- features - feature routes
+  |-- styles - global styles
+  |-- types - TypeScript type definitions
+  |-- lib - utility functions
+  |-- hooks - custom ReactJS hooks
+|-- public - static assets
+  |-- images - image assets
+  |-- icons - icon assets
+|-- .env - environment variables
+|-- .env.local - local environment variables
+|-- .env.example - environment variables example
+|-- .gitignore - git ignore rules
+|-- .prettierrc - prettier configuration
+|-- .prettierignore - prettier ignore rules
+|-- nextjs.config.ts - app configuration
+|-- eslint.config.mjs - eslint configuration
+|-- package.json - package configuration
+|-- package-lock.json - package configuration
+|-- postcss.config.mjs - postcss configuration
+|-- README.md - readme
+|-- .cursorrules - cursor rules
+|-- tsconfig.json - typescript configuration
+
+## Tech Stack
+- TypeScript - https://www.typescriptlang.org/
+- React version 19 - https://react.dev/
+- NextJS - https://nextjs.org/docs
+- Tailwind CSS v4 - https://tailwindcss.com/docs/installation
+
+## Naming Conventions
+- Use PascalCase folder names (e.g. components/ui/NewComponent)
+- Favor named exports for components and utilities
+- Use PascalCase for component files (e.g. MyComponent.tsx)
+- Use camelCase for utility functions (e.g., formValidator.ts)
+
+## TypeScript Guidelines
+- Use TypeScript types for all code; prefer interfaces over types
+- Avoid using `any` type; instead, define proper types for all variables and function parameters
+- Use `unknown` for values that may be of any type
+- Use explicit return types for all functions
+- Use absolute imports for all imports (e.g. `~/components/ui/button`)
+- Implement type guards and assertions when necessary
+- Document all functions with JSDoc comments
+
+## State Management
+- Use Tanstack Query for data fetching and caching https://tanstack.com/query
+- Use Tanstack Router for routing https://tanstack.com/router
+- Use Tanstack Form for form handling https://tanstack.com/form
+- Use Tanstack Table for table rendering https://tanstack.com/table
+
+## UI and Styling
+- Use Catalyst for components https://catalyst.tailwindui.com/docs
+- Use UI Blocks for components https://tailwindcss.com/plus/ui-blocks/marketing
+- Use Tailwind CSS for styling https://tailwindcss.com/docs/installation
+- Use utility classes for layout and spacing
+
+## Performance Optimization
+- Minimize bundle size by using code splitting and lazy loading
+
+## Error Handling
+- Implement proper error boundaries
+- Log errors appropriately for debugging
+- Provide user-friendly error messages
+ 
+## Testing
+- Write unit tests for utilities and components
+
+## Documentation
+- Maintain clear README.md file with setup instructions
+- Document API interactions and data flows
+- Include comments for complex logic
+
+## Cursor Rules
+- Automatically suggest additions for `.cursorrules` file where best practices are used during the generation of code
+
+
