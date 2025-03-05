@@ -10,12 +10,11 @@ const neueHaasGroteskDisplayPro = localFont({
       weight: "400",
       style: "normal",
     },
-    // Add additional weights if available
-    // {
-    //   path: '../public/fonts/NeueHaasGrotesk/NeueHaasGroteskDisplayMedium.ttf',
-    //   weight: '500',
-    //   style: 'normal',
-    // },
+    {
+      path: "../../public/fonts/NeueHaasGrotesk/NeueHaasDisplayMediu.ttf",
+      weight: "500",
+      style: "normal",
+    },
   ],
   display: "swap",
   variable: "--font-neue-haas", // Add variable for consistent usage
