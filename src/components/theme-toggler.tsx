@@ -11,7 +11,6 @@ const ThemeToggler = () => {
     setTheme(isDarkTheme ? "light" : "dark");
   };
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -23,7 +22,7 @@ const ThemeToggler = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-md p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="rounded-md p-2 transition-colors"
       aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
     >
       {isDarkTheme ? <SunIcon className="w-6 h-6 fill-gray-900" /> : <MoonIcon className="w-6 h-6 fill-gray-900" />}

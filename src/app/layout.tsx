@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 
@@ -43,7 +44,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <Header />
+          <main className="pt-24">{children}</main>
         </ThemeProvider>
       </body>
     </html>
