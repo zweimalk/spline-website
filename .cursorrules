@@ -27,6 +27,8 @@ We are building a corporate landing page for Spline. Technology driven company f
 |-- public - static assets
   |-- images - image assets
   |-- icons - icon assets
+  |-- fonts - icon assets
+    |-- NeueHaasGrotesk - font files in ttf format
 |-- .env - environment variables
 |-- .env.local - local environment variables
 |-- .env.example - environment variables example
