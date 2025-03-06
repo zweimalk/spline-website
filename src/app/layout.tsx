@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
-
 const neueHaasGroteskDisplayPro = localFont({
   src: [
     {
@@ -46,6 +46,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
           <main>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

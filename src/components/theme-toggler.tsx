@@ -22,10 +22,14 @@ const ThemeToggler = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-md p-2 transition-colors"
+      className="rounded-md p-2 transition-colors w-8 h-8"
       aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
     >
-      {isDarkTheme ? <SunIcon className="w-6 h-6 fill-gray-900" /> : <MoonIcon className="w-6 h-6 fill-gray-900" />}
+      {isDarkTheme ? (
+        <SunIcon className="w-full h-full fill-gray-900" />
+      ) : (
+        <MoonIcon className="w-full h-full fill-gray-900" />
+      )}
     </button>
   );
 };

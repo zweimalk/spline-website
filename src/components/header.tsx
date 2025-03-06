@@ -17,7 +17,7 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-xs w-full">
+    <header className="fixed top-0 z-50 bg-white w-full">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Spline</span>
@@ -71,7 +71,6 @@ export const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-                <ThemeToggler />
               </div>
             </div>
           </div>
