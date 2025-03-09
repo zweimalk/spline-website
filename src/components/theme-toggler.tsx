@@ -26,9 +26,9 @@ const ThemeToggler = () => {
       aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
     >
       {isDarkTheme ? (
-        <SunIcon className="w-full h-full fill-gray-900" />
+        <SunIcon className="w-full h-full text-background" />
       ) : (
-        <MoonIcon className="w-full h-full fill-gray-900" />
+        <MoonIcon className="w-full h-full text-foreground" />
       )}
     </button>
   );

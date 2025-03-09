@@ -56,6 +56,13 @@ const styles = {
     // Icon
     "[--btn-icon:var(--color-zinc-500)] data-active:[--btn-icon:var(--color-zinc-700)] data-hover:[--btn-icon:var(--color-zinc-700)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)]",
   ],
+  plainColors: {
+    blue: [
+      "border-transparent text-blue-600 data-active:bg-blue-500/10 data-hover:bg-blue-500/10",
+      "dark:text-blue-400 dark:data-active:bg-blue-400/10 dark:data-hover:bg-blue-400/10",
+      "[--btn-icon:var(--color-blue-500)] data-active:[--btn-icon:var(--color-blue-600)] data-hover:[--btn-icon:var(--color-blue-600)] dark:[--btn-icon:var(--color-blue-400)] dark:data-active:[--btn-icon:var(--color-blue-300)] dark:data-hover:[--btn-icon:var(--color-blue-300)]",
+    ],
+  },
   colors: {
     "dark/zinc": [
       "text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10",
@@ -161,7 +168,7 @@ const styles = {
 type ButtonProps = (
   | { color?: keyof typeof styles.colors; outline?: never; plain?: never }
   | { color?: never; outline: true; plain?: never }
-  | { color?: never; outline?: never; plain: true }
+  | { color?: keyof typeof styles.plainColors | never; outline?: never; plain: true }
 ) & { className?: string; children: React.ReactNode } & (
     | Omit<Headless.ButtonProps, "as" | "className">
     | Omit<React.ComponentPropsWithoutRef<typeof Link>, "className">
@@ -174,7 +181,13 @@ export const Button = forwardRef(function Button(
   const classes = clsx(
     className,
     styles.base,
-    outline ? styles.outline : plain ? styles.plain : clsx(styles.solid, styles.colors[color ?? "dark/zinc"])
+    outline
+      ? styles.outline
+      : plain
+      ? color && styles.plainColors[color as keyof typeof styles.plainColors]
+        ? clsx(styles.plainColors[color as keyof typeof styles.plainColors])
+        : styles.plain
+      : clsx(styles.solid, styles.colors[color ?? "dark/zinc"])
   );
 
   return "href" in props ? (
