@@ -36,8 +36,8 @@ export const Hero = () => {
             className="w-full object-cover md:hidden mt-6"
           />
           <p className="max-w-[408px] mt-9 md:mt-10">
-            We deliver future-proof, tailor-made solutions that support our clients' day-to-day operations and help them
-            gain an edge over their competition. We understand that organisations we work with may be at different
+            We deliver future-proof, tailor-made solutions that support our clients&apos day-to-day operations and help
+            them gain an edge over their competition. We understand that organisations we work with may be at different
             points.
           </p>
           <Button color="dark" className="cursor-pointer max-w-[218px] mt-8 md:mt-10">
