@@ -22,7 +22,7 @@ const ThemeToggler = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-md p-2 transition-colors w-8 h-8"
+      className="rounded-md p-2 transition-colors w-8 h-8 cursor-pointer"
       aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
     >
       {isDarkTheme ? (

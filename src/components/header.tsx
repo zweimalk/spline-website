@@ -18,12 +18,12 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 z-50 bg-white w-full">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+      <nav aria-label="Global" className="mx-auto flex container items-center justify-between p-6">
         <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Spline</span>
           <Image alt="" src="/images/logo.svg" width={70} height={20} />
         </Link>
-        <div className="flex lg:hidden">
+        <div className="flex md:hidden">
           <Button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -33,7 +33,7 @@ export const Header = () => {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </Button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-20 items-center">
+        <div className="hidden md:flex md:gap-x-8 xl:gap-x-20 items-center">
           {navigation.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm/6 text-gray-900">
               {item.name}
@@ -42,7 +42,7 @@ export const Header = () => {
           <ThemeToggler />
         </div>
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="md:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
