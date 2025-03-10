@@ -2,7 +2,7 @@ import { ServiceCard } from "./service-card";
 
 export const WhatWeDoSection = () => {
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 px-4 mt-20">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 px-4 mt-20 md:mt-40">
       <div className="md:col-span-1 xl:col-span-2 ">
         <div className="md:sticky md:top-30 xl:top-40">
           <h1 className="text-7xl xl:text-9xl text-left">

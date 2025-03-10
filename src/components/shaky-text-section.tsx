@@ -69,7 +69,7 @@ export const ShakyTextSection = () => {
   }, [isMobile, getRandomValues]); // Re-run effect when isMobile changes
 
   return (
-    <div className="container mx-auto flex flex-col items-center justify-center px-2 mt-20 overflow-hidden py-10">
+    <div className="container mx-auto flex flex-col items-center justify-center px-2 overflow-hidden py-10 mt-20 md:mt-60">
       {words.map((word, index) => (
         <h1
           key={word}
