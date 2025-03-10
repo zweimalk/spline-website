@@ -1,6 +1,8 @@
 "use client";
 
+import { ArrowRightIcon } from "@heroicons/react/16/solid";
 import { useCallback, useEffect, useState } from "react";
+import { Button } from "./button";
 
 interface WordAnimation {
   rotation: number;
@@ -8,13 +10,13 @@ interface WordAnimation {
   translateY: number;
 }
 
+const words = ["rapid support", "excellence longevity", "sustainability", "high quality standards"];
+
 export const ShakyTextSection = () => {
   // State to track animation values for each word
   const [wordAnimations, setWordAnimations] = useState<WordAnimation[]>([]);
   // Track if the screen is mobile size
   const [isMobile, setIsMobile] = useState(false);
-
-  const words = ["rapid support", "excellence longevity", "sustainability", "high quality standards"];
 
   // Initialize animations for each word
   useEffect(() => {
@@ -64,7 +66,7 @@ export const ShakyTextSection = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isMobile]); // Re-run effect when isMobile changes
+  }, [isMobile, getRandomValues]); // Re-run effect when isMobile changes
 
   return (
     <div className="container mx-auto flex flex-col items-center justify-center px-2 mt-20 overflow-hidden py-10">
@@ -86,6 +88,10 @@ export const ShakyTextSection = () => {
           {word}
         </h1>
       ))}
+      <Button color="dark" className="cursor-pointer max-w-[218px] mt-8 md:mt-10 md:text-2xl">
+        Let&apos;s collaborate
+        <ArrowRightIcon className="font-bold fill-background dark:fill-white" />
+      </Button>
     </div>
   );
 };

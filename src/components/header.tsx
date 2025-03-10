@@ -18,7 +18,7 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 z-50 bg-white w-full">
-      <nav aria-label="Global" className="mx-auto flex container items-center justify-between p-6">
+      <nav aria-label="Global" className="mx-auto flex container items-center justify-between p-4 py-6">
         <Link href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Spline</span>
           <Image alt="" src="/images/logo.svg" width={70} height={20} />

@@ -7,7 +7,7 @@ import { Link } from "./link";
 export const Hero = () => {
   return (
     <div className="pt-18 md:pt-28 container mx-auto">
-      <div className="flex flex-col justify-center px-6 gap-y-6">
+      <div className="flex flex-col justify-center px-4 gap-y-6">
         <div>
           <div className="flex">
             <h1 className="text-6xl text-left md:text-8xl">
