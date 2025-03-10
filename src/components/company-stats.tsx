@@ -45,9 +45,10 @@ function CertificationISOItem({ title }: CertificationISOItemProps) {
   );
 }
 
+// TODO: fix dark styles
 export function CompanyStats() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <StatItem number="15" label="years of expertise" />

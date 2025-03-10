@@ -121,6 +121,7 @@ export const SplineLogo = (props: SVGProps<SVGSVGElement> & { colorInverted?: bo
   );
 };
 
+// INFO: think about lightweight icons here
 export const TisaxLogo = (props: SVGProps<SVGSVGElement> & { colorInverted?: boolean }) => {
   const propsWithoutColorInverted = { ...props, colorInverted: undefined };
   return (
@@ -150,6 +151,7 @@ export const TisaxLogo = (props: SVGProps<SVGSVGElement> & { colorInverted?: boo
   );
 };
 
+// INFO: think about lightweight icons here
 export const IsoLogo = (props: SVGProps<SVGSVGElement> & { colorInverted?: boolean }) => {
   const propsWithoutColorInverted = { ...props, colorInverted: undefined };
   return (
