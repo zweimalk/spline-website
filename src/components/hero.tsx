@@ -36,7 +36,7 @@ export const Hero = () => {
             className="w-full object-cover md:hidden mt-6"
           />
           <p className="max-w-[408px] mt-9 md:mt-10">
-            We deliver future-proof, tailor-made solutions that support our clients’ day-to-day operations and help them
+            We deliver future-proof, tailor-made solutions that support our clients' day-to-day operations and help them
             gain an edge over their competition. We understand that organisations we work with may be at different
             points.
           </p>
@@ -44,6 +44,16 @@ export const Hero = () => {
             Connect right now
             <ArrowRightIcon className="font-bold fill-background dark:fill-white" />
           </Button>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="hidden md:block w-full h-[200px] rounded-lg mt-8 md:mt-10 object-cover"
+          >
+            <source src="/video/automotive_promo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
       <div className="flex justify-center items-center mt-10 md:hidden">

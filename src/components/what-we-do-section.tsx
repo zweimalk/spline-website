@@ -15,7 +15,7 @@ export const WhatWeDoSection = () => {
         <ServiceCard
           title={
             <>
-              technology <br /> & electronics
+              technology <br /> <span className="text-[2.8rem] lg:text-5xl"> & electronics</span>
             </>
           }
           description="In our consulting department, clients are assigned a dedicated specialist for personalized assistance, with billing based on hourly settlements."
