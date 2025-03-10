@@ -179,7 +179,6 @@ export const Button = forwardRef(function Button(
   ref: React.ForwardedRef<HTMLElement>
 ) {
   const classes = clsx(
-    className,
     styles.base,
     outline
       ? styles.outline
@@ -187,7 +186,8 @@ export const Button = forwardRef(function Button(
       ? color && styles.plainColors[color as keyof typeof styles.plainColors]
         ? clsx(styles.plainColors[color as keyof typeof styles.plainColors])
         : styles.plain
-      : clsx(styles.solid, styles.colors[color ?? "dark/zinc"])
+      : clsx(styles.solid, styles.colors[color ?? "dark/zinc"]),
+    className
   );
 
   return "href" in props ? (
