@@ -1,3 +1,4 @@
+import { AboutUsSection } from "@/components/about-us-section";
 import { CompanyStats } from "@/components/company-stats";
 import { ContactPeople } from "@/components/contact-people";
 import { Hero } from "@/components/hero";
@@ -13,6 +14,7 @@ export default function Home() {
       <ShakyTextSection />
       <HighlightsSection />
       <CompanyStats />
+      <AboutUsSection />
       <ContactPeople />
     </>
   );
