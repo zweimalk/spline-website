@@ -34,6 +34,20 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
   }, [testimonials.length]);
 
+  // Add this new function for handling desktop pagination clicks
+  const goToDesktopSlide = useCallback(
+    (index: number) => {
+      // Since we're passing index/2 from the button click,
+      // we just need to multiply by 2 to get even numbers (0, 2, 4, etc.)
+      const targetIndex = Math.floor(index) * 2;
+      console.log(targetIndex);
+      if (targetIndex < testimonials.length) {
+        setCurrentIndex(targetIndex);
+      }
+    },
+    [testimonials.length]
+  );
+
   // Handle touch start
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
@@ -81,7 +95,11 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
   const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
-    <div className="relative w-full overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className="relative w-full overflow-hidden p-4"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Slider container */}
       <div
         ref={sliderRef}
@@ -91,8 +109,18 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex gap-6 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex gap-4 transition-transform duration-500 ease-in-out md:hidden"
+          style={{ transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))` }}
+        >
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="w-full min-w-full">
+              <TestimonialCard testimonial={testimonial} />
+            </div>
+          ))}
+        </div>
+        <div
+          className="gap-6 transition-transform duration-500 ease-in-out hidden md:flex"
+          style={{ transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 16}px))` }}
         >
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="w-full min-w-full md:min-w-[calc(50%-12px)] md:w-[calc(50%-12px)]">
@@ -104,16 +132,33 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
 
       {/* Pagination dots */}
       <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex ? "bg-gray-900" : "bg-gray-300 hover:bg-gray-400"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        <div className="flex gap-2 md:hidden">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === currentIndex ? "bg-gray-900" : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+        <div className="hidden md:flex gap-2">
+          {testimonials.map(
+            (_, index) =>
+              index % 2 === 0 && (
+                <button
+                  key={index}
+                  onClick={() => goToDesktopSlide(Math.floor(index / 2))}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentIndex ? "bg-gray-900" : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              )
+          )}
+        </div>
       </div>
     </div>
   );
