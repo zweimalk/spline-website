@@ -23,7 +23,7 @@ const ContactCard = ({
   imageAlt = `${name} profile picture`,
 }: ContactPersonProps) => {
   return (
-    <div className="flex items-center gap-6 rounded-xl p-4 md:p-6">
+    <div className="flex items-center gap-6 rounded-xl">
       <div className="h-36 w-24 shrink-0 overflow-hidden rounded-md">
         <Image src={imageSrc} alt={imageAlt} width={96} height={133} className="h-full w-full object-cover" />
       </div>
@@ -74,8 +74,9 @@ export const ContactPeople = () => {
   ];
 
   return (
-    <div className="py-8">
-      <div className="grid gap-6 md:grid-cols-2">
+    <div className="py-8 container mx-auto px-4">
+      <h1 className="text-7xl xl:text-9xl col-span-2">contact us</h1>
+      <div className="grid gap-6 md:grid-cols-2 mt-10 md:mt-20">
         {contactPersons.map((person) => (
           <ContactCard key={person.email} {...person} />
         ))}
