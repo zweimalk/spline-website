@@ -1,18 +1,18 @@
 "use client";
 
-import { Testimonial } from "@/types/testimonial";
+import { Highlight } from "@/types/highlight";
 import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
-import { TestimonialCard } from "./TestimonialCard";
+import { HighlightCard } from "./HighlightCard";
 
-interface TestimonialSliderProps {
-  testimonials: Testimonial[];
+interface HighlightsSliderProps {
+  highlights: Highlight[];
   autoplayInterval?: number;
 }
 
 /**
  * Displays a slider of testimonials with pagination dots and touch swipe support
  */
-export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: TestimonialSliderProps) {
+export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: HighlightsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -26,7 +26,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
   useEffect(() => {
     // Check if we're on mobile initially
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Common breakpoint for mobile
+      setIsMobile(window.innerWidth < 768); // Common breakpoint for mobile
     };
 
     checkIfMobile();
@@ -38,27 +38,13 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
 
   const minSwipeDistance = 50;
 
-  const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index);
-  }, []);
-
   const goToNextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1));
-  }, [testimonials.length, isMobile]);
+    setCurrentIndex((prevIndex) => (prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1));
+  }, [highlights.length, isMobile]);
 
   const goToPrevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
-  }, [testimonials.length]);
-
-  const goToDesktopSlide = useCallback(
-    (index: number) => {
-      const targetIndex = Math.floor(index) * 2;
-      if (targetIndex < testimonials.length) {
-        setCurrentIndex(targetIndex);
-      }
-    },
-    [testimonials.length]
-  );
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1));
+  }, [highlights.length]);
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
@@ -110,37 +96,37 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
       {/* Slider container */}
       <div
         ref={sliderRef}
-        className="relative touch-pan-y @container"
+        className="relative touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex gap-4 transition-transform duration-500 ease-in-out @lg:hidden"
+          className="flex gap-4 transition-transform duration-500 ease-in-out md:hidden"
           style={{ transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))` }}
         >
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="w-full min-w-full">
-              <TestimonialCard testimonial={testimonial} />
+          {highlights.map((highlight) => (
+            <div key={highlight.id} className="w-full min-w-full">
+              <HighlightCard highlight={highlight} />
             </div>
           ))}
         </div>
         <div
-          className="gap-6 transition-transform duration-500 ease-in-out hidden @lg:flex"
-          style={{ transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 16}px))` }}
+          className="gap-6 transition-transform duration-500 ease-in-out hidden md:flex"
+          style={{ transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))` }}
         >
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="w-full min-w-full @lg:min-w-[calc(50%-12px)] @lg:w-[calc(50%-12px)]">
-              <TestimonialCard testimonial={testimonial} />
+          {highlights.map((highlight) => (
+            <div key={highlight.id} className="min-w-[340px]">
+              <HighlightCard highlight={highlight} />
             </div>
           ))}
         </div>
       </div>
 
       {/* Pagination dots */}
-      <div className="flex justify-center gap-2 mt-6 @container">
-        <div className="flex gap-2 @lg:hidden">
-          {testimonials.map((_, index) => (
+      {/* <div className="flex justify-center gap-2 mt-6">
+        <div className="flex gap-2 md:hidden">
+          {highlights.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
@@ -151,8 +137,8 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
             />
           ))}
         </div>
-        <div className="hidden @lg:flex gap-2">
-          {testimonials.map(
+        <div className="hidden md:flex gap-2">
+          {highlights.map(
             (_, index) =>
               index % 2 === 0 && (
                 <button
@@ -166,7 +152,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
               )
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

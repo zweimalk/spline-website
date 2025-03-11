@@ -12,7 +12,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, position, company, content, avatarUrl } = testimonial;
 
   return (
-    <div className="flex flex-col h-full min-h-[400px] p-8 bg-background rounded-xl shadow-sm">
+    <div className="flex flex-col h-full min-h-[400px] p-8 bg-background rounded-xl shadow-lg">
       <div className="flex items-center gap-4 mb-6">
         <div className="relative w-16 h-16 overflow-hidden rounded-full">
           <Image
