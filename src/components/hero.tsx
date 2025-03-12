@@ -51,7 +51,7 @@ export const Hero = () => {
             playsInline
             className="hidden md:block w-full h-[200px] rounded-lg mt-8 md:mt-10 object-cover"
           >
-            <source src="/video/automotive_promo.mp4" type="video/mp4" />
+            <source src="/video/hero_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
