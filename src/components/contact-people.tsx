@@ -1,6 +1,7 @@
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import Link from "next/link";
+import { ContactForm } from "./contact-form";
 
 interface ContactPersonProps {
   name: string;
@@ -74,12 +75,25 @@ export const ContactPeople = () => {
   ];
 
   return (
-    <div className="py-8 container mx-auto px-4">
+    <div className="py-20 md:py-40 container mx-auto px-4">
       <h1 className="text-7xl xl:text-9xl col-span-2">contact us</h1>
-      <div className="grid gap-6 md:grid-cols-2 mt-10 md:mt-20">
-        {contactPersons.map((person) => (
-          <ContactCard key={person.email} {...person} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="grid gap-6 grid-cols-1 mt-10 md:mt-20 order-2 md:order-1">
+          {contactPersons.map((person) => (
+            <ContactCard key={person.email} {...person} />
+          ))}
+          <div className="flex flex-col gap-2 mt-4">
+            <h2 className="text-xl font-semibold">General Information</h2>
+            <div className="flex flex-col gap-2">
+              <p>+48 513 727 619</p>
+              <p>+48 661 318 693</p>
+              <p>info@spline.pl</p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-xl order-1 md:order-2">
+          <ContactForm />
+        </div>
       </div>
     </div>
   );
