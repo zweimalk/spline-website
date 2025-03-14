@@ -9,7 +9,7 @@ interface HighlightCardProps {
 }
 
 export const HighlightCard = ({ highlight }: HighlightCardProps) => {
-  const { year, title, description, imageUrl, ctaLabel, ctaUrl, brandIcon } = highlight;
+  const { year, title, description, imageUrl, ctaLabel, ctaUrl } = highlight;
 
   return (
     <div className="group relative overflow-hidden rounded-2xl  shadow-md transition-all hover:shadow-lg w-full">
