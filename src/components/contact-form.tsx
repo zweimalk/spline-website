@@ -16,7 +16,7 @@ const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
       {field.state.meta.isTouched && field.state.meta.errors.length ? (
         <em className="text-red-500 text-sm">{field.state.meta.errors.join(", ")}</em>
       ) : null}
-      {field.state.meta.isValidating ? <span className="text-gray-500 text-sm">Validating...</span> : null}
+      {field.state.meta.isValidating ? <span className="text-zinc-500 text-sm">Validating...</span> : null}
     </>
   );
 };
@@ -57,7 +57,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className="w-full border-b border-gray-300 bg-transparent pb-2 outline-none placeholder:text-gray-500 focus:border-gray-900"
+                className="w-full border-b border-zinc-300 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900"
               />
               <FieldInfo field={field} />
             </div>
@@ -83,7 +83,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className="w-full border-b border-gray-300 bg-transparent pb-2 outline-none placeholder:text-gray-500 focus:border-gray-900"
+                className="w-full border-b border-zinc-300 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900"
               />
               <FieldInfo field={field} />
             </div>
@@ -109,7 +109,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className="w-full border-b border-gray-300 bg-transparent pb-2 outline-none placeholder:text-gray-500 focus:border-gray-900"
+                className="w-full border-b border-zinc-300 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900"
               />
               <FieldInfo field={field} />
             </div>
@@ -131,7 +131,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className="w-full border-b border-gray-300 bg-transparent pb-2 outline-none placeholder:text-gray-500 focus:border-gray-900"
+                className="w-full border-b border-zinc-300 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900"
               />
               <FieldInfo field={field} />
             </div>
@@ -151,9 +151,9 @@ export const ContactForm = () => {
                 checked={field.state.value}
                 onChange={(e) => field.handleChange(e.target.checked)}
                 onBlur={field.handleBlur}
-                className="mt-1 h-4 w-4 rounded border-gray-300"
+                className="mt-1 h-4 w-4 rounded border-zinc-300"
               />
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-zinc-600">
                 I confirm that I have been provided with the following information regarding the processing of personal
                 data pursuant to Art. 13 of Regulation 2016/679 of the European Parliament and of the EU Council of
                 27/04/2016 on the protection of natural persons with regard to the processing of personal data and on

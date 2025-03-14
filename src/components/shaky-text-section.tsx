@@ -69,7 +69,7 @@ export const ShakyTextSection = () => {
   }, [isMobile, getRandomValues]); // Re-run effect when isMobile changes
 
   return (
-    <div className="container mx-auto flex flex-col items-center justify-center px-2 overflow-hidden py-10 mt-20 md:mt-60">
+    <div className="container mx-auto flex flex-col items-center justify-center px-2 overflow-hidden mt-60 md:mt-60">
       {words.map((word, index) => (
         <h1
           key={word}
@@ -88,8 +88,8 @@ export const ShakyTextSection = () => {
           {word}
         </h1>
       ))}
-      <Button color="dark" className="cursor-pointer max-w-[218px] mt-8 md:mt-10 md:text-2xl">
-        Let&apos;s collaborate
+      <Button color="dark" className="cursor-pointer max-w-[218px] mt-16 md:text-2xl">
+        Connect right now
         <ArrowRightIcon className="font-bold fill-background dark:fill-white" />
       </Button>
     </div>

@@ -23,15 +23,17 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
             sizes="(max-width: 768px) 64px, 64px"
           />
         </div>
-        <div>
-          <h3 className="text-xl font-semibold text-foreground">{name}</h3>
-          <p className="text-foreground/85">
+        <div className="flex flex-col gap-1">
+          <h3 className="text-lg font-semibold text-foreground">{name}</h3>
+          <p className="text-foreground/70 text-sm">
             {position}
             {company && ` ${company}`}
           </p>
         </div>
       </div>
-      <p className="flex-1 text-lg text-foreground/85">{content}</p>
+      <div className="mt-4">
+        <p className="flex-1 text-lg text-foreground/85 leading-snug">{content}</p>
+      </div>
     </div>
   );
 }

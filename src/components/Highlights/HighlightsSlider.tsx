@@ -122,37 +122,6 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           ))}
         </div>
       </div>
-
-      {/* Pagination dots */}
-      {/* <div className="flex justify-center gap-2 mt-6">
-        <div className="flex gap-2 md:hidden">
-          {highlights.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? "bg-gray-900" : "bg-gray-300 hover:bg-gray-400"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-        <div className="hidden md:flex gap-2">
-          {highlights.map(
-            (_, index) =>
-              index % 2 === 0 && (
-                <button
-                  key={index}
-                  onClick={() => goToDesktopSlide(Math.floor(index / 2))}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-gray-900" : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              )
-          )}
-        </div>
-      </div> */}
     </div>
   );
 }

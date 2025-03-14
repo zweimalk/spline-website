@@ -11,8 +11,8 @@ interface StatItemProps {
 function StatItem({ number, label, className }: StatItemProps) {
   return (
     <div className={clsx("flex flex-col items-center text-center", className)}>
-      <h2 className="text-5xl md:text-6xl font-bold mb-3 text-zinc-900 dark:text-white">{number}</h2>
-      <Text className="text-base md:text-lg">{label}</Text>
+      <h2 className="text-8xl md:text-6xl mb-3 text-zinc-900 dark:text-white">{number}</h2>
+      <Text className="text-lg">{label}</Text>
     </div>
   );
 }
@@ -28,7 +28,7 @@ function CertificationTisaxItem({ title, className }: CertificationTisaxItemProp
       <div className="relative w-32 h-24">
         <TisaxLogo />
       </div>
-      <Text className="text-base md:text-lg">{title}</Text>
+      <Text className="text-lg">{title}</Text>
     </div>
   );
 }
@@ -44,7 +44,7 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
       <div className="relative w-32 h-24">
         <IsoLogo />
       </div>
-      <Text className="text-base md:text-lg">{title}</Text>
+      <Text className="text-lg">{title}</Text>
     </div>
   );
 }
@@ -52,8 +52,8 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
 // TODO: fix dark styles
 export function CompanyStats() {
   return (
-    <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0 my-16">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-0">
+    <div className="mt-40 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-0">
         <StatItem
           number="15"
           label="years of expertise"

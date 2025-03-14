@@ -13,6 +13,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "2",
@@ -21,6 +23,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "3",
@@ -29,6 +33,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "4",
@@ -37,6 +43,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "5",
@@ -45,6 +53,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "6",
@@ -53,6 +63,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "7",
@@ -61,6 +73,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "8",
@@ -69,6 +83,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "9",
@@ -77,6 +93,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "10",
@@ -85,6 +103,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "11",
@@ -93,6 +113,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "12",
@@ -101,6 +123,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "13",
@@ -109,6 +133,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "14",
@@ -117,6 +143,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "15",
@@ -125,6 +153,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "16",
@@ -133,6 +163,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "17",
@@ -141,6 +173,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "18",
@@ -149,6 +183,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "19",
@@ -157,6 +193,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "20",
@@ -165,6 +203,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "21",
@@ -173,6 +213,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "22",
@@ -181,6 +223,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "23",
@@ -189,6 +233,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "24",
@@ -197,6 +243,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
   {
     id: "25",
@@ -205,6 +253,8 @@ const highlights: Highlight[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet, consectetur",
     imageUrl: "/images/highlight_car.png",
+    ctaLabel: "See more",
+    ctaUrl: "/",
   },
 ];
 
