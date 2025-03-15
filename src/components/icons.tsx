@@ -78,8 +78,7 @@ export const FacebookLogoIcon = (props: SVGProps<SVGSVGElement> & { colorInverte
   );
 };
 
-export const BehanceLogoIcon = (props: SVGProps<SVGSVGElement> & { colorInverted?: boolean }) => {
-  const propsWithoutColorInverted = { ...props, colorInverted: undefined };
+export const BehanceLogoIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="34"
@@ -88,7 +87,7 @@ export const BehanceLogoIcon = (props: SVGProps<SVGSVGElement> & { colorInverted
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      {...propsWithoutColorInverted}
+      {...props}
     >
       <rect y="0.182617" width="34" height="33" rx="5" fill="url(#pattern0_204_602)" />
       <defs>

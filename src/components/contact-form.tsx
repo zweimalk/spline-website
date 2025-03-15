@@ -1,14 +1,7 @@
 "use client";
 
 import { AnyFieldApi, useForm } from "@tanstack/react-form";
-
-// interface ContactFormData {
-//   nameAndSurname: string;
-//   phoneNumber: string;
-//   email: string;
-//   message: string;
-//   gdprConsent: boolean;
-// }
+import { Button } from "./button";
 
 const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
   return (
@@ -33,6 +26,7 @@ export const ContactForm = () => {
     onSubmit: async (values) => {
       try {
         console.log("Form submitted:", values);
+        form.reset();
       } catch (error: unknown) {
         console.error("Error submitting form:", error instanceof Error ? error.message : "Unknown error");
       }
@@ -40,12 +34,19 @@ export const ContactForm = () => {
   });
 
   return (
-    <form className="flex flex-col space-y-6">
+    <form
+      className="flex flex-col space-y-6"
+      onSubmit={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        void form.handleSubmit();
+      }}
+    >
       <div className="space-y-4">
         <form.Field
           name="nameAndSurname"
           validators={{
-            onChange: ({ value }) =>
+            onSubmit: ({ value }) =>
               !value ? "Name is required" : value.length < 2 ? "Name must be at least 2 characters" : undefined,
           }}
         >
@@ -67,7 +68,7 @@ export const ContactForm = () => {
         <form.Field
           name="phoneNumber"
           validators={{
-            onChange: ({ value }) =>
+            onSubmit: ({ value }) =>
               !value
                 ? "Phone number is required"
                 : !/^\+\d{1,4}\s?\d{4,14}$/.test(value)
@@ -93,7 +94,7 @@ export const ContactForm = () => {
         <form.Field
           name="email"
           validators={{
-            onChange: ({ value }) =>
+            onSubmit: ({ value }) =>
               !value
                 ? "Email is required"
                 : !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
@@ -119,7 +120,7 @@ export const ContactForm = () => {
         <form.Field
           name="message"
           validators={{
-            onChange: ({ value }) =>
+            onSubmit: ({ value }) =>
               !value ? "Message is required" : value.length < 10 ? "Message must be at least 10 characters" : undefined,
           }}
         >
@@ -141,7 +142,7 @@ export const ContactForm = () => {
         <form.Field
           name="gdprConsent"
           validators={{
-            onChange: ({ value }) => (!value ? "You must accept the GDPR consent" : undefined),
+            onSubmit: ({ value }) => (!value ? "You must accept the GDPR consent" : undefined),
           }}
         >
           {(field) => (
@@ -153,28 +154,26 @@ export const ContactForm = () => {
                 onBlur={field.handleBlur}
                 className="mt-1 h-4 w-4 rounded border-zinc-300"
               />
-              <p className="text-sm text-zinc-600">
-                I confirm that I have been provided with the following information regarding the processing of personal
-                data pursuant to Art. 13 of Regulation 2016/679 of the European Parliament and of the EU Council of
-                27/04/2016 on the protection of natural persons with regard to the processing of personal data and on
-                the free movement of such data, and repealing Directive 95/46/EC, hereinafter referred to as
-                &quot;GDPR&quot;
-              </p>
-              <FieldInfo field={field} />
+              <div className="flex flex-col gap-2">
+                <p className="text-sm text-zinc-600">
+                  I confirm that I have been provided with the following information regarding the processing of
+                  personal data pursuant to Art. 13 of Regulation 2016/679 of the European Parliament and of the EU
+                  Council of 27/04/2016 on the protection of natural persons with regard to the processing of personal
+                  data and on the free movement of such data, and repealing Directive 95/46/EC, hereinafter referred to
+                  as &quot;GDPR&quot;
+                </p>
+                <FieldInfo field={field} />
+              </div>
             </div>
           )}
         </form.Field>
 
         <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
           {([canSubmit, isSubmitting]) => (
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className="flex w-24 items-center justify-between rounded-md bg-black px-4 py-2 text-white disabled:opacity-50"
-            >
+            <Button type="submit" disabled={!canSubmit} className="flex w-24 items-center justify-between">
               {isSubmitting ? "..." : "Send"}
               <span className="ml-2">→</span>
-            </button>
+            </Button>
           )}
         </form.Subscribe>
       </div>
