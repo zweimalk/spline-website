@@ -2,21 +2,33 @@ import { type Highlight } from "@/types/highlight";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { Button } from "../button";
-import { BehanceLogoIcon } from "../icons";
 
 interface HighlightCardProps {
   highlight: Highlight;
 }
 
 export const HighlightCard = ({ highlight }: HighlightCardProps) => {
-  const { year, title, description, imageUrl, ctaLabel, ctaUrl } = highlight;
+  const { year, title, description, imageUrl, ctaLabel, ctaUrl, brandIcon } = highlight;
+
+  const getBrandIcon = () => {
+    if (!brandIcon) return null;
+    return (
+      <Image
+        src={`/icons/brand/${brandIcon.toLowerCase()}.svg`}
+        alt={`${brandIcon} brand icon`}
+        width={40}
+        height={40}
+        className="object-contain"
+      />
+    );
+  };
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl  shadow-md transition-all hover:shadow-lg w-full">
+    <div className="group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-full max-w-[600px]">
       {/* Image Container */}
       <div className="relative h-60 w-full overflow-hidden">
         <Image
-          src={imageUrl}
+          src={imageUrl ?? ""}
           alt={title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -42,7 +54,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
               plain
               color="blue"
               href={ctaUrl}
-              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 -ml-3"
             >
               <span className="text-xl font-bold">{ctaLabel}</span>
               <ArrowRightIcon className="font-bold" />
@@ -50,8 +62,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
           )}
 
           {/* Brand Icon */}
-          {/* TODO: add confition and use prop brandIcon */}
-          <BehanceLogoIcon className="w-10 h-10" />
+          {getBrandIcon()}
         </div>
       </div>
     </div>

@@ -1,10 +1,12 @@
+export type AirtableBrandIcon = "LinkedIn" | "Behance" | "Instagram" | "Facebook" | "Dribbble";
+
 export interface Highlight {
-  id: string;
+  _id: string;
   year: number;
   title: string;
   description: string;
   imageUrl: string;
   ctaLabel?: string;
   ctaUrl?: string;
-  brandIcon?: string;
+  brandIcon?: AirtableBrandIcon;
 }

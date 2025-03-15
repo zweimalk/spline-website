@@ -106,7 +106,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           style={{ transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))` }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight.id} className="w-full min-w-full">
+            <div key={highlight._id} className="w-full min-w-full">
               <HighlightCard highlight={highlight} />
             </div>
           ))}
@@ -116,7 +116,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           style={{ transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))` }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight.id} className="min-w-[340px]">
+            <div key={highlight._id} className="min-w-[340px]">
               <HighlightCard highlight={highlight} />
             </div>
           ))}

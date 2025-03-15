@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import Providers from "@/components/providers";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 const neueHaasGroteskDisplayPro = localFont({
@@ -43,11 +44,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Providers>
+          <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
