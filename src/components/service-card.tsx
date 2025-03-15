@@ -11,7 +11,7 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, description, image, tags }: ServiceCardProps) => {
   return (
-    <div className="group transition-colors duration-300 lg:hover:bg-foreground lg:p-4 rounded-lg cursor-pointer">
+    <div className="group transition-colors duration-300 lg:hover:bg-foreground lg:p-4 rounded-lg cursor-pointer max-w-[500px]">
       <div className="flex gap-4 items-center justify-center md:justify-start pt-4 pb-8">
         {tags.map((tag) => (
           <span
@@ -26,7 +26,7 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
         {title}
       </h2>
       <div className="mt-8">
-        <Image src={image} alt="hero" width={869} height={580} className="w-full object-cover" />
+        <Image src={image} alt="hero" width={800} height={600} className="w-full object-cover" />
       </div>
       <div className="mt-7">
         <p className="tracking-wide leading-6 text-center md:text-left lg:group-hover:text-background/85 transition-colors duration-300">

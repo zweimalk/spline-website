@@ -2,16 +2,16 @@ import { ServiceCard } from "./service-card";
 
 export const WhatWeDoSection = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_minmax(300px,580px)] gap-x-6 px-4 mt-40">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 px-4 mt-40">
       <div>
         <div className="md:sticky md:top-30 xl:top-40">
-          <h1 className="text-[5.5rem] leading-[5.5rem] xl:text-9xl">
-            what do <br className="lg:hidden" /> we do?
+          <h1 className="text-[5.5rem] leading-[5.5rem] xl:text-9xl xl:leading-[7rem]">
+            what do <br className="lg:hidden 3xl:inline" /> we do?
           </h1>
         </div>
       </div>
 
-      <div className="mt-16 md:mt-0 flex flex-col gap-10 xl:gap-10">
+      <div className="mt-16 md:mt-0 grid grid-cols-1 ml-auto 3xl:grid-cols-2 gap-10 xl:gap-10">
         <ServiceCard
           title={
             <>
