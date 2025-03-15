@@ -37,9 +37,11 @@ export const Hero = () => {
             points.
           </p>
           {/* TODO: think about bigger right arrow */}
-          <Button color="dark" className="cursor-pointer max-w-[214px] mt-8 md:mt-10">
+          <Button color="dark" className="cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-2">
             Connect right now
-            <ArrowRightIcon className="font-bold fill-background dark:fill-foreground" />
+            <div className="flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10">
+              <ArrowRightIcon className="font-bold fill-background dark:fill-foreground " />
+            </div>
           </Button>
           <video
             autoPlay

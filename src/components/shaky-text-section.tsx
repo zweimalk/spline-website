@@ -88,7 +88,7 @@ export const ShakyTextSection = () => {
           {word}
         </h1>
       ))}
-      <Button color="dark" className="cursor-pointer max-w-[218px] mt-16 md:text-2xl">
+      <Button color="dark" className="cursor-pointer mt-16 md:text-2xl">
         Connect right now
         <ArrowRightIcon className="font-bold fill-background dark:fill-white" />
       </Button>
