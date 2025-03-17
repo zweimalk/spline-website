@@ -24,7 +24,7 @@ export const Header = () => {
       <nav aria-label='Global' className='flex items-center justify-between p-4 py-6'>
         <Link href='#' className='-m-1.5 p-1.5'>
           <span className='sr-only'>Spline</span>
-          {/* @ts-expect-error */}
+          {/* @ts-expect-error this is needed for the logo */}
           <SplineLogo colorInverted={isDarkMode === 'dark'} className='w-18 h-5' />
         </Link>
         <div className='flex md:hidden'>
