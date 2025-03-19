@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --breakpoint-3xl: 120rem;
@@ -20,8 +20,8 @@
 }
 
 .dark {
-  --background: #191919;
-  --foreground: #e4e4e4;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {

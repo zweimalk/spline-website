@@ -12,9 +12,12 @@ interface HighlightsSliderProps {
 /**
  * Displays a slider of testimonials with pagination dots and touch swipe support
  */
-export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: HighlightsSliderProps) {
+export function HighlightsSlider({
+  highlights,
+  autoplayInterval = 5000,
+}: HighlightsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -39,11 +42,15 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   const minSwipeDistance = 50;
 
   const goToNextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1
+    );
   }, [highlights.length, isMobile]);
 
   const goToPrevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? highlights.length - 1 : prevIndex - 1
+    );
   }, [highlights.length]);
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -74,7 +81,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     setTouchEnd(null);
 
     // Resume autoplay after a short delay
-    setTimeout(() => setIsAutoPlaying(true), 1000);
+    // setTimeout(() => setIsAutoPlaying(true), 1000);
   };
 
   useEffect(() => {
@@ -85,13 +92,13 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   }, [goToNextSlide, isAutoPlaying, autoplayInterval]);
 
   const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
+  // const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
     <div
       className="relative w-full overflow-hidden p-4"
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseLeave={handleMouseLeave}
     >
       {/* Slider container */}
       <div
@@ -103,7 +110,9 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       >
         <div
           className="flex gap-4 transition-transform duration-500 ease-in-out md:hidden"
-          style={{ transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))` }}
+          style={{
+            transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`,
+          }}
         >
           {highlights.map((highlight) => (
             <div key={highlight._id} className="w-full min-w-full">
@@ -113,7 +122,9 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         </div>
         <div
           className="gap-6 transition-transform duration-500 ease-in-out hidden md:flex"
-          style={{ transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))` }}
+          style={{
+            transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))`,
+          }}
         >
           {highlights.map((highlight) => (
             <div key={highlight._id} className="min-w-[340px]">

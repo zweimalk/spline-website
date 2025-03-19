@@ -27,6 +27,7 @@ type Position = {
   endLng: number;
   arcAlt: number;
   color: string;
+  label: string;
 };
 
 export type GlobeConfig = {
@@ -171,12 +172,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .labelsData(data)
       .labelLat((d) => (d as Position).startLat)
       .labelLng((d) => (d as Position).startLng)
-      .labelText((d) => `${(d as Position).startLat.toFixed(2)}, ${(d as Position).startLng.toFixed(2)}`)
+      .labelText((d) => `${(d as Position).label}`)
       .labelColor(() => '#ffffff')
       .labelDotRadius(0.3)
       .labelSize(1.5)
       .labelResolution(6)
-      .labelAltitude(0.1)
+      .labelAltitude(0.00001)
       .labelRotation(0)
       .labelIncludeDot(true)
       .labelDotOrientation(() => 'right');
