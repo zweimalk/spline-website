@@ -16,9 +16,7 @@ export const WhatWeDoSection = () => {
           title={
             <>
               technology <br />{" "}
-              <span className="text-[2.8rem] md:text-[2.5rem] lg:text-5xl">
-                & electronics
-              </span>
+              <span className="text-4xl lg:text-5xl">& electronics</span>
             </>
           }
           description="In our consulting department, clients are assigned a dedicated specialist for personalized assistance, with billing based on hourly settlements."
