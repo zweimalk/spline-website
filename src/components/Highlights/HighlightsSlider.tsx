@@ -94,6 +94,10 @@ export function HighlightsSlider({
   const handleMouseEnter = () => setIsAutoPlaying(false);
   // const handleMouseLeave = () => setIsAutoPlaying(true);
 
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div
       className="relative w-full overflow-hidden p-4"
@@ -130,6 +134,23 @@ export function HighlightsSlider({
             <div key={highlight._id} className="min-w-[340px]">
               <HighlightCard highlight={highlight} />
             </div>
+          ))}
+        </div>
+      </div>
+      {/* Pagination dots */}
+      <div className="flex justify-center gap-2 mt-6 @container">
+        <div className="gap-2 hidden @lg:flex">
+          {highlights.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === currentIndex
+                  ? "bg-gray-900"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
         </div>
       </div>
