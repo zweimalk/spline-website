@@ -27,7 +27,7 @@ export const ServiceCard = ({
           </span>
         ))}
       </div>
-      <h2 className="text-5xl md:text-4xl lg:text-5xl text-center uppercase md:text-left lg:group-hover:text-background transition-colors duration-300">
+      <h2 className="text-4xl lg:text-5xl text-center uppercase md:text-left lg:group-hover:text-background transition-colors duration-300">
         {title}
       </h2>
       <div className="hidden lg:flex gap-4 items-center justify-center md:justify-start pt-4 pb-8">
