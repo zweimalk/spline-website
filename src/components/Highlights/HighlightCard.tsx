@@ -8,7 +8,8 @@ interface HighlightCardProps {
 }
 
 export const HighlightCard = ({ highlight }: HighlightCardProps) => {
-  const { year, title, description, imageUrl, ctaLabel, ctaUrl, brandIcon } = highlight;
+  const { year, title, description, imageUrl, ctaLabel, ctaUrl, brandIcon } =
+    highlight;
 
   const getBrandIcon = () => {
     if (!brandIcon) return null;
@@ -45,7 +46,9 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
         <h3 className="mt-2 text-2xl font-semibold text-zinc-900">{title}</h3>
 
         {/* Description */}
-        <p className="mt-3 text-base text-zinc-600 line-clamp-3 tracking-wider">{description}</p>
+        <p className="mt-3 text-base text-zinc-600 line-clamp-3 tracking-wider">
+          {description}
+        </p>
 
         {/* CTA Link */}
         <div className="mt-4 flex items-center justify-between">
@@ -56,7 +59,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
               href={ctaUrl}
               className="inline-flex items-center text-blue-600 hover:text-blue-700 -ml-3"
             >
-              <span className="text-xl font-bold">{ctaLabel}</span>
+              <span className="text-xl font-bold">See more</span>
               <ArrowRightIcon className="font-bold" />
             </Button>
           )}

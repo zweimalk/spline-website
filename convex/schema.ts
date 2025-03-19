@@ -4,7 +4,6 @@ import { v } from "convex/values";
 export default defineSchema({
   highlights: defineTable({
     brandIcon: v.string(),
-    ctaLabel: v.string(),
     ctaUrl: v.string(),
     description: v.string(),
     imageUrl: v.id("_storage"),
