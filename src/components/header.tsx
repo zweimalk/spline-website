@@ -5,7 +5,6 @@ import ThemeToggler from "@/components/theme-toggler";
 import { Button, Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { useState } from "react";
 import { SplineLogo } from "./icons";
 const navigation = [
