@@ -31,7 +31,7 @@ export const Hero = () => {
             <source src='/video/hero_video.mp4' type='video/mp4' />
             Your browser does not support the video tag.
           </video>
-          <p className='max-w-[408px] mt-9 md:mt-10 tracking-wider'>
+          <p className='max-w-[509px] mt-9 md:mt-10 tracking-wider'>
             We build lasting technology partnerships, empowering organizations across industries to develop, validate,
             design, engineer, test, implement, and maintain advanced digital solutions. Over the years, we have fostered
             a unique environment where top engineers and IT professionals thrive, driving innovation in every project.
