@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Highlight } from "@/types/highlight";
-import { TouchEvent, useCallback, useEffect, useRef, useState } from "react";
-import { HighlightCard } from "./HighlightCard";
+import { Highlight } from '@/types/highlight';
+import { TouchEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { HighlightCard } from './HighlightCard';
 
 interface HighlightsSliderProps {
   highlights: Highlight[];
@@ -12,10 +12,7 @@ interface HighlightsSliderProps {
 /**
  * Displays a slider of testimonials with pagination dots and touch swipe support
  */
-export function HighlightsSlider({
-  highlights,
-  autoplayInterval = 5000,
-}: HighlightsSliderProps) {
+export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: HighlightsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -35,22 +32,18 @@ export function HighlightsSlider({
     checkIfMobile();
 
     // Add resize listener
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
   const minSwipeDistance = 50;
 
   const goToNextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1));
   }, [highlights.length, isMobile]);
 
   const goToPrevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? highlights.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1));
   }, [highlights.length]);
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
@@ -100,54 +93,52 @@ export function HighlightsSlider({
 
   return (
     <div
-      className="relative w-full overflow-hidden p-4"
+      className='relative w-full overflow-hidden p-4'
       onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >
       {/* Slider container */}
       <div
         ref={sliderRef}
-        className="relative touch-pan-y"
+        className='relative touch-pan-y'
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <div
-          className="flex gap-4 transition-transform duration-500 ease-in-out md:hidden"
+          className='flex gap-4 transition-transform duration-500 ease-in-out md:hidden'
           style={{
             transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`,
           }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight._id} className="w-full min-w-full">
+            <div key={highlight._id} className='w-full min-w-full'>
               <HighlightCard highlight={highlight} />
             </div>
           ))}
         </div>
         <div
-          className="gap-6 transition-transform duration-500 ease-in-out hidden md:flex"
+          className='gap-6 transition-transform duration-500 ease-in-out hidden md:flex'
           style={{
             transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))`,
           }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight._id} className="min-w-[340px]">
+            <div key={highlight._id} className='min-w-[340px]'>
               <HighlightCard highlight={highlight} />
             </div>
           ))}
         </div>
       </div>
       {/* Pagination dots */}
-      <div className="flex justify-center gap-2 mt-6 @container">
-        <div className="gap-2 hidden @lg:flex">
+      <div className='flex justify-center gap-2 mt-6 @container'>
+        <div className='gap-2 flex'>
           {highlights.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex
-                  ? "bg-gray-900"
-                  : "bg-gray-300 hover:bg-gray-400"
+                index === currentIndex ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
