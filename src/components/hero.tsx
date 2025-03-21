@@ -15,15 +15,15 @@ export const Hero = () => {
             <div className='flex-col ml-auto hidden md:flex md:gap-y-4'>
               <Link href='https://linkedin.com/company/spline' className='flex items-center hover:underline'>
                 <span className='sr-only'>LinkedIn</span>
-                <LinkedinLogoIcon className='w-5 h-5' />
+                <LinkedinLogoIcon className='w-7 md:h-7' />
               </Link>
               <Link href='https://instagram.com/spline' className='flex items-center hover:underline'>
                 <span className='sr-only'>Instagram</span>
-                <InstagramLogoIcon className='w-5 h-5' />
+                <InstagramLogoIcon className='w-7 md:h-7' />
               </Link>
               <Link href='https://facebook.com/spline' className='flex items-center hover:underline'>
                 <span className='sr-only'>Facebook</span>
-                <FacebookLogoIcon className='w-5 h-5' />
+                <FacebookLogoIcon className='w-7 md:h-7' />
               </Link>
             </div>
           </div>
@@ -43,10 +43,10 @@ export const Hero = () => {
             a unique environment where top engineers and IT professionals thrive, driving innovation in every project.
           </p>
           {/* TODO: think about bigger right arrow */}
-          <Button color='dark' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-2'>
+          <Button color='dark/white' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'>
             Connect right now
             <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10'>
-              <ArrowRightIcon className='font-bold fill-background dark:fill-foreground ' />
+              <ArrowRightIcon className='font-bold' />
             </div>
           </Button>
           <video
