@@ -12,7 +12,7 @@ interface ServiceCardProps {
 export const ServiceCard = ({ title, description, image, tags }: ServiceCardProps) => {
   return (
     <div className='group transition-colors duration-300 lg:hover:bg-foreground md:p-4 rounded-lg cursor-pointer max-w-[500px] md:shadow-2xl xl:shadow-none'>
-      <div className='flex gap-4 items-center justify-center md:justify-start pt-4 pb-8 lg:hidden'>
+      <div className='flex gap-4 items-center justify-center md:justify-start pt-4 pb-8 lg:hidden w-full flex-wrap px-4'>
         {tags.map((tag) => (
           <span
             key={tag}
