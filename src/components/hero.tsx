@@ -27,7 +27,13 @@ export const Hero = () => {
               </Link>
             </div>
           </div>
-          <video autoPlay loop muted playsInline className='w-full object-cover md:hidden mt-6 rounded-lg'>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className='w-full object-cover md:hidden mt-6 rounded-lg clip-diagonal-40'
+          >
             <source src='/video/hero_video.mp4' type='video/mp4' />
             Your browser does not support the video tag.
           </video>
@@ -48,7 +54,7 @@ export const Hero = () => {
             loop
             muted
             playsInline
-            className='hidden md:block w-full h-[200px] rounded-lg mt-8 md:mt-10 object-cover xl:h-auto xl:max-h-[440px]'
+            className='hidden md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal-60'
           >
             <source src='/video/hero_video.mp4' type='video/mp4' />
             Your browser does not support the video tag.

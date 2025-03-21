@@ -58,7 +58,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className='w-full border-b border-zinc-900 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900'
+                className='w-full border-b border-zinc-900 dark:border-zinc-50 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900 dark:focus:border-zinc-50'
               />
               <FieldInfo field={field} />
             </div>
@@ -84,7 +84,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className='w-full border-b border-zinc-900 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900'
+                className='w-full border-b border-zinc-900 dark:border-zinc-50 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900 dark:focus:border-zinc-50'
               />
               <FieldInfo field={field} />
             </div>
@@ -110,7 +110,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className='w-full border-b border-zinc-900 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900'
+                className='w-full border-b border-zinc-900 dark:border-zinc-50 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900 dark:focus:border-zinc-50'
               />
               <FieldInfo field={field} />
             </div>
@@ -132,7 +132,7 @@ export const ContactForm = () => {
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
-                className='w-full border-b border-zinc-900 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900 resize-none'
+                className='w-full border-b border-zinc-900 dark:border-zinc-50 bg-transparent pb-2 outline-none placeholder:text-zinc-500 focus:border-zinc-900 dark:focus:border-zinc-50 resize-none'
               />
               <FieldInfo field={field} />
             </div>

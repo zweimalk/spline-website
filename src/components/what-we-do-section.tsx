@@ -15,7 +15,7 @@ export const WhatWeDoSection = () => {
         <ServiceCard
           title={
             <>
-              technology <br /> <span className='text-4xl lg:text-5xl'>& electronics</span>
+              technology <br /> & electronics
             </>
           }
           description='Cutting-edge engineering solutions drive innovation in embedded systems, IoT, and consumer electronics. From hardware-software integration to firmware development and advanced testing, we ensure high-performance, scalable, and secure technology tailored to industry needs.'
@@ -49,7 +49,7 @@ export const WhatWeDoSection = () => {
           }
           description='Digital transformation enhances customer experiences and operational efficiency. We deliver advanced e-commerce platforms, AI-driven analytics, and automation solutions, helping businesses in media, fintech, and service industries scale and innovate.'
           image='https://plus.unsplash.com/premium_photo-1732096682381-b580213f885f?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          tags={['#ecommerce', '#fintech', '#automation', '#visualization', '#digital']}
+          tags={['#ecommerce', '#fintech', '#automation', '#digital', '#visualization']}
         />
         <div className='border-t border-foreground/20 md:hidden'></div>
         <ServiceCard
