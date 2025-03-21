@@ -1,27 +1,27 @@
-"use client";
-import { motion } from "motion/react";
-import dynamic from "next/dynamic";
-import { FloatingLabel } from "./floating-label";
+'use client';
+import { motion } from 'motion/react';
+import dynamic from 'next/dynamic';
+import { FloatingLabel } from './floating-label';
 
-const World = dynamic(() => import("./globe").then((m) => m.World), {
+const World = dynamic(() => import('./globe').then((m) => m.World), {
   ssr: false,
 });
 
 export function GlobeDemo() {
   const globeConfig = {
     pointSize: 1,
-    globeColor: "#1C5BFF",
+    globeColor: '#1C5BFF',
     showAtmosphere: false,
-    atmosphereColor: "#FFFFFF",
+    atmosphereColor: '#FFFFFF',
     atmosphereAltitude: 0.1,
-    emissive: "#09090b",
+    emissive: '#09090b',
     emissiveIntensity: 0.5,
     shininess: 0.9,
-    polygonColor: "#E4E4E4",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
+    polygonColor: '#E4E4E4',
+    ambientLight: '#38bdf8',
+    directionalLeftLight: '#ffffff',
+    directionalTopLight: '#ffffff',
+    pointLight: '#ffffff',
     arcTime: 1000,
     arcLength: 0.9,
     rings: 1,
@@ -39,8 +39,8 @@ export function GlobeDemo() {
       endLat: -22.9068,
       endLng: -43.1729,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 1,
@@ -49,8 +49,8 @@ export function GlobeDemo() {
       endLat: 3.139,
       endLng: 101.6869,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 1,
@@ -59,8 +59,8 @@ export function GlobeDemo() {
       endLat: -1.303396,
       endLng: 36.852443,
       arcAlt: 0.5,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 2,
@@ -69,8 +69,8 @@ export function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 2,
@@ -79,8 +79,8 @@ export function GlobeDemo() {
       endLat: 3.139,
       endLng: 101.6869,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 2,
@@ -89,8 +89,8 @@ export function GlobeDemo() {
       endLat: 36.162809,
       endLng: -115.119411,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 3,
@@ -99,8 +99,8 @@ export function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 3,
@@ -109,8 +109,8 @@ export function GlobeDemo() {
       endLat: 40.7128,
       endLng: -74.006,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 3,
@@ -119,8 +119,8 @@ export function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 4,
@@ -129,8 +129,8 @@ export function GlobeDemo() {
       endLat: -15.595412,
       endLng: -56.05918,
       arcAlt: 0.5,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 4,
@@ -139,8 +139,8 @@ export function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.7,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 4,
@@ -149,8 +149,8 @@ export function GlobeDemo() {
       endLat: 48.8566,
       endLng: -2.3522,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 5,
@@ -159,8 +159,8 @@ export function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 5,
@@ -169,8 +169,8 @@ export function GlobeDemo() {
       endLat: -33.8688,
       endLng: 151.2093,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 5,
@@ -179,8 +179,8 @@ export function GlobeDemo() {
       endLat: 48.8566,
       endLng: -2.3522,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 6,
@@ -189,8 +189,8 @@ export function GlobeDemo() {
       endLat: 1.094136,
       endLng: -63.34546,
       arcAlt: 0.7,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 6,
@@ -199,8 +199,8 @@ export function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 6,
@@ -209,8 +209,8 @@ export function GlobeDemo() {
       endLat: 51.5072,
       endLng: -0.1276,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 7,
@@ -219,8 +219,8 @@ export function GlobeDemo() {
       endLat: -15.595412,
       endLng: -56.05918,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 7,
@@ -229,8 +229,8 @@ export function GlobeDemo() {
       endLat: 52.52,
       endLng: 13.405,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 7,
@@ -239,8 +239,8 @@ export function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 8,
@@ -249,8 +249,8 @@ export function GlobeDemo() {
       endLat: -33.936138,
       endLng: 18.436529,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 8,
@@ -259,8 +259,8 @@ export function GlobeDemo() {
       endLat: 52.3676,
       endLng: 4.9041,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 8,
@@ -269,8 +269,8 @@ export function GlobeDemo() {
       endLat: 40.7128,
       endLng: -74.006,
       arcAlt: 0.5,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 9,
@@ -279,8 +279,8 @@ export function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 9,
@@ -289,8 +289,8 @@ export function GlobeDemo() {
       endLat: -22.9068,
       endLng: -43.1729,
       arcAlt: 0.7,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 9,
@@ -299,8 +299,8 @@ export function GlobeDemo() {
       endLat: -34.6037,
       endLng: -58.3816,
       arcAlt: 0.5,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 10,
@@ -309,8 +309,8 @@ export function GlobeDemo() {
       endLat: 28.6139,
       endLng: 77.209,
       arcAlt: 0.7,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 10,
@@ -319,8 +319,8 @@ export function GlobeDemo() {
       endLat: 31.2304,
       endLng: 121.4737,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 10,
@@ -329,8 +329,8 @@ export function GlobeDemo() {
       endLat: 52.3676,
       endLng: 4.9041,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 11,
@@ -339,8 +339,8 @@ export function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 11,
@@ -349,8 +349,8 @@ export function GlobeDemo() {
       endLat: 31.2304,
       endLng: 121.4737,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 11,
@@ -359,8 +359,8 @@ export function GlobeDemo() {
       endLat: 1.3521,
       endLng: 103.8198,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 12,
@@ -369,8 +369,8 @@ export function GlobeDemo() {
       endLat: 37.7749,
       endLng: -122.4194,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 12,
@@ -379,8 +379,8 @@ export function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.2,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 12,
@@ -389,8 +389,8 @@ export function GlobeDemo() {
       endLat: 34.0522,
       endLng: -118.2437,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 13,
@@ -399,8 +399,8 @@ export function GlobeDemo() {
       endLat: 22.3193,
       endLng: 114.1694,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 13,
@@ -409,8 +409,8 @@ export function GlobeDemo() {
       endLat: 35.6762,
       endLng: 139.6503,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 13,
@@ -419,8 +419,8 @@ export function GlobeDemo() {
       endLat: -34.6037,
       endLng: -58.3816,
       arcAlt: 0.1,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
     {
       order: 14,
@@ -429,65 +429,73 @@ export function GlobeDemo() {
       endLat: 21.395643,
       endLng: 39.883798,
       arcAlt: 0.3,
-      color: "#ffffff",
-      label: "Bertrandt",
+      color: '#ffffff',
+      label: 'Bertrandt',
     },
   ];
 
   const labels = [
     {
-      text: "TOYOTA",
-      color: "#ffffff",
-      top: "45%",
-      left: "15%",
+      text: 'TOYOTA',
+      color: '#ffffff',
+      top: '45%',
+      left: '15%',
+      offset: 10,
     },
     {
-      text: "JAGUAR",
-      color: "#ffffff",
-      top: "25%",
-      left: "75%",
+      text: 'JAGUAR',
+      color: '#ffffff',
+      top: '25%',
+      left: '75%',
+      offset: 8,
     },
     {
-      text: "PORSCHE",
-      color: "#ffffff",
-      top: "65%",
-      left: "35%",
+      text: 'PORSCHE',
+      color: '#ffffff',
+      top: '65%',
+      left: '35%',
+      offset: 3,
     },
     {
-      text: "BERTRANDT",
-      color: "#ffffff",
-      top: "25%",
-      left: "35%",
+      text: 'BERTRANDT',
+      color: '#ffffff',
+      top: '25%',
+      left: '35%',
+      offset: 10,
     },
     {
-      text: "MERCEDES",
-      color: "#ffffff",
-      top: "55%",
-      left: "85%",
+      text: 'MERCEDES',
+      color: '#ffffff',
+      top: '55%',
+      left: '75%',
+      offset: 1,
     },
     {
-      text: "BMW",
-      color: "#ffffff",
-      top: "35%",
-      left: "55%",
+      text: 'BMW',
+      color: '#ffffff',
+      top: '35%',
+      left: '55%',
+      offset: 10,
     },
     {
-      text: "AUDI",
-      color: "#ffffff",
-      top: "75%",
-      left: "65%",
+      text: 'AUDI',
+      color: '#ffffff',
+      top: '75%',
+      left: '65%',
+      offset: 9,
     },
     {
-      text: "VOLVO",
-      color: "#ffffff",
-      top: "85%",
-      left: "15%",
+      text: 'VOLVO',
+      color: '#ffffff',
+      top: '85%',
+      left: '15%',
+      offset: 5,
     },
   ];
 
   return (
-    <div className="hidden md:flex flex-row items-center justify-center py-20 h-[900px] md:aspect-auto relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full mt-40">
+    <div className='hidden md:flex flex-row items-center justify-center py-20 h-[900px] md:aspect-auto relative w-full'>
+      <div className='max-w-7xl mx-auto w-full relative overflow-hidden h-full mt-40'>
         <motion.div
           initial={{
             opacity: 0,
@@ -500,26 +508,18 @@ export function GlobeDemo() {
           transition={{
             duration: 1,
           }}
-          className="div"
+          className='div'
         >
-          <h1 className="text-[5.5rem] leading-[5.5rem] xl:text-9xl xl:leading-[7rem] text-center">
-            we worked with
-          </h1>
-          <p className="text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto">
+          <h1 className='text-[5.5rem] leading-[5.5rem] xl:text-9xl xl:leading-[7rem] text-center'>we worked with</h1>
+          <p className='text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto'>
             professionals from all over the world
           </p>
         </motion.div>
         {labels.map((label) => (
-          <FloatingLabel
-            key={label.text}
-            text={label.text}
-            color={label.color}
-            top={label.top}
-            left={label.left}
-          />
+          <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
         ))}
-        <div className="absolute w-full bottom-0 inset-x-0 h-80 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40" />
-        <div className="absolute w-full -bottom-40 h-[600px] md:h-full z-10">
+        <div className='absolute w-full bottom-0 inset-x-0 h-80 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40' />
+        <div className='absolute w-full -bottom-40 h-[600px] md:h-full z-10'>
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>

@@ -1,87 +1,76 @@
-import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
+import { InfiniteLogoScroll } from '@/components/infinite-logo-scroll';
 
 const logos = [
   {
-    src: "/logos/bertrandt.png",
-    alt: "Bertrandt",
+    src: '/logos/autoliv.svg',
+    alt: 'Autoliv',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/contech.png",
-    alt: "Contech",
+    src: '/logos/bertrandt.svg',
+    alt: 'Bertrandt',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/H&M.png",
-    alt: "H&M",
+    src: '/logos/ford.svg',
+    alt: 'Ford',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/jaguar.png",
-    alt: "Jaguar",
+    src: '/logos/jlr.svg',
+    alt: 'JLR',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/mercedes.png",
-    alt: "Mercedes",
+    src: '/logos/lotus.svg',
+    alt: 'Lotus',
+    width: 100,
+    height: 100,
+  },
+  { src: '/logos/mercedes.svg', alt: 'Mercedes', width: 100, height: 100 },
+  {
+    src: '/logos/ncr.svg',
+    alt: 'NCR',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/next.svg",
-    alt: "Next",
+    src: '/logos/porsche.svg',
+    alt: 'Porsche',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/porsche.png",
-    alt: "Porsche",
+    src: '/logos/qiagen.svg',
+    alt: 'Qiagen',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/qiagen.png",
-    alt: "Qiagen",
+    src: '/logos/qt.svg',
+    alt: 'QT',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/spotify.png",
-    alt: "Spotify",
+    src: '/logos/skoda.svg',
+    alt: 'Skoda',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/TATA.svg",
-    alt: "TATA",
+    src: '/logos/volkswagen.svg',
+    alt: 'Volkswagen',
     width: 100,
     height: 100,
   },
   {
-    src: "/logos/togethertech.png",
-    alt: "Togethertech",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: "/logos/toyota.png",
-    alt: "Toyota",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: "/logos/Vector.png",
-    alt: "Vector",
-    width: 100,
-    height: 100,
-  },
-  {
-    src: "/logos/vw.png",
-    alt: "Volkswagen",
+    src: '/logos/zaiks.svg',
+    alt: 'Zaiks',
     width: 100,
     height: 100,
   },
@@ -89,7 +78,7 @@ const logos = [
 
 export default function PartnersLogosSection() {
   return (
-    <section className="my-30">
+    <section className='my-30'>
       <InfiniteLogoScroll logos={logos} />
     </section>
   );
