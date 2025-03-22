@@ -49,3 +49,23 @@ body {
 .clip-diagonal-100 {
   clip-path: polygon(100px 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%, 0 100px);
 }
+
+/* Custom slider styling */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 125px;
+  height: 16px;
+  background: #ffffff; /* gray-900 */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 125px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}

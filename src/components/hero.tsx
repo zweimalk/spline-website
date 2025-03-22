@@ -12,7 +12,7 @@ export const Hero = () => {
             <h1 className='text-6xl text-left md:text-8xl 2xl:text-[160px]'>
               connecting <br /> professionals
             </h1>
-            <div className='flex-col ml-auto hidden md:flex md:gap-y-4'>
+            <div className='flex-col ml-auto hidden md:flex md:gap-y-4 xl:gap-y-6'>
               <Link href='https://linkedin.com/company/spline' className='flex items-center hover:underline'>
                 <span className='sr-only'>LinkedIn</span>
                 <LinkedinLogoIcon className='w-7 md:h-7' />

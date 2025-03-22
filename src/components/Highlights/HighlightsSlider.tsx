@@ -130,20 +130,18 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           ))}
         </div>
       </div>
-      {/* Pagination dots */}
-      <div className='flex justify-center gap-2 mt-6 @container'>
-        <div className='gap-2 flex'>
-          {highlights.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+
+      {/* Replace pagination dots with slider control */}
+      <div className='hidden landscape:flex items-center justify-center mt-6 w-full max-w-md mx-auto shadow-xl'>
+        <input
+          type='range'
+          min={0}
+          max={highlights.length - (isMobile ? 1 : 2)}
+          value={currentIndex}
+          onChange={(e) => goToSlide(parseInt(e.target.value))}
+          className='w-full h-2 bg-zinc-400 rounded-lg appearance-none cursor-pointer accent-gray-900'
+          aria-label='Slide progress'
+        />
       </div>
     </div>
   );
