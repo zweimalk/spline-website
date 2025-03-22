@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ArrowRightIcon } from "@heroicons/react/16/solid";
-import { useCallback, useEffect, useState } from "react";
-import { Button } from "./button";
+import { ArrowRightIcon } from '@heroicons/react/16/solid';
+import { useCallback, useEffect, useState } from 'react';
+import { Button } from './button';
 
 interface WordAnimation {
   rotation: number;
@@ -10,7 +10,7 @@ interface WordAnimation {
   translateY: number;
 }
 
-const words = ["rapid support", "excellence longevity", "sustainability", "high quality standards"];
+const words = ['rapid support', 'excellence longevity', 'sustainability', 'high quality standards'];
 
 export const ShakyTextSection = () => {
   // State to track animation values for each word
@@ -36,8 +36,8 @@ export const ShakyTextSection = () => {
     checkIfMobile();
 
     // Add resize listener
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
   // Function to generate random values based on screen size
@@ -69,11 +69,11 @@ export const ShakyTextSection = () => {
   }, [isMobile, getRandomValues]); // Re-run effect when isMobile changes
 
   return (
-    <div className="container mx-auto flex flex-col items-center justify-center px-2 overflow-hidden mt-60 md:mt-60">
+    <div className='container mx-auto flex flex-col items-center justify-center px-2 overflow-hidden mt-60 md:mt-60'>
       {words.map((word, index) => (
         <h1
           key={word}
-          className="text-7xl md:text-8xl xl:text-9xl text-center"
+          className='text-7xl md:text-8xl xl:text-9xl text-center'
           style={{
             transform: `
               rotate(${wordAnimations[index]?.rotation || 0}deg)
@@ -82,15 +82,17 @@ export const ShakyTextSection = () => {
                 ${wordAnimations[index]?.translateY || 0}px
               )
             `,
-            transition: "transform 1.5s ease-in-out",
+            transition: 'transform 1.5s ease-in-out',
           }}
         >
           {word}
         </h1>
       ))}
-      <Button color="dark" className="cursor-pointer mt-16 md:text-2xl">
+      <Button color='dark/white' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'>
         Connect right now
-        <ArrowRightIcon className="font-bold fill-background dark:fill-white" />
+        <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10'>
+          <ArrowRightIcon className='font-bold' />
+        </div>
       </Button>
     </div>
   );
