@@ -473,7 +473,7 @@ export function GlobeDemo() {
     {
       text: 'BMW',
       color: '#ffffff',
-      top: '35%',
+      top: '45%',
       left: '55%',
       offset: 10,
     },
@@ -494,8 +494,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className='hidden md:flex flex-row items-center justify-center py-20 h-[900px] md:aspect-auto relative w-full'>
-      <div className='max-w-7xl mx-auto w-full relative overflow-hidden h-full mt-40'>
+    <div className='hidden md:flex flex-row items-center justify-center py-20 relative w-full'>
+      <div className='container mx-auto w-full relative overflow-hidden h-[320px] md:h-[600px] lg:h-[800px] xl:h-[1000px] mt-40'>
         <motion.div
           initial={{
             opacity: 0,
@@ -518,8 +518,8 @@ export function GlobeDemo() {
         {labels.map((label) => (
           <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
         ))}
-        <div className='absolute w-full bottom-0 inset-x-0 h-80 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40' />
-        <div className='absolute w-full -bottom-40 h-[600px] md:h-full z-10'>
+        <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40 h-40' />
+        <div className='absolute w-full z-10 h-full inset-0 top-20'>
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
