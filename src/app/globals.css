@@ -50,12 +50,32 @@ body {
   clip-path: polygon(100px 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%, 0 100px);
 }
 
+.clip-diagonal-top-left {
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+}
+
+.clip-diagonal-top-left-40 {
+  clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+}
+
+.clip-diagonal-top-left-60 {
+  clip-path: polygon(60px 0, 100% 0, 100% 100%, 0 100%, 0 60px);
+}
+
+.clip-diagonal-top-left-80 {
+  clip-path: polygon(80px 0, 100% 0, 100% 100%, 0 100%, 0 80px);
+}
+
+.clip-diagonal-top-left-100 {
+  clip-path: polygon(100px 0, 100% 0, 100% 100%, 0 100%, 0 100px);
+}
+
 /* Custom slider styling */
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 125px;
-  height: 16px;
+  height: 9px;
   background: #ffffff; /* gray-900 */
   border-radius: 8px;
   cursor: pointer;
@@ -63,7 +83,7 @@ input[type='range']::-webkit-slider-thumb {
 
 input[type='range']::-moz-range-thumb {
   width: 125px;
-  height: 16px;
+  height: 9px;
   background: #ffffff;
   border-radius: 8px;
   cursor: pointer;

@@ -132,7 +132,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       </div>
 
       {/* Replace pagination dots with slider control */}
-      <div className='hidden landscape:flex items-center justify-center mt-6 w-full max-w-md mx-auto shadow-xl'>
+      <div className='hidden landscape:flex items-center justify-center mt-12 w-full max-w-md mx-auto shadow-xl'>
         <input
           type='range'
           min={0}
