@@ -139,7 +139,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           max={highlights.length - (isMobile ? 1 : 2)}
           value={currentIndex}
           onChange={(e) => goToSlide(parseInt(e.target.value))}
-          className='w-full h-2 bg-zinc-400 rounded-lg appearance-none cursor-pointer accent-gray-900'
+          className='w-full h-2 bg-zinc-400 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-gray-900'
           aria-label='Slide progress'
         />
       </div>
