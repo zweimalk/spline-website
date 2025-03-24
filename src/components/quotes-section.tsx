@@ -22,7 +22,7 @@ const teamQuotes: Quote[] = [
     quote:
       'At Spline, we foster a culture of trust and accountability, where every team member has the freedom to innovate and the support to grow.',
     description:
-      'Having extensive leadership experience in engineering and business strategy, Daniel drives our vision, ensuring innovation, quality, and long-term value in every partnership.',
+      "Having extensive leadership experience in engineering and business strategy, Daniel drives Spline's vision, ensuring innovation, quality, and long-term value in every partnership.",
     imageSrc: daniel.src, // Placeholder - will be updated later
   },
   {

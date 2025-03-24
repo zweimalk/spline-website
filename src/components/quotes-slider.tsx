@@ -108,7 +108,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
           </div>
 
           <blockquote className='text-2xl lg:text-4xl font-medium leading-relaxed'>
-            <span className='text-4xl lg:text-6xl leading-none text-gray-300'>"</span>
+            <span className='text-4xl lg:text-6xl leading-none text-gray-300'>&quot;</span>
             {quotes[activeIndex].quote}
           </blockquote>
 
