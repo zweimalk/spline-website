@@ -47,14 +47,14 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
     return () => clearInterval(timer);
   }, [isAutoPlaying, nextSlide, autoPlayInterval]);
 
-  const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
+  // const handleMouseEnter = () => setIsAutoPlaying(false);
+  // const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
     <div
       className={cn('relative overflow-hidden w-full', className)}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
     >
       <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-6 lg:p-12 bg-gray-100/50 rounded-lg'>
         {/* Image section */}
