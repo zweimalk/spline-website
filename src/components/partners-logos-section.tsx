@@ -79,7 +79,7 @@ const logos = [
 // TODO: fix svgs for dark mode
 export default function PartnersLogosSection() {
   return (
-    <section className='my-30'>
+    <section className='my-20'>
       <InfiniteLogoScroll logos={logos} />
     </section>
   );

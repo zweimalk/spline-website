@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface LogoScrollProps {
   logos: {
@@ -41,13 +41,13 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
   const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
-    <div className="w-full overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className='w-full overflow-hidden' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div
         ref={scrollRef}
-        className="flex items-center gap-12 py-8 whitespace-nowrap"
+        className='flex items-center gap-12 py-8 whitespace-nowrap'
         style={{
           transform: `translateX(-${currentPosition}px)`,
-          transition: "transform 0.03s linear",
+          transition: 'transform 0.03s linear',
         }}
       >
         {/* Original logos */}
@@ -58,7 +58,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
@@ -70,7 +70,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
@@ -81,7 +81,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
@@ -92,7 +92,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
@@ -103,7 +103,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
