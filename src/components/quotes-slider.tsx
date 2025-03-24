@@ -22,7 +22,7 @@ interface QuotesSliderProps {
 
 export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: QuotesSliderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  const [isAutoPlaying] = useState(false);
 
   const nextSlide = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % quotes.length);
