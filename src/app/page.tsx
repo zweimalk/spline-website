@@ -19,6 +19,7 @@ export default function Home() {
       <GlobeDemo />
       <PartnersLogosSection />
       <QuotesSection />
+      <div id='traffit-an-list-xtxrxaxfxixtx2x0x1x6x'></div>
       <AboutUsSection />
       <ContactPeople />
     </>
