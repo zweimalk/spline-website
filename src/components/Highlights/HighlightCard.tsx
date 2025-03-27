@@ -1,14 +1,13 @@
 import { type Highlight } from '@/types/highlight';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-import { Button } from '../button';
 
 interface HighlightCardProps {
   highlight: Highlight;
 }
 
 export const HighlightCard = ({ highlight }: HighlightCardProps) => {
-  const { year, title, description, imageUrl, ctaLabel, ctaUrl, brandIcon } = highlight;
+  const { year, title, description, imageUrl, ctaUrl, brandIcon } = highlight;
 
   const getBrandIcon = () => {
     if (!brandIcon) return null;
@@ -24,16 +23,10 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   };
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-full max-w-[600px] dark:bg-[#0D0D0D]'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-full max-w-[600px] dark:bg-[#0D0D0D] cursor-pointer'>
       {/* Image Container */}
       <div className='relative h-60 w-full overflow-hidden'>
-        <Image
-          src={imageUrl ?? ''}
-          alt={title}
-          fill
-          className='object-cover transition-transform duration-300 group-hover:scale-105'
-          priority
-        />
+        <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
       </div>
 
       {/* Content Container */}
@@ -49,16 +42,13 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
 
         {/* CTA Link */}
         <div className='mt-4 flex items-center justify-between'>
-          {ctaLabel && ctaUrl && (
-            <Button
-              plain
-              color='blue'
-              href={ctaUrl}
-              className='inline-flex items-center text-blue-600 hover:text-blue-700 -ml-3'
-            >
-              <span className='text-xl font-bold'>See more</span>
-              <ArrowRightIcon className='font-bold' />
-            </Button>
+          {ctaUrl && (
+            <div className='flex items-center gap-2'>
+              <span className='text-xl font-bold text-blue-600 group-hover:tracking-wide transition-all duration-300'>
+                See more
+              </span>
+              <ArrowRightIcon className='h-8 w-8 fill-blue-600 group-hover:ml-2 transition-all duration-300' />
+            </div>
           )}
 
           {/* Brand Icon */}

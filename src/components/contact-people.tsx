@@ -25,7 +25,7 @@ const ContactCard = ({
 }: ContactPersonProps) => {
   return (
     <div className='flex items-center gap-6 rounded-xl'>
-      <div className='h-36 w-24 shrink-0 overflow-hidden rounded-md'>
+      <div className='h-36 w-24 shrink-0 overflow-hidden rounded-md clip-diagonal'>
         <Image src={imageSrc} alt={imageAlt} width={96} height={133} className='h-full w-full object-cover' />
       </div>
 

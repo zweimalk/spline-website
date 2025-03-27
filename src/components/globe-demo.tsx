@@ -519,7 +519,7 @@ export function GlobeDemo() {
           <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
         ))}
         <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40 h-40' />
-        <div className='absolute w-full z-10 h-full inset-0 top-20'>
+        <div className='absolute w-full z-10 h-full inset-0 top-24'>
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>

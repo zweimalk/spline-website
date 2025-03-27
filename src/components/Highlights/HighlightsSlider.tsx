@@ -17,10 +17,16 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   // Track if the screen is mobile size
   const [isMobile, setIsMobile] = useState(false);
+
+  const [clickStartTime, setClickStartTime] = useState<number>(0);
+  const [clickStartPosition, setClickStartPosition] = useState<number>(0);
 
   // Initialize animations for each word
   useEffect(() => {
@@ -77,6 +83,56 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     // setTimeout(() => setIsAutoPlaying(true), 1000);
   };
 
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsAutoPlaying(false);
+    setIsDragging(true);
+    setStartX(e.clientX - dragOffset);
+    setClickStartTime(Date.now());
+    setClickStartPosition(e.clientX);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+
+    const currentX = e.clientX - startX;
+    setDragOffset(currentX);
+
+    // Prevent default to stop text selection during drag
+    e.preventDefault();
+  };
+
+  const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+
+    const clickDuration = Date.now() - clickStartTime;
+    const clickDistance = Math.abs(e.clientX - clickStartPosition);
+
+    // If it's a quick tap/click (less than 200ms) and minimal movement (less than 5px)
+    if (clickDuration < 200 && clickDistance < 5) {
+      // Handle as a click
+      const card = (e.target as HTMLElement).closest('[data-highlight-id]');
+      if (card) {
+        const highlightId = card.getAttribute('data-highlight-id');
+        // Handle click on card - you can add your click handler here
+        console.log('Card clicked:', highlightId);
+        const highlight = highlights.find((highlight) => highlight._id === highlightId);
+        if (highlight?.ctaUrl) {
+          console.log('Opening URL:', highlight.ctaUrl);
+          window.open(highlight.ctaUrl, '_blank');
+        }
+      }
+    } else {
+      // Handle as a drag
+      const slideWidth = isMobile ? window.innerWidth : 340;
+      const slidesToMove = Math.round(dragOffset / slideWidth);
+      const newIndex = Math.max(0, Math.min(currentIndex - slidesToMove, highlights.length - (isMobile ? 1 : 2)));
+      setCurrentIndex(newIndex);
+    }
+
+    setIsDragging(false);
+    setDragOffset(0);
+  };
+
   useEffect(() => {
     if (!isAutoPlaying) return;
 
@@ -92,23 +148,24 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   };
 
   return (
-    <div
-      className='relative w-full overflow-hidden p-4'
-      onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
-    >
+    <div className='relative w-full overflow-hidden p-4' onMouseEnter={handleMouseEnter}>
       {/* Slider container */}
       <div
         ref={sliderRef}
-        className='relative touch-pan-y'
+        className='relative touch-pan-y select-none' // cursor-grab active:cursor-grabbing
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
       >
         <div
           className='flex gap-4 transition-transform duration-500 ease-in-out md:hidden'
           style={{
-            transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`,
+            transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px + ${dragOffset}px))`,
+            transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
           }}
         >
           {highlights.map((highlight) => (
@@ -120,11 +177,12 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         <div
           className='gap-6 transition-transform duration-500 ease-in-out hidden md:flex'
           style={{
-            transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px))`,
+            transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px + ${dragOffset}px))`,
+            transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
           }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight._id} className='min-w-[340px]'>
+            <div key={highlight._id} className='min-w-[340px]' data-highlight-id={highlight._id}>
               <HighlightCard highlight={highlight} />
             </div>
           ))}
@@ -139,7 +197,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           max={highlights.length - (isMobile ? 1 : 2)}
           value={currentIndex}
           onChange={(e) => goToSlide(parseInt(e.target.value))}
-          className='w-full h-2 bg-zinc-400 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-gray-900'
+          className='w-full h-[9px] bg-zinc-400 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-gray-900'
           aria-label='Slide progress'
         />
       </div>
