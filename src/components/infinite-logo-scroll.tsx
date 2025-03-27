@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface LogoScrollProps {
   logos: {
+    srcDark: string;
     src: string;
     alt: string;
     width: number;
@@ -55,55 +56,68 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
           <Image
             key={`logo-${index}`}
             src={logo.src}
+            className='block dark:hidden transition-all'
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className='transition-all h-12 w-auto'
+            draggable={false}
+          />
+        ))}
+        {logos.map((logo, index) => (
+          <Image
+            key={`logo-dark-${index}`}
+            src={logo.srcDark}
+            className='hidden dark:block transition-all'
+            alt={logo.alt}
+            width={logo.width}
+            height={logo.height}
             draggable={false}
           />
         ))}
         {/* Duplicated logos for seamless loop */}
+        {/* Light mode duplicates */}
         {logos.map((logo, index) => (
           <Image
             key={`logo-2-${index}`}
             src={logo.src}
+            className='block dark:hidden transition-all'
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
+        {logos.map((logo, index) => (
+          <Image
+            key={`logo-dark-2-${index}`}
+            src={logo.srcDark}
+            className='hidden dark:block transition-all'
+            alt={logo.alt}
+            width={logo.width}
+            height={logo.height}
+            draggable={false}
+          />
+        ))}
+        {/* Third set of logos */}
         {logos.map((logo, index) => (
           <Image
             key={`logo-3-${index}`}
             src={logo.src}
+            className='block dark:hidden transition-all'
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
         {logos.map((logo, index) => (
           <Image
-            key={`logo-4-${index}`}
-            src={logo.src}
+            key={`logo-dark-3-${index}`}
+            src={logo.srcDark}
+            className='hidden dark:block transition-all'
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className='transition-all h-12 w-auto'
-            draggable={false}
-          />
-        ))}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-5-${index}`}
-            src={logo.src}
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            className='transition-all h-12 w-auto'
             draggable={false}
           />
         ))}
