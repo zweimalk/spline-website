@@ -65,8 +65,8 @@ const logos = [
     height: 100,
   },
   {
-    srcDark: '/logos/qt.svg',
-    src: '/logos/qt-1.svg',
+    srcDark: '/logos/Qt.svg',
+    src: '/logos/Qt-1.svg',
     alt: 'QT',
     width: 100,
     height: 100,
