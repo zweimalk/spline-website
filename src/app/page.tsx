@@ -7,13 +7,12 @@ import { HighlightsSection } from '@/components/highlights-section';
 import PartnersLogosSection from '@/components/partners-logos-section';
 import { QuotesSection } from '@/components/quotes-section';
 import { WhatWeDoSection } from '@/components/what-we-do-section';
-import { WordsSection } from '@/components/words-section';
 export default function Home() {
   return (
     <>
       <Hero />
       <WhatWeDoSection />
-      <WordsSection />
+      {/* <WordsSection /> */}
       {/* <ShakyTextSection /> */}
       <HighlightsSection />
       <CompanyStats />
