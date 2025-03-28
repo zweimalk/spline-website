@@ -23,15 +23,21 @@ export const Footer = () => {
           <div>
             <h2 className='text-lg font-medium mb-6'>Find us on</h2>
             <div className='flex flex-col space-y-2 text-sm'>
-              <Link href='https://linkedin.com/company/spline' className='flex items-center hover:underline'>
+              <Link href='https://www.linkedin.com/company/spline-polska' className='flex items-center hover:underline'>
                 <LinkedinLogoIcon className='w-5 h-5 mr-3 fill-background' />
                 <span>LinkedIn</span>
               </Link>
-              <Link href='https://instagram.com/spline' className='flex items-center hover:underline'>
+              <Link
+                href='https://www.instagram.com/spline_design_?igsh=dnUzaGl3M3gza25p'
+                className='flex items-center hover:underline'
+              >
                 <InstagramLogoIcon className='w-5 h-5 mr-3 fill-background' />
                 <span>Instagram</span>
               </Link>
-              <Link href='https://facebook.com/spline' className='flex items-center hover:underline'>
+              <Link
+                href='https://www.facebook.com/share/12LutkKFykh/?mibextid=wwXIfr'
+                className='flex items-center hover:underline'
+              >
                 <FacebookLogoIcon className='w-5 h-5 mr-3 fill-background' />
                 <span>Facebook</span>
               </Link>

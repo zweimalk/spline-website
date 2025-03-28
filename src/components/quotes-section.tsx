@@ -1,8 +1,9 @@
-import daniel from '../../public/quotes-images/daniel.png';
-import karol from '../../public/quotes-images/karol.png';
-import piotr from '../../public/quotes-images/piotr.png';
-import sylwia from '../../public/quotes-images/sylwia.png';
+import daniel from '../../public/quotes-images/daniel.webp';
+import karol from '../../public/quotes-images/karol.webp';
+import piotr from '../../public/quotes-images/piotr.webp';
+import sylwia from '../../public/quotes-images/sylwia.webp';
 import { type Quote, QuotesSlider } from './quotes-slider';
+
 const teamQuotes: Quote[] = [
   {
     id: 'piotr-wyderski',
@@ -48,7 +49,7 @@ const teamQuotes: Quote[] = [
 
 export const QuotesSection = () => {
   return (
-    <section className='py-20'>
+    <section className='mt-40 border-t-1 border-b-1 border-gray-2 dark:border-gray-5'>
       <div className='container mx-auto'>
         <QuotesSlider quotes={teamQuotes} />
       </div>

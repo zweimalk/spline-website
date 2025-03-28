@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import { Body1 } from './Typo/Body1';
 import { Cite } from './Typo/Cite';
+import { Header3 } from './Typo/Header3';
 
 export interface Quote {
   id: string;
@@ -60,7 +61,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
     >
       <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-6 lg:p-12 rounded-lg'>
         {/* Image section */}
-        <div className='w-full lg:w-1/3 flex justify-center'>
+        <div className='flex justify-center'>
           <div className='relative w-60 h-80 lg:w-80 overflow-hidden rounded-lg '>
             <Image
               src={quotes[activeIndex].imageSrc}
@@ -73,11 +74,11 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
         </div>
 
         {/* Content section */}
-        <div className='w-full lg:w-2/3 lg:space-y-6'>
-          <h3 className='text-center text-2xl lg:text-3xl font-semibold'>{quotes[activeIndex].name}</h3>
-          <p className='text-center text-lg text-gray-700'>{quotes[activeIndex].role}</p>
+        <div className='w-full'>
+          <Header3 className='text-center text-2xl lg:text-3xl font-semibold'>{quotes[activeIndex].name}</Header3>
+          <p className='text-center text-lg text-gray-4 dark:text-gray-2 tracking-wider'>{quotes[activeIndex].role}</p>
 
-          <div className='flex justify-center items-center mt-8 gap-8'>
+          <div className='flex justify-center items-center mt-2 gap-8'>
             <button
               onClick={prevSlide}
               className='p-2 rounded-full hover:bg-gray-200/70 transition-colors'
@@ -113,7 +114,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
             <Cite className='text-center'>{quotes[activeIndex].quote}</Cite>
           </>
 
-          <Body1>{quotes[activeIndex].description}</Body1>
+          <Body1 className='text-center mt-12'>{quotes[activeIndex].description}</Body1>
         </div>
       </div>
 

@@ -15,17 +15,20 @@ export const Hero = () => {
               connecting <br /> professionals
             </h1>
             <div className='flex-col ml-auto hidden md:flex md:gap-y-4 xl:gap-y-6'>
-              <Link href='https://linkedin.com/company/spline' className='flex items-center hover:underline'>
-                <span className='sr-only'>LinkedIn</span>
-                <LinkedinLogoIcon className='w-7 md:h-7' />
+              <Link href='https://www.linkedin.com/company/spline-polska' className='flex items-center hover:underline'>
+                <LinkedinLogoIcon className='w-7 h-7 mr-3 fill-background' />
               </Link>
-              <Link href='https://instagram.com/spline' className='flex items-center hover:underline'>
-                <span className='sr-only'>Instagram</span>
-                <InstagramLogoIcon className='w-7 md:h-7' />
+              <Link
+                href='https://www.instagram.com/spline_design_?igsh=dnUzaGl3M3gza25p'
+                className='flex items-center hover:underline'
+              >
+                <InstagramLogoIcon className='w-7 h-7 mr-3 fill-background' />
               </Link>
-              <Link href='https://facebook.com/spline' className='flex items-center hover:underline'>
-                <span className='sr-only'>Facebook</span>
-                <FacebookLogoIcon className='w-7 md:h-7' />
+              <Link
+                href='https://www.facebook.com/share/12LutkKFykh/?mibextid=wwXIfr'
+                className='flex items-center hover:underline'
+              >
+                <FacebookLogoIcon className='w-7 h-7 mr-3 fill-background' />
               </Link>
             </div>
           </div>
