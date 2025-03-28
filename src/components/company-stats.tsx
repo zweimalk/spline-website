@@ -96,7 +96,7 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
 
 export function CompanyStats() {
   return (
-    <div className="mt-30 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0">
+    <div className="mt-30 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0 px-4">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-0">
         <StatItem
           number="15"

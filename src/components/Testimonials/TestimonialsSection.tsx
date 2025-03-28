@@ -13,16 +13,18 @@ const testimonials: Testimonial[] = [
     company: "WA Consultant",
     content:
       "We especially liked Spline's precise adherence to deadlines and flexibility as well as the quality of project execution.",
-    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&auto=format&fit=crop",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&auto=format&fit=crop",
   },
   {
     id: "2",
-    name: "David Richardson 2",
+    name: "David Mark",
     position: "Managing Director",
     company: "WA Consultant",
     content:
       "We especially liked Spline's precise adherence to deadlines and flexibility as well as the quality of project execution.",
-    avatarUrl: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=256&auto=format&fit=crop",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=256&auto=format&fit=crop",
   },
   {
     id: "3",
@@ -31,7 +33,8 @@ const testimonials: Testimonial[] = [
     company: "TechForward",
     content:
       "Spline delivered our project on time and exceeded our expectations. Their technical expertise and communication were outstanding.",
-    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&auto=format&fit=crop",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&auto=format&fit=crop",
   },
   {
     id: "4",
@@ -40,7 +43,8 @@ const testimonials: Testimonial[] = [
     company: "InnovateCorp",
     content:
       "Working with Spline transformed our product development process. Their team brought innovative solutions to complex problems.",
-    avatarUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&auto=format&fit=crop",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&auto=format&fit=crop",
   },
 ];
 

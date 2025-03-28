@@ -1,6 +1,7 @@
-import { Testimonial } from '@/types/testimonial';
-import Image from 'next/image';
-
+import { Testimonial } from "@/types/testimonial";
+import Image from "next/image";
+import { Header3 } from "../Typo/Header3";
+import { Body1 } from "../Typo/Body1";
 interface TestimonialCardProps {
   testimonial: Testimonial;
 }
@@ -12,27 +13,31 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, position, company, content, avatarUrl } = testimonial;
 
   return (
-    <div className='flex flex-col h-full min-h-[400px] p-8 bg-background rounded-xl shadow-lg dark:bg-[#0D0D0D]'>
-      <div className='flex items-center gap-4 mb-6'>
-        <div className='relative w-16 h-16 overflow-hidden rounded-full'>
+    <div className="flex flex-col h-[390px] p-8 bg-background rounded-xl shadow-[0px_8px_30px_rgba(0,0,0,0.12)] dark:bg-light-black">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="relative w-15 h-15 overflow-hidden rounded-full shrink-0">
           <Image
             src={avatarUrl}
             alt={`${name}'s avatar`}
             fill
-            className='object-cover'
-            sizes='(max-width: 768px) 64px, 64px'
+            className="object-cover"
+            sizes="(max-width: 768px) 64px, 64px"
           />
         </div>
-        <div className='flex flex-col gap-1'>
-          <h3 className='text-lg font-semibold text-foreground'>{name}</h3>
-          <p className='text-foreground/70 text-sm'>
+        <div className="flex flex-col gap-1">
+          <Header3 className="text-[20px] font-semibold leading-[150%] tracking-[5%]">
+            {name}
+          </Header3>
+          <Body1 className="text-foreground/70 text-sm">
             {position}
             {company && ` ${company}`}
-          </p>
+          </Body1>
         </div>
       </div>
-      <div className='mt-4'>
-        <p className='flex-1 text-lg text-foreground/85 leading-snug'>{content}</p>
+      <div className="mt-4">
+        <p className="flex-1 text-lg text-foreground/85 leading-snug">
+          {content}
+        </p>
       </div>
     </div>
   );

@@ -123,7 +123,9 @@ export function HighlightsSlider({
             key={index}
             className={cn(
               "h-2 w-2 rounded-full transition-all",
-              currentSlide === index ? "bg-gray-1 w-4" : "bg-gray-5"
+              currentSlide === index
+                ? "dark:bg-gray-1 bg-gray-5 w-4"
+                : "dark:bg-gray-5 bg-gray-2"
             )}
             aria-hidden="true"
           />
