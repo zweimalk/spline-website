@@ -14,7 +14,7 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
     <div className='group transition-colors duration-300 lg:hover:bg-foreground md:p-4 rounded-lg cursor-pointer max-w-[500px] md:shadow-2xl lg:p-5 xl:shadow-none'>
       <div className='flex gap-4 items-center justify-center md:justify-start pt-3 pb-8 lg:hidden w-full flex-wrap px-2'>
         {tags.map((tag, idx) => {
-          return idx > 3 ? (
+          return idx > 2 ? (
             <span key={tag} className='sr-only'>
               {tag}
             </span>
