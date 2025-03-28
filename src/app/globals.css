@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --breakpoint-3xl: 120rem;
-  --breakpoint-4xl: 240rem;
+  --breakpoint-2lg: 1440px;
+  --breakpoint-5k: 5120px;
   --color-light-black: #191919;
   --color-dark-black: #000000;
   --color-gray-5: #393939;

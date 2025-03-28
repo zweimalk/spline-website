@@ -13,7 +13,7 @@ export const WhatWeDoSection = () => {
         </div>
       </div>
 
-      <div className='mt-16 md:mt-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 ml-auto 3xl:grid-cols-2 gap-10 xl:gap-10'>
+      <div className='mt-16 md:mt-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 ml-auto gap-10 xl:gap-10'>
         <ServiceCard
           title={
             <>
