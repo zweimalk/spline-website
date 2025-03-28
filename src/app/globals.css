@@ -31,43 +31,19 @@ body {
 }
 
 .clip-diagonal {
-  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  clip-path: polygon(60px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 60px) 100%, 0 100%, 0 25px);
 }
 
-.clip-diagonal-40 {
-  clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px);
+.clip-diagonal-contact-us {
+  clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 40px) 100%, 0 100%, 0 15px);
 }
 
-.clip-diagonal-60 {
-  clip-path: polygon(60px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 60px);
+.clip-diagonal-medium {
+  clip-path: polygon(120px 0, 100% 0, 100% calc(100% - 50px), calc(100% - 120px) 100%, 0 100%, 0 50px);
 }
 
-.clip-diagonal-80 {
-  clip-path: polygon(80px 0, 100% 0, 100% calc(100% - 80px), calc(100% - 80px) 100%, 0 100%, 0 80px);
-}
-
-.clip-diagonal-100 {
-  clip-path: polygon(100px 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%, 0 100px);
-}
-
-.clip-diagonal-top-left {
-  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
-}
-
-.clip-diagonal-top-left-40 {
-  clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
-}
-
-.clip-diagonal-top-left-60 {
-  clip-path: polygon(60px 0, 100% 0, 100% 100%, 0 100%, 0 60px);
-}
-
-.clip-diagonal-top-left-80 {
-  clip-path: polygon(80px 0, 100% 0, 100% 100%, 0 100%, 0 80px);
-}
-
-.clip-diagonal-top-left-100 {
-  clip-path: polygon(100px 0, 100% 0, 100% 100%, 0 100%, 0 100px);
+.clip-diagonal-large {
+  clip-path: polygon(180px 0, 100% 0, 100% calc(100% - 75px), calc(100% - 180px) 100%, 0 100%, 0 75px);
 }
 
 /* Custom slider styling */

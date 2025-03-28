@@ -32,15 +32,15 @@ export const Hero = () => {
             loop
             muted
             playsInline
-            className='w-full object-cover md:hidden mt-6 rounded-lg clip-diagonal-40'
+            className='w-full object-cover md:hidden mt-6 rounded-lg clip-diagonal'
           >
             <source src='/video/hero_video.mp4' type='video/mp4' />
             Your browser does not support the video tag.
           </video>
           <p className='max-w-[509px] mt-9 md:mt-10 tracking-wider'>
-            We build lasting technology partnerships, empowering organizations across industries to develop, validate,
-            design, engineer, test, implement, and maintain advanced digital solutions. Over the years, we have fostered
-            a unique environment where top engineers and IT professionals thrive, driving innovation in every project.
+            We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
+            them gain an edge over their competition. We understand that organisations we work with may be at different
+            points in their digital journey.
           </p>
           <Button color='dark/white' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'>
             Connect right now
@@ -53,7 +53,7 @@ export const Hero = () => {
             loop
             muted
             playsInline
-            className='hidden md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal-60'
+            className='hidden md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal-medium lg:clip-diagonal-large'
           >
             <source src='/video/hero_video.mp4' type='video/mp4' />
             Your browser does not support the video tag.
