@@ -5,7 +5,7 @@ import { Link } from './link';
 
 export const Hero = () => {
   return (
-    <div className='mt-28'>
+    <div className='mt-24 md:mt-28'>
       <div className='flex flex-col justify-center px-4 gap-y-6'>
         <div>
           <div className='flex'>
@@ -42,10 +42,9 @@ export const Hero = () => {
             design, engineer, test, implement, and maintain advanced digital solutions. Over the years, we have fostered
             a unique environment where top engineers and IT professionals thrive, driving innovation in every project.
           </p>
-          {/* TODO: think about bigger right arrow */}
           <Button color='dark/white' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'>
             Connect right now
-            <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10'>
+            <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
               <ArrowRightIcon className='font-bold' />
             </div>
           </Button>
