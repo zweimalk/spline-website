@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowDownIcon, ArrowRightIcon } from '@heroicons/react/16/solid';
 import { Button } from './button';
 import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from './icons';
@@ -42,7 +44,13 @@ export const Hero = () => {
             them gain an edge over their competition. We understand that organisations we work with may be at different
             points in their digital journey.
           </p>
-          <Button color='dark/white' className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'>
+          <Button
+            color='dark/white'
+            className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'
+            onClick={() => {
+              document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Connect right now
             <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
               <ArrowRightIcon className='font-bold' />

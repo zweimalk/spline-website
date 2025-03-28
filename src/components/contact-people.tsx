@@ -75,7 +75,7 @@ export const ContactPeople = () => {
   ];
 
   return (
-    <div className='py-20 md:py-40 container mx-auto px-4'>
+    <div className='py-20 md:py-40 container mx-auto px-4' id='contact-card'>
       <h1 className='text-7xl xl:text-9xl col-span-2'>contact us</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-20 md:pt-20'>
         <div className='grid gap-6 grid-cols-1 mt-10 md:mt-0 order-2 md:order-1'>
