@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
+import { Body1 } from './Typo/Body1';
+import { Cite } from './Typo/Cite';
 
 export interface Quote {
   id: string;
@@ -56,7 +58,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >
-      <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-6 lg:p-12 bg-gray-100/50 rounded-lg'>
+      <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-6 lg:p-12 rounded-lg'>
         {/* Image section */}
         <div className='w-full lg:w-1/3 flex justify-center'>
           <div className='relative w-60 h-80 lg:w-80 overflow-hidden rounded-lg '>
@@ -107,12 +109,11 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
             </button>
           </div>
 
-          <blockquote className='text-2xl lg:text-4xl font-medium leading-relaxed'>
-            <span className='text-4xl lg:text-6xl leading-none text-gray-300'>&quot;</span>
-            {quotes[activeIndex].quote}
-          </blockquote>
+          <>
+            <Cite className='text-center'>{quotes[activeIndex].quote}</Cite>
+          </>
 
-          <p className='text-lg text-gray-700 mt-4'>{quotes[activeIndex].description}</p>
+          <Body1>{quotes[activeIndex].description}</Body1>
         </div>
       </div>
 

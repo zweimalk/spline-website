@@ -3,7 +3,6 @@ import karol from '../../public/quotes-images/karol.png';
 import piotr from '../../public/quotes-images/piotr.png';
 import sylwia from '../../public/quotes-images/sylwia.png';
 import { type Quote, QuotesSlider } from './quotes-slider';
-
 const teamQuotes: Quote[] = [
   {
     id: 'piotr-wyderski',
@@ -51,7 +50,6 @@ export const QuotesSection = () => {
   return (
     <section className='py-20'>
       <div className='container mx-auto'>
-        <h2 className='text-3xl font-bold mb-12 text-center'>Our Leadership Team</h2>
         <QuotesSlider quotes={teamQuotes} />
       </div>
     </section>

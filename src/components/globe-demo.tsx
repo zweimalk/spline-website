@@ -2,6 +2,7 @@
 import { motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { FloatingLabel } from './floating-label';
+import { Header1 } from './Typo/Header1';
 
 const World = dynamic(() => import('./globe').then((m) => m.World), {
   ssr: false,
@@ -510,7 +511,7 @@ export function GlobeDemo() {
           }}
           className='div'
         >
-          <h1 className='text-[5.5rem] leading-[5.5rem] xl:text-9xl xl:leading-[7rem] text-center'>we worked with</h1>
+          <Header1 className='text-center'>we worked with</Header1>
           <p className='text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto'>
             professionals from all over the world
           </p>
