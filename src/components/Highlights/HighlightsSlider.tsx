@@ -21,6 +21,7 @@ export function HighlightsSlider({
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const goToNextSlide = useCallback(() => {
@@ -63,38 +64,70 @@ export function HighlightsSlider({
     return () => clearInterval(interval);
   }, [goToNextSlide, isAutoPlaying, autoplayInterval]);
 
+  // Add scroll event listener to update current slide
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const handleScroll = () => {
+      const scrollPosition = slider.scrollLeft;
+      const slideWidth = slider.clientWidth;
+      const newSlide = Math.round(scrollPosition / slideWidth);
+      setCurrentSlide(newSlide);
+    };
+
+    slider.addEventListener("scroll", handleScroll);
+    return () => slider.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div
-      className="relative w-full overflow-hidden p-3"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-    >
+    <div className="flex flex-col items-center gap-4">
       <div
-        ref={sliderRef}
-        className={cn("relative overflow-x-scroll scrollbar-hide p-1")}
-        style={{
-          scrollBehavior: isDragging ? "auto" : "smooth",
-          WebkitOverflowScrolling: "touch",
-        }}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        className="relative w-full overflow-hidden p-3"
+        onMouseEnter={() => setIsAutoPlaying(false)}
       >
-        <div className={cn(scrollLeft === 0 && "translate-x-12")}>
-          <div className="flex gap-4">
-            {highlights.map((highlight) => (
-              <div
-                key={highlight._id}
-                className="w-full shrink-0"
-                onClick={() => {
-                  window.open(highlight.ctaUrl, "_blank");
-                }}
-              >
-                <HighlightCard highlight={highlight} />
-              </div>
-            ))}
+        <div
+          ref={sliderRef}
+          className={cn("relative overflow-x-scroll scrollbar-hide p-1")}
+          style={{
+            scrollBehavior: isDragging ? "auto" : "smooth",
+            WebkitOverflowScrolling: "touch",
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
+          <div className={cn(scrollLeft === 0 && "translate-x-12")}>
+            <div className="flex gap-4">
+              {highlights.map((highlight) => (
+                <div
+                  key={highlight._id}
+                  className="w-full shrink-0"
+                  onClick={() => {
+                    window.open(highlight.ctaUrl, "_blank");
+                  }}
+                >
+                  <HighlightCard highlight={highlight} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Indicator dots */}
+      <div className="flex gap-2">
+        {highlights.map((_, index) => (
+          <div
+            key={index}
+            className={cn(
+              "h-2 w-2 rounded-full transition-all",
+              currentSlide === index ? "bg-gray-1 w-4" : "bg-gray-5"
+            )}
+            aria-hidden="true"
+          />
+        ))}
       </div>
     </div>
   );
