@@ -115,18 +115,18 @@ export const Header = () => {
                   <div className='mt-8 flow-root px-8'>
                     <ThemeToggler />
                   </div>
-                  <div className='flex ml-auto px-9 gap-4 mt-4'>
+                  <div className='flex ml-auto px-9 gap-6 mt-6'>
                     <Link href='https://www.linkedin.com/company/spline-polska'>
                       <span className='sr-only'>LinkedIn</span>
                       <LinkedinLogoIcon className='w-5 h-5' />
                     </Link>
-                    <Link href='https://instagram.com/spline'>
-                      <span className='sr-only'>Instagram</span>
-                      <InstagramLogoIcon className='w-5 h-5' />
-                    </Link>
                     <Link href='https://facebook.com/spline'>
                       <span className='sr-only'>Facebook</span>
                       <FacebookLogoIcon className='w-5 h-5' />
+                    </Link>
+                    <Link href='https://instagram.com/spline'>
+                      <span className='sr-only'>Instagram</span>
+                      <InstagramLogoIcon className='w-5 h-5' />
                     </Link>
                   </div>
                 </DialogPanel>

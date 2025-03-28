@@ -23,7 +23,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   };
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-full max-w-[600px] dark:bg-[#0D0D0D] cursor-pointer'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-[262px] lg:w-[340px] 4xl:w-[603px] dark:bg-[#0D0D0D] cursor-pointer'>
       {/* Image Container */}
       <div className='relative h-60 w-full overflow-hidden'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
@@ -44,10 +44,10 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
         <div className='mt-4 flex items-center justify-between'>
           {ctaUrl && (
             <div className='flex items-center gap-2'>
-              <span className='text-xl font-bold text-blue-600 group-hover:tracking-wide transition-all duration-300'>
+              <span className='text-xl font-bold text-spline-blue group-hover:tracking-wide transition-all duration-300'>
                 See more
               </span>
-              <ArrowRightIcon className='h-8 w-8 fill-blue-600 group-hover:ml-2 transition-all duration-300' />
+              <ArrowRightIcon className='h-8 w-8 fill-spline-blue group-hover:ml-2 transition-all duration-300' />
             </div>
           )}
 

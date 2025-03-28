@@ -9,8 +9,8 @@ export const HighlightsSection = () => {
         <div className='flex flex-col mt-8 gap-y-7'>
           <h2 className='font-medium'>About our recent work</h2>
           <p className='tracking-wide text-foreground/75'>
-            Explore our latest projects, case studies, and expert articles. See how we drive innovation and deliver
-            impactful technology solutions.
+            We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
+            benefit from our solutions. See selected examples of our projects.
           </p>
         </div>
       </div>

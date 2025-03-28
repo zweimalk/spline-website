@@ -169,7 +169,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight._id} className='w-full min-w-full'>
+            <div key={highlight._id}>
               <HighlightCard highlight={highlight} />
             </div>
           ))}

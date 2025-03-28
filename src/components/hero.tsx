@@ -61,7 +61,7 @@ export const Hero = () => {
         </div>
       </div>
       <div className='flex justify-center items-center mt-14 md:hidden'>
-        <ArrowDownIcon className='font-bold fill-foreground size-10 cursor-pointer' />
+        <ArrowDownIcon className='font-bold fill-foreground/30 size-10 cursor-pointer' />
       </div>
     </div>
   );
