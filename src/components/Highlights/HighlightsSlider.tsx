@@ -161,9 +161,10 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         <div
           className='flex gap-4 transition-transform duration-500 ease-in-out w-full'
           style={{
+            marginLeft: currentIndex === 0 ? 32 : 0,
             transform:
               screenWidth > 372
-                ? `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`
+                ? `translateX(calc(-${currentIndex * 100}% - ${currentIndex === 0 ? 0 : currentIndex * 16}px))`
                 : `translateX(calc(-${currentIndex * 340}px))`,
             transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
           }}
