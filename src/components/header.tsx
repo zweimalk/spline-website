@@ -20,7 +20,7 @@ const navigation = [
   { name: 'Our Services', href: '#' },
   { name: 'Useful Documents', href: '#' },
   { name: 'Join Us', href: '#' },
-  { name: 'Contact', href: '#' },
+  { name: 'Contact', href: '#contact-card' },
 ];
 
 export const Header = () => {
@@ -109,7 +109,20 @@ export const Header = () => {
                       </div>
                       <p>Useful documents</p>
                       <p>Join Us</p>
-                      <p>Contact</p>
+                      <Link
+                        href='#contact-card'
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          // Wait for dialog close animation to complete
+                          setTimeout(() => {
+                            document.getElementById('contact-card')?.scrollIntoView({
+                              behavior: 'smooth',
+                            });
+                          }, 300);
+                        }}
+                      >
+                        Contact
+                      </Link>
                     </div>
                   </div>
                   <div className='mt-8 flow-root px-8'>

@@ -170,7 +170,12 @@ export const ContactForm = () => {
 
         <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
           {([canSubmit, isSubmitting]) => (
-            <Button type='submit' disabled={!canSubmit} className='flex items-center justify-between'>
+            <Button
+              color='dark/white'
+              type='submit'
+              disabled={!canSubmit}
+              className='flex items-center justify-between'
+            >
               {isSubmitting ? '...' : 'Send'}
               <div className='flex items-center justify-center w-6 h-6 ml-8'>
                 <ArrowRightIcon className='font-bold' />

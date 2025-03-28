@@ -27,7 +27,7 @@ export default function Home() {
         <Title className='mb-10 mt-12'>join us</Title>
         <div id='traffit-an-list-xtxrxaxfxixtx2x0x1x6x'></div>
         <div className='flex justify-center mt-6'>
-          <Button>
+          <Button color='dark/white'>
             See all current offers
             <ArrowRightIcon className='w-4 h-4' />
           </Button>
