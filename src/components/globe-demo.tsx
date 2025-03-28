@@ -2,8 +2,8 @@
 import { motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { FloatingLabel } from './floating-label';
+import { Body1 } from './Typo/Body1';
 import { Header1 } from './Typo/Header1';
-
 const World = dynamic(() => import('./globe').then((m) => m.World), {
   ssr: false,
 });
@@ -514,9 +514,7 @@ export function GlobeDemo() {
             className='w-full aspect-square'
           >
             <div className='mb-80'>
-              <p className='text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto'>
-                professionals from all over the world
-              </p>
+              <Body1 className='text-center'>professionals from all over the world</Body1>
             </div>
           </motion.div>
           {labels.map((label) => (
