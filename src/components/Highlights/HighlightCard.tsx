@@ -23,7 +23,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   };
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-[340px] h-[480px]'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-full max-w-[340px] h-[480px]'>
       {/* Image Container */}
       <div className='relative h-[197px] w-full overflow-hidden'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
@@ -32,10 +32,14 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
       {/* Content Container */}
       <div className='p-6 grid grid-rows-[auto_auto_1fr_auto] h-[280px]'>
         {/* Year */}
-        <p className='text-sm font-medium text-gray-4'>{year}</p>
+        <div>
+          <p className='text-sm font-medium text-gray-4'>{year}</p>
+        </div>
 
         {/* Title */}
-        <Header3 className='mt-2'>{title}</Header3>
+        <div>
+          <Header3 className='mt-2'>{title}</Header3>
+        </div>
 
         {/* Description */}
         <div>

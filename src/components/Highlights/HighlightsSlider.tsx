@@ -22,6 +22,8 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   const [dragOffset, setDragOffset] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
   const [clickStartTime, setClickStartTime] = useState<number>(0);
   const [clickStartPosition, setClickStartPosition] = useState<number>(0);
 
@@ -130,6 +132,18 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     setCurrentIndex(index);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    // Set initial width
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className='relative w-full overflow-hidden p-4' onMouseEnter={handleMouseEnter}>
       {/* Slider container */}
@@ -145,14 +159,17 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         onMouseLeave={handleMouseUp}
       >
         <div
-          className='flex gap-4 transition-transform duration-500 ease-in-out'
+          className='flex gap-4 transition-transform duration-500 ease-in-out w-full'
           style={{
-            transform: `translateX(calc(-${currentIndex * 100}%))`,
+            transform:
+              screenWidth > 372
+                ? `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`
+                : `translateX(calc(-${currentIndex * 340}px))`,
             transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
           }}
         >
           {highlights.map((highlight) => (
-            <div key={highlight._id}>
+            <div key={highlight._id} className='w-full shrink-0'>
               <HighlightCard highlight={highlight} />
             </div>
           ))}
