@@ -70,7 +70,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
     >
       <div
         ref={scrollRef}
-        className='flex items-center gap-6 md:gap-12 py-8 whitespace-nowrap'
+        className='flex items-center gap-4 md:gap-12 py-8 whitespace-nowrap'
         style={{
           transform: `translate3d(-${currentPosition}px, 0, 0)`,
           willChange: 'transform',
