@@ -1,6 +1,4 @@
-import { cn } from '@/lib/utils';
 import { type Highlight } from '@/types/highlight';
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { Body1 } from '../Typo/Body1';
 import { Header3 } from '../Typo/Header3';
@@ -27,14 +25,14 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   const longTitle = title.length > 23;
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-[340px] h-[450px]'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-[340px] h-[480px]'>
       {/* Image Container */}
       <div className='relative h-[197px] w-full overflow-hidden'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
       </div>
 
       {/* Content Container */}
-      <div className='p-6'>
+      <div className='p-6 grid grid-rows-[auto_auto_1fr_auto] h-[280px]'>
         {/* Year */}
         <p className='text-sm font-medium text-gray-4'>{year}</p>
 
@@ -42,18 +40,33 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
         <Header3 className='mt-2'>{title}</Header3>
 
         {/* Description */}
-        <Body1 className={cn('text-gray-5 dark:text-dark-text mt-5 line-clamp-3', longTitle && 'line-clamp-2')}>
-          {description}
-        </Body1>
+        <div>
+          <Body1 className='text-gray-5 dark:text-dark-text mt-5 line-clamp-3'>{description}</Body1>
+        </div>
 
         {/* CTA Link */}
-        <div className='mt-4 flex items-center justify-between'>
+        <div className='flex items-center justify-between'>
           {ctaUrl && (
             <div className='flex items-center gap-2'>
               <span className='text-xl font-bold text-spline-blue group-hover:tracking-wide transition-all duration-300'>
                 See more
               </span>
-              <ArrowRightIcon className='h-8 w-8 fill-spline-blue group-hover:ml-2 transition-all duration-300' />
+              <svg
+                width='23'
+                height='22'
+                viewBox='0 0 23 22'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+                className='group-hover:translate-x-2 transition-all duration-300 ml-4'
+              >
+                <path
+                  d='M13.0833 2.18262L21 10.6826M21 10.6826L13.0833 19.1826M21 10.6826L2 10.6826'
+                  stroke='#1C5BFF'
+                  strokeWidth='3'
+                  strokeLinecap='square'
+                  strokeLinejoin='round'
+                />
+              </svg>
             </div>
           )}
 
