@@ -1,7 +1,9 @@
+import { cn } from '@/lib/utils';
 import { type Highlight } from '@/types/highlight';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-
+import { Body1 } from '../Typo/Body1';
+import { Header3 } from '../Typo/Header3';
 interface HighlightCardProps {
   highlight: Highlight;
 }
@@ -22,23 +24,27 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
     );
   };
 
+  const longTitle = title.length > 23;
+
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg w-[262px] lg:w-[340px] 4xl:w-[603px] dark:bg-[#0D0D0D] cursor-pointer'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-[340px] h-[450px]'>
       {/* Image Container */}
-      <div className='relative h-60 w-full overflow-hidden'>
+      <div className='relative h-[197px] w-full overflow-hidden'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
       </div>
 
       {/* Content Container */}
       <div className='p-6'>
         {/* Year */}
-        <p className='text-sm font-medium'>{year}</p>
+        <p className='text-sm font-medium text-gray-4'>{year}</p>
 
         {/* Title */}
-        <h3 className='mt-2 text-2xl font-semibold '>{title}</h3>
+        <Header3 className='mt-2'>{title}</Header3>
 
         {/* Description */}
-        <p className='mt-3 text-base line-clamp-3 tracking-wider text-foreground/80'>{description}</p>
+        <Body1 className={cn('text-gray-5 dark:text-dark-text mt-5 line-clamp-3', longTitle && 'line-clamp-2')}>
+          {description}
+        </Body1>
 
         {/* CTA Link */}
         <div className='mt-4 flex items-center justify-between'>
