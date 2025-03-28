@@ -14,7 +14,7 @@ function StatItem({ number, label, className }: StatItemProps) {
       <h2 className="text-8xl md:text-6xl mb-3 text-zinc-900 dark:text-white">
         {number}
       </h2>
-      <Body1 className="text-gray-5 dark:text-gray-3 text-sm sm:text-normal">
+      <Body1 className="text-gray-5 dark:text-gray-3 text-[16px] sm:text-normal">
         {label}
       </Body1>
     </div>
@@ -52,7 +52,7 @@ function CertificationTisaxItem({
           draggable={false}
         />
       </div>
-      <Body1 className="text-gray-5 dark:text-gray-3 text-sm sm:text-normal">
+      <Body1 className="text-gray-5 dark:text-gray-3 text-[16px] sm:text-normal">
         {title}
       </Body1>
     </div>
@@ -87,7 +87,7 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
           draggable={false}
         />
       </div>
-      <Body1 className="text-gray-5 dark:text-gray-3 text-sm sm:text-normal">
+      <Body1 className="text-gray-5 dark:text-gray-3 text-[16px] sm:text-normal">
         {title}
       </Body1>
     </div>
