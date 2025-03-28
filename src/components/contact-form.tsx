@@ -1,8 +1,8 @@
 'use client';
 
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { AnyFieldApi, useForm } from '@tanstack/react-form';
 import { Button } from './button';
-
 const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
   return (
     <>
@@ -170,9 +170,11 @@ export const ContactForm = () => {
 
         <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
           {([canSubmit, isSubmitting]) => (
-            <Button type='submit' disabled={!canSubmit} className='flex w-24 items-center justify-between'>
+            <Button type='submit' disabled={!canSubmit} className='flex items-center justify-between'>
               {isSubmitting ? '...' : 'Send'}
-              <span className='ml-2'>→</span>
+              <div className='flex items-center justify-center w-6 h-6 ml-8'>
+                <ArrowRightIcon className='font-bold' />
+              </div>
             </Button>
           )}
         </form.Subscribe>

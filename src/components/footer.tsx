@@ -22,7 +22,7 @@ export const Footer = () => {
           {/* Social Media Column */}
           <div>
             <h2 className='text-lg font-medium mb-6'>Find us on</h2>
-            <div className='flex flex-col space-y-2 text-sm'>
+            <div className='flex flex-col space-y-3 text-sm'>
               <Link href='https://www.linkedin.com/company/spline-polska' className='flex items-center hover:underline'>
                 <LinkedinLogoIcon className='w-5 h-5 mr-3 fill-background' />
                 <span>LinkedIn</span>
@@ -75,8 +75,13 @@ export const Footer = () => {
             {/* Legal Section */}
 
             <div className='pb-8 pt-4'>
-              <div className='flex flex-col mb-4 md:mb-0 gap-1 md:gap-4text-sm '>
-                <Link href='/privacy-policy' className='hover:underline mb-2 md:mb-0'>
+              <div className='flex flex-col mb-4 md:mb-0 gap-1 md:gap-4 text-sm '>
+                <Link
+                  href='/docs/spline_rodo.pdf'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='hover:underline mb-2 md:mb-0'
+                >
                   Privacy Policy
                 </Link>
                 <Link href='/gdpr' className='hover:underline mb-2 md:mb-0'>
