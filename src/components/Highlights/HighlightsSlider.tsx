@@ -3,6 +3,7 @@
 import { Highlight } from "@/types/highlight";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { HighlightCard } from "./HighlightCard";
+import { cn } from "@/lib/utils";
 
 interface HighlightsSliderProps {
   highlights: Highlight[];
@@ -64,12 +65,12 @@ export function HighlightsSlider({
 
   return (
     <div
-      className="relative w-full overflow-hidden p-4"
+      className="relative w-full overflow-hidden p-3"
       onMouseEnter={() => setIsAutoPlaying(false)}
     >
       <div
         ref={sliderRef}
-        className="relative overflow-x-scroll scrollbar-hide"
+        className={cn("relative overflow-x-scroll scrollbar-hide p-1")}
         style={{
           scrollBehavior: isDragging ? "auto" : "smooth",
           WebkitOverflowScrolling: "touch",
@@ -79,18 +80,20 @@ export function HighlightsSlider({
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="flex gap-4">
-          {highlights.map((highlight) => (
-            <div
-              key={highlight._id}
-              className="w-full shrink-0"
-              onClick={() => {
-                window.open(highlight.ctaUrl, "_blank");
-              }}
-            >
-              <HighlightCard highlight={highlight} />
-            </div>
-          ))}
+        <div className={cn(scrollLeft === 0 && "translate-x-12")}>
+          <div className="flex gap-4">
+            {highlights.map((highlight) => (
+              <div
+                key={highlight._id}
+                className="w-full shrink-0"
+                onClick={() => {
+                  window.open(highlight.ctaUrl, "_blank");
+                }}
+              >
+                <HighlightCard highlight={highlight} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
