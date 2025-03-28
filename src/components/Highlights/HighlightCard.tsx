@@ -22,8 +22,6 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
     );
   };
 
-  const longTitle = title.length > 23;
-
   return (
     <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-[340px] h-[480px]'>
       {/* Image Container */}
