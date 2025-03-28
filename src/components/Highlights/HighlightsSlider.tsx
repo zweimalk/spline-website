@@ -81,7 +81,13 @@ export function HighlightsSlider({
       >
         <div className="flex gap-4">
           {highlights.map((highlight) => (
-            <div key={highlight._id} className="w-full shrink-0">
+            <div
+              key={highlight._id}
+              className="w-full shrink-0"
+              onClick={() => {
+                window.open(highlight.ctaUrl, "_blank");
+              }}
+            >
               <HighlightCard highlight={highlight} />
             </div>
           ))}
