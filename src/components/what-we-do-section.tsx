@@ -26,7 +26,12 @@ export const WhatWeDoSection = () => {
         />
         <div className='border-t border-foreground/20 md:hidden'></div>
         <ServiceCard
-          title={<>healthcare solutions</>}
+          title={
+            <>
+              healthcare <br />
+              solutions
+            </>
+          }
           description='Technology reshapes healthcare with secure and high-performance digital solutions. From medical imaging and telehealth platforms to AI-driven diagnostics, we ensure seamless integration of innovation into healthcare services while maintaining compliance and security.'
           image='https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2947&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           tags={['#medtech', '#AI', '#imaging', '#IoMT']}
@@ -55,7 +60,12 @@ export const WhatWeDoSection = () => {
         />
         <div className='border-t border-foreground/20 md:hidden'></div>
         <ServiceCard
-          title={<>software development</>}
+          title={
+            <>
+              software <br />
+              development
+            </>
+          }
           description='Robust, scalable, and high-performing software solutions power businesses across industries. Our expertise spans cloud integration, AI-driven applications, backend systems, and mobile development—ensuring tailored solutions that meet evolving digital demands.'
           image='/images/what_we_do_5.png'
           tags={['#cloud', '#AI', '#backend', '#mobile', '#devops']}

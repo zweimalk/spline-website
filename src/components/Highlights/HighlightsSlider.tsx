@@ -22,31 +22,14 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
   const [dragOffset, setDragOffset] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Track if the screen is mobile size
-  const [isMobile, setIsMobile] = useState(false);
-
   const [clickStartTime, setClickStartTime] = useState<number>(0);
   const [clickStartPosition, setClickStartPosition] = useState<number>(0);
-
-  // Initialize animations for each word
-  useEffect(() => {
-    // Check if we're on mobile initially
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768); // Common breakpoint for mobile
-    };
-
-    checkIfMobile();
-
-    // Add resize listener
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
 
   const minSwipeDistance = 50;
 
   const goToNextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex === highlights.length - (isMobile ? 1 : 2) ? 0 : prevIndex + 1));
-  }, [highlights.length, isMobile]);
+    setCurrentIndex((prevIndex) => (prevIndex === highlights.length - 1 ? 0 : prevIndex + 1));
+  }, [highlights.length]);
 
   const goToPrevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? highlights.length - 1 : prevIndex - 1));
@@ -123,9 +106,9 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       }
     } else {
       // Handle as a drag
-      const slideWidth = isMobile ? window.innerWidth : 340;
+      const slideWidth = 340;
       const slidesToMove = Math.round(dragOffset / slideWidth);
-      const newIndex = Math.max(0, Math.min(currentIndex - slidesToMove, highlights.length - (isMobile ? 1 : 2)));
+      const newIndex = Math.max(0, Math.min(currentIndex - slidesToMove, highlights.length - 1));
       setCurrentIndex(newIndex);
     }
 
@@ -162,7 +145,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         onMouseLeave={handleMouseUp}
       >
         <div
-          className='flex gap-4 transition-transform duration-500 ease-in-out md:hidden'
+          className='flex gap-4 transition-transform duration-500 ease-in-out'
           style={{
             transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px + ${dragOffset}px))`,
             transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
@@ -174,19 +157,6 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
             </div>
           ))}
         </div>
-        <div
-          className='gap-6 transition-transform duration-500 ease-in-out hidden md:flex'
-          style={{
-            transform: `translateX(calc(-${currentIndex * 340}px - ${currentIndex * 24}px + ${dragOffset}px))`,
-            transition: isDragging ? 'none' : 'transform 500ms ease-in-out',
-          }}
-        >
-          {highlights.map((highlight) => (
-            <div key={highlight._id} className='min-w-[340px]' data-highlight-id={highlight._id}>
-              <HighlightCard highlight={highlight} />
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Replace pagination dots with slider control */}
@@ -194,7 +164,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
         <input
           type='range'
           min={0}
-          max={highlights.length - (isMobile ? 1 : 2)}
+          max={highlights.length - 1}
           value={currentIndex}
           onChange={(e) => goToSlide(parseInt(e.target.value))}
           className='w-full h-[9px] bg-zinc-400 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-gray-900'
