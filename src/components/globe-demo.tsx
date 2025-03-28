@@ -439,8 +439,8 @@ export function GlobeDemo() {
     {
       text: 'TOYOTA',
       color: '#ffffff',
-      top: '45%',
-      left: '15%',
+      top: '25%',
+      left: '20%',
       offset: 10,
     },
     {
@@ -453,77 +453,81 @@ export function GlobeDemo() {
     {
       text: 'PORSCHE',
       color: '#ffffff',
-      top: '65%',
-      left: '35%',
+      top: '45%',
+      left: '30%',
       offset: 3,
     },
     {
       text: 'BERTRANDT',
       color: '#ffffff',
-      top: '25%',
-      left: '35%',
+      top: '15%',
+      left: '45%',
       offset: 10,
     },
     {
       text: 'MERCEDES',
       color: '#ffffff',
-      top: '55%',
-      left: '75%',
+      top: '47%',
+      left: '60%',
       offset: 1,
     },
     {
       text: 'BMW',
       color: '#ffffff',
-      top: '45%',
-      left: '55%',
+      top: '30%',
+      left: '48%',
       offset: 10,
     },
     {
       text: 'AUDI',
       color: '#ffffff',
-      top: '75%',
+      top: '65%',
       left: '65%',
       offset: 9,
     },
     {
       text: 'VOLVO',
       color: '#ffffff',
-      top: '85%',
-      left: '15%',
+      top: '65%',
+      left: '20%',
       offset: 5,
     },
   ];
 
   return (
-    <div className='hidden md:flex flex-row items-center justify-center py-20 relative w-full'>
-      <div className='container mx-auto w-full relative overflow-hidden h-[320px] md:h-[600px] lg:h-[800px] xl:h-[1000px] mt-40'>
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className='div'
-        >
-          <Header1 className='text-center'>we worked with</Header1>
-          <p className='text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto'>
-            professionals from all over the world
-          </p>
-        </motion.div>
-        {labels.map((label) => (
-          <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
-        ))}
-        <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-40 h-40' />
-        <div className='absolute w-full z-10 h-full inset-0 top-24'>
-          <World data={sampleArcs} globeConfig={globeConfig} />
+    <>
+      <Header1 className='text-center'>we worked with</Header1>
+      <div className='flex flex-row items-center justify-center relative w-full'>
+        <div className='container mx-auto w-full relative overflow-hidden'>
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            className='w-full aspect-square'
+          >
+            <div className='mb-80'>
+              <p className='text-center text-base md:text-lg font-normal max-w-md mt-2 mx-auto'>
+                professionals from all over the world
+              </p>
+            </div>
+          </motion.div>
+          {labels.map((label) => (
+            <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
+          ))}
+          <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40' />
+          <div className='absolute inset-0 aspect-square top-12'>
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

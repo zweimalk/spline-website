@@ -17,109 +17,94 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
   const [currentPosition, setCurrentPosition] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number>(null);
+  const lastTimeRef = useRef<number>(0);
 
-  const scroll = useCallback(() => {
+  const scroll = useCallback((timestamp: number) => {
     if (!scrollRef.current) return;
 
+    // Limit updates to ~30fps for better performance
+    if (timestamp - lastTimeRef.current < 33) {
+      animationFrameRef.current = requestAnimationFrame(scroll);
+      return;
+    }
+
     setCurrentPosition((prevPosition) => {
-      const nextPosition = prevPosition + 1;
-      // Reset position when we reach the width of one set of logos
+      const nextPosition = prevPosition + 0.5; // Reduced speed
       if (nextPosition >= scrollRef.current!.scrollWidth / 2) {
         return 0;
       }
       return nextPosition;
     });
+
+    lastTimeRef.current = timestamp;
+    animationFrameRef.current = requestAnimationFrame(scroll);
   }, []);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying) {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      return;
+    }
 
-    const timer = setInterval(scroll, 30);
-    return () => clearInterval(timer);
+    animationFrameRef.current = requestAnimationFrame(scroll);
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, [scroll, isAutoPlaying]);
 
-  const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
+  const handleInteractionStart = () => setIsAutoPlaying(false);
+  const handleInteractionEnd = () => setIsAutoPlaying(true);
 
   return (
-    <div className='w-full overflow-hidden' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      className='w-full overflow-hidden'
+      onMouseEnter={handleInteractionStart}
+      onMouseLeave={handleInteractionEnd}
+      onTouchStart={handleInteractionStart}
+      onTouchEnd={handleInteractionEnd}
+    >
       <div
         ref={scrollRef}
-        className='flex items-center gap-12 py-8 whitespace-nowrap'
+        className='flex items-center gap-6 md:gap-12 py-8 whitespace-nowrap'
         style={{
-          transform: `translateX(-${currentPosition}px)`,
-          transition: 'transform 0.03s linear',
+          transform: `translate3d(-${currentPosition}px, 0, 0)`,
+          willChange: 'transform',
+          transition: 'none',
         }}
       >
-        {/* Original logos */}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-${index}`}
-            src={logo.src}
-            className='block dark:hidden transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
-        ))}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-dark-${index}`}
-            src={logo.srcDark}
-            className='hidden dark:block transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
-        ))}
-        {/* Duplicated logos for seamless loop */}
-        {/* Light mode duplicates */}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-2-${index}`}
-            src={logo.src}
-            className='block dark:hidden transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
-        ))}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-dark-2-${index}`}
-            src={logo.srcDark}
-            className='hidden dark:block transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
-        ))}
-        {/* Third set of logos */}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-3-${index}`}
-            src={logo.src}
-            className='block dark:hidden transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
-        ))}
-        {logos.map((logo, index) => (
-          <Image
-            key={`logo-dark-3-${index}`}
-            src={logo.srcDark}
-            className='hidden dark:block transition-all'
-            alt={logo.alt}
-            width={logo.width}
-            height={logo.height}
-            draggable={false}
-          />
+        {/* Reduce to two sets of logos instead of three */}
+        {[...Array(4)].map((_, setIndex) => (
+          <>
+            {logos.map((logo, index) => (
+              <Image
+                key={`logo-${setIndex}-${index}`}
+                src={logo.src}
+                className='block dark:hidden'
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                draggable={false}
+                loading='eager'
+              />
+            ))}
+            {logos.map((logo, index) => (
+              <Image
+                key={`logo-dark-${setIndex}-${index}`}
+                src={logo.srcDark}
+                className='hidden dark:block'
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                draggable={false}
+                loading='eager'
+              />
+            ))}
+          </>
         ))}
       </div>
     </div>

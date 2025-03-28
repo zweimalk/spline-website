@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
 // Add this custom floating animation component
 export const FloatingLabel = ({
@@ -16,7 +16,7 @@ export const FloatingLabel = ({
 
   return (
     <motion.div
-      className="absolute text-blue-600 text-lg font-bold px-3 py-1 rounded-full dark:bg-white z-50"
+      className='absolute text-blue-600 text-[8px] leading-[12px] md:text-lg font-bold px-2 pt-0.5 rounded-full dark:bg-white z-30'
       initial={{
         top: `calc(${top} + ${randomOffset()}px)`,
         left: `calc(${left} + ${randomOffset()}px)`,
@@ -37,8 +37,8 @@ export const FloatingLabel = ({
       transition={{
         duration: 8,
         repeat: Infinity,
-        repeatType: "reverse",
-        ease: "easeInOut",
+        repeatType: 'reverse',
+        ease: 'easeInOut',
         times: [0, 0.5, 1],
       }}
     >
