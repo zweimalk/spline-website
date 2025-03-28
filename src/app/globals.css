@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin 'tailwind-scrollbar-hide';
+
 @theme {
   --breakpoint-2lg: 1440px;
   --breakpoint-5k: 5120px;
