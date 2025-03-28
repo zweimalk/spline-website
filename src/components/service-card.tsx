@@ -57,14 +57,14 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
         />
       </div>
       <div className='mt-7'>
-        <p className='tracking-wide leading-6 text-center md:text-left lg:group-hover:text-background/85 transition-colors duration-300'>
+        <p className='tracking-wide leading-6 text-center md:text-left lg:group-hover:text-background/85 transition-colors duration-300 line-clamp-3'>
           {description}
         </p>
       </div>
       <div className='flex justify-center md:justify-start items-center mt-8'>
-        <div className='flex items-center justify-center gap-2 w-[145px] font-semibold text-blue-700 lg:group-hover:text-background transition-all duration-300 -translate-x-6'>
+        <div className='flex items-center justify-center font-semibold text-blue-700 dark:text-white lg:group-hover:text-background transition-all duration-300 w-full border border-blue-700 dark:border-white rounded-full px-4 py-1'>
           See more
-          <ArrowRightIcon className='w-8 h-8 text-blue-700 lg:group-hover:text-background transition-all duration-300 lg:group-hover:translate-x-4' />
+          <ArrowRightIcon className='hidden lg:block w-8 h-8 text-blue-700 lg:group-hover:text-background transition-all duration-300 lg:group-hover:translate-x-4' />
         </div>
       </div>
     </div>
