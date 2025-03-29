@@ -5,7 +5,7 @@ export const WhatWeDoSection = () => {
   return (
     <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-6 px-4 mt-24 md:mt-40' id='what-we-do'>
       <div>
-        <div className='md:mb-40 lg:sticky lg:top-30 xl:top-40'>
+        <div className='md:mb-40 lg:sticky lg:top-30 xl:top-40 xl:mb-0'>
           <Header1>
             what we
             <br className='lg:hidden 2xl:inline' /> do?
@@ -13,7 +13,7 @@ export const WhatWeDoSection = () => {
         </div>
       </div>
 
-      <div className='mt-16 md:mt-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 ml-auto gap-10 xl:gap-10'>
+      <div className='mt-16 md:mt-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2 ml-auto gap-4 xl:gap-10 2xl:gap-y-20'>
         <ServiceCard
           title={
             <>
@@ -56,7 +56,7 @@ export const WhatWeDoSection = () => {
           }
           description='Digital transformation enhances customer experiences and operational efficiency. We deliver advanced e-commerce platforms, AI-driven analytics, and automation solutions, helping businesses in media, fintech, and service industries scale and innovate.'
           image='https://plus.unsplash.com/premium_photo-1732096682381-b580213f885f?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          tags={['#ecommerce', '#fintech', '#automation', '#digital', '#visualization']}
+          tags={['#ecommerce', '#fintech', '#automation', '#digital']}
         />
         <div className='border-t border-foreground/20 md:hidden'></div>
         <ServiceCard
