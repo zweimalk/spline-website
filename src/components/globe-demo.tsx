@@ -16,7 +16,7 @@ export function GlobeDemo() {
     atmosphereColor: '#1C5BFF',
     atmosphereAltitude: 0.2,
     emissive: '#09090b',
-    emissiveIntensity: 0.5,
+    emissiveIntensity: 0.7,
     shininess: 0.9,
     polygonColor: '#E4E4E4',
     ambientLight: '#38bdf8',
@@ -520,7 +520,7 @@ export function GlobeDemo() {
           {labels.map((label) => (
             <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
           ))}
-          <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40' />
+          <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40 md:h-80 xl:h-100 md:to-75% xl:to-60%' />
           <div className='absolute inset-0 aspect-square top-12'>
             <World data={sampleArcs} globeConfig={globeConfig} />
           </div>
