@@ -5,19 +5,19 @@ interface JobCardProps {
   title: string;
   location: string;
   url: string;
-  // description?: string;
+  description?: string[];
   tags?: string[];
 }
 
 export const JobCard = ({
   title,
-  location = 'Kraków, Poland / Remote', // Default value based on image
+  location = 'Kraków, Poland / Remote',
   url,
-  // description = '',
+  description = [],
   tags = [], // Optional tags array
 }: JobCardProps) => {
   return (
-    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-lg transition-all hover:shadow-md w-[340px] h-[350px]'>
+    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-lg transition-all hover:shadow-md w-[340px] h-[350px] grid grid-rows-[auto_auto_1fr_auto_auto]'>
       {/* Tags section */}
       <div className='mb-4 flex gap-2 items-center justify-center pb-3'>
         {tags.map((tag) => (
@@ -38,7 +38,11 @@ export const JobCard = ({
         <p>{location}</p>
       </div>
 
-      {/* <div dangerouslySetInnerHTML={{ __html: description }} /> */}
+      <ul className='list-disc list-inside'>
+        {description.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
 
       {/* See more link */}
       <Link href={url} className='flex items-center gap-2 justify-center mt-6'>

@@ -6,11 +6,46 @@ import { Body1 } from './Typo/Body1';
 import { Title } from './Typo/Title';
 import { JobCard } from './job-card';
 import { Link } from './link';
+
+interface ParsedJobContent {
+  description: string[];
+  tags: string[];
+}
+
+export function parseJobContent(content: string): ParsedJobContent {
+  // Split by double line break to separate list items from tags
+  const [listContent, tagsSection = ''] = content.split('<br><br>');
+
+  // Extract description items
+  const description = listContent
+    .replace(/<\/?ul>/g, '') // Remove ul tags
+    .split('</li>')
+    .map((item) => item.replace('<li>', '').trim())
+    .filter(Boolean); // Remove empty items
+
+  // Extract tags
+  const tags =
+    tagsSection
+      .match(/#[\w-]+/g) // Match hashtags
+      ?.map((tag) => tag.replace('#', '')) || [];
+
+  return {
+    description,
+    tags,
+  };
+}
+
 export default async function JobsSection() {
   const jobPosts = await getJobPosts();
 
-  console.log(jobPosts[0].advert.values);
-  console.log(jobPosts[1].advert.values);
+  const jobsWithParsedContent = jobPosts.map((job) => {
+    const { description, tags } = parseJobContent(job.advert.values[4].value);
+    return {
+      ...job,
+      parsedDescription: description,
+      parsedTags: tags,
+    };
+  });
 
   return (
     <Suspense
@@ -23,15 +58,14 @@ export default async function JobsSection() {
       <div className='container mx-auto px-4 mt-20' id='join-us'>
         <Title className='mb-10'>join us</Title>
         <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
-          {jobPosts.map((job) => (
+          {jobsWithParsedContent.map((job) => (
             <JobCard
               key={job.id}
               title={job.advert.name}
               location='Kraków, Poland / Remote'
               url={job.url}
-              // description={job.advert.values[0].value}
-              // ask Bartek about tags
-              tags={['it', 'marketing', 'engineering']}
+              description={job.parsedDescription}
+              tags={job.parsedTags}
             />
           ))}
         </div>
