@@ -75,7 +75,7 @@ export default async function JobsSection() {
             target='_blank'
             className='cursor-pointer xl:text-2xl flex items-center gap-x-4 justify-center'
           >
-            <Button color='dark/white'>
+            <Button color='dark/white' className='cursor-pointer pb-3'>
               See all current offers
               <div className='w-6 h-6 xl:w-10 xl:h-10 ml-2 pt-1.5'>
                 <ArrowRightIcon className='font-bold' />
