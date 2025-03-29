@@ -63,13 +63,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
         {/* Image section */}
         <div className='flex justify-center'>
           <div className='relative w-55 h-80 overflow-hidden rounded-lg clip-diagonal clip-diagonal-sm'>
-            <Image
-              src={quotes[activeIndex].imageSrc}
-              alt={quotes[activeIndex].name}
-              fill
-              className='object-cover'
-              priority
-            />
+            <Image src={quotes[activeIndex].imageSrc} alt={quotes[activeIndex].name} fill className='object-cover' />
           </div>
         </div>
 
