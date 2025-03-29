@@ -27,6 +27,19 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isDarkMode = useTheme();
 
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    // Wait for dialog close animation to complete
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }, 300);
+  };
+
   return (
     <header className='fixed top-0 z-50 bg-background w-full'>
       <nav aria-label='Global' className='flex items-center justify-between h-[60px] px-4'>
@@ -47,7 +60,15 @@ export const Header = () => {
         </div>
         <div className='hidden lg:flex lg:gap-x-20 items-center'>
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className='text-sm/6 '>
+            <Link
+              key={item.name}
+              href={item.href}
+              className='text-sm/6'
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.href);
+              }}
+            >
               {item.name}
             </Link>
           ))}
@@ -99,6 +120,10 @@ export const Header = () => {
                             <Link
                               key={item.name}
                               href={item.href}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleNavClick(item.href);
+                              }}
                               className='-mx-3 flex items-center justify-between max-w-[220px]'
                             >
                               {item.name}
@@ -111,14 +136,9 @@ export const Header = () => {
                       <p>Join Us</p>
                       <Link
                         href='#contact-card'
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          // Wait for dialog close animation to complete
-                          setTimeout(() => {
-                            document.getElementById('contact-card')?.scrollIntoView({
-                              behavior: 'smooth',
-                            });
-                          }, 300);
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick('#contact-card');
                         }}
                       >
                         Contact
