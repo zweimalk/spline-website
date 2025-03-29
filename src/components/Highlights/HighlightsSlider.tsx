@@ -89,7 +89,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          <div className={cn(scrollLeft === 0 && 'translate-x-12')}>
+          <div className={cn(scrollLeft === 0 && 'translate-x-12 md:translate-x-14')}>
             <div className='flex gap-4'>
               {highlights.map((highlight) => (
                 <div

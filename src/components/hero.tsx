@@ -14,21 +14,21 @@ export const Hero = () => {
             <h1 className='text-6xl text-left md:text-8xl 2xl:text-[160px]'>
               connecting <br /> professionals
             </h1>
-            <div className='flex-col ml-auto hidden md:flex md:gap-y-4 xl:gap-y-6'>
+            <div className='flex-col ml-auto hidden md:flex md:gap-y-7 mt-3.5'>
               <Link href='https://www.linkedin.com/company/spline-polska' className='flex items-center hover:underline'>
-                <LinkedinLogoIcon className='w-7 h-7 mr-3 fill-background' />
-              </Link>
-              <Link
-                href='https://www.instagram.com/spline_design_?igsh=dnUzaGl3M3gza25p'
-                className='flex items-center hover:underline'
-              >
-                <InstagramLogoIcon className='w-7 h-7 mr-3 fill-background' />
+                <LinkedinLogoIcon className='w-6 h-6 fill-background' />
               </Link>
               <Link
                 href='https://www.facebook.com/share/12LutkKFykh/?mibextid=wwXIfr'
                 className='flex items-center hover:underline'
               >
-                <FacebookLogoIcon className='w-7 h-7 mr-3 fill-background' />
+                <FacebookLogoIcon className='w-6 h-6 fill-background' />
+              </Link>
+              <Link
+                href='https://www.instagram.com/spline_design_?igsh=dnUzaGl3M3gza25p'
+                className='flex items-center hover:underline'
+              >
+                <InstagramLogoIcon className='w-6 h-6 fill-background' />
               </Link>
             </div>
           </div>
