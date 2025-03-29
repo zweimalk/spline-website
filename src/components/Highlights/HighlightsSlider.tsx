@@ -64,6 +64,34 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     setIsDragging(false);
   };
 
+  // Add touch event handlers
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setIsAutoPlaying(false);
+    setIsDragging(true);
+    setHasDragged(false);
+    if (sliderRef.current) {
+      setStartX(e.touches[0].pageX);
+      setScrollLeft(sliderRef.current.scrollLeft);
+    }
+    setMoveX(e.touches[0].pageX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    setMoveX(e.touches[0].pageX);
+
+    const movement = Math.abs(moveX - e.touches[0].pageX);
+    if (movement > 5) {
+      setHasDragged(true);
+    }
+
+    if (sliderRef.current) {
+      const x = e.touches[0].pageX - startX;
+      sliderRef.current.scrollLeft = scrollLeft - x * 0.2;
+    }
+  };
+
   useEffect(() => {
     if (!isAutoPlaying) return;
 
@@ -117,6 +145,9 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleMouseUp}
         >
           <div className='flex gap-4'>
             <div className='shrink-0' style={{ width: 'calc(50vw - 170px)' }} />
