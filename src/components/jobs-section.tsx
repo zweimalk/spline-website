@@ -4,11 +4,13 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { Suspense } from 'react';
 import { Body1 } from './Typo/Body1';
 import { Title } from './Typo/Title';
+import { JobCard } from './job-card';
 import { Link } from './link';
 export default async function JobsSection() {
   const jobPosts = await getJobPosts();
 
-  console.log(jobPosts);
+  console.log(jobPosts[0].advert.values);
+
   return (
     <Suspense
       fallback={
@@ -19,7 +21,20 @@ export default async function JobsSection() {
     >
       <div className='container mx-auto px-4 mt-20' id='join-us'>
         <Title className='mb-10'>join us</Title>
-        <div id='traffit-an-list-xtxrxaxfxixtx2x0x1x6x'></div>
+        <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
+          {jobPosts.map((job) => (
+            <JobCard
+              key={job.id}
+              id={job.id}
+              title={job.advert.name}
+              location='Kraków, Poland / Remote'
+              jobType={job.options['_job_type.translation']}
+              url={job.application_form}
+              // ask Bartek about tags
+              tags={['it', 'marketing', 'engineering']}
+            />
+          ))}
+        </div>
         <div className='flex justify-center mt-6'>
           <Button color='dark/white'>
             <Link

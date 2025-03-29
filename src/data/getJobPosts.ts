@@ -11,11 +11,23 @@ interface JobPostParams {
 interface JobPost {
   id: string;
   title: string;
+  advert: {
+    values: string[];
+    id: number;
+    name: string;
+    recruitment: [Object];
+    language: string;
+  };
+  options: {
+    _job_type: string;
+    '_job_type.translation': string;
+  };
+  application_form: string;
   // Add other job post fields as needed
 }
 
 export async function getJobPosts({
-  pageSize = 10,
+  pageSize = 5,
   currentPage = 1,
   sortBy = 'id',
   sortDirection = 'ASC',
