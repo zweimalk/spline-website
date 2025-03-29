@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { Body1 } from './Typo/Body1';
+import { Header1 } from './Typo/Header1';
 
 export const AboutUsSection = () => {
   return (
-    <div className='container mx-auto px-4 md:mt-20 lg:mt-40'>
+    <div className='container mx-auto px-4 md:mt-30 lg:mt-40'>
       <div className='flex flex-col md:grid md:grid-cols-3 md:items-center mb-10 md:mb-20'>
-        <h1 className='text-7xl xl:text-9xl col-span-2'>about us</h1>
+        <Header1 className='col-span-2'>about us</Header1>
       </div>
       <Image
         src='/images/about_us.png'

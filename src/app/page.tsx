@@ -32,8 +32,8 @@ export default function Home() {
           </div>
         }
       >
-        <div className='container mx-auto px-4' id='join-us'>
-          <Title className='mb-10 mt-12'>join us</Title>
+        <div className='container mx-auto px-4 mt-20' id='join-us'>
+          <Title className='mb-10'>join us</Title>
           <div id='traffit-an-list-xtxrxaxfxixtx2x0x1x6x'></div>
           <div className='flex justify-center mt-6'>
             <Button color='dark/white'>
