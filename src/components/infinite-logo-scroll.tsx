@@ -16,9 +16,26 @@ interface LogoScrollProps {
 export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
   const [currentPosition, setCurrentPosition] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [multiplicator, setMultiplicator] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number>(null);
   const lastTimeRef = useRef<number>(0);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth >= 320) {
+        setMultiplicator(2);
+      } else if (window.innerWidth >= 480) {
+        setMultiplicator(3);
+      } else if (window.innerWidth >= 768) {
+        setMultiplicator(4);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const scroll = useCallback((timestamp: number) => {
     if (!scrollRef.current) return;
@@ -77,35 +94,28 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
           transition: 'none',
         }}
       >
-        {/* Reduce to two sets of logos instead of three */}
-        {[...Array(4)].map((_, setIndex) => (
-          <>
-            {logos.map((logo, index) => (
-              <Image
-                key={`logo-${setIndex}-${index}`}
-                src={logo.src}
-                className='block dark:hidden'
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                draggable={false}
-                loading='eager'
-              />
-            ))}
-            {logos.map((logo, index) => (
-              <Image
-                key={`logo-dark-${setIndex}-${index}`}
-                src={logo.srcDark}
-                className='hidden dark:block'
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                draggable={false}
-                loading='eager'
-              />
-            ))}
-          </>
-        ))}
+        {Array.from({ length: multiplicator }).flatMap((_, setIndex) =>
+          logos.map((logo, index) => (
+            <Image
+              key={`logo-${setIndex}-${index}`}
+              src={logo.src}
+              className='block dark:hidden'
+              data-dark-src={logo.srcDark}
+              alt={logo.alt}
+              width={logo.width}
+              height={logo.height}
+              draggable={false}
+              loading='eager'
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                const darkSrc = target.getAttribute('data-dark-src');
+                if (darkSrc && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                  target.src = darkSrc;
+                }
+              }}
+            />
+          ))
+        )}
       </div>
     </div>
   );

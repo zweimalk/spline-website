@@ -23,7 +23,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   };
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-lg  dark:bg-light-black cursor-pointer w-full '>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all dark:bg-light-black cursor-pointer w-full '>
       {/* Image Container */}
       <div className='relative h-[197px] w-full overflow-hidden'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />

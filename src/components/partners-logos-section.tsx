@@ -1,4 +1,5 @@
 import { InfiniteLogoScroll } from '@/components/infinite-logo-scroll';
+import { Suspense } from 'react';
 
 const logos = [
   {
@@ -94,11 +95,12 @@ const logos = [
   },
 ];
 
-// TODO: fix svgs for dark mode
 export default function PartnersLogosSection() {
   return (
-    <section className='my-4'>
-      <InfiniteLogoScroll logos={logos} />
-    </section>
+    <Suspense fallback={<div>Loading...</div>}>
+      <section className='my-4'>
+        <InfiniteLogoScroll logos={logos} />
+      </section>
+    </Suspense>
   );
 }

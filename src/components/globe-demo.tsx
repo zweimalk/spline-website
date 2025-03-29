@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'motion/react';
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import { FloatingLabel } from './floating-label';
 import { Body1 } from './Typo/Body1';
 import { Header1 } from './Typo/Header1';
@@ -495,37 +496,39 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className='container mx-auto px-4 mt-20'>
-      <Header1 className='text-center pb-10'>we worked with</Header1>
-      <div className='flex flex-row items-center justify-center relative w-full'>
-        <div className='container mx-auto w-full relative overflow-hidden'>
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-            }}
-            className='w-full aspect-square'
-          >
-            <div className='mb-80'>
-              <Body1 className='text-center'>professionals from all over the world</Body1>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className='container mx-auto px-4 mt-20'>
+        <Header1 className='text-center pb-10'>we worked with</Header1>
+        <div className='flex flex-row items-center justify-center relative w-full'>
+          <div className='container mx-auto w-full relative overflow-hidden'>
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 1,
+              }}
+              className='w-full aspect-square'
+            >
+              <div className='mb-80'>
+                <Body1 className='text-center'>professionals from all over the world</Body1>
+              </div>
+            </motion.div>
+            {labels.map((label) => (
+              <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
+            ))}
+            <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40 md:h-80 xl:h-100 md:to-75% xl:to-60%' />
+            <div className='absolute inset-0 aspect-square top-12'>
+              <World data={sampleArcs} globeConfig={globeConfig} />
             </div>
-          </motion.div>
-          {labels.map((label) => (
-            <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
-          ))}
-          <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40 md:h-80 xl:h-100 md:to-75% xl:to-60%' />
-          <div className='absolute inset-0 aspect-square top-12'>
-            <World data={sampleArcs} globeConfig={globeConfig} />
           </div>
         </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
