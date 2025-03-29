@@ -130,7 +130,10 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
           style={{ transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 16}px))` }}
         >
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className='w-full min-w-full @lg:min-w-[calc(50%-12px)] @lg:w-[calc(50%-12px)]'>
+            <div
+              key={testimonial.id}
+              className='w-full min-w-full h-[320px] md:h-[280px] lg:h-auto @lg:min-w-[calc(50%-12px)] @lg:w-[calc(50%-12px)]'
+            >
               <TestimonialCard testimonial={testimonial} />
             </div>
           ))}

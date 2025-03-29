@@ -16,7 +16,7 @@ export const FloatingLabel = ({
 
   return (
     <motion.div
-      className='absolute text-blue-600 text-[8px] leading-[12px] md:text-lg font-bold px-2 pt-0.5 rounded-full dark:bg-white z-30'
+      className='absolute text-spline-blue text-[8px] leading-[12px] md:text-lg md:leading-[24px] lg:text-2xl lg:leading-[32px] font-bold px-2 md:px-3 lg:px-4 pt-0.5 md:py-1 lg:py-2 rounded-full dark:bg-white z-30'
       initial={{
         top: `calc(${top} + ${randomOffset()}px)`,
         left: `calc(${left} + ${randomOffset()}px)`,

@@ -13,7 +13,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, position, company, content, avatarUrl } = testimonial;
 
   return (
-    <div className='flex flex-col h-[390px] p-8 bg-background rounded-xl shadow-[0px_8px_24px_rgba(0,0,0,0.1)] dark:bg-light-black'>
+    <div className='flex flex-col h-full p-8 bg-background rounded-xl shadow-[0px_8px_24px_rgba(0,0,0,0.1)] dark:bg-light-black'>
       <div className='flex items-center gap-4 mb-6'>
         <div className='relative w-15 h-15 overflow-hidden rounded-full shrink-0'>
           <Image
