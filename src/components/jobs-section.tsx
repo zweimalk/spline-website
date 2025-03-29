@@ -27,7 +27,7 @@ export default async function JobsSection() {
               key={job.id}
               title={job.advert.name}
               location='Kraków, Poland / Remote'
-              url={job.application_form}
+              url={job.url}
               // ask Bartek about tags
               tags={['it', 'marketing', 'engineering']}
             />

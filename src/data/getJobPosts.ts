@@ -23,6 +23,7 @@ interface JobPost {
     '_job_type.translation': string;
   };
   application_form: string;
+  url: string;
   // Add other job post fields as needed
 }
 
