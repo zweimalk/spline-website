@@ -15,48 +15,37 @@ interface HighlightsSliderProps {
  */
 export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: HighlightsSliderProps) {
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
   const [hasDragged, setHasDragged] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [moveX, setMoveX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const touchStartXRef = useRef<number>(0);
+  const dragStartXRef = useRef<number>(0);
+  const scrollLeftRef = useRef<number>(0);
 
-  const goToNextSlide = useCallback(() => {
-    if (sliderRef.current) {
-      const scrollWidth = sliderRef.current.scrollWidth;
-      const clientWidth = sliderRef.current.clientWidth;
-      const newScrollLeft = Math.max(0, Math.min(scrollLeft + clientWidth, scrollWidth - clientWidth));
-      sliderRef.current.scrollLeft = newScrollLeft;
-      setScrollLeft(newScrollLeft);
-    }
-  }, [scrollLeft]);
-
+  // Mouse drag handlers
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
     setIsDragging(true);
     setHasDragged(false);
+    dragStartXRef.current = e.pageX;
     if (sliderRef.current) {
-      setStartX(e.pageX);
-      setScrollLeft(sliderRef.current.scrollLeft);
+      scrollLeftRef.current = sliderRef.current.scrollLeft;
     }
-    setMoveX(e.pageX);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
     e.preventDefault();
-    setMoveX(e.pageX);
-
-    const movement = Math.abs(moveX - e.pageX);
-    if (movement > 5) {
-      setHasDragged(true);
-    }
 
     if (sliderRef.current) {
-      const x = e.pageX - startX;
-      sliderRef.current.scrollLeft = scrollLeft - x * 0.2;
+      const x = e.pageX - dragStartXRef.current;
+      sliderRef.current.scrollLeft = scrollLeftRef.current - x;
+
+      // Set hasDragged if there's significant movement
+      if (Math.abs(x) > 2) {
+        setHasDragged(true);
+      }
     }
   };
 
@@ -64,33 +53,30 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     setIsDragging(false);
   };
 
-  // Add touch event handlers
+  // Touch handlers (unchanged)
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
-    setIsDragging(true);
+    touchStartXRef.current = e.touches[0].pageX;
     setHasDragged(false);
-    if (sliderRef.current) {
-      setStartX(e.touches[0].pageX);
-      setScrollLeft(sliderRef.current.scrollLeft);
-    }
-    setMoveX(e.touches[0].pageX);
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    setMoveX(e.touches[0].pageX);
-
-    const movement = Math.abs(moveX - e.touches[0].pageX);
-    if (movement > 5) {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touchEndX = e.changedTouches[0].pageX;
+    const moveDistance = Math.abs(touchEndX - touchStartXRef.current);
+    if (moveDistance > 5) {
       setHasDragged(true);
     }
-
-    if (sliderRef.current) {
-      const x = e.touches[0].pageX - startX;
-      sliderRef.current.scrollLeft = scrollLeft - x * 0.2;
-    }
   };
+
+  const goToNextSlide = useCallback(() => {
+    if (sliderRef.current) {
+      const cardWidth = 340; // max-w-[340px]
+      const gap = 16; // gap-4 = 16px
+      const slideWidth = cardWidth + gap;
+      const nextSlide = (currentSlide + 1) % highlights.length;
+      sliderRef.current.scrollLeft = nextSlide * slideWidth;
+    }
+  }, [currentSlide, highlights.length]);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -99,7 +85,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
     return () => clearInterval(interval);
   }, [goToNextSlide, isAutoPlaying, autoplayInterval]);
 
-  // Simplify the scroll event listener
+  // Scroll event listener for updating current slide
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
@@ -112,7 +98,6 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
 
       const newSlide = Math.round(scrollPosition / slideWidth);
       setCurrentSlide(Math.min(Math.max(0, newSlide), highlights.length - 1));
-      setScrollLeft(scrollPosition);
     };
 
     slider.addEventListener('scroll', handleScroll);
@@ -124,9 +109,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       const cardWidth = 340; // max-w-[340px]
       const gap = 16; // gap-4 = 16px
       const slideWidth = cardWidth + gap;
-      const newScrollLeft = index * slideWidth;
-
-      sliderRef.current.scrollLeft = newScrollLeft;
+      sliderRef.current.scrollLeft = index * slideWidth;
       setCurrentSlide(index);
     }
   };
@@ -136,9 +119,12 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       <div className='relative w-full' onMouseEnter={() => setIsAutoPlaying(false)}>
         <div
           ref={sliderRef}
-          className={cn('relative overflow-x-scroll scrollbar-hide touch-pan-y select-none', 'scroll-smooth')}
+          className={cn(
+            'relative overflow-x-scroll scrollbar-hide select-none',
+            'scroll-smooth snap-x snap-mandatory',
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          )}
           style={{
-            scrollBehavior: isDragging ? 'auto' : 'smooth',
             WebkitOverflowScrolling: 'touch',
           }}
           onMouseDown={handleMouseDown}
@@ -146,8 +132,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleMouseUp}
+          onTouchEnd={handleTouchEnd}
         >
           <div className='flex gap-4'>
             <div className='shrink-0' style={{ width: 'calc(50vw - 170px)' }} />
@@ -155,7 +140,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
             {highlights.map((highlight) => (
               <div
                 key={highlight._id}
-                className='w-full max-w-[340px] h-[488px] shrink-0'
+                className='w-full max-w-[340px] h-[488px] shrink-0 snap-center my-4'
                 onClick={() => {
                   if (!hasDragged) {
                     window.open(highlight.ctaUrl, '_blank');
