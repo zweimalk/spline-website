@@ -39,11 +39,11 @@ export default async function JobsSection() {
           <Link
             href='https://spline.traffit.com/career/'
             target='_blank'
-            className='cursor-pointer xl:text-2xl flex items-center gap-x-4'
+            className='cursor-pointer xl:text-2xl flex items-center gap-x-4 justify-center'
           >
             <Button color='dark/white'>
               See all current offers
-              <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
+              <div className='w-6 h-6 xl:w-10 xl:h-10 ml-2 pt-1.5'>
                 <ArrowRightIcon className='font-bold' />
               </div>
             </Button>
