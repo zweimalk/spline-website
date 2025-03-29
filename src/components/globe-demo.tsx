@@ -495,7 +495,7 @@ export function GlobeDemo() {
   ];
 
   return (
-    <>
+    <div className='container mx-auto px-4 mt-20'>
       <Header1 className='text-center'>we worked with</Header1>
       <div className='flex flex-row items-center justify-center relative w-full'>
         <div className='container mx-auto w-full relative overflow-hidden'>
@@ -526,6 +526,6 @@ export function GlobeDemo() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
