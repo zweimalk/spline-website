@@ -17,7 +17,7 @@ export function GlobeDemo() {
     atmosphereAltitude: 0.2,
     emissive: '#09090b',
     emissiveIntensity: 0.7,
-    shininess: 0.9,
+    shininess: 0.3,
     polygonColor: '#E4E4E4',
     ambientLight: '#38bdf8',
     directionalLeftLight: '#ffffff',
@@ -29,7 +29,7 @@ export function GlobeDemo() {
     maxRings: 3,
     initialPosition: { lat: 51.033097, lng: 6.919027 },
     autoRotate: false,
-    autoRotateSpeed: 0.5,
+    autoRotateSpeed: 0.3,
   };
 
   const sampleArcs = [

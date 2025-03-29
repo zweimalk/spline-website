@@ -148,7 +148,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
+                index === currentIndex ? 'bg-foreground' : 'bg-foreground/20 hover:bg-foreground/40'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -162,7 +162,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
                   key={index}
                   onClick={() => goToDesktopSlide(Math.floor(index / 2))}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
+                    index === currentIndex ? 'bg-foreground' : 'bg-foreground/20 hover:bg-foreground/40'
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
