@@ -5,6 +5,7 @@ interface JobCardProps {
   title: string;
   location: string;
   url: string;
+  // description?: string;
   tags?: string[];
 }
 
@@ -12,6 +13,7 @@ export const JobCard = ({
   title,
   location = 'Kraków, Poland / Remote', // Default value based on image
   url,
+  description = '',
   tags = [], // Optional tags array
 }: JobCardProps) => {
   return (
@@ -35,6 +37,8 @@ export const JobCard = ({
       <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 text-center'>
         <p>{location}</p>
       </div>
+
+      {/* <div dangerouslySetInnerHTML={{ __html: description }} /> */}
 
       {/* See more link */}
       <Link href={url} className='flex items-center gap-2 justify-center mt-6'>

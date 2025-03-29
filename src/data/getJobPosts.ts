@@ -12,7 +12,7 @@ interface JobPost {
   id: string;
   title: string;
   advert: {
-    values: string[];
+    values: { field_id: string; value: string }[];
     id: number;
     name: string;
     recruitment: object;

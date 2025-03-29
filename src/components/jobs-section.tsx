@@ -10,6 +10,7 @@ export default async function JobsSection() {
   const jobPosts = await getJobPosts();
 
   console.log(jobPosts[0].advert.values);
+  console.log(jobPosts[1].advert.values);
 
   return (
     <Suspense
@@ -28,6 +29,7 @@ export default async function JobsSection() {
               title={job.advert.name}
               location='Kraków, Poland / Remote'
               url={job.url}
+              // description={job.advert.values[0].value}
               // ask Bartek about tags
               tags={['it', 'marketing', 'engineering']}
             />
