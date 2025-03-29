@@ -22,6 +22,8 @@
 :root {
   --background: #e4e4e4;
   --foreground: #191919;
+  --clip-offset-x: 68px;
+  --clip-offset-y: 29px;
 }
 
 @theme inline {
@@ -42,20 +44,103 @@ body {
   font-family: var(--font-sans, Arial, Helvetica, sans-serif);
 }
 
-.clip-diagonal {
+/* .clip-diagonal {
   clip-path: polygon(60px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 60px) 100%, 0 100%, 0 25px);
+} */
+
+/* CLIP NORMAL */
+
+.clip-diagonal {
+  --scale-factor: 1;
+  clip-path: polygon(
+    calc(var(--clip-offset-x) * var(--scale-factor)) 0,
+    100% 0,
+    100% calc(100% - calc(var(--clip-offset-y) * var(--scale-factor))),
+    calc(100% - calc(var(--clip-offset-x) * 1.088 * var(--scale-factor))) 100%,
+    0 100%,
+    0 calc(var(--clip-offset-y) * var(--scale-factor))
+  );
 }
 
-.clip-diagonal-contact-us {
-  clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 40px) 100%, 0 100%, 0 15px);
+/* Size variants */
+.clip-diagonal-sm {
+  --scale-factor: 0.75;
 }
 
-.clip-diagonal-medium {
-  clip-path: polygon(120px 0, 100% 0, 100% calc(100% - 50px), calc(100% - 120px) 100%, 0 100%, 0 50px);
+.clip-diagonal-md {
+  --scale-factor: 1.5;
 }
 
-.clip-diagonal-large {
-  clip-path: polygon(180px 0, 100% 0, 100% calc(100% - 75px), calc(100% - 180px) 100%, 0 100%, 0 75px);
+.clip-diagonal-lg {
+  --scale-factor: 2;
+}
+
+.clip-diagonal-xl {
+  --scale-factor: 3;
+}
+
+/* CLIP RESPONSIVE */
+
+/* Base clip-diagonal utility class with responsive variants */
+.clip-diagonal-responsive {
+  --scale-factor: 1;
+  clip-path: polygon(
+    calc(var(--clip-offset-x) * var(--scale-factor)) 0,
+    100% 0,
+    100% calc(100% - calc(var(--clip-offset-y) * var(--scale-factor))),
+    calc(100% - calc(var(--clip-offset-x) * 1.088 * var(--scale-factor))) 100%,
+    0 100%,
+    0 calc(var(--clip-offset-y) * var(--scale-factor))
+  );
+}
+
+/* Responsive variants */
+@media (min-width: 640px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 0.75;
+  }
+}
+
+@media (min-width: 768px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 1.25;
+  }
+}
+
+@media (min-width: 1280px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 1.5;
+  }
+}
+
+@media (min-width: 1536px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 1.75;
+  }
+}
+
+@media (min-width: 1920px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 2;
+  }
+}
+
+@media (min-width: 2560px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 2.5;
+  }
+}
+
+@media (min-width: 3840px) {
+  .clip-diagonal-responsive {
+    --scale-factor: 3;
+  }
 }
 
 /* Custom slider styling */

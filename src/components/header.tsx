@@ -9,17 +9,17 @@ import { Fragment, useState } from 'react';
 import { ArrowRightSvgIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } from './icons';
 
 const mobileNavigation = [
-  { name: 'technology & electronics', href: '#' },
-  { name: 'healthcare solutions', href: '#' },
-  { name: 'automotive & mobility', href: '#' },
-  { name: 'retail media & services', href: '#' },
-  { name: 'software development', href: '#' },
+  { name: 'technology & electronics', href: '#what-we-do' },
+  { name: 'healthcare solutions', href: '#what-we-do' },
+  { name: 'automotive & mobility', href: '#what-we-do' },
+  { name: 'retail media & services', href: '#what-we-do' },
+  { name: 'software development', href: '#what-we-do' },
 ];
 
 const navigation = [
-  { name: 'Our Services', href: '#' },
-  { name: 'Useful Documents', href: '#' },
-  { name: 'Join Us', href: '#' },
+  { name: 'Our Services', href: '#what-we-do' },
+  // { name: 'Useful Documents', href: '#' },
+  { name: 'Join Us', href: '#join-us' },
   { name: 'Contact', href: '#contact-card' },
 ];
 

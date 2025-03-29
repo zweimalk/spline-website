@@ -53,7 +53,7 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
           alt='hero'
           width={537}
           height={135}
-          className='w-full object-cover max-w-[537px] max-h-[135px] rounded-lg clip-diagonal'
+          className='w-full object-cover max-w-[537px] max-h-[135px] rounded-lg clip-diagonal clip-diagonal-sm md:clip-diagonal-md'
         />
       </div>
       <div className='mt-7'>

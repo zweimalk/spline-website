@@ -8,7 +8,7 @@ const styles = {
     // Base
     'relative isolate inline-flex items-baseline justify-center gap-x-2 rounded-lg border text-base font-semibold',
     // Sizing
-    'px-[calc(--spacing(4.5))] py-[calc(--spacing(2.5))] sm:px-[calc(--spacing(3))] sm:py-[calc(--spacing(1.5))] sm:text-sm/6',
+    'px-[calc(--spacing(4.5))] py-[calc(--spacing(2.5))]',
     // Focus
     'focus:outline-hidden data-focus:outline data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500',
     // Disabled

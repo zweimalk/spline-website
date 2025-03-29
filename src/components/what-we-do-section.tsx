@@ -3,7 +3,7 @@ import { Header1 } from './Typo/Header1';
 
 export const WhatWeDoSection = () => {
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-6 px-4 mt-24 md:mt-40'>
+    <div className='grid grid-cols-1 xl:grid-cols-2 gap-x-6 px-4 mt-24 md:mt-40' id='what-we-do'>
       <div>
         <div className='md:mb-40 lg:sticky lg:top-30 xl:top-40'>
           <Header1>

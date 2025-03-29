@@ -32,7 +32,7 @@ export default function Home() {
           </div>
         }
       >
-        <div className='container mx-auto px-4'>
+        <div className='container mx-auto px-4' id='join-us'>
           <Title className='mb-10 mt-12'>join us</Title>
           <div id='traffit-an-list-xtxrxaxfxixtx2x0x1x6x'></div>
           <div className='flex justify-center mt-6'>
