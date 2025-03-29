@@ -173,7 +173,7 @@ export const ContactForm = () => {
           }}
         >
           {(field) => (
-            <div className='flex items-start gap-2'>
+            <div className='flex items-start gap-10 border-b border-gray-2 dark:border-gray-5'>
               <input
                 type='checkbox'
                 checked={field.state.value}
@@ -181,8 +181,8 @@ export const ContactForm = () => {
                 onBlur={field.handleBlur}
                 className='mt-1 h-4 w-4 rounded border-gray-2 dark:border-gray-5'
               />
-              <div className='flex flex-col gap-2'>
-                <p className='text-sm text-gray-5 dark:text-gray-1'>
+              <div className='flex flex-col gap-2  pb-6'>
+                <p className='text-xs text-gray-5 dark:text-gray-1 text-left'>
                   I confirm that I have been provided with the following information regarding the processing of
                   personal data pursuant to Art. 13 of Regulation 2016/679 of the European Parliament and of the EU
                   Council of 27/04/2016 on the protection of natural persons with regard to the processing of personal
@@ -201,14 +201,17 @@ export const ContactForm = () => {
               {showCaptcha && (
                 <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} onChange={handleCaptchaChange} />
               )}
+
               <Button
                 color='dark/white'
-                type='submit'
                 disabled={!canSubmit}
-                className='flex items-center justify-between'
+                className='cursor-pointer mt-2 xl:text-2xl flex items-center gap-x-4'
+                onClick={() => {
+                  document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 {isSubmitting ? '...' : 'Send'}
-                <div className='flex items-center justify-center w-6 h-6 ml-8'>
+                <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
                   <ArrowRightIcon className='font-bold' />
                 </div>
               </Button>
