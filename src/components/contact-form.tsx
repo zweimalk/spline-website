@@ -2,7 +2,10 @@
 
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { AnyFieldApi, useForm } from '@tanstack/react-form';
+import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Button } from './button';
+
 const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
   return (
     <>
@@ -17,6 +20,9 @@ const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
 };
 
 export const ContactForm = () => {
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
   const form = useForm({
     defaultValues: {
       nameAndSurname: '',
@@ -27,7 +33,14 @@ export const ContactForm = () => {
     },
     onSubmit: async (values) => {
       try {
-        console.log('Form submitted:', values);
+        if (!captchaValue) {
+          throw new Error('Please complete the captcha');
+        }
+
+        // Include captcha token in your form submission
+        console.log('Form submitted:', { ...values, captchaToken: captchaValue });
+        setCaptchaValue(null);
+        setShowCaptcha(false);
         form.reset();
       } catch (error: unknown) {
         console.error('Error submitting form:', error instanceof Error ? error.message : 'Unknown error');
@@ -35,15 +48,27 @@ export const ContactForm = () => {
     },
   });
 
+  const handleInitialSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Check if form is valid before showing captcha
+    if (form.state.canSubmit) {
+      setShowCaptcha(true);
+    } else {
+      void form.handleSubmit();
+    }
+  };
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+    if (value) {
+      void form.handleSubmit();
+    }
+  };
+
   return (
-    <form
-      className='flex flex-col space-y-6 mt-4'
-      onSubmit={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        void form.handleSubmit();
-      }}
-    >
+    <form className='flex flex-col space-y-6 mt-4' onSubmit={handleInitialSubmit}>
       <div className='space-y-4'>
         <form.Field
           name='nameAndSurname'
@@ -172,17 +197,22 @@ export const ContactForm = () => {
 
         <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
           {([canSubmit, isSubmitting]) => (
-            <Button
-              color='dark/white'
-              type='submit'
-              disabled={!canSubmit}
-              className='flex items-center justify-between'
-            >
-              {isSubmitting ? '...' : 'Send'}
-              <div className='flex items-center justify-center w-6 h-6 ml-8'>
-                <ArrowRightIcon className='font-bold' />
-              </div>
-            </Button>
+            <div className='flex flex-col items-start gap-4'>
+              {showCaptcha && (
+                <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} onChange={handleCaptchaChange} />
+              )}
+              <Button
+                color='dark/white'
+                type='submit'
+                disabled={!canSubmit}
+                className='flex items-center justify-between'
+              >
+                {isSubmitting ? '...' : 'Send'}
+                <div className='flex items-center justify-center w-6 h-6 ml-8'>
+                  <ArrowRightIcon className='font-bold' />
+                </div>
+              </Button>
+            </div>
           )}
         </form.Subscribe>
       </div>
