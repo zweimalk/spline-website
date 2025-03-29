@@ -14,26 +14,57 @@ interface TestimonialSliderProps {
  */
 export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: TestimonialSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Track if the screen is mobile size
   const [isMobile, setIsMobile] = useState(false);
 
-  // Initialize animations for each word
+  // Initialize intersection observer
   useEffect(() => {
-    // Check if we're on mobile initially
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsAutoPlaying(true);
+        } else {
+          setIsAutoPlaying(false);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sliderRef.current) {
+      observerRef.current.observe(sliderRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  // Optimize mobile check with debounce
+  useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Common breakpoint for mobile
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    let timeoutId: NodeJS.Timeout;
+    const debouncedCheck = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(checkIfMobile, 250);
     };
 
     checkIfMobile();
-
-    // Add resize listener
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
+    window.addEventListener('resize', debouncedCheck);
+    return () => {
+      window.removeEventListener('resize', debouncedCheck);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const minSwipeDistance = 50;
@@ -91,12 +122,24 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
     setTimeout(() => setIsAutoPlaying(true), 1000);
   };
 
+  // Optimize autoplay with requestAnimationFrame
   useEffect(() => {
     if (!isAutoPlaying) return;
 
-    const interval = setInterval(goToNextSlide, autoplayInterval);
-    return () => clearInterval(interval);
-  }, [goToNextSlide, isAutoPlaying, autoplayInterval]);
+    let rafId: number;
+    let lastTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      if (currentTime - lastTime >= autoplayInterval) {
+        goToNextSlide();
+        lastTime = currentTime;
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [isAutoPlaying, goToNextSlide, autoplayInterval]);
 
   const handleMouseEnter = () => setIsAutoPlaying(false);
   const handleMouseLeave = () => setIsAutoPlaying(true);

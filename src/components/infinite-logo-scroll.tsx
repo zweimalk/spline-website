@@ -99,7 +99,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
             <Image
               key={`logo-${setIndex}-${index}`}
               src={logo.src}
-              className='block dark:hidden'
+              className='block dark:hidden w-18 h-18 md:w-32 md:h-32'
               data-dark-src={logo.srcDark}
               alt={logo.alt}
               width={logo.width}

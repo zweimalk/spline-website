@@ -12,26 +12,25 @@ export const FloatingLabel = ({
   top: string;
   left: string;
 }) => {
-  const randomOffset = () => Math.random() * 20 - 10; // Random value between -10 and 10
+  // Use a single random offset per render instead of calculating multiple times
+  const offsetX = Math.random() * 20 - 10;
+  const offsetY = Math.random() * 20 - 10;
 
   return (
     <motion.div
       className='absolute text-spline-blue text-[8px] leading-[12px] md:text-lg md:leading-[24px] lg:text-2xl lg:leading-[32px] font-bold px-2 md:px-3 lg:px-4 pt-0.5 md:py-1 lg:py-2 rounded-full dark:bg-white z-30'
-      initial={{
-        top: `calc(${top} + ${randomOffset()}px)`,
-        left: `calc(${left} + ${randomOffset()}px)`,
+      style={{
+        top,
+        left,
         backgroundColor: color,
+        willChange: 'transform',
       }}
+      initial={{ transform: `translate(${offsetX}px, ${offsetY}px)` }}
       animate={{
-        top: [
-          `calc(${top} + ${randomOffset()}px)`,
-          `calc(${top} + ${randomOffset()}px)`,
-          `calc(${top} + ${randomOffset()}px)`,
-        ],
-        left: [
-          `calc(${left} + ${randomOffset()}px)`,
-          `calc(${left} + ${randomOffset()}px)`,
-          `calc(${left} + ${randomOffset()}px)`,
+        transform: [
+          `translate(${offsetX}px, ${offsetY}px)`,
+          `translate(${-offsetX}px, ${-offsetY}px)`,
+          `translate(${offsetX}px, ${offsetY}px)`,
         ],
       }}
       transition={{
