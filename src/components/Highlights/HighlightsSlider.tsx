@@ -125,7 +125,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
               <div
                 key={highlight._id}
                 className='w-full max-w-[340px] h-[488px] shrink-0'
-                onClick={(e) => {
+                onClick={() => {
                   if (!hasDragged) {
                     window.open(highlight.ctaUrl, '_blank');
                   }
