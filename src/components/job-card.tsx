@@ -17,7 +17,7 @@ export const JobCard = ({
   tags = [], // Optional tags array
 }: JobCardProps) => {
   return (
-    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-lg transition-all hover:shadow-xl w-full md:w-[400px] md:h-[400px] grid grid-rows-[auto_auto_auto_1fr_auto]'>
+    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all w-full md:w-[400px] md:h-[400px] grid grid-rows-[auto_auto_auto_1fr_auto]'>
       {/* Tags section */}
       <div className='mb-4 flex gap-2 items-center justify-center pb-3'>
         {tags.map((tag) => (
