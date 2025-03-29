@@ -48,11 +48,9 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
           {description}
         </p>
       </div>
-      <div className='flex justify-center md:justify-start items-center mt-8'>
-        <div className='flex items-center justify-center font-semibold text-spline-blue dark:text-white lg:group-hover:text-background transition-all duration-300 w-full border border-spline-blue dark:border-white rounded-full px-4 py-1'>
-          See more
-          <ArrowRightIcon className='hidden lg:block w-8 h-8 text-spline-blue lg:group-hover:text-background transition-all duration-300 lg:group-hover:translate-x-4' />
-        </div>
+      <div className='flex items-center justify-center font-semibold text-spline-blue dark:text-white lg:group-hover:text-background transition-all duration-300 w-full border border-spline-blue dark:border-white rounded-full px-4 py-1 mt-8 lg:border-0 lg:bg-transparent lg:justify-start lg:pl-0'>
+        See more
+        <ArrowRightIcon className='hidden lg:block w-8 h-8 text-spline-blue lg:group-hover:text-background transition-all duration-300 lg:group-hover:translate-x-4 dark:text-white lg:ml-4' />
       </div>
     </div>
   );

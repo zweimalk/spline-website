@@ -65,7 +65,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
           <div className='relative w-55 h-80 overflow-hidden rounded-lg clip-diagonal clip-diagonal-sm'>
             <Image src={quotes[activeIndex].imageSrc} alt={quotes[activeIndex].name} fill className='object-cover' />
           </div>
-          <div className='hidden lg:block w-40 ml-4'>
+          <div className='hidden lg:block w-50 ml-4'>
             <Header3 className='font-semibold'>{quotes[activeIndex].name}</Header3>
             <p className=' text-gray-4 dark:text-gray-2 tracking-wider'>{quotes[activeIndex].role}</p>
           </div>
