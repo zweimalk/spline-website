@@ -15,7 +15,7 @@ interface JobPost {
     values: string[];
     id: number;
     name: string;
-    recruitment: [Object];
+    recruitment: object;
     language: string;
   };
   options: {

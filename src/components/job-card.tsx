@@ -2,19 +2,15 @@ import Link from 'next/link';
 import { Header4 } from './Typo/Header4';
 
 interface JobCardProps {
-  id: string;
   title: string;
   location: string;
-  jobType: string;
   url: string;
   tags?: string[];
 }
 
 export const JobCard = ({
-  id,
   title,
   location = 'Kraków, Poland / Remote', // Default value based on image
-  jobType,
   url,
   tags = [], // Optional tags array
 }: JobCardProps) => {
