@@ -13,7 +13,7 @@ export const JobCard = ({
   title,
   location = 'Kraków, Poland / Remote', // Default value based on image
   url,
-  description = '',
+  // description = '',
   tags = [], // Optional tags array
 }: JobCardProps) => {
   return (
