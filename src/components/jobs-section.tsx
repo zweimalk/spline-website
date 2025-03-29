@@ -25,10 +25,8 @@ export default async function JobsSection() {
           {jobPosts.map((job) => (
             <JobCard
               key={job.id}
-              id={job.id}
               title={job.advert.name}
               location='Kraków, Poland / Remote'
-              jobType={job.options['_job_type.translation']}
               url={job.application_form}
               // ask Bartek about tags
               tags={['it', 'marketing', 'engineering']}
