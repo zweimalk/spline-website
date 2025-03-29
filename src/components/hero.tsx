@@ -37,6 +37,7 @@ export const Hero = () => {
             loop
             muted
             playsInline
+            preload='auto'
             className='w-full object-cover md:hidden mt-6 rounded-lg clip-diagonal clip-diagonal-sm'
           >
             <source src='/video/hero_video.mp4' type='video/mp4' />
@@ -64,6 +65,7 @@ export const Hero = () => {
             loop
             muted
             playsInline
+            preload='auto'
             className='hidden md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal-responsive'
           >
             <source src='/video/hero_video.mp4' type='video/mp4' />
