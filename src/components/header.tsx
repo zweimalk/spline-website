@@ -153,11 +153,11 @@ export const Header = () => {
                       <span className='sr-only'>LinkedIn</span>
                       <LinkedinLogoIcon className='w-5 h-5' />
                     </Link>
-                    <Link href='https://facebook.com/spline'>
+                    <Link href='https://www.facebook.com/share/12LutkKFykh/?mibextid=wwXIfr'>
                       <span className='sr-only'>Facebook</span>
                       <FacebookLogoIcon className='w-5 h-5' />
                     </Link>
-                    <Link href='https://instagram.com/spline'>
+                    <Link href='https://www.instagram.com/spline_design_?igsh=dnUzaGl3M3gza25p'>
                       <span className='sr-only'>Instagram</span>
                       <InstagramLogoIcon className='w-5 h-5' />
                     </Link>
