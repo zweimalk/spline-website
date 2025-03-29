@@ -61,14 +61,14 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
     >
       <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-16 p-6 lg:p-12 rounded-lg'>
         {/* Image section */}
-        <div className='flex justify-center'>
+        <div className='flex justify-center md:mt-6'>
           <div className='relative w-55 h-80 overflow-hidden rounded-lg clip-diagonal clip-diagonal-sm'>
             <Image src={quotes[activeIndex].imageSrc} alt={quotes[activeIndex].name} fill className='object-cover' />
           </div>
         </div>
 
         {/* Content section */}
-        <div className='w-full'>
+        <div className='w-full '>
           <Header3 className='text-center text-2xl lg:text-3xl font-semibold'>{quotes[activeIndex].name}</Header3>
           <p className='text-center text-lg text-gray-4 dark:text-gray-2 tracking-wider'>{quotes[activeIndex].role}</p>
 
@@ -96,16 +96,16 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
             </button>
           </div>
 
-          <>
+          <div className='md:max-w-[500px] mx-auto mt-10'>
             <Cite className='text-center'>{quotes[activeIndex].quote}</Cite>
-          </>
+          </div>
 
-          <Body1 className='text-center mt-12'>{quotes[activeIndex].description}</Body1>
+          <Body1 className='text-center mt-12 md:max-w-[500px] mx-auto'>{quotes[activeIndex].description}</Body1>
         </div>
       </div>
 
       {/* Navigation controls */}
-      <div className='hidden md:flex justify-center items-center mt-8 gap-8'>
+      <div className='hidden md:flex justify-center items-center mb-10 mt-4 gap-8'>
         <button onClick={prevSlide} aria-label='Previous testimonial'>
           <ArrowLeftIcon className='w-8 h-8' />
         </button>
