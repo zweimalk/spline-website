@@ -17,7 +17,7 @@ export const JobCard = ({
   tags = [], // Optional tags array
 }: JobCardProps) => {
   return (
-    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-lg transition-all hover:shadow-md w-[340px] h-[350px] grid grid-rows-[auto_auto_1fr_auto_auto]'>
+    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-lg transition-all hover:shadow-xl w-full md:w-[400px] md:h-[400px] grid grid-rows-[auto_auto_auto_1fr_auto]'>
       {/* Tags section */}
       <div className='mb-4 flex gap-2 items-center justify-center pb-3'>
         {tags.map((tag) => (
@@ -34,15 +34,17 @@ export const JobCard = ({
       <Header4 className='mb-4 text-center'>{title}</Header4>
 
       {/* Location and job type */}
-      <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 text-center'>
+      <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 ml-4'>
         <p>{location}</p>
       </div>
 
-      <ul className='list-disc list-inside'>
-        {description.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
+      <div className='mt-2 ml-4'>
+        <ul className='list-disc list-inside'>
+          {description.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
 
       {/* See more link */}
       <Link href={url} className='flex items-center gap-2 justify-center mt-6'>

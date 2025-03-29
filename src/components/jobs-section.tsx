@@ -69,7 +69,7 @@ export default async function JobsSection() {
             />
           ))}
         </div>
-        <div className='flex justify-center mt-6'>
+        <div className='flex justify-center mt-12'>
           <Link
             href='https://spline.traffit.com/career/'
             target='_blank'
