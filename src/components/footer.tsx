@@ -4,10 +4,13 @@ export const Footer = () => {
   return (
     <footer className='fill-background w-full'>
       <div className='container mx-auto'>
-        <div className='flex justify-start items-center pt-20 px-6'>
+        <div className='flex justify-start items-center pt-20 px-6 xl:hidden'>
           <SplineLogo className='w-53' />
         </div>
-        <div className='px-6 py-12 grid grid-cols-2 xl:grid-cols-4 gap-8'>
+        <div className='px-6 py-12 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
+          <div className='hidden xl:flex justify-start items-start px-6'>
+            <SplineLogo />
+          </div>
           {/* Address Column */}
           <div>
             <h2 className='text-lg font-medium mb-6'>Address</h2>
