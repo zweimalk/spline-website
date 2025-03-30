@@ -50,13 +50,13 @@ export const Hero = () => {
           </p>
           <Button
             color='dark/white'
-            className='cursor-pointer mt-8 md:mt-10 xl:text-2xl flex items-center gap-x-4'
+            className='cursor-pointer mt-8 md:mt-10 xl:text-lg flex items-center gap-x-4'
             onClick={() => {
               document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Connect right now
-            <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
+            <div className='flex items-center justify-center w-6 h-6 xl:w-8 xl:h-8 ml-2'>
               <ArrowRightIcon className='font-bold' />
             </div>
           </Button>

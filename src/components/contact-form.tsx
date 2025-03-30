@@ -205,13 +205,13 @@ export const ContactForm = () => {
               <Button
                 color='dark/white'
                 disabled={!canSubmit}
-                className='cursor-pointer mt-2 xl:text-2xl flex items-center gap-x-4'
+                className='cursor-pointer mt-2 xl:text-lg flex items-center gap-x-4'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 {isSubmitting ? '...' : 'Send'}
-                <div className='flex items-center justify-center w-6 h-6 xl:w-10 xl:h-10 ml-2'>
+                <div className='flex items-center justify-center w-6 h-6 xl:w-8 xl:h-8 ml-2'>
                   <ArrowRightIcon className='font-bold' />
                 </div>
               </Button>
