@@ -59,10 +59,10 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >
-      <div className='flex flex-col lg:grid lg:grid-cols-2 items-center gap-8 lg:gap-16 p-6 lg:p-12 rounded-lg'>
+      <div className='flex flex-col lg:grid lg:grid-cols-2 items-center gap-8 lg:gap-16 p-6 rounded-lg lg:mt-6'>
         {/* Image section */}
-        <div className='flex justify-center md:mt-6 lg:mt-10 lg:justify-start w-full'>
-          <div className='relative w-55 h-80 overflow-hidden rounded-lg clip-diagonal clip-diagonal-sm'>
+        <div className='flex justify-center md:justify-start lg:self-start lg:mt-8'>
+          <div className='relative w-55 h-70 overflow-hidden rounded-lg clip-diagonal clip-diagonal-sm'>
             <Image src={quotes[activeIndex].imageSrc} alt={quotes[activeIndex].name} fill className='object-cover' />
           </div>
           <div className='hidden lg:block w-50 ml-4'>
@@ -104,7 +104,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
             </button>
           </div>
 
-          <div className='md:max-w-[500px] mx-auto mt-10 relative lg:mt-0'>
+          <div className='md:max-w-[500px] mx-auto mt-10 lg:mt-0 relative'>
             <svg
               width='33'
               height='26'
@@ -119,7 +119,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
               />
             </svg>
 
-            <Cite className='text-center lg:text-left'>{quotes[activeIndex].quote}</Cite>
+            <Cite className='text-center lg:text-left '>{quotes[activeIndex].quote}</Cite>
           </div>
 
           <Body1 className='text-center mt-12 md:max-w-[500px] mx-auto lg:text-left lg:mt-2'>

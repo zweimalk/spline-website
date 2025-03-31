@@ -15,7 +15,7 @@ export const Footer = () => {
           <div>
             <h2 className='text-lg font-medium mb-6'>Address</h2>
             <address className='not-italic text-sm'>
-              <p className='mb-2'>Spline s.c.</p>
+              <p className='mb-2'>Spline sp.z.o.o.</p>
               <p className='mb-2'>ul. Ceglana 7</p>
               <p className='mb-2'>40-514 Katowice</p>
               <p className='mb-2'>Poland</p>
@@ -77,7 +77,7 @@ export const Footer = () => {
             </div>
             {/* Legal Section */}
 
-            <div className='pb-8 pt-4'>
+            <div className='pb-8 pt-4 md:pt-0'>
               <div className='flex flex-col mb-4 md:mb-0 gap-1 md:gap-4 text-sm '>
                 <Link
                   href='/docs/spline_rodo.pdf'

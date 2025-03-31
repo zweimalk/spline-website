@@ -13,7 +13,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, position, company, content, avatarUrl } = testimonial;
 
   return (
-    <div className='flex flex-col h-full p-8 bg-background rounded-xl shadow-[0px_8px_24px_rgba(0,0,0,0.1)] dark:bg-light-black'>
+    <div className='flex flex-col h-full p-8 bg-background rounded-xl shadow-[0_1px_1px_rgba(0,0,0,0.05),0_4px_6px_rgba(34,42,53,0.04),0_24px_68px_rgba(47,48,55,0.05),0_2px_3px_rgba(0,0,0,0.04)] dark:bg-light-black'>
       <div className='flex items-center gap-4 mb-6'>
         <div className='relative w-15 h-15 overflow-hidden rounded-full shrink-0'>
           <Image
@@ -33,7 +33,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
         </div>
       </div>
       <div className='mt-4'>
-        <p className='flex-1 text-lg text-foreground/85 leading-snug'>{content}</p>
+        <p className='flex-1 text-foreground/85 leading-snug'>{content}</p>
       </div>
     </div>
   );

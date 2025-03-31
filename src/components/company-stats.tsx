@@ -85,8 +85,8 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
 
 export function CompanyStats() {
   return (
-    <div className='mt-30 grid grid-cols-1 lg:horizontal:grid-cols-2 xl:grid-cols-2 gap-4 lg:gap-10 px-4'>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-0'>
+    <div className='mt-30 grid grid-cols-1 lg:horizontal:grid-cols-2 xl:grid-cols-2 gap-4 lg:gap-10 sm:px-4'>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-0 px-4 sm:px-0'>
         <StatItem
           number='15'
           label='years of expertise'
@@ -123,7 +123,7 @@ export function CompanyStats() {
           viewBox='0 0 33 26'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className='hidden md:block absolute top-0 left-10 z-20'
+          className='hidden md:block absolute top-3 left-0 z-20'
         >
           <path
             d='M19.8481 25.728V14.4C19.8481 10.304 21.1281 7.04 23.6881 4.608C26.3121 2.112 29.4161 0.576 33.0001 0V4.512C31.2721 5.088 29.7361 6.144 28.3921 7.68C27.1121 9.216 26.4721 11.072 26.4721 13.248H32.8081V25.728H19.8481ZM0.840088 25.728V14.4C0.840088 10.304 2.12009 7.04 4.68009 4.608C7.30409 2.112 10.4081 0.576 13.9921 0V4.512C12.2641 5.088 10.7281 6.144 9.38409 7.68C8.10409 9.216 7.46409 11.072 7.46409 13.248H13.8001V25.728H0.840088Z'

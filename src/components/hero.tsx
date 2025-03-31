@@ -1,7 +1,6 @@
 'use client';
 
 import { ArrowDownIcon, ArrowRightIcon } from '@heroicons/react/16/solid';
-import { Button } from './button';
 import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from './icons';
 import { Link } from './link';
 
@@ -48,18 +47,17 @@ export const Hero = () => {
             them gain an edge over their competition. We understand that organisations we work with may be at different
             points in their digital journey.
           </p>
-          <Button
-            color='dark/white'
-            className='cursor-pointer mt-8 md:mt-10 xl:text-lg flex items-center gap-x-4'
+          <button
+            className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-[500]'
             onClick={() => {
               document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Connect right now
-            <div className='flex items-center justify-center w-6 h-6 xl:w-8 xl:h-8 ml-2'>
+            <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
               <ArrowRightIcon className='font-bold' />
             </div>
-          </Button>
+          </button>
           <video
             autoPlay
             loop

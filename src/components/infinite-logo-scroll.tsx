@@ -1,5 +1,6 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -14,12 +15,18 @@ interface LogoScrollProps {
 }
 
 export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
+  const { resolvedTheme } = useTheme();
   const [currentPosition, setCurrentPosition] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [multiplicator, setMultiplicator] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number>(null);
   const lastTimeRef = useRef<number>(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -47,7 +54,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
     }
 
     setCurrentPosition((prevPosition) => {
-      const nextPosition = prevPosition + 0.5; // Reduced speed
+      const nextPosition = prevPosition; // Reduced speed
       if (nextPosition >= scrollRef.current!.scrollWidth / 2) {
         return 0;
       }
@@ -94,28 +101,21 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
           transition: 'none',
         }}
       >
-        {Array.from({ length: multiplicator }).flatMap((_, setIndex) =>
-          logos.map((logo, index) => (
-            <Image
-              key={`logo-${setIndex}-${index}`}
-              src={logo.src}
-              className='block dark:hidden w-18 h-18 md:w-32 md:h-32'
-              data-dark-src={logo.srcDark}
-              alt={logo.alt}
-              width={logo.width}
-              height={logo.height}
-              draggable={false}
-              loading='eager'
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                const darkSrc = target.getAttribute('data-dark-src');
-                if (darkSrc && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  target.src = darkSrc;
-                }
-              }}
-            />
-          ))
-        )}
+        {mounted &&
+          Array.from({ length: multiplicator }).flatMap((_, setIndex) =>
+            logos.map((logo, index) => (
+              <Image
+                key={`logo-${setIndex}-${index}`}
+                src={resolvedTheme === 'dark' ? logo.srcDark : logo.src}
+                className='block w-18 h-18 md:w-24 md:h-24'
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                draggable={false}
+                loading='eager'
+              />
+            ))
+          )}
       </div>
     </div>
   );

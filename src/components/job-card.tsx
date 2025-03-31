@@ -34,7 +34,7 @@ export const JobCard = ({
       <Header4 className='mb-4 text-center'>{title}</Header4>
 
       {/* Location and job type */}
-      <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 ml-4'>
+      <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 ml-4 text-center'>
         <p>{location}</p>
       </div>
 

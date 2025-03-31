@@ -1,5 +1,5 @@
-import { Testimonial } from "@/types/testimonial";
-import { TestimonialSlider } from "./TestimonialSlider";
+import { Testimonial } from '@/types/testimonial';
+import { TestimonialSlider } from './TestimonialSlider';
 
 /**
  * Sample testimonial data with avatars from Unsplash
@@ -7,44 +7,40 @@ import { TestimonialSlider } from "./TestimonialSlider";
  */
 const testimonials: Testimonial[] = [
   {
-    id: "1",
-    name: "David Richardson",
-    position: "Managing Director",
-    company: "WA Consultant",
+    id: '1',
+    name: 'Bartosz Mielecki',
+    position: 'Cluster Manager',
+    company: 'PGM',
     content:
-      "We especially liked Spline's precise adherence to deadlines and flexibility as well as the quality of project execution.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&auto=format&fit=crop",
+      'The company creates an ideal space for development for its specialists, who are willing to share know-how in implemented projects, Their abitity to predict, their understanding of the specifics of the market, and their abitity to adapt to dynamicaLty chenging ensure effective cooperation.',
+    avatarUrl: '/images/avatar_gray.png',
   },
   {
-    id: "2",
-    name: "David Mark",
-    position: "Managing Director",
-    company: "WA Consultant",
+    id: '2',
+    name: 'Henning Meyer',
+    position: 'Head of Surfacing',
+    company: 'Bertrandt',
     content:
-      "We especially liked Spline's precise adherence to deadlines and flexibility as well as the quality of project execution.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=256&auto=format&fit=crop",
+      "We especially liked Spline's adherence to deadlines and flexibility as well as the quality of projects execution.",
+    avatarUrl: '/images/avatar_gray.png',
   },
   {
-    id: "3",
-    name: "Sarah Johnson",
-    position: "CTO",
-    company: "TechForward",
+    id: '3',
+    name: 'Anja Müller',
+    position: 'Senior Project Manager',
+    company: 'Olympus',
     content:
-      "Spline delivered our project on time and exceeded our expectations. Their technical expertise and communication were outstanding.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256&auto=format&fit=crop",
+      "I had the pleasure of collaborating with Spline's software engineering teams, and I was impressed by their professionalism, technical expertise, and ability to seamlessly integrate with our project needs. Their team was highly responsive, and the quality of work delivered exceeded our expectations.",
+    avatarUrl: '/images/avatar_gray.png',
   },
   {
-    id: "4",
-    name: "Michael Chen",
-    position: "Product Manager",
-    company: "InnovateCorp",
+    id: '4',
+    name: 'Natalia Madera',
+    position: 'Category Buyer IT',
+    company: 'Advalmed',
     content:
-      "Working with Spline transformed our product development process. Their team brought innovative solutions to complex problems.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=256&auto=format&fit=crop",
+      'Spline ensures the best possible customer care. We can always count on clear and consistent messages, which builds trust and certainty in our relationships.',
+    avatarUrl: '/images/avatar_gray.png',
   },
 ];
 

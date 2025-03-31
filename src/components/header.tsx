@@ -17,8 +17,7 @@ const mobileNavigation = [
 ];
 
 const navigation = [
-  { name: 'Our Services', href: '#what-we-do' },
-  // { name: 'Useful Documents', href: '#' },
+  { name: 'Useful Documents', href: '#what-we-do' },
   { name: 'Join Us', href: '#join-us' },
   { name: 'Contact', href: '#contact-card' },
 ];
@@ -55,7 +54,7 @@ export const Header = () => {
             className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 cursor-pointer'
           >
             <span className='sr-only'>Open main menu</span>
-            <Bars3Icon aria-hidden='true' className='size-6' />
+            <Bars3Icon aria-hidden='true' className='size-8' />
           </Button>
         </div>
         <div className='hidden lg:flex lg:gap-x-20 items-center'>
@@ -100,7 +99,7 @@ export const Header = () => {
                 leaveFrom='translate-x-0'
                 leaveTo='translate-x-full'
               >
-                <DialogPanel className='w-full max-w-[400px] h-full fixed right-0 top-0 overflow-y-auto bg-background px-4 text-left align-middle shadow-xl'>
+                <DialogPanel className='min-w-[300px] w-[80%] max-w-[400px] h-full fixed right-0 top-0 overflow-y-auto bg-background px-4 text-left align-middle shadow-xl'>
                   <div className='flex items-center justify-end h-[60px]'>
                     <Button
                       type='button'
@@ -108,14 +107,14 @@ export const Header = () => {
                       className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 cursor-pointer'
                     >
                       <span className='sr-only'>Close menu</span>
-                      <XMarkIcon aria-hidden='true' className='size-6' />
+                      <XMarkIcon aria-hidden='true' className='size-8' />
                     </Button>
                   </div>
-                  <div className='mt-8 flow-root px-8'>
+                  <div className='mt-2 sm:mt-8 flow-root px-8'>
                     <div className='flex flex-col gap-8'>
                       <div>
-                        <p>Our services</p>
-                        <div className='space-y-5 py-6 pl-12'>
+                        <p className='-ml-4'>Our services</p>
+                        <div className='space-y-5 py-6 pl-6 sm:pl-12'>
                           {mobileNavigation.map((item) => (
                             <Link
                               key={item.name}
@@ -124,31 +123,36 @@ export const Header = () => {
                                 e.preventDefault();
                                 handleNavClick(item.href);
                               }}
-                              className='-mx-3 flex items-center justify-between max-w-[220px]'
+                              className='-mx-3 flex items-center justify-between max-w-[220px] cursor-pointer'
                             >
                               {item.name}
-                              <ArrowRightSvgIcon className='w-6 h-6' />
+                              <ArrowRightSvgIcon className='w-5 h-5 sm:w-6 sm:h-6' />
                             </Link>
                           ))}
                         </div>
                       </div>
-                      <p>Useful documents</p>
-                      <p>Join Us</p>
-                      <Link
-                        href='#contact-card'
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick('#contact-card');
-                        }}
-                      >
-                        Contact
-                      </Link>
+                      <div className='space-y-5 py-6'>
+                        {navigation.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick(item.href);
+                            }}
+                            className='-mx-3 flex items-center justify-between max-w-[220px] cursor-pointer'
+                          >
+                            {item.name}
+                            <ArrowRightSvgIcon className='w-6 h-6' />
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className='mt-8 flow-root px-8'>
+                  <div className='mt-3 sm:mt-8 flow-root px-2'>
                     <ThemeToggler />
                   </div>
-                  <div className='flex ml-auto px-9 gap-6 mt-6'>
+                  <div className='flex ml-auto px-4 gap-6 mt-2 sm:mt-4'>
                     <Link href='https://www.linkedin.com/company/spline-polska'>
                       <span className='sr-only'>LinkedIn</span>
                       <LinkedinLogoIcon className='w-5 h-5' />

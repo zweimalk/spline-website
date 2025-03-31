@@ -6,7 +6,7 @@ import { Link } from './link';
 const styles = {
   base: [
     // Base
-    'relative isolate inline-flex items-baseline justify-center gap-x-2 rounded-lg border text-base font-semibold',
+    'relative isolate inline-flex items-baseline justify-center gap-x-2 rounded-lg border text-base font-semibold xl:text-[15px] xl:tracking-[5%] xl:leading-[150%] xl:rounded-2xl xl:rounded-2xl',
     // Sizing
     'px-[calc(--spacing(4.5))] py-[calc(--spacing(2.5))]',
     // Focus
@@ -77,7 +77,7 @@ const styles = {
     'dark/white': [
       'text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10',
       'dark:text-zinc-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:var(--color-zinc-950)]/5',
-      '[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)] tracking-wider text-sm/7',
+      '[--btn-icon:var(--color-zinc-400)] data-active:[--btn-icon:var(--color-zinc-300)] data-hover:[--btn-icon:var(--color-zinc-300)] dark:[--btn-icon:var(--color-zinc-500)] dark:data-active:[--btn-icon:var(--color-zinc-400)] dark:data-hover:[--btn-icon:var(--color-zinc-400)] tracking-wider md:text-[15px] md:tracking-[5%] md:leading-[150%] md:rounded-2xl',
     ],
     dark: [
       'text-white [--btn-bg:var(--color-zinc-900)] [--btn-border:var(--color-zinc-950)]/90 [--btn-hover-overlay:var(--color-white)]/10',

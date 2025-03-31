@@ -497,7 +497,7 @@ export function GlobeDemo() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className='container mx-auto px-4 mt-20'>
+      <div className='hidden md:block max-w-6xl mx-auto px-4 mt-20'>
         <Header1 className='text-center pb-10'>we worked with</Header1>
         <div className='flex flex-row items-center justify-center relative w-full'>
           <div className='container mx-auto w-full relative overflow-hidden'>

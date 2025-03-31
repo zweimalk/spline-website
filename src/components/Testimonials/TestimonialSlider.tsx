@@ -175,7 +175,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className='w-full min-w-full h-[320px] md:h-[280px] lg:h-auto @lg:min-w-[calc(50%-12px)] @lg:w-[calc(50%-12px)]'
+              className='w-full min-w-full h-[400px] md:h-[440px] lg:h-auto @lg:min-w-[calc(50%-12px)] @lg:w-[calc(50%-12px)]'
             >
               <TestimonialCard testimonial={testimonial} />
             </div>

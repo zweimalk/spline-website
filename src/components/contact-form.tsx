@@ -4,7 +4,6 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { AnyFieldApi, useForm } from '@tanstack/react-form';
 import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { Button } from './button';
 
 const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
   return (
@@ -202,19 +201,18 @@ export const ContactForm = () => {
                 <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} onChange={handleCaptchaChange} />
               )}
 
-              <Button
-                color='dark/white'
+              <button
                 disabled={!canSubmit}
-                className='cursor-pointer mt-2 xl:text-lg flex items-center gap-x-4'
+                className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 {isSubmitting ? '...' : 'Send'}
-                <div className='flex items-center justify-center w-6 h-6 xl:w-8 xl:h-8 ml-2'>
+                <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
                   <ArrowRightIcon className='font-bold' />
                 </div>
-              </Button>
+              </button>
             </div>
           )}
         </form.Subscribe>
