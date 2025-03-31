@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import './globals.css';
-
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import Providers from '@/components/providers';
 import { ThemeProvider } from '@/components/theme-provider';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Script from 'next/script';
+import './globals.css';
 const neueHaasGroteskDisplayPro = localFont({
   src: [
     {
@@ -53,6 +53,7 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
             <Footer />
+            <SpeedInsights />
           </ThemeProvider>
         </Providers>
       </body>
