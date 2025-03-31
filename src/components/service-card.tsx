@@ -11,7 +11,7 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, description, image, tags }: ServiceCardProps) => {
   return (
-    <div className='group transition-colors duration-300 lg:hover:bg-foreground md:p-4 rounded-[10px] cursor-pointer max-w-[532px] md:shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-5 xl:shadow-none'>
+    <div className='group transition-colors duration-300 lg:hover:bg-foreground md:p-4 rounded-[10px] cursor-pointer max-w-[532px] md:shadow-[0_8px_30px_rgba(0,0,0,0.12)] py-5 xl:shadow-none'>
       <div className='flex gap-4 items-center justify-center lg:landscape:justify-start pt-3 pb-8 w-full flex-wrap px-2 lg:pl-0'>
         {tags.map((tag, idx) => {
           return idx > 2 ? (
