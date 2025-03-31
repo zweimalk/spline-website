@@ -2,6 +2,7 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import Providers from '@/components/providers';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
@@ -54,6 +55,7 @@ export default function RootLayout({
             <main>{children}</main>
             <Footer />
             <SpeedInsights />
+            <Analytics />
           </ThemeProvider>
         </Providers>
       </body>
