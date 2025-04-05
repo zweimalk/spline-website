@@ -87,9 +87,8 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
 
             <div className='flex md:hidden gap-2'>
               {quotes.map((_, index) => (
-                <div className='w-6 h-6 flex items-center justify-center'>
+                <div key={`dot-${index}`} className='w-6 h-6 flex items-center justify-center'>
                   <button
-                    key={`dot-${index}`}
                     onClick={() => goToSlide(index)}
                     className={cn(
                       'w-2 h-2 rounded-full transition-all duration-300',
