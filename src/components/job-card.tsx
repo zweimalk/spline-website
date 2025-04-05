@@ -31,14 +31,14 @@ export const JobCard = ({
       </div>
 
       {/* Job title */}
-      <Header4 className='mb-4 text-center'>{title}</Header4>
+      <Header4 className='mb-2 text-center'>{title}</Header4>
 
       {/* Location and job type */}
       <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 ml-4 text-center'>
         <p>{location}</p>
       </div>
 
-      <div className='mt-2 ml-4'>
+      <div className='mt-6 ml-4'>
         <ul className='list-disc list-inside'>
           {description.map((item) => (
             <li key={item}>{item}</li>
