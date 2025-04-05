@@ -36,7 +36,7 @@ const ContactCard = ({
       </div>
 
       <div className='flex flex-col space-y-2'>
-        <h3 className='text-xl font-semibold'>{name}</h3>
+        <h4 className='text-xl font-semibold'>{name}</h4>
         <p className='tracking-wide'>{title}</p>
 
         <div className='space-y-2'>

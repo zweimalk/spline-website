@@ -173,13 +173,16 @@ export const ContactForm = () => {
         >
           {(field) => (
             <div className='flex items-start gap-10 border-b border-gray-2 dark:border-gray-5'>
-              <input
-                type='checkbox'
-                checked={field.state.value}
-                onChange={(e) => field.handleChange(e.target.checked)}
-                onBlur={field.handleBlur}
-                className='mt-1 h-4 w-4 rounded border-gray-2 dark:border-gray-5'
-              />
+              <label htmlFor='gdprConsent' className='flex items-center gap-2'>
+                <input
+                  type='checkbox'
+                  id='gdprConsent'
+                  checked={field.state.value}
+                  onChange={(e) => field.handleChange(e.target.checked)}
+                  onBlur={field.handleBlur}
+                  className='mt-1 h-4 w-4 rounded border-gray-2 dark:border-gray-5'
+                />
+              </label>
               <div className='flex flex-col gap-2  pb-6'>
                 <p className='text-xs text-gray-5 dark:text-gray-1 text-left'>
                   I confirm that I have been provided with the following information regarding the processing of
