@@ -31,7 +31,7 @@ export const ServiceCard = ({ title, description, image, tags }: ServiceCardProp
           );
         })}
       </div>
-      <h2 className='text-[48px] leading-[44px] lg:text-5xl text-center md:text-left lg:group-hover:text-background transition-colors duration-300'>
+      <h2 className='text-[48px] leading-[44px] lg:text-5xl text-center md:landscape:text-left lg:group-hover:text-background transition-colors duration-300'>
         {title}
       </h2>
       <div className='mt-8 lg:mt-6'>

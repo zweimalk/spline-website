@@ -203,7 +203,7 @@ export const ContactForm = () => {
 
               <button
                 disabled={!canSubmit}
-                className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'
+                className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold w-full md:w-auto'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
