@@ -18,7 +18,7 @@ export const FloatingLabel = ({
 
   return (
     <motion.div
-      className='absolute text-spline-blue text-[8px] leading-[12px] md:text-lg md:leading-[24px] font-bold px-2 md:px-3 pt-0.5 md:py-1 rounded-full dark:bg-white z-30'
+      className='absolute text-spline-blue text-[8px] leading-[12px] md:text-[16px] md:leading-[24px] font-bold px-2 md:px-3 pt-0.5 md:py-1 rounded-full dark:bg-white z-30'
       style={{
         top,
         left,
