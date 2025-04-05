@@ -42,14 +42,14 @@ const ContactCard = ({
         <div className='space-y-2'>
           <div className='flex items-center gap-3'>
             <div className='flex h-6 w-6 items-center justify-center '>
-              <EnvelopeIcon />
+              <EnvelopeIcon className='w-6 h-6' />
             </div>
             <Link href={`mailto:${email}`}>{email}</Link>
           </div>
 
           <div className='flex items-center gap-3'>
             <div className='flex h-6 w-6 items-center justify-center '>
-              <PhoneIcon />
+              <PhoneIcon className='w-6 h-6' />
             </div>
             <Link href={`tel:${phone}`}>{phone}</Link>
           </div>

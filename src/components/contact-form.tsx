@@ -154,7 +154,7 @@ export const ContactForm = () => {
             <div>
               <textarea
                 placeholder='Message'
-                rows={8}
+                rows={6}
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
                 onBlur={field.handleBlur}
@@ -203,14 +203,14 @@ export const ContactForm = () => {
 
               <button
                 disabled={!canSubmit}
-                className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold w-full md:w-auto'
+                className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-medium w-full md:w-auto'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 {isSubmitting ? '...' : 'Send'}
                 <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
-                  <ArrowRightIcon className='font-bold' />
+                  <ArrowRightIcon className='w-10 h-10' />
                 </div>
               </button>
             </div>

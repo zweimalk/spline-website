@@ -48,7 +48,7 @@ export const JobCard = ({
 
       {/* See more link */}
       <Link href={url} className='flex items-center gap-2 justify-center mt-6'>
-        <span className='text-xl font-bold text-spline-blue dark:text-white group-hover:tracking-wide transition-all duration-300'>
+        <span className='text-xl font-medium text-spline-blue dark:text-white group-hover:tracking-wide transition-all duration-300'>
           See the details
         </span>
         <svg

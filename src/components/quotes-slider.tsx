@@ -74,9 +74,7 @@ export const QuotesSlider = ({ quotes, autoPlayInterval = 5000, className }: Quo
         {/* Content section */}
         <div className='w-full md:h-full'>
           <div className='lg:hidden'>
-            <Header3 className='text-center text-xl sm:text-2xl font-semibold lg:font-medium'>
-              {quotes[activeIndex].name}
-            </Header3>
+            <Header3 className='text-center text-xl sm:text-2xl font-semibold'>{quotes[activeIndex].name}</Header3>
             <p className='text-center sm:text-lg text-gray-4 dark:text-gray-2 tracking-wider'>
               {quotes[activeIndex].role}
             </p>

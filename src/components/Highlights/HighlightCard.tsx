@@ -50,7 +50,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
         <div className='flex items-center justify-between'>
           {ctaUrl && (
             <div className='flex items-center gap-2'>
-              <span className='text-xl font-bold text-spline-blue dark:text-white group-hover:tracking-wide transition-all duration-300'>
+              <span className='text-xl font-medium text-spline-blue dark:text-white group-hover:tracking-wide transition-all duration-300'>
                 See more
               </span>
               <svg

@@ -48,14 +48,14 @@ export const Hero = () => {
             points in their digital journey.
           </p>
           <button
-            className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-[500]'
+            className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'
             onClick={() => {
               document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Connect right now
             <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
-              <ArrowRightIcon className='font-bold' />
+              <ArrowRightIcon className='size-8' />
             </div>
           </button>
           <video
@@ -72,7 +72,7 @@ export const Hero = () => {
         </div>
       </div>
       <div className='flex justify-center items-center mt-14 md:hidden'>
-        <ArrowDownIcon className='font-bold fill-foreground/30 size-10 cursor-pointer' />
+        <ArrowDownIcon className='fill-foreground/30 size-10 cursor-pointer' />
       </div>
     </div>
   );
