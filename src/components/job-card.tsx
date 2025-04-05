@@ -60,7 +60,7 @@ export const JobCard = ({
           className='group-hover:translate-x-2 transition-all duration-300 ml-4'
         >
           <path
-            className='stroke-[#1C5BFF] transition-all duration-300 dark:stroke-white'
+            className='stroke-[#0037C3] transition-all duration-300 dark:stroke-white'
             d='M13.0833 2.18262L21 10.6826M21 10.6826L13.0833 19.1826M21 10.6826L2 10.6826'
             strokeWidth='3'
             strokeLinecap='square'
