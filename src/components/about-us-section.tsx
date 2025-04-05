@@ -4,7 +4,7 @@ import { Header1 } from './Typo/Header1';
 
 export const AboutUsSection = () => {
   return (
-    <div className='container mx-auto md:mt-30 lg:mt-40 px-4 sm:px-0'>
+    <div className='container mx-auto md:mt-30 lg:mt-40 px-4'>
       <div className='flex flex-col md:grid md:grid-cols-3 md:items-center mb-10 md:mb-20'>
         <Header1 className='col-span-2'>about us</Header1>
       </div>

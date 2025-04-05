@@ -54,7 +54,7 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
     }
 
     setCurrentPosition((prevPosition) => {
-      const nextPosition = prevPosition; // Reduced speed
+      const nextPosition = prevPosition + 1; // Reduced speed
       if (nextPosition >= scrollRef.current!.scrollWidth / 2) {
         return 0;
       }
