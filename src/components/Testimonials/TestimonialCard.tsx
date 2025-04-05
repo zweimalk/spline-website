@@ -24,7 +24,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
             sizes='(max-width: 768px) 64px, 64px'
           />
         </div>
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col gap-1 justify-between h-15'>
           <Header3 className='text-[20px] font-semibold leading-[150%] tracking-[5%]'>{name}</Header3>
           <Body1 className='text-foreground/70 text-sm'>
             {position}
