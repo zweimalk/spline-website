@@ -124,7 +124,7 @@ const items = [
 
 export const CompetenceAccordion = () => {
   return (
-    <div className='px-4 mt-20'>
+    <div className='px-4 mt-20 md:mt-40'>
       <Header3>automotive & mobility</Header3>
       <Title className='mt-4'>competence</Title>
       <Body1 className='mt-8'>

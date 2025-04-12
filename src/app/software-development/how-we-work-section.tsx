@@ -77,8 +77,8 @@ const items = [
 
 export const HowWeWorkSection = () => {
   return (
-    <div className='mt-20 px-4'>
-      <Title>how do we work?</Title>
+    <div className='mt-20 px-4 md:mt-40'>
+      <Title className='md:text-right'>how do we work?</Title>
       <div className='mt-8'>
         <HowWeWork items={items} />
       </div>
