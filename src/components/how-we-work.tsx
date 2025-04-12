@@ -24,9 +24,9 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
           <Disclosure key={item.title + index} as='div'>
             {({ open }) => (
               <>
-                <DisclosureButton className='flex w-full items-center justify-between text-left py-4 px-4 cursor-pointer'>
-                  <div className='items-center gap-x-4 grid grid-cols-[40px_1fr]'>
-                    <Title className='text-3xl col-span-1 md:text-4xl'>{`0${index + 1}`}</Title>
+                <DisclosureButton className='flex w-full items-center justify-between text-left py-4 px-4 md:landscape:px-4 md:landscape:py-0 cursor-pointer'>
+                  <div className='items-center gap-x-4 grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
+                    <Title className='text-3xl col-span-1 md:text-4xl md:landscape:text-6xl'>{`0${index + 1}`}</Title>
                     <Body1 className='text-lg col-span-1 md:text-2xl'>{item.title}</Body1>
                   </div>
                   <motion.svg
@@ -60,7 +60,7 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
                         ease: easeInOut,
                         layout: true,
                       }}
-                      className='origin-top p-4 pt-0 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr]'
+                      className='origin-top p-4 pt-0 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'
                     >
                       <div className='col-span-1' />
                       <div className='pl-4'>{item.content}</div>
