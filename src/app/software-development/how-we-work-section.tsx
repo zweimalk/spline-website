@@ -7,9 +7,8 @@ const items = [
     title: 'Discovery',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        We begin by understanding your goals, challenges, and requirements to ensure every solution is aligned with your
+        business needs.
       </Body1>
     ),
   },
@@ -17,9 +16,8 @@ const items = [
     title: 'Planning',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        Our team defines the architecture, selects the right technologies, and outlines a scalable roadmap tailored to
+        your project.
       </Body1>
     ),
   },
@@ -27,9 +25,7 @@ const items = [
     title: 'Team Assembly',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        We build a dedicated team of specialists, matching skills and experience to your domain, goals, and timeline.
       </Body1>
     ),
   },
@@ -37,9 +33,8 @@ const items = [
     title: 'Solution Design',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        We define the system structure, workflows, and technical approach —balancing performance, scalability, and
+        maintainability based on project size and complexity.
       </Body1>
     ),
   },
@@ -47,9 +42,8 @@ const items = [
     title: 'Development & Integration',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        Using agile methodologies, we deliver clean, high-quality code with frequent iterations, seamless integration,
+        and continuous stakeholder feedback.
       </Body1>
     ),
   },
@@ -57,9 +51,8 @@ const items = [
     title: 'Testing & Quality Assurance',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        Our rigorous QA processes—including automated and manual testing —ensure functionality, performance, and
+        security at every stage.
       </Body1>
     ),
   },
@@ -67,9 +60,8 @@ const items = [
     title: 'Deployment & Monitoring',
     content: (
       <Body1>
-        We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
-        them gain an edge over their competition. We understand that organisations we work with may be at different
-        points.
+        We handle smooth releases, infrastructure setup, and post-launch monitoring to ensure system stability and
+        performance from day one.
       </Body1>
     ),
   },
