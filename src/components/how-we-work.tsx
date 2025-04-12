@@ -25,10 +25,10 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
             {({ open }) => (
               <>
                 <DisclosureButton className='flex w-full items-center justify-between text-left py-4 px-4 cursor-pointer'>
-                  <Body1 className='text-2xl  items-center gap-x-4 grid grid-cols-[40px_1fr]'>
-                    <Title className='text-4xl col-span-1'>{`0${index + 1}`}</Title>
-                    {item.title}
-                  </Body1>
+                  <div className='items-center gap-x-4 grid grid-cols-[40px_1fr]'>
+                    <Title className='text-3xl col-span-1 md:text-4xl'>{`0${index + 1}`}</Title>
+                    <Body1 className='text-lg col-span-1 md:text-2xl'>{item.title}</Body1>
+                  </div>
                   <motion.svg
                     initial={{ rotate: 0 }}
                     animate={{ rotate: open ? 270 : 0 }}

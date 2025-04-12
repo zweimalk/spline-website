@@ -1,5 +1,8 @@
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
+import { HighlightsSection } from '@/components/highlights-section';
+import { Body1 } from '@/components/Typo/Body1';
+import { Title } from '@/components/Typo/Title';
 import Image from 'next/image';
 import { CompetenceAccordion } from './competence-accordion';
 import { HowWeWorkSection } from './how-we-work-section';
@@ -28,6 +31,14 @@ export default function SoftwareDevelopment() {
       />
       <CompetenceAccordion />
       <HowWeWorkSection />
+      <HighlightsSection />
+      <div className='px-4 mt-20 md:mt-40'>
+        <Title className='text-center'>see also</Title>
+        <Body1 className='text-center mt-4'>
+          We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
+          benefit from our solutions. See selected examples of our projects.
+        </Body1>
+      </div>
       <ContactPeople />
     </>
   );
