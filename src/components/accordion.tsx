@@ -30,7 +30,7 @@ export const Accordion = ({ items }: AccordionProps) => {
             }
             return (
               <div key={item.title + index}>
-                <DisclosureButton className='flex w-full items-center justify-between border-b text-left py-4'>
+                <DisclosureButton className='flex w-full items-center justify-between border-b text-left py-4 cursor-pointer'>
                   <Body1 className='text-2xl'>{item.title}</Body1>
                   <svg
                     width='23'
