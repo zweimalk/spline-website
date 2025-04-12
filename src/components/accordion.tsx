@@ -16,14 +16,14 @@ interface AccordionProps {
 
 export const Accordion = ({ items }: AccordionProps) => {
   return (
-    <div className='mx-auto w-full max-w-lg rounded-xl'>
+    <div className='mx-auto w-full rounded-xl'>
       {items.map((item, index) => (
         <Disclosure key={item.title + index}>
           {({ open }) => {
             return (
               <div key={item.title + index}>
                 <DisclosureButton className='flex w-full items-center justify-between border-b text-left py-4 cursor-pointer'>
-                  <Body1 className='text-2xl'>{item.title}</Body1>
+                  <Body1 className='text-2xl md:text-lg'>{item.title}</Body1>
                   <motion.svg
                     initial={{ rotate: 0 }}
                     animate={{ rotate: open ? 90 : 0 }}
@@ -68,7 +68,7 @@ export const Accordion = ({ items }: AccordionProps) => {
           alt={'Automotive & mobility'}
           width={1000}
           height={1000}
-          className={'w-full transition-all duration-300 aspect-[9/16] object-cover'}
+          className={'w-full transition-all duration-300 aspect-[16/6] object-cover '}
         />
       </div>
     </div>
