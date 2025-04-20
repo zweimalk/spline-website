@@ -16,6 +16,7 @@ interface HowWeWorkProps {
   items: HowWeWorkItem[];
 }
 
+// TODO strzalka z prawej w dol
 export const HowWeWork = ({ items }: HowWeWorkProps) => {
   return (
     <div className='flex rounded-xl border border-foreground/30 w-full'>

@@ -13,7 +13,7 @@ interface AccordionItem {
 interface AccordionProps {
   items: AccordionItem[];
 }
-
+// TODO: max pone item open a
 export const Accordion = ({ items }: AccordionProps) => {
   return (
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
@@ -124,7 +124,9 @@ export const Accordion = ({ items }: AccordionProps) => {
           alt={'Automotive & mobility'}
           width={1000}
           height={1000}
-          className={'w-full transition-all duration-300 md:aspect-[16/6] object-cover md:landscape:aspect-[16/3]'}
+          className={
+            'w-full transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/3]'
+          }
         />
       </div>
     </div>

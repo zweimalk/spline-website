@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Highlight } from '@/types/highlight';
+import type { Highlight } from '@/types/highlight';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { HighlightCard } from './HighlightCard';
 
@@ -177,7 +177,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
           min={0}
           max={highlights.length - 1}
           value={currentSlide}
-          onChange={(e) => goToSlide(parseInt(e.target.value))}
+          onChange={(e) => goToSlide(Number.parseInt(e.target.value))}
           className='w-full h-[9px] bg-gray-2 dark:bg-gray-5 rounded-lg appearance-none cursor-pointer accent-gray-900'
           aria-label='Slide progress'
         />
