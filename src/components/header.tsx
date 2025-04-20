@@ -2,24 +2,24 @@
 
 import { Link } from '@/components/link';
 import ThemeToggler from '@/components/theme-toggler';
-import { Button, Dialog, DialogPanel, Transition } from '@headlessui/react';
+import { Button, Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTheme } from 'next-themes';
 import { Fragment, useState } from 'react';
-import { ArrowRightSvgIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } from './icons';
+import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } from './icons';
 
 const mobileNavigation = [
-  { name: 'technology & electronics', href: '#what-we-do' },
-  { name: 'healthcare solutions', href: '#what-we-do' },
-  { name: 'automotive & mobility', href: '#what-we-do' },
-  { name: 'retail media & services', href: '#what-we-do' },
-  { name: 'software development', href: '#what-we-do' },
+  { name: 'technology & electronics', href: '/#what-we-do' },
+  { name: 'healthcare solutions', href: '/#what-we-do' },
+  { name: 'automotive & mobility', href: '/#what-we-do' },
+  { name: 'retail media & services', href: '/#what-we-do' },
+  { name: 'software development', href: '/software-development' },
 ];
 
 const navigation = [
-  { name: 'Useful Documents', href: '#what-we-do' },
-  { name: 'Join Us', href: '#join-us' },
-  { name: 'Contact', href: '#contact-card' },
+  { name: 'Join Us', href: '/#join-us' },
+  { name: 'Information & Resources', href: '/#what-we-do' },
+  { name: 'Contact', href: '/#contact-card' },
 ];
 
 export const Header = () => {
@@ -27,16 +27,24 @@ export const Header = () => {
   const isDarkMode = useTheme();
 
   const handleNavClick = (href: string) => {
-    setMobileMenuOpen(false);
-    // Wait for dialog close animation to complete
-    setTimeout(() => {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-        });
-      }
-    }, 300);
+    if (href[0] === '#') {
+      setMobileMenuOpen(false);
+      // Wait for dialog close animation to complete
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+          });
+        }
+      }, 300);
+    } else {
+      setMobileMenuOpen(false);
+      // Wait for dialog close animation to complete
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    }
   };
 
   return (
@@ -76,7 +84,7 @@ export const Header = () => {
       </nav>
       <Transition appear show={mobileMenuOpen} as={Fragment}>
         <Dialog as='div' className='relative z-50 lg:hidden' onClose={setMobileMenuOpen}>
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter='ease-out duration-300'
             enterFrom='opacity-0'
@@ -86,11 +94,11 @@ export const Header = () => {
             leaveTo='opacity-0'
           >
             <div className='fixed inset-0 bg-black/50' />
-          </Transition.Child>
+          </TransitionChild>
 
           <div className='fixed inset-0 overflow-y-auto'>
             <div className='flex min-h-full items-center justify-end text-center'>
-              <Transition.Child
+              <TransitionChild
                 as={Fragment}
                 enter='transform transition ease-in-out duration-300'
                 enterFrom='translate-x-full'
@@ -99,8 +107,13 @@ export const Header = () => {
                 leaveFrom='translate-x-0'
                 leaveTo='translate-x-full'
               >
-                <DialogPanel className='min-w-[300px] w-[80%] max-w-[400px] h-full fixed right-0 top-0 overflow-y-auto bg-background px-4 text-left align-middle shadow-xl'>
-                  <div className='flex items-center justify-end h-[60px]'>
+                <DialogPanel className='w-full h-full fixed right-0 top-0 overflow-y-auto bg-background px-4 text-left align-middle shadow-xl'>
+                  <div className='flex items-center justify-between h-[60px]'>
+                    <Link href='#' className='-m-1.5 p-1.5'>
+                      <span className='sr-only'>Spline</span>
+                      {/* @ts-expect-error this is needed for the logo */}
+                      <SplineLogo inverted={isDarkMode === 'dark'} className='w-18 h-5' />
+                    </Link>
                     <Button
                       type='button'
                       onClick={() => setMobileMenuOpen(false)}
@@ -110,11 +123,20 @@ export const Header = () => {
                       <XMarkIcon aria-hidden='true' className='size-8' />
                     </Button>
                   </div>
-                  <div className='mt-2 sm:mt-8 flow-root px-8'>
-                    <div className='flex flex-col gap-8'>
+                  <div className='mt-2 sm:mt-8 flow-root'>
+                    <div className='flex flex-col gap-4'>
+                      <div className='flex items-center justify-center cursor-pointer border-y border-foreground/30 py-2'>
+                        <Link
+                          href='/'
+                          className='flex items-center justify-center cursor-pointer'
+                          onClick={() => handleNavClick('/')}
+                        >
+                          Home
+                        </Link>
+                      </div>
                       <div>
-                        <p className='-ml-4'>Our services</p>
-                        <div className='space-y-5 py-6 pl-6 sm:pl-12'>
+                        <p className='text-center text-foreground/60 font-semibold'>Our services</p>
+                        <div className='space-y-5 py-4'>
                           {mobileNavigation.map((item) => (
                             <Link
                               key={item.name}
@@ -123,15 +145,14 @@ export const Header = () => {
                                 e.preventDefault();
                                 handleNavClick(item.href);
                               }}
-                              className='-mx-3 flex items-center justify-between max-w-[220px] cursor-pointer'
+                              className='flex items-center justify-center cursor-pointer'
                             >
                               {item.name}
-                              <ArrowRightSvgIcon className='w-5 h-5 sm:w-6 sm:h-6' />
                             </Link>
                           ))}
                         </div>
                       </div>
-                      <div className='space-y-5 py-6'>
+                      <div className='divide-y divide-foreground/30 border-y border-foreground/30'>
                         {navigation.map((item) => (
                           <Link
                             key={item.name}
@@ -140,19 +161,17 @@ export const Header = () => {
                               e.preventDefault();
                               handleNavClick(item.href);
                             }}
-                            className='-mx-3 flex items-center justify-between max-w-[220px] cursor-pointer'
+                            className='flex items-center justify-center cursor-pointer py-4'
                           >
                             {item.name}
-                            <ArrowRightSvgIcon className='w-6 h-6' />
                           </Link>
                         ))}
                       </div>
                     </div>
                   </div>
-                  <div className='mt-3 sm:mt-8 flow-root px-2'>
+
+                  <div className='flex items-center justify-between px-3 mt-8'>
                     <ThemeToggler />
-                  </div>
-                  <div className='flex ml-auto px-4 gap-6 mt-2 sm:mt-4'>
                     <Link href='https://www.linkedin.com/company/spline-polska'>
                       <span className='sr-only'>LinkedIn</span>
                       <LinkedinLogoIcon className='w-5 h-5' />
@@ -167,7 +186,7 @@ export const Header = () => {
                     </Link>
                   </div>
                 </DialogPanel>
-              </Transition.Child>
+              </TransitionChild>
             </div>
           </div>
         </Dialog>

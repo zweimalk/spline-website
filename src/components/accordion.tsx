@@ -7,7 +7,6 @@ import {
 } from '@szhsin/react-accordion';
 import { AnimatePresence, easeOut, motion } from 'motion/react';
 import Image from 'next/image';
-import { useState } from 'react';
 import { Body1 } from './Typo/Body1';
 
 interface AccordionItem {
@@ -61,8 +60,6 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
 );
 // TODO: max pone item open a
 export const Accordion = ({ items }: AccordionProps) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
       <AccordionComponent transition transitionTimeout={200}>

@@ -74,7 +74,10 @@ export default async function JobsSection() {
             target='_blank'
             className='cursor-pointer xl:text-xl flex items-center gap-x-4 justify-center'
           >
-            <button className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'>
+            <button
+              type='button'
+              className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'
+            >
               See all current offers
               <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
                 <ArrowRightIcon className='w-8 h-8' />
