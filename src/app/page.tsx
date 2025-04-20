@@ -14,11 +14,11 @@ export default function Home() {
       <Hero
         title={
           <>
-            software <br /> development
+            connecting <br /> professionals
           </>
         }
         description={
-          'We create reliable, scalable, and efficient software solutions tailored to your business needs. From backend systems and cloud platforms to mobile and desktop applications, our development teams bring deep technical knowledge, agile processes, and a strong focus on quality to every project.'
+          'We deliver future-proof, tailor-made solutions that support our clients day-to-day operations and help them gain an edge over their competition. We understand that organisations we work with may be at different points in their digital journey.'
         }
         mediaElement={
           <video
