@@ -55,7 +55,6 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
     contentProps={{
       className: 'transition-height duration-200 ease-out',
     }}
-    panelProps={{ className: 'py-4' }}
   />
 );
 // TODO: max pone item open a
