@@ -1,8 +1,13 @@
 'use client';
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import {
+  Accordion as AccordionComponent,
+  type AccordionItemProps,
+  AccordionItem as Item,
+} from '@szhsin/react-accordion';
 import { AnimatePresence, easeOut, motion } from 'motion/react';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Body1 } from './Typo/Body1';
 
 interface AccordionItem {
@@ -13,110 +18,101 @@ interface AccordionItem {
 interface AccordionProps {
   items: AccordionItem[];
 }
+
+/**
+ * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
+ */
+const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode } & AccordionItemProps) => (
+  <Item
+    {...rest}
+    header={({ state: { isEnter } }) => (
+      <div className='flex w-full text-left justify-between items-center cursor-pointer'>
+        <Body1 className='text-2xl md:text-lg'>{header}</Body1>
+        <motion.svg
+          initial={{ rotate: 0 }}
+          animate={{ rotate: isEnter ? 90 : 0 }}
+          transition={{ duration: 0.3, ease: easeOut }}
+          width='23'
+          height='23'
+          viewBox='0 0 23 23'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+          className={'h-6 w-6'}
+        >
+          <title>{header}</title>
+          <path
+            d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
+            stroke='var(--foreground)'
+            strokeWidth='3'
+            strokeLinecap='square'
+            strokeLinejoin='round'
+          />
+        </motion.svg>
+      </div>
+    )}
+    buttonProps={{
+      className: 'flex w-full justify-between items-center text-left border-b py-4',
+    }}
+    contentProps={{
+      className: 'transition-height duration-200 ease-out',
+    }}
+    panelProps={{ className: 'py-4' }}
+  />
+);
 // TODO: max pone item open a
 export const Accordion = ({ items }: AccordionProps) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
-      <div>
+      <AccordionComponent transition transitionTimeout={200}>
         {items.map((item, index) => {
           if (index > 2) return null;
           return (
-            <Disclosure key={item.title + index}>
-              {({ open }) => {
-                return (
-                  <div key={item.title + index}>
-                    <DisclosureButton className='flex w-full items-center justify-between border-b text-left py-4 cursor-pointer'>
-                      <Body1 className='text-2xl md:text-lg'>{item.title}</Body1>
-                      <motion.svg
-                        initial={{ rotate: 0 }}
-                        animate={{ rotate: open ? 90 : 0 }}
-                        transition={{ duration: 0.3, ease: easeOut }}
-                        width='23'
-                        height='23'
-                        viewBox='0 0 23 23'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={'h-6 w-6'}
-                      >
-                        <path
-                          d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
-                          stroke='var(--foreground)'
-                          strokeWidth='3'
-                          strokeLinecap='square'
-                          strokeLinejoin='round'
-                        />
-                      </motion.svg>
-                    </DisclosureButton>
-                    <AnimatePresence>
-                      <DisclosurePanel>
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5, ease: easeOut }}
-                          className='origin-top py-4'
-                        >
-                          {item.content}
-                        </motion.div>
-                      </DisclosurePanel>
-                    </AnimatePresence>
-                  </div>
-                );
-              }}
-            </Disclosure>
+            <AccordionItemComponent
+              className='w-full flex-1 items-center justify-between'
+              key={item.title}
+              header={item.title}
+            >
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: easeOut }}
+                  className='origin-top py-4'
+                >
+                  {item.content}
+                </motion.div>
+              </AnimatePresence>
+            </AccordionItemComponent>
           );
         })}
-      </div>
-      <div>
+      </AccordionComponent>
+      <AccordionComponent transition transitionTimeout={200}>
         {items.map((item, index) => {
           if (index <= 2) return null;
           return (
-            <Disclosure key={item.title + index}>
-              {({ open }) => {
-                return (
-                  <div key={item.title + index}>
-                    <DisclosureButton className='flex w-full items-center justify-between border-b text-left py-4 cursor-pointer'>
-                      <Body1 className='text-2xl md:text-lg'>{item.title}</Body1>
-                      <motion.svg
-                        initial={{ rotate: 0 }}
-                        animate={{ rotate: open ? 90 : 0 }}
-                        transition={{ duration: 0.3, ease: easeOut }}
-                        width='23'
-                        height='23'
-                        viewBox='0 0 23 23'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={'h-6 w-6'}
-                      >
-                        <path
-                          d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
-                          stroke='var(--foreground)'
-                          strokeWidth='3'
-                          strokeLinecap='square'
-                          strokeLinejoin='round'
-                        />
-                      </motion.svg>
-                    </DisclosureButton>
-                    <AnimatePresence>
-                      <DisclosurePanel>
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5, ease: easeOut }}
-                          className='origin-top py-4'
-                        >
-                          {item.content}
-                        </motion.div>
-                      </DisclosurePanel>
-                    </AnimatePresence>
-                  </div>
-                );
-              }}
-            </Disclosure>
+            <AccordionItemComponent
+              className='w-full flex-1 items-center justify-between'
+              key={item.title}
+              header={item.title}
+            >
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: easeOut }}
+                  className='origin-top py-4'
+                >
+                  {item.content}
+                </motion.div>
+              </AnimatePresence>
+            </AccordionItemComponent>
           );
         })}
-      </div>
+      </AccordionComponent>
 
       <div className='mt-8 col-span-2' key={'image'}>
         <Image

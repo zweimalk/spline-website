@@ -22,7 +22,7 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
     <div className='flex rounded-xl border border-foreground/30 w-full'>
       <div className='mx-auto w-full divide-y divide-foreground/30'>
         {items.map((item, index) => (
-          <Disclosure key={item.title + index} as='div'>
+          <Disclosure key={item.title} as='div'>
             {({ open }) => (
               <>
                 <DisclosureButton className='flex w-full items-center justify-between text-left py-4 px-4 md:landscape:px-4 md:landscape:py-0 cursor-pointer'>
@@ -32,7 +32,7 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
                   </div>
                   <motion.svg
                     initial={{ rotate: 0 }}
-                    animate={{ rotate: open ? 270 : 0 }}
+                    animate={{ rotate: open ? -90 : 0 }}
                     transition={{ duration: 0.5, ease: easeInOut }}
                     width='23'
                     height='23'
@@ -41,6 +41,7 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
                     xmlns='http://www.w3.org/2000/svg'
                     className={'h-6 w-6'}
                   >
+                    <title>{item.title}</title>
                     <path
                       d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
                       stroke='var(--foreground)'

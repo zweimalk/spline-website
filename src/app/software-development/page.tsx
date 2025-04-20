@@ -1,8 +1,8 @@
+import { Body1 } from '@/components/Typo/Body1';
+import { Title } from '@/components/Typo/Title';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
 import { HighlightsSection } from '@/components/highlights-section';
-import { Body1 } from '@/components/Typo/Body1';
-import { Title } from '@/components/Typo/Title';
 import Image from 'next/image';
 import { CompetenceAccordion } from './competence-accordion';
 import { HowWeWorkSection } from './how-we-work-section';
@@ -25,7 +25,7 @@ export default function SoftwareDevelopment() {
             alt={'Hero image'}
             width={509}
             height={300}
-            className='md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal-responsive'
+            className='md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal clip-diagonal-sm md:clip-diagonal-xl'
           />
         }
       />
