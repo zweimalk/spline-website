@@ -76,8 +76,6 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
     transition: true,
     transitionTimeout: 300,
   });
-  // Destructuring `toggle` and `toggleAll` from `providerValue`
-  const { toggle } = providerValue;
 
   return (
     <ControlledAccordion className='flex rounded-xl border border-foreground/30 w-full' providerValue={providerValue}>
