@@ -12,13 +12,10 @@ import {
   CosLogo,
   GitLogo,
   JiraLogo,
-  MavenLogo,
   PandasLogo,
   PowerBILogo,
-  PytestLogo,
   PythonLogo,
   SQLLogo,
-  SeleniumLogo,
   SnowFlakeLogo,
   SparkLogo,
   TableauLogo,
@@ -156,27 +153,27 @@ const items = [
       </>
     ),
   },
-  {
-    title: 'Testing and QC',
-    content: (
-      <>
-        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
-          <li>Automated testing</li>
-          <li>Manual testing</li>
-          <li>Code reviews</li>
-          <li>UAT</li>
-        </ul>
-        <div className='mt-4'>
-          <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
-            <MavenLogo />
-            <PytestLogo />
-            <SeleniumLogo />
-          </div>
-        </div>
-      </>
-    ),
-  },
+  // {
+  //   title: 'Testing and QC',
+  //   content: (
+  //     <>
+  //       <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
+  //         <li>Automated testing</li>
+  //         <li>Manual testing</li>
+  //         <li>Code reviews</li>
+  //         <li>UAT</li>
+  //       </ul>
+  //       <div className='mt-4'>
+  //         <Body1>Tech Stack</Body1>
+  //         <div className='flex flex-wrap gap-2'>
+  //           <MavenLogo />
+  //           <PytestLogo />
+  //           <SeleniumLogo />
+  //         </div>
+  //       </div>
+  //     </>
+  //   ),
+  // },
 ];
 
 export const CompetenceAccordion = () => {

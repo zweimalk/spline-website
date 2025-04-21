@@ -6,8 +6,8 @@ import {
   AccordionItem as Item,
   useAccordionProvider,
 } from '@szhsin/react-accordion';
-import { easeOut, motion } from 'motion/react';
-import Image from 'next/image';
+import { easeInOut, easeOut, motion } from 'motion/react';
+import { useCallback, useEffect, useState } from 'react';
 import { Body1 } from './Typo/Body1';
 
 interface AccordionItem {
@@ -60,24 +60,44 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
 );
 
 export const Accordion = ({ items }: AccordionProps) => {
+  const [isAnyEntered, setIsAnyEntered] = useState(false);
+  console.log('isAnyEntered', isAnyEntered);
   const providerValue1 = useAccordionProvider({
     transition: true,
     transitionTimeout: 200,
-    onStateChange: (event) => {
-      console.log('EVENT 1: ', event);
-    },
   });
 
   const providerValue2 = useAccordionProvider({
     transition: true,
     transitionTimeout: 200,
-    onStateChange: (event) => {
-      console.log('EVENT 2: ', event);
-    },
   });
 
-  const { toggleAll: toggleAll1 } = providerValue1;
-  const { toggleAll: toggleAll2 } = providerValue2;
+  const { toggleAll: toggleAll1, stateMap: stateMap1 } = providerValue1;
+  const { toggleAll: toggleAll2, stateMap: stateMap2 } = providerValue2;
+
+  type AccordionState = {
+    status: 'preEnter' | 'entering' | 'entered' | 'preExit' | 'exiting' | 'exited';
+    isMounted: boolean;
+    isEnter: boolean;
+    isResolved: boolean;
+  };
+
+  const checkIfAnyEntered = useCallback((stateMap: ReadonlyMap<unknown, unknown>) => {
+    return Array.from(stateMap.values()).some(
+      (state) => (state as AccordionState).status === 'entered' || (state as AccordionState).status === 'entering'
+    );
+  }, []);
+
+  useEffect(() => {
+    const isAnyEntered1 = checkIfAnyEntered(stateMap1);
+    const isAnyEntered2 = checkIfAnyEntered(stateMap2);
+
+    if (isAnyEntered1 || isAnyEntered2) {
+      setIsAnyEntered(true);
+    } else {
+      setIsAnyEntered(false);
+    }
+  }, [stateMap1, stateMap2, checkIfAnyEntered]);
 
   return (
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
@@ -117,7 +137,10 @@ export const Accordion = ({ items }: AccordionProps) => {
       </ControlledAccordion>
 
       <div className='mt-8 col-span-2' key={'image'}>
-        <Image
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, aspectRatio: isAnyEntered ? '16/9' : '9/16' }}
+          transition={{ duration: 0, ease: easeInOut }}
           src={'/images/software-development/shape.jpeg'}
           alt={'Automotive & mobility'}
           width={1000}
