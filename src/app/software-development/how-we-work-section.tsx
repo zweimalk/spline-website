@@ -106,7 +106,7 @@ export const HowWeWorkSection = () => {
                       transition: { duration: 0.25 },
                     },
                   }}
-                  className='col-start-2 text-white -mt-6'
+                  className='col-start-2 text-background -mt-6'
                 >
                   {item.content}
                 </motion.div>
