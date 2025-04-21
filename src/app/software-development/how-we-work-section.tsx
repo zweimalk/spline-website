@@ -1,6 +1,9 @@
+'use client';
+
 import { Body1 } from '@/components/Typo/Body1';
 import { Title } from '@/components/Typo/Title';
 import { HowWeWork } from '@/components/how-we-work';
+import { AnimatePresence, motion } from 'motion/react';
 
 const items = [
   {
@@ -71,8 +74,48 @@ export const HowWeWorkSection = () => {
   return (
     <div className='mt-20 px-4 md:mt-40'>
       <Title className='md:text-right'>how do we work?</Title>
-      <div className='mt-8 max-w-6xl ml-auto'>
+      <div className='mt-8 max-w-6xl ml-auto sm:hidden'>
         <HowWeWork items={items} />
+      </div>
+      <div className='hidden sm:block'>
+        <div className='border border-foreground/30 rounded-xl'>
+          <div className='flex flex-col'>
+            {items.map((item, index) => (
+              <motion.div
+                whileHover={{
+                  height: '210px',
+                  backgroundColor: 'var(--foreground)',
+                  margin: '-1px',
+                  color: 'var(--background)',
+                  transition: { duration: 0.25 },
+                }}
+                key={item.title}
+                className='grid grid-cols-2 px-4 py-1 border-b border-foreground/30'
+              >
+                <div className='flex items-center'>
+                  <Title className='sm:text-4xl'>{`0${index + 1}`}</Title>
+                </div>
+                <div className='text-left flex items-center'>
+                  <Body1>{item.title}</Body1>
+                </div>
+                <AnimatePresence key={item.title}>
+                  <motion.div
+                    initial={{
+                      height: 0,
+                    }}
+                    animate={{
+                      height: '210px',
+                    }}
+                    transition={{ duration: 0.25 }}
+                    className='flex items-center col-start-2 overflow-hidden'
+                  >
+                    <Body1>{item.content}</Body1>
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
