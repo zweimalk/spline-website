@@ -31,8 +31,8 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
       </div>
 
       {/* Slider */}
-      <div className='w-full border-1 border-foreground/30 rounded-lg mt-24 md:grid md:grid-cols-5'>
-        <div className='p-4 border-b border-foreground/30 md:col-span-1 md:col-start-5 md:border-0'>
+      <div className='w-full border-1 border-foreground/30 rounded-lg mt-24 md:grid md:grid-cols-5 lg:max-w-[1305px] ml-auto xl:max-w-[3491px]'>
+        <div className='p-4 border-b border-foreground/30 md:col-span-1 md:col-start-5 md:border-0 xl:col-start-1'>
           <div className='flex items-center gap-4 justify-end md:justify-start'>
             <ArrowLeftIcon
               className={cn(
@@ -61,7 +61,7 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
         <div
           className={cn(
             // General styling
-            'border-foreground/30 md:col-span-4 md:col-start-1 md:row-start-1 md:border-r',
+            'border-foreground/30 md:col-span-4 md:col-start-1 md:row-start-1 md:border-r xl:col-start-2 xl:border-l xl:border-r-0',
             // Itself
             'md:grid md:grid-cols-3'
           )}
@@ -70,7 +70,7 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
             className={cn(
               'px-[34px] pt-10 pb-16',
               // Self styling
-              'md:col-span-2 md:col-start-2 md:row-start-1'
+              'md:col-span-2 md:col-start-2 md:row-start-1 xl:col-start-1'
             )}
           >
             <Cite>{slides[currentSlide].title}</Cite>
@@ -91,7 +91,10 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
         {slides.map((slide, index) => (
           <div
             key={slide.title}
-            className={cn('w-4 h-4 rounded-full bg-foreground/30', index === currentSlide && 'bg-foreground')}
+            className={cn(
+              'w-4 h-4 rounded-full bg-foreground/30 cursor-pointer',
+              index === currentSlide && 'bg-foreground'
+            )}
             onClick={() => setCurrentSlide(index)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
