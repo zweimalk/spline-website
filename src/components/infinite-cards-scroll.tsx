@@ -110,7 +110,7 @@ export const InfiniteCardsScroll = ({ cards }: CardsScrollProps) => {
                   <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 pointer-events-none' />
                   <img src={card.imageUrl} alt={card.imgAlt} className='w-full h-full object-cover' />
                 </div>
-                <div className='flex flex-wrap gap-2 p-4 justify-center'>
+                <div className='flex flex-wrap gap-2 p-4 justify-center md:justify-end'>
                   {card.tags.map((tag) => (
                     <div
                       key={tag}
