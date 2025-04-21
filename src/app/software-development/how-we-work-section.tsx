@@ -65,11 +65,11 @@ export const HowWeWorkSection = () => {
                     margin: '0px',
                   },
                   hover: {
-                    // height: '210px',
                     backgroundColor: 'var(--foreground)',
                     margin: '-1px',
                     color: 'var(--background)',
                     transition: { duration: 0.25 },
+                    paddingBottom: '60px',
                   },
                 }}
                 key={item.title}
@@ -106,7 +106,7 @@ export const HowWeWorkSection = () => {
                       transition: { duration: 0.25 },
                     },
                   }}
-                  className='col-start-2 text-white -mt-10'
+                  className='col-start-2 text-white -mt-6'
                 >
                   {item.content}
                 </motion.div>
