@@ -32,7 +32,7 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
         <div className='flex flex-1 gap-2 p-4 justify-end border-b border-foreground/30 md:landscape:col-start-2 md:landscape:border-b-0 md:landscape:border-l'>
           <ArrowLeftIcon
             className={cn(
-              'size-12 p-2 border border-foreground/30 rounded-full cursor-pointer',
+              'size-14 p-2 border border-foreground/30 rounded-full cursor-pointer',
               currentSlide === 0 && 'opacity-50 pointer-events-none cursor-not-allowed'
             )}
             onClick={() => {
@@ -43,7 +43,7 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
           />
           <ArrowRightIcon
             className={cn(
-              'size-12 p-2 border border-foreground/30 rounded-full bg-foreground text-background cursor-pointer',
+              'size-14 p-2 border border-foreground/30 rounded-full bg-foreground text-background cursor-pointer',
               currentSlide === slides.length - 1 && 'opacity-50 pointer-events-none cursor-not-allowed'
             )}
             onClick={() => {

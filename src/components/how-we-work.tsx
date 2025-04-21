@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, easeInOut, easeOut } from 'motion/react';
+import { easeOut } from 'motion/react';
 
 import {
   type AccordionItemProps,
@@ -88,22 +88,10 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
             header={item.title}
             index={index}
           >
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, maxHeight: 0 }}
-                animate={{ opacity: 1, maxHeight: '300px' }}
-                exit={{ opacity: 0, maxHeight: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: easeInOut,
-                  layout: true,
-                }}
-                className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'
-              >
-                <div className='col-span-1' />
-                {item.content}
-              </motion.div>
-            </AnimatePresence>
+            <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
+              <div className='col-span-1' />
+              {item.content}
+            </div>
           </AccordionItemComponent>
         ))}
       </div>

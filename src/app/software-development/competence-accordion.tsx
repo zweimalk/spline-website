@@ -184,7 +184,7 @@ export const CompetenceAccordion = () => {
     <div className='px-4 mt-20 md:mt-40'>
       <Header3>automotive & mobility</Header3>
       <Title className='mt-4'>competence</Title>
-      <Body1 className='mt-8'>
+      <Body1 className='mt-8 max-w-3xl'>
         We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help
         them gain an edge over their competition. We understand that organisations we work with may be at different
         points.

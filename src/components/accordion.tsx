@@ -1,9 +1,10 @@
 'use client';
 
 import {
-  Accordion as AccordionComponent,
   type AccordionItemProps,
+  ControlledAccordion,
   AccordionItem as Item,
+  useAccordionProvider,
 } from '@szhsin/react-accordion';
 import { easeOut, motion } from 'motion/react';
 import Image from 'next/image';
@@ -57,11 +58,30 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
     }}
   />
 );
-// TODO: max pone item open a
+
 export const Accordion = ({ items }: AccordionProps) => {
+  const providerValue1 = useAccordionProvider({
+    transition: true,
+    transitionTimeout: 200,
+    onStateChange: (event) => {
+      console.log('EVENT 1: ', event);
+    },
+  });
+
+  const providerValue2 = useAccordionProvider({
+    transition: true,
+    transitionTimeout: 200,
+    onStateChange: (event) => {
+      console.log('EVENT 2: ', event);
+    },
+  });
+
+  const { toggleAll: toggleAll1 } = providerValue1;
+  const { toggleAll: toggleAll2 } = providerValue2;
+
   return (
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
-      <AccordionComponent transition transitionTimeout={200}>
+      <ControlledAccordion providerValue={providerValue1}>
         {items.map((item, index) => {
           if (index > 2) return null;
           return (
@@ -69,13 +89,16 @@ export const Accordion = ({ items }: AccordionProps) => {
               className='w-full flex-1 items-center justify-between'
               key={item.title}
               header={item.title}
+              onClick={() => {
+                toggleAll2(false);
+              }}
             >
               <div className='origin-top pt-6'>{item.content}</div>
             </AccordionItemComponent>
           );
         })}
-      </AccordionComponent>
-      <AccordionComponent transition transitionTimeout={200}>
+      </ControlledAccordion>
+      <ControlledAccordion providerValue={providerValue2}>
         {items.map((item, index) => {
           if (index <= 2) return null;
           return (
@@ -83,12 +106,15 @@ export const Accordion = ({ items }: AccordionProps) => {
               className='w-full flex-1 items-center justify-between'
               key={item.title}
               header={item.title}
+              onClick={() => {
+                toggleAll1(false);
+              }}
             >
               <div className='origin-top pt-6'>{item.content}</div>
             </AccordionItemComponent>
           );
         })}
-      </AccordionComponent>
+      </ControlledAccordion>
 
       <div className='mt-8 col-span-2' key={'image'}>
         <Image
