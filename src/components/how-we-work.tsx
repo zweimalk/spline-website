@@ -2,6 +2,7 @@
 
 import { easeOut } from 'motion/react';
 
+import { cn } from '@/lib/utils';
 import {
   type AccordionItemProps,
   ControlledAccordion,
@@ -26,13 +27,14 @@ interface HowWeWorkProps {
 const AccordionItemComponent = ({
   header,
   index,
+  isLast,
   ...rest
-}: { header: React.ReactNode; index: number } & AccordionItemProps) => (
+}: { header: React.ReactNode; index: number; isLast: boolean } & AccordionItemProps) => (
   <Item
     {...rest}
     header={({ state: { isEnter } }) => (
       <>
-        <div className='items-center gap-x-4 grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
+        <div className='items-center gap-x-4 grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr] '>
           <Title className='text-3xl col-span-1 md:text-4xl md:landscape:text-6xl'>{`0${index + 1}`}</Title>
           <Body1 className='text-lg col-span-1 md:text-2xl'>{header}</Body1>
         </div>
@@ -59,8 +61,10 @@ const AccordionItemComponent = ({
       </>
     )}
     buttonProps={{
-      className:
-        'flex w-full justify-between items-center text-left py-4 px-4 md:landscape:px-4 md:landscape:py-0 cursor-pointer',
+      className: cn(
+        'flex w-full justify-between items-center text-left py-4 px-4 md:landscape:px-4 md:landscape:py-0 cursor-pointer group border-b border-foreground/30',
+        isLast && 'border-b-0'
+      ),
     }}
     contentProps={{
       className: 'transition-height duration-200 ease-out',
@@ -82,11 +86,12 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
       <div className='mx-auto w-full'>
         {items.map((item, index) => (
           <AccordionItemComponent
-            className='w-full flex-1 items-center justify-between divide-y divide-foreground/30 last:divide-none'
+            className='w-full flex-1 items-center justify-between'
             itemKey={item.title}
             key={item.title}
             header={item.title}
             index={index}
+            isLast={index === items.length - 1}
           >
             <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
               <div className='col-span-1' />

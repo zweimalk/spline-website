@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import {
   type AccordionItemProps,
   ControlledAccordion,
@@ -22,12 +23,16 @@ interface AccordionProps {
 /**
  * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
  */
-const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode } & AccordionItemProps) => (
+const AccordionItemComponent = ({
+  header,
+  isLast,
+  ...rest
+}: { header: React.ReactNode; isLast: boolean } & AccordionItemProps) => (
   <Item
     {...rest}
     header={({ state: { isEnter } }) => (
       <div className='flex w-full text-left justify-between items-center cursor-pointer'>
-        <Body1 className='text-2xl md:text-lg'>{header}</Body1>
+        <Body1 className={cn('text-2xl md:text-lg', !isEnter && 'group-hover:text-spline-blue')}>{header}</Body1>
         <motion.svg
           initial={{ rotate: 0 }}
           animate={{ rotate: isEnter ? 90 : 0 }}
@@ -42,16 +47,21 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
           <title>{header}</title>
           <path
             d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
-            stroke='var(--foreground)'
             strokeWidth='3'
             strokeLinecap='square'
             strokeLinejoin='round'
+            className={cn('stroke-foreground', !isEnter && 'group-hover:stroke-spline-blue')}
           />
         </motion.svg>
       </div>
     )}
     buttonProps={{
-      className: 'flex w-full justify-between items-center text-left border-b py-4',
+      className: ({ isEnter }: { isEnter: boolean }) =>
+        cn(
+          'flex w-full justify-between items-center text-left border-b py-4 group cursor-pointer',
+          !isEnter && 'hover:border-spline-blue',
+          isLast && 'border-b-0'
+        ),
     }}
     contentProps={{
       className: 'transition-height duration-200 ease-out',
@@ -108,6 +118,7 @@ export const Accordion = ({ items }: AccordionProps) => {
               className='w-full flex-1 items-center justify-between'
               key={item.title}
               header={item.title}
+              isLast={index === items.length - 1}
               onClick={() => {
                 toggleAll2(false);
               }}
