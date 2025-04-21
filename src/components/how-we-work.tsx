@@ -14,7 +14,7 @@ import { Body1 } from './Typo/Body1';
 import { Title } from './Typo/Title';
 interface HowWeWorkItem {
   title: string;
-  content: React.ReactNode;
+  content: string;
 }
 
 interface HowWeWorkProps {
@@ -95,7 +95,7 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
           >
             <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
               <div className='col-span-1' />
-              {item.content}
+              <Body1 className='text-foreground/80'>{item.content}</Body1>
             </div>
           </AccordionItemComponent>
         ))}
