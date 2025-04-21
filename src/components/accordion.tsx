@@ -5,7 +5,7 @@ import {
   type AccordionItemProps,
   AccordionItem as Item,
 } from '@szhsin/react-accordion';
-import { AnimatePresence, easeOut, motion } from 'motion/react';
+import { easeOut, motion } from 'motion/react';
 import Image from 'next/image';
 import { Body1 } from './Typo/Body1';
 
@@ -70,17 +70,7 @@ export const Accordion = ({ items }: AccordionProps) => {
               key={item.title}
               header={item.title}
             >
-              <AnimatePresence>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: easeOut }}
-                  className='origin-top py-4'
-                >
-                  {item.content}
-                </motion.div>
-              </AnimatePresence>
+              <div className='origin-top pt-6'>{item.content}</div>
             </AccordionItemComponent>
           );
         })}
@@ -94,17 +84,7 @@ export const Accordion = ({ items }: AccordionProps) => {
               key={item.title}
               header={item.title}
             >
-              <AnimatePresence>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: easeOut }}
-                  className='origin-top py-4'
-                >
-                  {item.content}
-                </motion.div>
-              </AnimatePresence>
+              <div className='origin-top pt-6'>{item.content}</div>
             </AccordionItemComponent>
           );
         })}
