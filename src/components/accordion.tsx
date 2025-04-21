@@ -61,7 +61,6 @@ const AccordionItemComponent = ({ header, ...rest }: { header: React.ReactNode }
 
 export const Accordion = ({ items }: AccordionProps) => {
   const [isAnyEntered, setIsAnyEntered] = useState(false);
-  console.log('isAnyEntered', isAnyEntered);
   const providerValue1 = useAccordionProvider({
     transition: true,
     transitionTimeout: 200,
@@ -146,7 +145,16 @@ export const Accordion = ({ items }: AccordionProps) => {
           width={1000}
           height={1000}
           className={
-            'w-full transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/3]'
+            'w-full sm:hidden transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/3] clip-diagonal clip-diagonal-sm'
+          }
+        />
+        <img
+          src={'/images/software-development/shape.jpeg'}
+          alt={'Automotive & mobility'}
+          width={1000}
+          height={1000}
+          className={
+            'hidden w-full sm:block transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/3] clip-diagonal clip-diagonal-sm'
           }
         />
       </div>
