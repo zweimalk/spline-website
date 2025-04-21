@@ -108,11 +108,13 @@ export default function SoftwareDevelopment() {
       <HighlightsSection />
       <div className='mt-20 md:mt-40 text-center'>
         <div className='px-4'>
-          <Title>see also</Title>
-          <Body1 className='mt-4'>
-            We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
-            benefit from our solutions. See selected examples of our projects.
-          </Body1>
+          <div className='max-w-lg mx-auto'>
+            <Title>see also</Title>
+            <Body1 className='mt-4'>
+              We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
+              benefit from our solutions. See selected examples of our projects.
+            </Body1>
+          </div>
         </div>
         <InfiniteCardsScroll cards={cards} />
       </div>
