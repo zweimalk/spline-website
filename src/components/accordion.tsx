@@ -139,6 +139,7 @@ export const Accordion = ({ items }: AccordionProps) => {
               onClick={() => {
                 toggleAll1(false);
               }}
+              isLast={index === items.length - 1}
             >
               <div className='origin-top pt-6'>{item.content}</div>
             </AccordionItemComponent>
