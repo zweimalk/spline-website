@@ -1,11 +1,14 @@
 import { BusinessNeedsSection, type Slide } from '@/components/BusinessNeeds/BusinessNeedsSection';
+import { Body1 } from '@/components/Typo/Body1';
+import { Cite } from '@/components/Typo/Cite';
+import { Title } from '@/components/Typo/Title';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
 import { HighlightsSection } from '@/components/highlights-section';
+import { type Card, InfiniteCardsScroll } from '@/components/infinite-cards-scroll';
 import Image from 'next/image';
 import { CompetenceAccordion } from './competence-accordion';
 import { HowWeWorkSection } from './how-we-work-section';
-
 const slides: Slide[] = [
   {
     title: 'Staff augmentation',
@@ -30,6 +33,50 @@ const slides: Slide[] = [
     description:
       'Offload full responsibility for your project or product development. From planning and architecture to implementation and maintenance, we deliver end-to-end solutions with clear accountability, timelines, and outcomes.',
     imageUrl: '/images/software-development/business-needs/services.png',
+  },
+];
+
+const cards: Card[] = [
+  {
+    title: (
+      <Cite className='text-left'>
+        technology <br /> & Electronics
+      </Cite>
+    ),
+    imgAlt: 'Technology & Electronics',
+    tags: ['IoT', 'embedded', 'firmware'],
+    imageUrl: '/images/service-cards/technology_electronics.png',
+  },
+  {
+    title: (
+      <Cite className='text-left'>
+        automotive <br /> & mobility
+      </Cite>
+    ),
+    imgAlt: 'Automotive & Mobility',
+    tags: ['surfacing', 'engineering', 'hmi'],
+    imageUrl: '/images/service-cards/automotive.png',
+  },
+  {
+    title: (
+      <Cite className='text-left'>
+        healthcare <br /> solutions
+      </Cite>
+    ),
+    imgAlt: 'Healthcare Solutions',
+    tags: ['medtech', 'AI', 'imaging'],
+    imageUrl: '/images/service-cards/healthcare.png',
+  },
+  {
+    title: (
+      <Cite className='text-left'>
+        retail media
+        <br /> & services
+      </Cite>
+    ),
+    imgAlt: 'Retail Media & Services',
+    tags: ['ecommerce', 'fintech', 'automation'],
+    imageUrl: '/images/service-cards/retail.png',
   },
 ];
 
@@ -59,6 +106,16 @@ export default function SoftwareDevelopment() {
       <HowWeWorkSection />
       <BusinessNeedsSection slides={slides} />
       <HighlightsSection />
+      <div className='mt-20 md:mt-40 text-center'>
+        <div className='px-4'>
+          <Title>see also</Title>
+          <Body1 className='mt-4'>
+            We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
+            benefit from our solutions. See selected examples of our projects.
+          </Body1>
+        </div>
+        <InfiniteCardsScroll cards={cards} />
+      </div>
       <ContactPeople />
     </>
   );
