@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Cite } from './Typo/Cite';
 export interface Card {
@@ -105,26 +104,23 @@ export const InfiniteCardsScroll = ({ cards }: CardsScrollProps) => {
             cards.map((card, index) => (
               <div
                 key={`card-${card.title}-${index}-${setIndex}`}
-                className='relative flex flex-col justify-between gap-4 aspect-3/5 min-w-[300px] rounded-lg overflow-hidden'
+                className='relative flex flex-col justify-between gap-4 aspect-3/5 min-w-[300px] rounded-lg overflow-hidden md:aspect-5/4 md:min-w-[491px] '
               >
-                <Image
-                  src={card.imageUrl}
-                  alt={card.imgAlt}
-                  width={500}
-                  height={500}
-                  className='absolute inset-0 w-full h-full object-cover'
-                />
-                <div className='flex flex-wrap gap-2 p-4 z-10 justify-center'>
+                <div className='absolute inset-0 -z-10'>
+                  <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 pointer-events-none' />
+                  <img src={card.imageUrl} alt={card.imgAlt} className='w-full h-full object-cover' />
+                </div>
+                <div className='flex flex-wrap gap-2 p-4 justify-center'>
                   {card.tags.map((tag) => (
                     <div
                       key={tag}
-                      className='text-white z-10 bg-gray-6 rounded-full px-2 py-1 font-semibold tracking-wide text-sm'
+                      className='text-white bg-gray-6 rounded-full px-2 py-1 font-semibold tracking-wide text-sm'
                     >
                       #{tag}
                     </div>
                   ))}
                 </div>
-                <div className='p-4 z-10'>
+                <div className='p-4'>
                   <Cite className='text-white z-10'>{card.title}</Cite>
                   <div className='flex items-center gap-2 mt-4 border-t border-white pt-6'>
                     <span className='text-xl font-medium text-white group-hover:tracking-wide transition-all duration-300'>
