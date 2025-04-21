@@ -59,7 +59,8 @@ const AccordionItemComponent = ({
       className: ({ isEnter }: { isEnter: boolean }) =>
         cn(
           'flex w-full justify-between items-center text-left border-b py-4 group cursor-pointer',
-          !isEnter && 'hover:border-spline-blue'
+          !isEnter && 'hover:border-spline-blue',
+          isLast && ''
         ),
     }}
     contentProps={{
