@@ -68,7 +68,8 @@ export default async function JobsSection() {
             />
           ))}
         </div>
-        <div className='flex justify-center mt-12'>
+        <Body1 className='text-center mt-4 text-gray-3 dark:text-gray-7'>& more...</Body1>
+        <div className='flex justify-center mt-8'>
           <Link
             href='https://spline.traffit.com/career/'
             target='_blank'
