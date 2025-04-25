@@ -73,9 +73,9 @@ export const ContactPeople = () => {
     },
     {
       name: 'Sylwia Gajewska',
-      title: 'Sales & Operations Director',
+      title: 'Chief Business Officer',
       email: 'sylwia.gajewska@spline.pl',
-      phone: '+48 451 599 338',
+      phone: '+48 571 064 598',
       imageSrc: '/images/sylwia_gajewska.png',
     },
   ];
