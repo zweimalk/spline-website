@@ -84,7 +84,7 @@ export const InfiniteCardsScroll = ({ cards }: CardsScrollProps) => {
 
   return (
     <div
-      className='w-full overflow-hidden'
+      className='w-full overflow-hidden mt-12'
       onMouseEnter={handleInteractionStart}
       onMouseLeave={handleInteractionEnd}
       onTouchStart={handleInteractionStart}
