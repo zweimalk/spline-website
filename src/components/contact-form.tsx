@@ -1,7 +1,6 @@
 'use client';
 
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
-import { AnyFieldApi, useForm } from '@tanstack/react-form';
+import { type AnyFieldApi, useForm } from '@tanstack/react-form';
 import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
@@ -37,7 +36,10 @@ export const ContactForm = () => {
         }
 
         // Include captcha token in your form submission
-        console.log('Form submitted:', { ...values, captchaToken: captchaValue });
+        console.log('Form submitted:', {
+          ...values,
+          captchaToken: captchaValue,
+        });
         setCaptchaValue(null);
         setShowCaptcha(false);
         form.reset();
@@ -204,6 +206,7 @@ export const ContactForm = () => {
               )}
 
               <button
+                type='submit'
                 disabled={!canSubmit}
                 className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-medium w-full md:w-auto'
                 onClick={() => {
@@ -211,9 +214,6 @@ export const ContactForm = () => {
                 }}
               >
                 {isSubmitting ? '...' : 'Send'}
-                <div className='flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
-                  <ArrowRightIcon className='w-10 h-10' />
-                </div>
               </button>
             </div>
           )}
