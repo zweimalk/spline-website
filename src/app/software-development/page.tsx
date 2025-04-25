@@ -94,11 +94,12 @@ export default function SoftwareDevelopment() {
         }
         mediaElement={
           <Image
-            src={'/images/software-development/hero.png'}
+            src={'/images/software-development/hero.webp'}
             alt={'Hero image'}
-            width={509}
-            height={300}
-            className='md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 object-cover clip-diagonal clip-diagonal-sm md:clip-diagonal-xl'
+            objectFit='cover'
+            width={500}
+            height={500}
+            className='md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 clip-diagonal object-cover clip-diagonal-sm md:clip-diagonal-xl'
           />
         }
       />
