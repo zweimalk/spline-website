@@ -93,14 +93,24 @@ export default function SoftwareDevelopment() {
           'We create reliable, scalable, and efficient software solutions tailored to your business needs. From backend systems and cloud platforms to mobile and desktop applications, our development teams bring deep technical knowledge, agile processes, and a strong focus on quality to every project.'
         }
         mediaElement={
-          <Image
-            src={'/images/software-development/hero.webp'}
-            alt={'Hero image'}
-            objectFit='cover'
-            width={500}
-            height={500}
-            className='md:block w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 clip-diagonal object-cover clip-diagonal-sm md:clip-diagonal-xl'
-          />
+          <>
+            <Image
+              src={'/images/software-development/hero.webp'}
+              alt={'Hero image'}
+              objectFit='cover'
+              width={500}
+              height={500}
+              className='w-full landscape:h-[400px] rounded-lg mt-8 md:mt-10 clip-diagonal object-cover clip-diagonal-sm md:clip-diagonal-xl xl:hidden'
+            />
+            <Image
+              src={'/images/software-development/hero_5k.webp'}
+              alt={'Hero image'}
+              objectFit='cover'
+              width={3758}
+              height={995}
+              className='w-full landscape:h-[600px] rounded-lg mt-8 md:mt-10 clip-diagonal object-cover clip-diagonal-sm md:clip-diagonal-xl hidden xl:block'
+            />
+          </>
         }
       />
       <CompetenceAccordion />
