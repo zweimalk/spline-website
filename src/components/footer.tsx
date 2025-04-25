@@ -3,7 +3,7 @@ import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } fro
 export const Footer = () => {
   return (
     <footer className='fill-background w-full'>
-      <div className='container mx-auto'>
+      <div className=''>
         <div className='flex justify-start items-center pt-20 px-6 xl:hidden'>
           <SplineLogo className='w-53' />
         </div>
