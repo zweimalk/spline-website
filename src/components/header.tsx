@@ -101,11 +101,11 @@ export const Header = () => {
               <TransitionChild
                 as={Fragment}
                 enter='transform transition ease-in-out duration-300'
-                enterFrom='translate-x-full'
-                enterTo='translate-x-0'
+                enterFrom='-translate-y-full'
+                enterTo='translate-y-0'
                 leave='transform transition ease-in-out duration-300'
-                leaveFrom='translate-x-0'
-                leaveTo='translate-x-full'
+                leaveFrom='translate-y-0'
+                leaveTo='-translate-y-full'
               >
                 <DialogPanel className='w-full h-full fixed right-0 top-0 overflow-y-auto bg-background px-4 text-left align-middle shadow-xl'>
                   <div className='flex items-center justify-between h-[60px]'>
