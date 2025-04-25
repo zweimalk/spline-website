@@ -32,7 +32,7 @@ const AccordionItemComponent = ({
     {...rest}
     header={({ state: { isEnter } }) => (
       <div className='flex w-full text-left justify-between items-center cursor-pointer'>
-        <Body1 className={cn('text-2xl md:text-lg', !isEnter && 'group-hover:text-spline-blue')}>{header}</Body1>
+        <Body1 className={cn('text-2xl md:text-lg', !isEnter && 'group-hover:lg:text-spline-blue')}>{header}</Body1>
         <motion.svg
           initial={{ rotate: 0 }}
           animate={{ rotate: isEnter ? 90 : 0 }}
@@ -50,7 +50,7 @@ const AccordionItemComponent = ({
             strokeWidth='3'
             strokeLinecap='round'
             strokeLinejoin='round'
-            className={cn('stroke-foreground', !isEnter && 'group-hover:stroke-spline-blue')}
+            className={cn('stroke-foreground', !isEnter && 'group-hover:lg:stroke-spline-blue')}
           />
         </motion.svg>
       </div>
@@ -59,7 +59,7 @@ const AccordionItemComponent = ({
       className: ({ isEnter }: { isEnter: boolean }) =>
         cn(
           'flex w-full justify-between items-center text-left border-b py-4 group cursor-pointer',
-          !isEnter && 'hover:border-spline-blue',
+          !isEnter && 'hover:lg:border-spline-blue',
           isLast && ''
         ),
     }}
