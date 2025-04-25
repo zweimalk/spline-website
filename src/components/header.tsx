@@ -50,7 +50,7 @@ export const Header = () => {
   return (
     <header className='fixed top-0 z-50 bg-background w-full'>
       <nav aria-label='Global' className='flex items-center justify-between h-[60px] px-4'>
-        <Link href='#' className='-m-1.5 p-1.5'>
+        <Link href='/' className='-m-1.5 p-1.5'>
           <span className='sr-only'>Spline</span>
           {/* @ts-expect-error this is needed for the logo */}
           <SplineLogo inverted={isDarkMode === 'dark'} className='w-18 h-5' />
@@ -109,7 +109,7 @@ export const Header = () => {
               >
                 <DialogPanel className='w-full fixed right-0 top-0 overflow-y-auto bg-background px-4 pb-4 text-left align-middle shadow-xl'>
                   <div className='flex items-center justify-between h-[60px]'>
-                    <Link href='#' className='-m-1.5 p-1.5'>
+                    <Link href='/' className='-m-1.5 p-1.5'>
                       <span className='sr-only'>Spline</span>
                       {/* @ts-expect-error this is needed for the logo */}
                       <SplineLogo inverted={isDarkMode === 'dark'} className='w-18 h-5' />
