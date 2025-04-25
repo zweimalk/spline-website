@@ -48,7 +48,7 @@ const AccordionItemComponent = ({
           <path
             d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
             strokeWidth='3'
-            strokeLinecap='square'
+            strokeLinecap='round'
             strokeLinejoin='round'
             className={cn('stroke-foreground', !isEnter && 'group-hover:stroke-spline-blue')}
           />
@@ -152,7 +152,7 @@ export const Accordion = ({ items }: AccordionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, aspectRatio: isAnyEntered ? '16/9' : '9/16' }}
           transition={{ duration: 0, ease: easeInOut }}
-          src={'/images/software-development/shape.jpeg'}
+          src={'/images/software-development/shape.webp'}
           alt={'Automotive & mobility'}
           width={1000}
           height={1000}
@@ -161,7 +161,7 @@ export const Accordion = ({ items }: AccordionProps) => {
           }
         />
         <img
-          src={'/images/software-development/shape.jpeg'}
+          src={'/images/software-development/shape.webp'}
           alt={'Automotive & mobility'}
           width={1000}
           height={1000}

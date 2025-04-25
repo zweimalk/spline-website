@@ -14,7 +14,7 @@ const slides: Slide[] = [
     title: 'Staff augmentation',
     description:
       "At the heart of our approach is transparency. We're always in touch with stakeholders and make sure they're regularly informed about project progress. Our dedication to transparency extends to our reporting, which always provides clear insights into project developments and milestones. Reach out and within 48 hours, we'll have CVs of top devs who meet your requirements in your inbox.",
-    imageUrl: '/images/software-development/business-needs/augmentation.png',
+    imageUrl: '/images/software-development/business-needs/augmentation.webp',
   },
   {
     title: 'Team Extensions',

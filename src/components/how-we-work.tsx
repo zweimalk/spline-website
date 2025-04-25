@@ -54,7 +54,7 @@ const AccordionItemComponent = ({
             d='M13.0833 3L21 11.5M21 11.5L13.0833 20M21 11.5L2 11.5'
             stroke='var(--foreground)'
             strokeWidth='3'
-            strokeLinecap='square'
+            strokeLinecap='round'
             strokeLinejoin='round'
           />
         </motion.svg>

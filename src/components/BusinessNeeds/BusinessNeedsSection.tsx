@@ -18,9 +18,9 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <div className='mt-20'>
+    <div className='mt-20 px-4 md:px-0'>
       {/* Header */}
-      <div className='px-4 lg:flex lg:justify-between lg:items-start lg:gap-4'>
+      <div className='lg:flex lg:justify-between lg:items-start lg:gap-4'>
         <Title className=''>
           business <br className='lg:hidden' /> needs
         </Title>
@@ -31,9 +31,11 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
       </div>
 
       {/* Slider */}
-      <div className='w-full border-1 border-foreground/30 rounded-lg mt-24 md:grid md:grid-cols-5 lg:max-w-[1305px] ml-auto xl:max-w-[3491px]'>
+      <div
+        className={cn('w-full border-1 h-[752px] border-foreground/30 rounded-lg mt-24 flex flex-col overflow-hidden')}
+      >
         <div className='p-4 border-b border-foreground/30 md:col-span-1 md:col-start-5 md:border-0 xl:col-start-1'>
-          <div className='flex items-center gap-4 justify-end md:justify-start'>
+          <div className='flex items-center gap-2 justify-end'>
             <ArrowLeftIcon
               className={cn(
                 'size-14 p-2 border border-foreground/30 rounded-full cursor-pointer',
@@ -58,41 +60,28 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
             />
           </div>
         </div>
-        <div
-          className={cn(
-            // General styling
-            'border-foreground/30 md:col-span-4 md:col-start-1 md:row-start-1 md:border-r xl:col-start-2 xl:border-l xl:border-r-0',
-            // Itself
-            'md:grid md:grid-cols-3'
-          )}
-        >
-          <div
-            className={cn(
-              'px-[34px] pt-10 pb-16',
-              // Self styling
-              'md:col-span-2 md:col-start-2 md:row-start-1 xl:col-start-1'
-            )}
-          >
+        <div className={cn('border-foreground/30 grow-1')}>
+          <div className={cn('px-[34px] pt-10 pb-16')}>
             <Cite>{slides[currentSlide].title}</Cite>
-            <Body1 className='mt-6 text-balance'>{slides[currentSlide].description}</Body1>
+            <Body1 className='mt-6 text-balance text-md'>{slides[currentSlide].description}</Body1>
           </div>
-          <Image
-            src={slides[currentSlide].imageUrl}
-            alt='Staff augmentation'
-            width={700}
-            height={700}
-            className='aspect-video object-cover clip-diagonal clip-diagonal-sm h-full'
-          />
         </div>
+        <Image
+          src={slides[currentSlide].imageUrl}
+          alt='Staff augmentation'
+          width={700}
+          height={700}
+          className='aspect-video object-cover h-56'
+        />
       </div>
 
       {/* Indicator dots */}
-      <div className='flex justify-center mt-12 gap-10 md:mt-8 md:gap-12'>
+      <div className='flex justify-center mt-12 gap-6 md:mt-8 md:gap-8'>
         {slides.map((slide, index) => (
           <div
             key={slide.title}
             className={cn(
-              'w-4 h-4 rounded-full bg-foreground/30 cursor-pointer',
+              'size-3 rounded-full bg-foreground/30 cursor-pointer',
               index === currentSlide && 'bg-foreground'
             )}
             onClick={() => setCurrentSlide(index)}
