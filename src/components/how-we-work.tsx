@@ -34,7 +34,7 @@ const AccordionItemComponent = ({
     {...rest}
     header={({ state: { isEnter } }) => (
       <>
-        <div className='items-center gap-x-4 grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr] '>
+        <div className='items-center gap-x-4 grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
           <Title className='text-3xl col-span-1 md:text-4xl md:landscape:text-6xl'>{`0${index + 1}`}</Title>
           <Body1 className='text-lg col-span-1 md:text-2xl'>{header}</Body1>
         </div>
@@ -93,9 +93,9 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
             index={index}
             isLast={index === items.length - 1}
           >
-            <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[40px_1fr] md:landscape:grid-cols-[120px_1fr]'>
+            <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[56px_1fr] md:landscape:grid-cols-[120px_1fr]'>
               <div className='col-span-1' />
-              <Body1 className='text-foreground/80'>{item.content}</Body1>
+              <Body1 className='text-foreground/80 w-lg'>{item.content}</Body1>
             </div>
           </AccordionItemComponent>
         ))}

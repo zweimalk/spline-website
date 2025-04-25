@@ -73,7 +73,7 @@ export const HowWeWorkSection = () => {
                   },
                 }}
                 key={item.title}
-                className='grid grid-cols-2 p-4 border-b border-foreground/30 last:border-b-0 cursor-pointer'
+                className='grid grid-cols-[1fr_3fr] p-4 border-b border-foreground/30 last:border-b-0 cursor-pointer'
               >
                 <motion.h3
                   variants={{
