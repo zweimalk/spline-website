@@ -93,9 +93,9 @@ export const HowWeWork = ({ items }: HowWeWorkProps) => {
             index={index}
             isLast={index === items.length - 1}
           >
-            <div className='origin-top p-4 text-foreground/60 overflow-hidden grid grid-cols-[56px_1fr] md:landscape:grid-cols-[120px_1fr]'>
-              <div className='col-span-1' />
-              <Body1 className='text-foreground/80 w-lg'>{item.content}</Body1>
+            <div className='p-4 text-foreground/60 overflow-hidden flex'>
+              <div className='w-[108px] md:w-[56px] md:landscape:w-[60px]' />
+              <Body1 className='text-foreground/80 w-lg text-balance'>{item.content}</Body1>
             </div>
           </AccordionItemComponent>
         ))}
