@@ -1,13 +1,13 @@
-"use client";
-import countries from "@/data/globe.json";
-import { OrbitControls } from "@react-three/drei";
-import { Canvas, extend, useThree } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import { Color, Fog, Group, PerspectiveCamera, Scene, Vector3 } from "three";
-import ThreeGlobe from "three-globe";
-declare module "@react-three/fiber" {
+'use client';
+import countries from '@/data/globe.json';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas, extend, useThree } from '@react-three/fiber';
+import { useEffect, useRef, useState } from 'react';
+import { Color, Fog, type Group, PerspectiveCamera, Scene, Vector3 } from 'three';
+import ThreeGlobe from 'three-globe';
+declare module '@react-three/fiber' {
   interface ThreeElements {
-    threeGlobe: ThreeElements["mesh"] & {
+    threeGlobe: ThreeElements['mesh'] & {
       new (): ThreeGlobe;
     };
   }
@@ -68,12 +68,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const defaultProps = {
     pointSize: 1,
-    atmosphereColor: "#ffffff",
+    atmosphereColor: '#ffffff',
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
-    emissive: "#000000",
+    polygonColor: 'rgba(255,255,255,0.7)',
+    globeColor: '#1d072e',
+    emissive: '#000000',
     emissiveIntensity: 0.1,
     shininess: 0.9,
     arcTime: 2000,
@@ -142,11 +142,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     // remove duplicates for same lat and lng
     const filteredPoints = points.filter(
       (v, i, a) =>
-        a.findIndex((v2) =>
-          ["lat", "lng"].every(
-            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"]
-          )
-        ) === i
+        a.findIndex((v2) => ['lat', 'lng'].every((k) => v2[k as 'lat' | 'lng'] === v[k as 'lat' | 'lng'])) === i
     );
 
     globeRef.current
@@ -198,9 +194,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .ringColor(() => defaultProps.polygonColor)
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod(
-        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
-      );
+      .ringRepeatPeriod((defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings);
   }, [
     isInitialized,
     data,
@@ -222,11 +216,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     const interval = setInterval(() => {
       if (!globeRef.current) return;
 
-      const newNumbersOfRings = genRandomNumbers(
-        0,
-        data.length,
-        Math.floor((data.length * 4) / 5)
-      );
+      const newNumbersOfRings = genRandomNumbers(0, data.length, Math.floor((data.length * 4) / 5));
 
       const ringsData = data
         .filter((d, i) => newNumbersOfRings.includes(i))
@@ -267,19 +257,9 @@ export function World(props: WorldProps) {
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-      <directionalLight
-        color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
-      />
-      <directionalLight
-        color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
-      />
-      <pointLight
-        color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
-        intensity={0.8}
-      />
+      <directionalLight color={globeConfig.directionalLeftLight} position={new Vector3(-400, 100, 400)} />
+      <directionalLight color={globeConfig.directionalTopLight} position={new Vector3(-200, 500, 200)} />
+      <pointLight color={globeConfig.pointLight} position={new Vector3(-200, 500, 200)} intensity={0.8} />
       <Globe {...props} />
       <OrbitControls
         enablePan={false}
@@ -297,16 +277,14 @@ export function World(props: WorldProps) {
 
 export function hexToRgb(hex: string) {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
+        r: Number.parseInt(result[1], 16),
+        g: Number.parseInt(result[2], 16),
+        b: Number.parseInt(result[3], 16),
       }
     : null;
 }

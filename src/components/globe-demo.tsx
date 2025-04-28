@@ -2,9 +2,9 @@
 import { motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-import { FloatingLabel } from './floating-label';
 import { Body1 } from './Typo/Body1';
 import { Header1 } from './Typo/Header1';
+import { FloatingLabel } from './floating-label';
 const World = dynamic(() => import('./globe').then((m) => m.World), {
   ssr: false,
 });
@@ -497,8 +497,8 @@ export function GlobeDemo() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className='hidden md:block max-w-6xl mx-auto px-4 mt-20'>
-        <Header1 className='text-center pb-10'>we worked with</Header1>
+      <div className='hidden md:block max-w-4xl mx-auto px-4 mt-20'>
+        <Header1 className='text-center pb-6'>we worked with</Header1>
         <div className='flex flex-row items-center justify-center relative w-full'>
           <div className='container mx-auto w-full relative overflow-hidden'>
             <motion.div
@@ -523,7 +523,7 @@ export function GlobeDemo() {
               <FloatingLabel key={label.text} text={label.text} color={label.color} top={label.top} left={label.left} />
             ))}
             <div className='absolute w-full bottom-0 inset-x-0 bg-gradient-to-b pointer-events-none select-none from-transparent to-background z-20 h-40 md:h-80 xl:h-100 md:to-75% xl:to-60%' />
-            <div className='absolute inset-0 aspect-square top-12'>
+            <div className='absolute inset-0 aspect-square -top-6'>
               <World data={sampleArcs} globeConfig={globeConfig} />
             </div>
           </div>
