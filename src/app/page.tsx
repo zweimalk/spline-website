@@ -29,7 +29,12 @@ export default function Home() {
             preload='auto'
             className='w-full object-cover mt-6 rounded-lg clip-diagonal clip-diagonal-sm md:clip-diagonal-responsive landscape:h-[400px] md:mt-10'
           >
-            <source src={'/video/hero_video.mp4'} type='video/mp4' />
+            <source
+              src={
+                'https://bt3glinid3nkn8mh.public.blob.vercel-storage.com/hero_video-RyywD8hCBI1jv6ZxuIM3MOcaBWgGGw.mp4'
+              }
+              type='video/mp4'
+            />
             Your browser does not support the video tag.
           </video>
         }
