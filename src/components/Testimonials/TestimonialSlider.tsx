@@ -1,6 +1,7 @@
 'use client';
 
 import type { Testimonial } from '@/types/testimonial';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { type TouchEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { TestimonialCard } from './TestimonialCard';
 
@@ -192,7 +193,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
         <div className='flex gap-2 @lg:hidden'>
           {testimonials.map((_, index) => (
             <button
-              key={index}
+              key={testimonials[index].id}
               type='button'
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
@@ -202,12 +203,20 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
             />
           ))}
         </div>
-        <div className='hidden @lg:flex gap-2'>
+        <div className='hidden @lg:flex gap-2 items-center'>
+          <button
+            type='button'
+            onClick={goToPrevSlide}
+            aria-label='Previous testimonial'
+            className='cursor-pointer mr-4'
+          >
+            <ArrowLeftIcon className='w-8 h-8' />
+          </button>
           {testimonials.map(
             (_, index) =>
               index % 2 === 0 && (
                 <button
-                  key={index}
+                  key={testimonials[index].id}
                   type='button'
                   onClick={() => goToDesktopSlide(Math.floor(index / 2))}
                   className={`w-3 h-3 rounded-full transition-colors ${
@@ -217,6 +226,9 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
                 />
               )
           )}
+          <button type='button' onClick={goToNextSlide} aria-label='Next testimonial' className='cursor-pointer ml-4'>
+            <ArrowRightIcon className='w-8 h-8' />
+          </button>
         </div>
       </div>
     </div>
