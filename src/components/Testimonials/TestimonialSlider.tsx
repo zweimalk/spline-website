@@ -1,7 +1,7 @@
 'use client';
 
-import { Testimonial } from '@/types/testimonial';
-import { TouchEvent, useCallback, useEffect, useRef, useState } from 'react';
+import type { Testimonial } from '@/types/testimonial';
+import { type TouchEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { TestimonialCard } from './TestimonialCard';
 
 interface TestimonialSliderProps {
@@ -160,7 +160,9 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
       >
         <div
           className='flex gap-4 transition-transform duration-500 ease-in-out @lg:hidden'
-          style={{ transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))` }}
+          style={{
+            transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 16}px))`,
+          }}
         >
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className='w-full min-w-full'>
@@ -170,7 +172,9 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
         </div>
         <div
           className='gap-6 transition-transform duration-500 ease-in-out hidden @lg:flex'
-          style={{ transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 16}px))` }}
+          style={{
+            transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 16}px))`,
+          }}
         >
           {testimonials.map((testimonial) => (
             <div
@@ -189,6 +193,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
           {testimonials.map((_, index) => (
             <button
               key={index}
+              type='button'
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
                 index === currentIndex ? 'bg-foreground' : 'bg-foreground/20 hover:bg-foreground/40'
@@ -203,6 +208,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
               index % 2 === 0 && (
                 <button
                   key={index}
+                  type='button'
                   onClick={() => goToDesktopSlide(Math.floor(index / 2))}
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === currentIndex ? 'bg-foreground' : 'bg-foreground/20 hover:bg-foreground/40'
