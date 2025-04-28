@@ -108,7 +108,7 @@ export const Header = () => {
                 leaveFrom='translate-y-0'
                 leaveTo='-translate-y-full'
               >
-                <DialogPanel className='w-full fixed right-0 top-0 overflow-y-auto bg-background px-4 pb-4 text-left align-middle shadow-xl'>
+                <DialogPanel className='w-full fixed right-0 top-0 overflow-y-auto bg-background px-4 pb-4 text-left align-middle shadow-xl max-h-screen'>
                   <div className='flex items-center justify-between h-[60px]'>
                     <Link href='/' className='-m-1.5 p-1.5'>
                       <span className='sr-only'>Spline</span>
