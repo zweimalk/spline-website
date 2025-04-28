@@ -17,9 +17,10 @@ const mobileNavigation = [
 ];
 
 const navigation = [
-  { name: 'Join Us', href: '/#join-us' },
-  { name: 'Information & Resources', href: '/#what-we-do' },
-  { name: 'Contact', href: '/#contact-card' },
+  { name: 'Our Services', href: '#what-we-do' },
+  { name: 'Useful Documents', href: '/' },
+  { name: 'Join Us', href: '#join-us' },
+  { name: 'Contact', href: '#contact-card' },
 ];
 
 export const Header = () => {

@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
-        <Script type='application/javascript' src='https://spline.traffit.com/public/an/generateJs/'></Script>
+        <Script type='application/javascript' src='https://spline.traffit.com/public/an/generateJs/' />
       </head>
       <body className={`${neueHaasGroteskDisplayPro.className} antialiased`}>
         <Providers>

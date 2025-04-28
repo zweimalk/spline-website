@@ -4,7 +4,7 @@
 
 @theme {
   --breakpoint-2lg: 1440px;
-  --breakpoint-5k: 5120px;
+  --breakpoint-5k: 3840px;
   --color-light-black: #191919;
   --color-dark-black: #000000;
   --color-gray-6: #272727;
@@ -163,19 +163,3 @@ input[type='range']::-moz-range-thumb {
   cursor: pointer;
   border: none;
 }
-
-/* Traffit styles */
-
-/* #traffit-an-list-xtxrxaxfxixtx2x0x1x6x,
-#traffit-an-filters-xtxrxaxfxixtx2x0x1x6x {
-  width: 100%;
-  padding: 0 !important;
-  max-width: calc(100% - 32px);
-}
-
-#xtxrxaxfxixtx2x0x1x6x-list-div {
-  margin: 0 auto !important;
-  padding: 0;
-  width: 100%;
-  font-family: var(--font-sans) !important;
-} */

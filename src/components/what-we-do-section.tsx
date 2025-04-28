@@ -1,9 +1,13 @@
-import { ServiceCard } from './service-card';
 import { Header1 } from './Typo/Header1';
+import { ServiceCard } from './service-card';
 
 const serviceCards = [
   {
-    title: 'Technology & Electronics',
+    title: (
+      <>
+        technology <br /> & electronics
+      </>
+    ),
     description:
       'Cutting-edge engineering solutions drive innovation in embedded systems, IoT, and consumer electronics. From hardware-software integration to firmware development and advanced testing, we ensure high-performance, scalable, and secure technology tailored to industry needs.',
     image:
@@ -11,7 +15,11 @@ const serviceCards = [
     tags: ['#IoT', '#embedded', '#firmware', '#E&E', '#PCB'],
   },
   {
-    title: 'Healthcare Solutions',
+    title: (
+      <>
+        healthcare <br /> solutions
+      </>
+    ),
     description:
       'Technology reshapes healthcare with secure and high-performance digital solutions. From medical imaging and telehealth platforms to AI-driven diagnostics, we ensure seamless integration of innovation into healthcare services while maintaining compliance and security.',
     image:
@@ -19,14 +27,22 @@ const serviceCards = [
     tags: ['#medtech', '#AI', '#imaging', '#IoMT'],
   },
   {
-    title: 'Automotive & Mobility',
+    title: (
+      <>
+        automotive <br /> & mobility
+      </>
+    ),
     description:
       'We provide comprehensive engineering services for the automotive industry, covering software development, UX/UI design, engineering, and surface modeling. Our expertise spans in-vehicle systems, HMI, ADAS, and mobility solutions, ensuring seamless integration of technology, functionality, and design in next-generation vehicles.',
     image: '/images/what_we_do_3.png',
     tags: ['#surfacing', '#engineering', '#hmi', '#alias', '#icem'],
   },
   {
-    title: 'Retail Media & Services',
+    title: (
+      <>
+        retail media <br /> & services
+      </>
+    ),
     description:
       'Digital transformation enhances customer experiences and operational efficiency. We deliver advanced e-commerce platforms, AI-driven analytics, and automation solutions, helping businesses in media, fintech, and service industries scale and innovate.',
     image:
@@ -34,7 +50,11 @@ const serviceCards = [
     tags: ['#ecommerce', '#fintech', '#automation', '#digital'],
   },
   {
-    title: 'Software Development',
+    title: (
+      <>
+        software <br /> development
+      </>
+    ),
     description:
       'Robust, scalable, and high-performing software solutions power businesses across industries. Our expertise spans cloud integration, AI-driven applications, backend systems, and mobile development—ensuring tailored solutions that meet evolving digital demands.',
     image: '/images/what_we_do_5.png',
@@ -57,7 +77,7 @@ export const WhatWeDoSection = () => {
 
       <div className='mt-16 md:mt-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2 ml-auto gap-4 xl:gap-10 2xl:gap-y-20'>
         {serviceCards.map((card) => (
-          <ServiceCard key={card.title} {...card} />
+          <ServiceCard key={card.title.toString()} {...card} />
         ))}
       </div>
     </div>

@@ -36,6 +36,18 @@ export const InfiniteLogoScroll = ({ logos }: LogoScrollProps) => {
         setMultiplicator(3);
       } else if (window.innerWidth >= 768) {
         setMultiplicator(4);
+      } else if (window.innerWidth >= 1024) {
+        setMultiplicator(5);
+      } else if (window.innerWidth >= 1280) {
+        setMultiplicator(6);
+      } else if (window.innerWidth >= 1536) {
+        setMultiplicator(7);
+      } else if (window.innerWidth >= 1920) {
+        setMultiplicator(8);
+      } else if (window.innerWidth >= 2560) {
+        setMultiplicator(9);
+      } else if (window.innerWidth >= 3840) {
+        setMultiplicator(10);
       }
     };
 

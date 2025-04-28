@@ -4,7 +4,10 @@ export const Title = ({ children, className }: { children: React.ReactNode; clas
   return (
     <h3
       className={cn(
-        'text-heading text-[64px] leading-[60px] md:landscape:text-[120px] md:landscape:leading-[108px] 2lg:text-[120px] 2lg:leading-[108px] 5k:text-[437px] 5k:leading-[380px]',
+        'text-heading text-[56px]',
+        'sm:text-[64px] leading-[90%]',
+        'md:text-[120px] md:leading-[108px]',
+        '5k:text-[437px] 5k:leading-[87%]',
         className
       )}
     >

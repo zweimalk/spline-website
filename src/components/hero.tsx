@@ -1,7 +1,9 @@
 'use client';
 
 import { ArrowDownIcon, ArrowRightIcon } from '@heroicons/react/16/solid';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Body1 } from './Typo/Body1';
+import { Title } from './Typo/Title';
 import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from './icons';
 import { Link } from './link';
 
@@ -19,7 +21,7 @@ export const Hero = (props: HeroProps) => {
       <div className='flex flex-col justify-center px-4 gap-y-6'>
         <div>
           <div className='flex'>
-            <h1 className='text-6xl text-left md:text-8xl 2xl:text-[160px]'>{title}</h1>
+            <Title>{title}</Title>
             <div className='flex-col ml-auto hidden md:flex md:gap-y-7 mt-3.5'>
               <Link
                 aria-label='Go to Spline LinkedIn'
@@ -46,8 +48,9 @@ export const Hero = (props: HeroProps) => {
           </div>
           <div className='md:hidden'>{mediaElement}</div>
 
-          <p className='max-w-[509px] mt-9 md:mt-10 tracking-wider'>{description}</p>
+          <Body1 className='max-w-[509px] mt-9 md:mt-10 tracking-wider'>{description}</Body1>
           <button
+            type='button'
             className='cursor-pointer mt-8 md:mt-10 flex items-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-semibold'
             onClick={() => {
               document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
