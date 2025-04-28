@@ -163,3 +163,32 @@ input[type='range']::-moz-range-thumb {
   cursor: pointer;
   border: none;
 }
+
+/* CLIP TOP LEFT */
+.clip-diagonal-top-left {
+  --scale-factor: 1;
+  clip-path: polygon(
+    calc(var(--clip-offset-x) * var(--scale-factor)) 0,
+    120% 0,
+    120% 120%,
+    0 120%,
+    0 calc(var(--clip-offset-y) * var(--scale-factor))
+  );
+}
+
+/* Size variants for top-left clip */
+.clip-diagonal-top-left-sm {
+  --scale-factor: 0.75;
+}
+
+.clip-diagonal-top-left-md {
+  --scale-factor: 1.5;
+}
+
+.clip-diagonal-top-left-lg {
+  --scale-factor: 2;
+}
+
+.clip-diagonal-top-left-xl {
+  --scale-factor: 3;
+}

@@ -23,7 +23,7 @@ export const HighlightCard = ({ highlight }: HighlightCardProps) => {
   };
 
   return (
-    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all dark:bg-light-black cursor-pointer w-full hover:bg-white dark:hover:bg-[#272727]'>
+    <div className='group relative overflow-hidden rounded-2xl shadow-md transition-all dark:bg-light-black cursor-pointer w-full hover:bg-white dark:hover:bg-[#272727] clip-diagonal-top-left clip-diagonal-top-left-sm'>
       {/* Image Container */}
       <div className='relative h-[197px] w-full overflow-hidden clip-diagonal clip-diagonal-sm'>
         <Image src={imageUrl ?? ''} alt={title} fill className='object-cover ' priority />
