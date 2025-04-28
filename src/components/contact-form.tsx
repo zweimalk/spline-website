@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { type AnyFieldApi, useForm } from '@tanstack/react-form';
 import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -175,7 +176,7 @@ export const ContactForm = () => {
         >
           {(field) => (
             <div className='flex items-start gap-10 border-b border-gray-2 dark:border-gray-5'>
-              <label htmlFor='gdprConsent' className='sr-only'></label>
+              <label htmlFor='gdprConsent' className='sr-only' />
               <input
                 type='checkbox'
                 id='gdprConsent'
@@ -214,6 +215,9 @@ export const ContactForm = () => {
                 }}
               >
                 {isSubmitting ? '...' : 'Send'}
+                <div className='hidden md:flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
+                  <ArrowRightIcon className='w-10 h-10' />
+                </div>
               </button>
             </div>
           )}
