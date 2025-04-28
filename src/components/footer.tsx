@@ -7,8 +7,8 @@ export const Footer = () => {
         <div className='flex justify-start items-center pt-20 px-6 xl:hidden'>
           <SplineLogo className='w-53' />
         </div>
-        <div className='px-6 py-12 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
-          <div className='hidden xl:flex justify-start items-start px-6'>
+        <div className='px-4 py-12 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
+          <div className='hidden xl:flex justify-start items-start'>
             <SplineLogo />
           </div>
           {/* Address Column */}
