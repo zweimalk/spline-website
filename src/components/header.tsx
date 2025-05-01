@@ -11,7 +11,7 @@ import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } fro
 const mobileNavigation = [
   { name: 'technology & electronics', href: '/#what-we-do' },
   { name: 'healthcare solutions', href: '/#what-we-do' },
-  { name: 'automotive & mobility', href: '/#what-we-do' },
+  { name: 'automotive & mobility', href: '/automotive-and-mobility' },
   { name: 'retail media & services', href: '/#what-we-do' },
   { name: 'software development', href: '/software-development' },
 ];
