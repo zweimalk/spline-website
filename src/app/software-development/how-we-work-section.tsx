@@ -11,44 +11,6 @@ export interface HowWeWorkItem {
   content: string;
 }
 
-const howWeWorkItems: HowWeWorkItem[] = [
-  {
-    title: 'Discovery',
-    content:
-      'We begin by understanding your goals, challenges, and requirements to ensure every solution is aligned with your business needs.',
-  },
-  {
-    title: 'Planning',
-    content:
-      'Our team defines the architecture, selects the right technologies, and outlines a scalable roadmap tailored to your project.',
-  },
-  {
-    title: 'Team Assembly',
-    content:
-      'We build a dedicated team of specialists, matching skills and experience to your domain, goals, and timeline.',
-  },
-  {
-    title: 'Solution Design',
-    content:
-      'We define the system structure, workflows, and technical approach —balancing performance, scalability, and maintainability based on project size and complexity.',
-  },
-  {
-    title: 'Development & Integration',
-    content:
-      'Using agile methodologies, we deliver clean, high-quality code with frequent iterations, seamless integration, and continuous stakeholder feedback.',
-  },
-  {
-    title: 'Testing & Quality Assurance',
-    content:
-      'Our rigorous QA processes—including automated and manual testing —ensure functionality, performance, and security at every stage.',
-  },
-  {
-    title: 'Deployment & Monitoring',
-    content:
-      'We handle smooth releases, infrastructure setup, and post-launch monitoring to ensure system stability and performance from day one.',
-  },
-];
-
 export const HowWeWorkSection = ({ howWeWorkItems }: { howWeWorkItems: HowWeWorkItem[] }) => {
   return (
     <div className='mt-20 px-4 md:mt-40'>
