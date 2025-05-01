@@ -31,7 +31,7 @@ export async function getJobPosts({
   pageSize = 5,
   currentPage = 1,
   sortBy = 'id',
-  sortDirection = 'ASC',
+  sortDirection = 'DESC',
 }: JobPostParams = {}): Promise<JobPost[]> {
   try {
     const sort = JSON.stringify({ sort_by: sortBy, direction: sortDirection });

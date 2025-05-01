@@ -1,5 +1,5 @@
 'use client';
-import { Highlight } from '@/types/highlight';
+import type { Highlight } from '@/types/highlight';
 import { useQuery } from 'convex/react';
 import { Suspense } from 'react';
 import { api } from '../../../convex/_generated/api';

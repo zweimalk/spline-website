@@ -190,7 +190,16 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
 
       {/* Pagination dots */}
       <div className='flex justify-center gap-2 mt-6 @container'>
-        <div className='flex gap-2 @lg:hidden'>
+        <div className='flex gap-6 @lg:hidden items-center'>
+          {/* right arrow */}
+          <button
+            type='button'
+            onClick={goToPrevSlide}
+            aria-label='Previous testimonial'
+            className='cursor-pointer mr-4'
+          >
+            <ArrowLeftIcon className='w-8 h-8' />
+          </button>
           {testimonials.map((_, index) => (
             <button
               key={testimonials[index].id}
@@ -202,8 +211,13 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+          {/* left arrow */}
+          <button type='button' onClick={goToNextSlide} aria-label='Next testimonial' className='cursor-pointer ml-4'>
+            <ArrowRightIcon className='w-8 h-8' />
+          </button>
         </div>
         <div className='hidden @lg:flex gap-2 items-center'>
+          {/* right arrow */}
           <button
             type='button'
             onClick={goToPrevSlide}
@@ -226,6 +240,7 @@ export function TestimonialSlider({ testimonials, autoplayInterval = 5000 }: Tes
                 />
               )
           )}
+          {/* left arrow */}
           <button type='button' onClick={goToNextSlide} aria-label='Next testimonial' className='cursor-pointer ml-4'>
             <ArrowRightIcon className='w-8 h-8' />
           </button>

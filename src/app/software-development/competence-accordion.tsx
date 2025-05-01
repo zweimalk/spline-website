@@ -35,7 +35,7 @@ const items = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap'>
             <AWSLogo />
             <AzureLogo />
           </div>
@@ -55,7 +55,7 @@ const items = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap'>
             <AWSLogo />
             <AzureLogo />
           </div>
@@ -73,7 +73,7 @@ const items = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap'>
             <AzureLogo />
             <GitLogo />
             <PandasLogo />
@@ -95,7 +95,7 @@ const items = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap'>
             <AlteryxLogo />
             <ConfluenceLogo />
             <CosLogo />
@@ -119,7 +119,7 @@ const items = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap'>
             <PowerBILogo />
             <TableauLogo />
             <TeamsLogo />

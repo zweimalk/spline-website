@@ -160,7 +160,7 @@ export function HighlightsSlider({ highlights, autoplayInterval = 5000 }: Highli
       <div className='flex gap-2 lg:hidden'>
         {highlights.map((_, index) => (
           <div
-            key={index}
+            key={`${_._id}-${index}`}
             className={cn(
               'h-2 w-2 rounded-full transition-all',
               currentSlide === index ? 'dark:bg-gray-1 bg-gray-5 w-4' : 'dark:bg-gray-5 bg-gray-2'

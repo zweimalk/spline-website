@@ -15,7 +15,7 @@ interface CardsScrollProps {
 
 export const InfiniteCardsScroll = ({ cards }: CardsScrollProps) => {
   const [currentPosition, setCurrentPosition] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const [multiplicator, setMultiplicator] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number>(null);

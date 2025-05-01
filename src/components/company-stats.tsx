@@ -28,7 +28,7 @@ function CertificationTisaxItem({ title, className }: CertificationTisaxItemProp
       <div className='relative aspect-square'>
         <Image
           alt='Tisax'
-          key={`logo-tisax-dark`}
+          key={'logo-tisax-dark'}
           src={'/logos/tisax-dark.svg'}
           className='hidden dark:block transition-all'
           width={100}
@@ -37,7 +37,7 @@ function CertificationTisaxItem({ title, className }: CertificationTisaxItemProp
         />
         <Image
           alt='Tisax'
-          key={`logo-tisax`}
+          key={'logo-tisax'}
           src={'/logos/tisax.svg'}
           className='block dark:hidden transition-all'
           width={100}
@@ -61,7 +61,7 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
       <div className='relative aspect-square'>
         <Image
           alt='ISO'
-          key={`logo-iso-dark`}
+          key={'logo-iso-dark'}
           src={'/logos/iso-dark.svg'}
           className='hidden dark:block transition-all'
           width={100}
@@ -70,7 +70,7 @@ function CertificationISOItem({ title, className }: CertificationISOItemProps) {
         />
         <Image
           alt='ISO'
-          key={`logo-iso`}
+          key={'logo-iso'}
           src={'/logos/iso.svg'}
           className='block dark:hidden transition-all'
           width={100}
