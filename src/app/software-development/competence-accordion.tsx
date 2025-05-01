@@ -8,9 +8,6 @@ import { Title } from '@/components/Typo/Title';
 export type CompetenceAccordionItem = {
   title: string;
   content: React.ReactNode;
-  description: string;
-  imageUrl: string;
-  imageAlt: string;
 };
 
 export const CompetenceAccordion = ({
