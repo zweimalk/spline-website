@@ -53,13 +53,16 @@ export const Footer = () => {
               <Link href='/' className='hover:underline'>
                 Home
               </Link>
-              <Link href='/technology-electronics' className='hover:underline'>
+              <Link href='/technology-and-electronics' className='hover:underline'>
                 Technology & Electronics
               </Link>
               <Link href='/healthcare-solutions' className='hover:underline'>
                 Healthcare Solutions
               </Link>
-              <Link href='/automotive-mobility' className='hover:underline'>
+              <Link href='/software-development' className='hover:underline'>
+                Software Development
+              </Link>
+              <Link href='/automotive-and-mobility' className='hover:underline'>
                 Automotive and Mobility
               </Link>
               <Link href='/retail-services-media' className='hover:underline'>
