@@ -96,18 +96,41 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
     if (!slider) return;
 
     const handleScroll = () => {
-      const scrollPosition = slider.scrollLeft;
-      const cardWidth = 300; // min-w-[300px]
-      const gap = 16; // gap-4 = 16px
-      const slideWidth = cardWidth + gap;
+      const cards = slider.querySelectorAll('.snap-center');
+      if (cards.length === 0) return;
 
-      const newSlide = Math.round(scrollPosition / slideWidth);
-      setCurrentSlide(Math.min(Math.max(0, newSlide), cards.length - 1));
+      const sliderRect = slider.getBoundingClientRect();
+      const containerRect = slider.parentElement?.getBoundingClientRect();
+
+      if (!containerRect) return;
+
+      // Calculate the center position relative to the container
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      const sliderOffset = sliderRect.left - containerRect.left;
+      const sliderCenter = sliderOffset + sliderRect.width / 2;
+
+      // Find the card closest to the center of the viewport
+      let closestCardIndex = 0;
+      let minDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardOffset = cardRect.left - containerRect.left;
+        const cardCenter = cardOffset + cardRect.width / 2;
+        const distance = Math.abs(cardCenter - sliderCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestCardIndex = index;
+        }
+      });
+
+      setCurrentSlide(closestCardIndex);
     };
 
     slider.addEventListener('scroll', handleScroll);
     return () => slider.removeEventListener('scroll', handleScroll);
-  }, [cards.length]);
+  }, []);
 
   return (
     <div className='flex flex-col items-center gap-4 mt-10'>
