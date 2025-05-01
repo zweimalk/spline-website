@@ -110,7 +110,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
   }, [cards.length]);
 
   return (
-    <div className='flex flex-col items-center gap-4'>
+    <div className='flex flex-col items-center gap-4 mt-10'>
       <div
         className='relative w-full'
         onMouseEnter={() => setIsAutoPlaying(false)}
