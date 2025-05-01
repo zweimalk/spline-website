@@ -9,7 +9,7 @@ import { Fragment, useState } from 'react';
 import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } from './icons';
 
 const mobileNavigation = [
-  { name: 'technology & electronics', href: '/#what-we-do' },
+  { name: 'technology & electronics', href: '/technology-and-electronics' },
   { name: 'healthcare solutions', href: '/#what-we-do' },
   { name: 'automotive & mobility', href: '/automotive-and-mobility' },
   { name: 'retail media & services', href: '/#what-we-do' },
