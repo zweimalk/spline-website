@@ -1,11 +1,10 @@
 import { BusinessNeedsSection, type Slide } from '@/components/BusinessNeeds/BusinessNeedsSection';
-import { Body1 } from '@/components/Typo/Body1';
 import { Cite } from '@/components/Typo/Cite';
-import { Title } from '@/components/Typo/Title';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
 import { HighlightsSection } from '@/components/highlights-section';
-import { type Card, InfiniteCardsScroll } from '@/components/infinite-cards-scroll';
+import type { Card } from '@/components/infinite-cards-scroll';
+import { SeeAlsoSection } from '@/components/see-also-section';
 import Image from 'next/image';
 import { CompetenceAccordion } from './competence-accordion';
 import { HowWeWorkSection } from './how-we-work-section';
@@ -39,7 +38,7 @@ const slides: Slide[] = [
 const cards: Card[] = [
   {
     title: (
-      <Cite className='text-left'>
+      <Cite className='text-left text-white z-10'>
         technology <br /> & Electronics
       </Cite>
     ),
@@ -49,7 +48,7 @@ const cards: Card[] = [
   },
   {
     title: (
-      <Cite className='text-left'>
+      <Cite className='text-left text-white z-10'>
         automotive <br /> & mobility
       </Cite>
     ),
@@ -59,7 +58,7 @@ const cards: Card[] = [
   },
   {
     title: (
-      <Cite className='text-left'>
+      <Cite className='text-left text-white z-10'>
         healthcare <br /> solutions
       </Cite>
     ),
@@ -69,7 +68,7 @@ const cards: Card[] = [
   },
   {
     title: (
-      <Cite className='text-left'>
+      <Cite className='text-left text-white z-10'>
         retail media
         <br /> & services
       </Cite>
@@ -117,18 +116,7 @@ export default function SoftwareDevelopment() {
       <HowWeWorkSection />
       <BusinessNeedsSection slides={slides} />
       <HighlightsSection />
-      <div className='mt-20 md:mt-40 text-center'>
-        <div className='px-4'>
-          <div className='max-w-lg mx-auto'>
-            <Title>see also</Title>
-            <Body1 className='mt-4'>
-              We know how you can benefit from our solutions. See selected examples of our projects. We know how you can
-              benefit from our solutions. See selected examples of our projects.
-            </Body1>
-          </div>
-        </div>
-        <InfiniteCardsScroll cards={cards} />
-      </div>
+      <SeeAlsoSection cards={cards} />
       <ContactPeople />
     </>
   );

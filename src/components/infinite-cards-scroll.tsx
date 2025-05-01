@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Cite } from './Typo/Cite';
 
 export interface Card {
   title: React.ReactNode;
@@ -131,6 +130,8 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
     return () => slider.removeEventListener('scroll', handleScroll);
   }, []);
 
+  console.log({ cards });
+
   return (
     <div className='flex flex-col items-center gap-4 mt-10'>
       <div
@@ -177,7 +178,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
                   ))}
                 </div>
                 <div className='p-4'>
-                  <Cite className='text-white z-10'>{card.title}</Cite>
+                  {card.title}
                   <div className='flex items-center gap-2 mt-4 border-t border-white pt-6'>
                     <span className='text-xl font-medium text-white group-hover:tracking-wide transition-all duration-300'>
                       See more
