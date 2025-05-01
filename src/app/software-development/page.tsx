@@ -26,7 +26,8 @@ import type { Card } from '@/components/infinite-cards-scroll';
 import { SeeAlsoSection } from '@/components/see-also-section';
 import Image from 'next/image';
 import { CompetenceAccordion, type CompetenceAccordionItem } from './competence-accordion';
-import { HowWeWorkSection } from './how-we-work-section';
+import { type HowWeWorkItem, HowWeWorkSection } from './how-we-work-section';
+
 const slides: Slide[] = [
   {
     title: 'Staff augmentation',
@@ -251,6 +252,44 @@ const cards: Card[] = [
   },
 ];
 
+const howWeWorkItems: HowWeWorkItem[] = [
+  {
+    title: 'Discovery',
+    content:
+      'We begin by understanding your goals, challenges, and requirements to ensure every solution is aligned with your business needs.',
+  },
+  {
+    title: 'Planning',
+    content:
+      'Our team defines the architecture, selects the right technologies, and outlines a scalable roadmap tailored to your project.',
+  },
+  {
+    title: 'Team Assembly',
+    content:
+      'We build a dedicated team of specialists, matching skills and experience to your domain, goals, and timeline.',
+  },
+  {
+    title: 'Solution Design',
+    content:
+      'We define the system structure, workflows, and technical approach —balancing performance, scalability, and maintainability based on project size and complexity.',
+  },
+  {
+    title: 'Development & Integration',
+    content:
+      'Using agile methodologies, we deliver clean, high-quality code with frequent iterations, seamless integration, and continuous stakeholder feedback.',
+  },
+  {
+    title: 'Testing & Quality Assurance',
+    content:
+      'Our rigorous QA processes—including automated and manual testing —ensure functionality, performance, and security at every stage.',
+  },
+  {
+    title: 'Deployment & Monitoring',
+    content:
+      'We handle smooth releases, infrastructure setup, and post-launch monitoring to ensure system stability and performance from day one.',
+  },
+];
+
 export default function SoftwareDevelopment() {
   return (
     <>
@@ -293,7 +332,7 @@ export default function SoftwareDevelopment() {
         imageUrl={'/images/software-development/shape.webp'}
         imageAlt={'Software Development'}
       />
-      <HowWeWorkSection />
+      <HowWeWorkSection howWeWorkItems={howWeWorkItems} />
       <BusinessNeedsSection slides={slides} />
       <HighlightsSection />
       <SeeAlsoSection cards={cards} />

@@ -6,7 +6,12 @@ import { HowWeWork } from '@/components/how-we-work';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
-const items = [
+export interface HowWeWorkItem {
+  title: string;
+  content: string;
+}
+
+const howWeWorkItems: HowWeWorkItem[] = [
   {
     title: 'Discovery',
     content:
@@ -44,17 +49,17 @@ const items = [
   },
 ];
 
-export const HowWeWorkSection = () => {
+export const HowWeWorkSection = ({ howWeWorkItems }: { howWeWorkItems: HowWeWorkItem[] }) => {
   return (
     <div className='mt-20 px-4 md:mt-40'>
       <Title className='md:text-right'>how do we work?</Title>
       <div className='mt-8 max-w-6xl ml-auto lg:landscape:hidden'>
-        <HowWeWork items={items} />
+        <HowWeWork items={howWeWorkItems} />
       </div>
       <div className='hidden lg:landscape:block max-w-7xl ml-auto mt-10'>
         <div className='border border-foreground/30 rounded-xl'>
           <div className='flex flex-col'>
-            {items.map((item, index) => (
+            {howWeWorkItems.map((item, index) => (
               <motion.div
                 initial='initial'
                 whileHover='hover'

@@ -165,10 +165,10 @@ export const Accordion = ({ items, imageUrl, imageAlt }: AccordionProps) => {
         <img
           src={imageUrl}
           alt={imageAlt}
-          width={1000}
-          height={1000}
+          width={3000}
+          height={3000}
           className={
-            'hidden w-full sm:block transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/3] clip-diagonal clip-diagonal-sm rounded-xl'
+            'hidden w-full sm:block transition-all duration-300 aspect-[9/16] md:aspect-[16/6] object-cover md:landscape:aspect-[16/8] clip-diagonal clip-diagonal-sm rounded-xl'
           }
         />
       </div>
