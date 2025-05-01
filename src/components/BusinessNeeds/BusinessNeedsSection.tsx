@@ -20,7 +20,7 @@ export const BusinessNeedsSection = ({ slides }: { slides: Slide[] }) => {
   return (
     <div className='mt-20 px-4 lg:px-0'>
       {/* Header */}
-      <div className='lg:grid lg:grid-cols-2 justify-between items-start gap-4 px-4'>
+      <div className='lg:grid lg:grid-cols-2 justify-between items-start gap-4 px-2 sm:px-4'>
         <Title className=''>business needs</Title>
         <Body1 className='mt-24 md:mt-12 select-none max-w-lg lg:mt-4'>
           We tailor our cooperation models to match your project goals, internal capacity, and preferred level of
