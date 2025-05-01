@@ -285,6 +285,7 @@ export default function SoftwareDevelopment() {
         }
       />
       <CompetenceAccordion
+        title='software development'
         items={compoetenceItems}
         description={
           'We deliver future-proof, tailor-made solutions that support our clients&apos; day-to-day operations and help them gain an edge over their competition. We understand that organisations we work with may be at different points.'

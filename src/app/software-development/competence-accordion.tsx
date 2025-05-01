@@ -12,18 +12,20 @@ export type CompetenceAccordionItem = {
 
 export const CompetenceAccordion = ({
   items,
+  title,
   description,
   imageUrl,
   imageAlt,
 }: {
   items: CompetenceAccordionItem[];
+  title: string;
   description: string;
   imageUrl: string;
   imageAlt: string;
 }) => {
   return (
     <div className='px-4 mt-20 md:mt-40'>
-      <Header3>automotive & mobility</Header3>
+      <Header3>{title}</Header3>
       <div className='xl:flex justify-between items-center'>
         <Title className='mt-4'>competence</Title>
         <Body1 className='mt-8 max-w-[65ch]'>{description}</Body1>

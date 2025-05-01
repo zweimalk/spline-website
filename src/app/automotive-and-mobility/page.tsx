@@ -202,6 +202,7 @@ export default function AutomotiveAndMobility() {
         }
       />
       <CompetenceAccordion
+        title='automotive & mobility'
         items={compoetenceItems}
         description={
           'Our interdisciplinary teams combine expertise in software, mechanical, and E&E engineering to support every aspect of vehicle development. We deliver tailored solutions that meet industry standards and accelerate innovation across modern mobility ecosystems.'
