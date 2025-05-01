@@ -53,7 +53,7 @@ export const ServiceCard = ({ title, description, image, tags, link }: ServiceCa
           </p>
         </div>
         <div className='flex items-center justify-center font-medium text-spline-blue dark:text-white lg:group-hover:text-background transition-all duration-300 w-full border border-spline-blue dark:border-white rounded-full px-4 py-1 mt-8 lg:border-0 lg:bg-transparent lg:justify-start lg:pl-0'>
-          See more soon
+          See more
           <ArrowRightIcon className='hidden lg:block w-8 h-8 text-spline-blue lg:group-hover:text-background transition-all duration-300 lg:group-hover:translate-x-4 dark:text-white lg:ml-4' />
         </div>
       </div>
