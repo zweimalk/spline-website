@@ -36,6 +36,7 @@ const serviceCards = [
       'We provide comprehensive engineering services for the automotive industry, covering software development, UX/UI design, engineering, and surface modeling. Our expertise spans in-vehicle systems, HMI, ADAS, and mobility solutions, ensuring seamless integration of technology, functionality, and design in next-generation vehicles.',
     image: '/images/what_we_do_3.png',
     tags: ['#surfacing', '#engineering', '#hmi', '#alias', '#icem'],
+    link: '/automotive-and-mobility',
   },
   {
     title: (

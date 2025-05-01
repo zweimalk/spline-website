@@ -18,6 +18,8 @@ interface AccordionItem {
 
 interface AccordionProps {
   items: AccordionItem[];
+  imageUrl: string;
+  imageAlt: string;
 }
 
 /**
@@ -69,7 +71,7 @@ const AccordionItemComponent = ({
   />
 );
 
-export const Accordion = ({ items }: AccordionProps) => {
+export const Accordion = ({ items, imageUrl, imageAlt }: AccordionProps) => {
   const [isAnyEntered, setIsAnyEntered] = useState(false);
   const providerValue1 = useAccordionProvider({
     transition: true,
@@ -152,8 +154,8 @@ export const Accordion = ({ items }: AccordionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, aspectRatio: isAnyEntered ? '16/9' : '9/16' }}
           transition={{ duration: 0, ease: easeInOut }}
-          src={'/images/software-development/shape.webp'}
-          alt={'Automotive & mobility'}
+          src={imageUrl}
+          alt={imageAlt}
           width={1000}
           height={1000}
           className={
@@ -161,8 +163,8 @@ export const Accordion = ({ items }: AccordionProps) => {
           }
         />
         <img
-          src={'/images/software-development/shape.webp'}
-          alt={'Automotive & mobility'}
+          src={imageUrl}
+          alt={imageAlt}
           width={1000}
           height={1000}
           className={
