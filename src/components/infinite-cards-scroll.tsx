@@ -19,7 +19,6 @@ interface CardsScrollProps {
 export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScrollProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
-  const [hasDragged, setHasDragged] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const touchStartXRef = useRef<number>(0);
@@ -30,7 +29,6 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
     setIsDragging(true);
-    setHasDragged(false);
     dragStartXRef.current = e.pageX;
     if (sliderRef.current) {
       scrollLeftRef.current = sliderRef.current.scrollLeft;
@@ -44,10 +42,6 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
     if (sliderRef.current) {
       const x = e.pageX - dragStartXRef.current;
       sliderRef.current.scrollLeft = scrollLeftRef.current - x;
-
-      if (Math.abs(x) > 2) {
-        setHasDragged(true);
-      }
     }
   };
 
@@ -59,14 +53,12 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsAutoPlaying(false);
     touchStartXRef.current = e.touches[0].pageX;
-    setHasDragged(false);
   };
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     const touchEndX = e.changedTouches[0].pageX;
     const moveDistance = Math.abs(touchEndX - touchStartXRef.current);
     if (moveDistance > 5) {
-      setHasDragged(true);
     }
   };
 
@@ -78,17 +70,6 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
       const nextSlide = (currentSlide + 1) % cards.length;
       sliderRef.current.scrollLeft = nextSlide * slideWidth;
       setCurrentSlide(nextSlide);
-    }
-  }, [currentSlide, cards.length]);
-
-  const goToPrevSlide = useCallback(() => {
-    if (sliderRef.current) {
-      const cardWidth = 300; // min-w-[300px]
-      const gap = 16; // gap-4 = 16px
-      const slideWidth = cardWidth + gap;
-      const prevSlide = currentSlide === 0 ? cards.length - 1 : currentSlide - 1;
-      sliderRef.current.scrollLeft = prevSlide * slideWidth;
-      setCurrentSlide(prevSlide);
     }
   }, [currentSlide, cards.length]);
 
@@ -209,7 +190,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
       <div className='flex gap-2 lg:hidden'>
         {cards.map((_, index) => (
           <div
-            key={`dot-${index}`}
+            key={`dot-${_.title}-${index}`}
             className={cn(
               'h-2 w-2 rounded-full transition-all',
               currentSlide === index ? 'dark:bg-gray-1 bg-gray-5 w-4' : 'dark:bg-gray-5 bg-gray-2'
