@@ -105,7 +105,6 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
       if (!containerRect) return;
 
       // Calculate the center position relative to the container
-      const containerCenter = containerRect.left + containerRect.width / 2;
       const sliderOffset = sliderRect.left - containerRect.left;
       const sliderCenter = sliderOffset + sliderRect.width / 2;
 
