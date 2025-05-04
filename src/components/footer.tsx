@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Body1 } from './Typo/Body1';
 import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, SplineLogo } from './icons';
 export const Footer = () => {
   return (
@@ -90,15 +91,9 @@ export const Footer = () => {
                 >
                   Privacy Policy
                 </Link>
-                <Link href='/gdpr' className='hover:underline mb-2 md:mb-0'>
-                  GDPR Clauses
-                </Link>
-                <Link href='/gdpr' className='hover:underline mb-2 md:mb-0'>
-                  Protected by Recaptcha
-                </Link>
-                <Link href='/gdpr' className='hover:underline mb-2 md:mb-0'>
-                  Copyright© Spline 2025
-                </Link>
+                <Body1 className='hover:underline mb-2 md:mb-0'>GDPR Clauses</Body1>
+                <Body1 className='hover:underline mb-2 md:mb-0'>Protected by Recaptcha</Body1>
+                <Body1 className='hover:underline mb-2 md:mb-0'>Copyright© Spline 2025</Body1>
               </div>
             </div>
           </div>

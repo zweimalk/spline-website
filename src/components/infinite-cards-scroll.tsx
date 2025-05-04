@@ -132,8 +132,6 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
     return () => slider.removeEventListener('scroll', handleScroll);
   }, []);
 
-  console.log({ cards });
-
   return (
     <div className='flex flex-col items-center gap-4 mt-10'>
       <div

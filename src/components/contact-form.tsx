@@ -21,6 +21,7 @@ const FieldInfo = ({ field }: { field: AnyFieldApi }) => {
 export const ContactForm = () => {
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
 
   const form = useForm({
     defaultValues: {
@@ -30,22 +31,39 @@ export const ContactForm = () => {
       message: '',
       gdprConsent: false,
     },
-    onSubmit: async (values) => {
+    onSubmit: async ({ value }) => {
       try {
         if (!captchaValue) {
-          throw new Error('Please complete the captcha');
+          setCaptchaError('Please complete the captcha');
+          return;
         }
 
-        // Include captcha token in your form submission
-        console.log('Form submitted:', {
-          ...values,
-          captchaToken: captchaValue,
+        const response = await fetch('/api/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nameAndSurname: value.nameAndSurname,
+            phoneNumber: value.phoneNumber,
+            email: value.email,
+            message: value.message,
+            gdprConsent: value.gdprConsent,
+            captcha: captchaValue,
+          }),
         });
+
+        if (!response.ok) {
+          throw new Error('Failed to send email');
+        }
+
         setCaptchaValue(null);
         setShowCaptcha(false);
+        setCaptchaError(null);
         form.reset();
       } catch (error: unknown) {
         console.error('Error submitting form:', error instanceof Error ? error.message : 'Unknown error');
+        setCaptchaError('Failed to submit form. Please try again.');
       }
     },
   });
@@ -54,19 +72,23 @@ export const ContactForm = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Check if form is valid before showing captcha
     if (form.state.canSubmit) {
       setShowCaptcha(true);
-    } else {
-      void form.handleSubmit();
+      setCaptchaError(null);
     }
   };
 
   const handleCaptchaChange = (value: string | null) => {
     setCaptchaValue(value);
+    setCaptchaError(null);
     if (value) {
       void form.handleSubmit();
     }
+  };
+
+  const handleCaptchaExpired = () => {
+    setCaptchaValue(null);
+    setCaptchaError('Captcha expired. Please try again.');
   };
 
   return (
@@ -176,7 +198,6 @@ export const ContactForm = () => {
         >
           {(field) => (
             <div className='flex items-start gap-10 border-b border-gray-2 dark:border-gray-5'>
-              <label htmlFor='gdprConsent' className='sr-only' />
               <input
                 type='checkbox'
                 id='gdprConsent'
@@ -203,18 +224,25 @@ export const ContactForm = () => {
           {([canSubmit, isSubmitting]) => (
             <div className='flex flex-col items-start gap-4'>
               {showCaptcha && (
-                <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} onChange={handleCaptchaChange} />
+                <div className='w-full'>
+                  <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                    onChange={handleCaptchaChange}
+                    onExpired={handleCaptchaExpired}
+                  />
+                  {captchaError && <p className='text-red-500 text-sm mt-2'>{captchaError}</p>}
+                </div>
               )}
 
               <button
                 type='submit'
-                disabled={!canSubmit}
+                disabled={!canSubmit || isSubmitting}
                 className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-medium w-full md:w-auto'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                {isSubmitting ? '...' : 'Send'}
+                {isSubmitting ? 'Sending...' : 'Send'}
                 <div className='hidden md:flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
                   <ArrowRightIcon className='w-10 h-10' />
                 </div>
