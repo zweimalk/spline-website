@@ -8,7 +8,7 @@ interface JobPostParams {
   sortDirection?: 'ASC' | 'DESC';
 }
 
-interface JobPost {
+export interface JobPost {
   id: string;
   title: string;
   advert: {

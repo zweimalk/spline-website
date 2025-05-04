@@ -1,51 +1,74 @@
-import { getJobPosts } from '@/data/getJobPosts';
+import { type JobPost, getJobPosts } from '@/data/getJobPosts';
 import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import { Suspense } from 'react';
 import { Body1 } from './Typo/Body1';
 import { Title } from './Typo/Title';
 import { JobCard } from './job-card';
 import { Link } from './link';
+interface JobField {
+  field_id: string;
+  name?: string;
+  value: string;
+}
 
 interface ParsedJobContent {
   description: string[];
   tags: string[];
+  keyRequirements: string[];
 }
 
-export function parseJobContent(content: string): ParsedJobContent {
-  // Split by double line break to separate list items from tags
-  const [listContent, tagsSection = ''] = content.split('<br><br>');
+export function parseJobContent(fields: JobField[]): ParsedJobContent {
+  const benefitsField = fields.find((f) => f.field_id === 'benefits');
+  const tagsField = fields.find((f) => f.field_id === '679c5dc7e22931b675a2a7567a60f88a');
 
-  // Extract description items
-  const description = listContent
-    .replace(/<\/?ul>/g, '') // Remove ul tags
-    .split('</li>')
-    .map((item) => item.replace('<li>', '').trim())
-    .filter(Boolean); // Remove empty items
+  // Extract description from benefits field
+  const description =
+    benefitsField?.value
+      .replace(/<\/?ul>/g, '') // Remove ul tags
+      .split('</li>')
+      .map((item) => item.replace('<li>', '').trim())
+      .filter(Boolean) || [];
 
   // Extract tags
   const tags =
-    tagsSection
+    tagsField?.value
       .match(/#[\w-]+/g) // Match hashtags
       ?.map((tag) => tag.replace('#', '')) || [];
 
   return {
     description,
     tags,
+    keyRequirements: description, // Since we're using benefits as description, we can reuse it here
   };
 }
 
-export default async function JobsSection() {
-  const jobPosts = await getJobPosts();
+const jobsWithParsedContent = (jobPosts: JobPost[]) =>
+  jobPosts.map((job) => {
+    const { description, tags } = parseJobContent(job.advert.values);
+    const geolocationField = job.advert.values.find((f: JobField) => f.field_id === 'geolocation');
+    let location = 'Remote';
 
-  const jobsWithParsedContent = jobPosts.map((job) => {
-    const { description, tags } = parseJobContent(job.advert.values[4].value);
+    if (geolocationField?.value) {
+      try {
+        const locationData = JSON.parse(geolocationField.value);
+        location = `${locationData.locality}, ${locationData.country}`;
+      } catch (error) {
+        console.error('Error parsing geolocation:', error);
+      }
+    }
+
     return {
-      ...job,
-      parsedDescription: description,
-      parsedTags: tags,
+      title: job.advert.name,
+      location,
+      url: job.url,
+      description,
+      tags,
     };
   });
 
+export default async function JobsSection() {
+  const jobPosts = await getJobPosts();
+  const jobs = jobsWithParsedContent(jobPosts);
   return (
     <Suspense
       fallback={
@@ -55,20 +78,13 @@ export default async function JobsSection() {
       }
     >
       <div className='container mx-auto px-4 mt-20' id='join-us'>
-        <Title className='mb-10'>join us</Title>
-        <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
-          {jobsWithParsedContent.map((job) => (
-            <JobCard
-              key={job.id}
-              title={job.advert.name}
-              location='Kraków, Poland / Remote'
-              url={job.url}
-              description={job.parsedDescription}
-              tags={job.parsedTags}
-            />
+        <Title className='mb-10 text-center'>join us</Title>
+        <div className='flex flex-col md:flex-row md:flex-wrap gap-6 items-center justify-center'>
+          {jobs.map((job) => (
+            <JobCard key={job.url} {...job} />
           ))}
         </div>
-        <Body1 className='text-center mt-4 text-gray-3 dark:text-gray-7'>& more...</Body1>
+        <Body1 className='text-center pt-6 text-gray-3 dark:text-gray-7'>& more...</Body1>
         <div className='flex justify-center mt-8'>
           <Link
             href='https://spline.traffit.com/career/'
