@@ -12,11 +12,26 @@ import { Body1 } from '@/components/Typo/Body1';
 import { Cite } from '@/components/Typo/Cite';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
+import {
+  AWSIoTLogo,
+  AltiumLogo,
+  AutodeskElectricalLogo,
+  EplanElectricLogo,
+  GitlabLogo,
+  Gns3Logo,
+  JiraTechnologyLogo,
+  JuniperLogo,
+  LorawanLogo,
+  LtsPiceLogo,
+  MatlabLogo,
+  SolarWindsLogo,
+  WireSharkLogo,
+  ZigbeeLogo,
+} from '@/components/icons';
 import type { Card } from '@/components/infinite-cards-scroll';
 import Image from 'next/image';
 import type { CompetenceAccordionItem } from '../software-development/competence-accordion';
 import type { HowWeWorkItem } from '../software-development/how-we-work-section';
-
 const compoetenceItems: CompetenceAccordionItem[] = [
   {
     title: 'Electrical Planning & System Design',
@@ -30,7 +45,15 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap' />
+          <div className='flex flex-wrap gap-2'>
+            <AltiumLogo />
+            <AutodeskElectricalLogo />
+            <EplanElectricLogo />
+            <GitlabLogo />
+            <JiraTechnologyLogo />
+            <LtsPiceLogo />
+            <MatlabLogo />
+          </div>
         </div>
       </>
     ),
@@ -47,7 +70,14 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap' />
+          <div className='flex flex-wrap gap-2'>
+            <Gns3Logo />
+            <JuniperLogo />
+            <LorawanLogo />
+            <SolarWindsLogo />
+            <WireSharkLogo />
+            <ZigbeeLogo />
+          </div>
         </div>
       </>
     ),
@@ -64,7 +94,9 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap' />
+          <div className='flex flex-wrap gap-2'>
+            <AWSIoTLogo />
+          </div>
         </div>
       </>
     ),
@@ -81,7 +113,7 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap' />
+          <div className='flex flex-wrap gap-2' />
         </div>
       </>
     ),
