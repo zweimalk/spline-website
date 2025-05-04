@@ -22,6 +22,7 @@ export const ContactForm = () => {
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState<string | null>(null);
+  const [isValidating, setIsValidating] = useState(false);
 
   const form = useForm({
     defaultValues: {
@@ -68,14 +69,29 @@ export const ContactForm = () => {
     },
   });
 
-  const handleInitialSubmit = (e: React.FormEvent) => {
+  const handleInitialSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (form.state.canSubmit) {
+    setIsValidating(true);
+
+    // Validate all fields
+    const validationResults = await Promise.all([
+      form.validateField('nameAndSurname', 'submit'),
+      form.validateField('phoneNumber', 'submit'),
+      form.validateField('email', 'submit'),
+      form.validateField('message', 'submit'),
+      form.validateField('gdprConsent', 'submit'),
+    ]);
+
+    const hasErrors = validationResults.some((result) => result.length > 0);
+
+    if (!hasErrors) {
       setShowCaptcha(true);
       setCaptchaError(null);
     }
+
+    setIsValidating(false);
   };
 
   const handleCaptchaChange = (value: string | null) => {
@@ -97,7 +113,7 @@ export const ContactForm = () => {
         <form.Field
           name='nameAndSurname'
           validators={{
-            onSubmit: ({ value }) =>
+            onChange: ({ value }) =>
               !value ? 'Name is required' : value.length < 2 ? 'Name must be at least 2 characters' : undefined,
           }}
         >
@@ -119,7 +135,7 @@ export const ContactForm = () => {
         <form.Field
           name='phoneNumber'
           validators={{
-            onSubmit: ({ value }) =>
+            onChange: ({ value }) =>
               !value
                 ? 'Phone number is required'
                 : !/^\+\d{1,4}\s?\d{4,14}$/.test(value)
@@ -145,7 +161,7 @@ export const ContactForm = () => {
         <form.Field
           name='email'
           validators={{
-            onSubmit: ({ value }) =>
+            onChange: ({ value }) =>
               !value
                 ? 'Email is required'
                 : !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
@@ -171,7 +187,7 @@ export const ContactForm = () => {
         <form.Field
           name='message'
           validators={{
-            onSubmit: ({ value }) =>
+            onChange: ({ value }) =>
               !value ? 'Message is required' : value.length < 10 ? 'Message must be at least 10 characters' : undefined,
           }}
         >
@@ -193,7 +209,7 @@ export const ContactForm = () => {
         <form.Field
           name='gdprConsent'
           validators={{
-            onSubmit: ({ value }) => (!value ? 'You must accept the GDPR consent' : undefined),
+            onChange: ({ value }) => (!value ? 'You must accept the GDPR consent' : undefined),
           }}
         >
           {(field) => (
@@ -236,13 +252,13 @@ export const ContactForm = () => {
 
               <button
                 type='submit'
-                disabled={!canSubmit || isSubmitting}
+                disabled={isValidating || isSubmitting}
                 className='cursor-pointer mt-8 md:mt-10 flex items-center justify-center gap-x-4 bg-foreground text-background px-5 py-3 xl:px-4 xl:py-2 rounded-lg tracking-wider leading-[150%] xl:text-[15px] font-medium w-full md:w-auto'
                 onClick={() => {
                   document.getElementById('contact-card')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                {isSubmitting ? 'Sending...' : 'Send'}
+                {isValidating ? 'Validating...' : isSubmitting ? 'Sending...' : 'Send'}
                 <div className='hidden md:flex items-center justify-center w-6 h-6 xl:w-7 xl:h-7 ml-2'>
                   <ArrowRightIcon className='w-10 h-10' />
                 </div>
