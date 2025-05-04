@@ -226,7 +226,6 @@ export const ContactForm = () => {
               {showCaptcha && (
                 <div className='w-full'>
                   <ReCAPTCHA
-                    size='invisible'
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
                     onChange={handleCaptchaChange}
                     onExpired={handleCaptchaExpired}
