@@ -236,8 +236,8 @@ export const ContactForm = () => {
           )}
         </form.Field>
 
-        <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
-          {([_, isSubmitting]) => (
+        <form.Subscribe selector={(state) => [state.isSubmitting]}>
+          {([, isSubmitting]) => (
             <div className='flex flex-col items-start gap-4'>
               {showCaptcha && (
                 <div className='w-full'>
