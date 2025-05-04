@@ -16,14 +16,28 @@ import {
   AWSIoTLogo,
   AltiumLogo,
   AutodeskElectricalLogo,
+  CanOpenLogo,
+  ConfluenceTechnologyLogo,
+  CstLogo,
   EplanElectricLogo,
   GitlabLogo,
   Gns3Logo,
+  IoTHubLogo,
+  ItsPiceLogo,
+  JenkinsLogo,
   JiraTechnologyLogo,
   JuniperLogo,
+  KeysightLogo,
+  LabViewLogo,
   LorawanLogo,
   LtsPiceLogo,
   MatlabLogo,
+  ModbusLogo,
+  MqqTLogo,
+  PlecsLogo,
+  PolarionLogo,
+  PsimLogo,
+  PythonTechnologyLogo,
   SolarWindsLogo,
   WireSharkLogo,
   ZigbeeLogo,
@@ -96,6 +110,14 @@ const compoetenceItems: CompetenceAccordionItem[] = [
           <Body1>Tech Stack</Body1>
           <div className='flex flex-wrap gap-2'>
             <AWSIoTLogo />
+            <CanOpenLogo />
+            <IoTHubLogo />
+            <ItsPiceLogo />
+            <MatlabLogo />
+            <ModbusLogo />
+            <MqqTLogo />
+            <PlecsLogo />
+            <PsimLogo />
           </div>
         </div>
       </>
@@ -113,7 +135,16 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2'>
+            <ConfluenceTechnologyLogo />
+            <CstLogo />
+            <JenkinsLogo />
+            <JiraTechnologyLogo />
+            <KeysightLogo />
+            <LabViewLogo />
+            <PolarionLogo />
+            <PythonTechnologyLogo />
+          </div>
         </div>
       </>
     ),
