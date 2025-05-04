@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 export interface Card {
@@ -8,6 +9,7 @@ export interface Card {
   imgAlt: string;
   tags: string[];
   imageUrl: string;
+  link: string;
 }
 
 interface CardsScrollProps {
@@ -179,7 +181,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
                 </div>
                 <div className='p-4'>
                   {card.title}
-                  <div className='flex items-center gap-2 mt-4 border-t border-white pt-6'>
+                  <Link href={card.link} className='flex items-center gap-2 mt-4 border-t border-white pt-6'>
                     <span className='text-xl font-medium text-white group-hover:tracking-wide transition-all duration-300'>
                       See more
                     </span>
@@ -200,7 +202,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
                         strokeLinejoin='round'
                       />
                     </svg>
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}

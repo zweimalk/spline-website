@@ -216,6 +216,7 @@ const cards: Card[] = [
     imgAlt: 'Automotive & Mobility',
     tags: ['surfacing', 'engineering', 'hmi'],
     imageUrl: '/images/service-cards/automotive.png',
+    link: '/automotive-and-mobility',
   },
   {
     title: (
@@ -226,6 +227,7 @@ const cards: Card[] = [
     imgAlt: 'Software & Development',
     tags: ['cloud', 'AI', 'backend'],
     imageUrl: '/images/service-cards/mobility.png',
+    link: '/software-development',
   },
   {
     title: (
@@ -236,6 +238,7 @@ const cards: Card[] = [
     imgAlt: 'Healthcare Solutions',
     tags: ['medtech', 'AI', 'imaging'],
     imageUrl: '/images/service-cards/healthcare.png',
+    link: '/healthcare-solutions',
   },
   {
     title: (
@@ -247,6 +250,7 @@ const cards: Card[] = [
     imgAlt: 'Retail Media & Services',
     tags: ['ecommerce', 'fintech', 'automation'],
     imageUrl: '/images/service-cards/retail.png',
+    link: '/retail-media-and-services',
   },
 ];
 
