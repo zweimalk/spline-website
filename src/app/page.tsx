@@ -8,6 +8,7 @@ import JobsSection from '@/components/jobs-section';
 import PartnersLogosSection from '@/components/partners-logos-section';
 import { QuotesSection } from '@/components/quotes-section';
 import { WhatWeDoSection } from '@/components/what-we-do-section';
+import image from '../../public/images/automotive-and-mobility/Automotive-1440.webp';
 
 export default function Home() {
   return (
@@ -27,7 +28,8 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload='auto'
+            preload='metadata'
+            poster={image.src}
             className='w-full object-cover mt-6 rounded-lg clip-diagonal clip-diagonal-sm md:clip-diagonal-responsive landscape:h-[400px] md:mt-10'
           >
             <source
