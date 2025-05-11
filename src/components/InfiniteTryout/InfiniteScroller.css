@@ -11,7 +11,6 @@
 }
 
 .infinite-scroller-container[data-direction='horizontal'] {
-  aspect-ratio: 16 / 9;
   min-width: 300px;
   height: 100px;
 }
