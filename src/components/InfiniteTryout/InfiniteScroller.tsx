@@ -203,7 +203,7 @@ export const InfiniteScroller = () => {
       data-spill={false}
       style={
         {
-          '--speed': 40,
+          '--speed': 80,
           '--count': logos.length,
           '--scale': 1,
           '--inset': 4,
@@ -220,6 +220,7 @@ export const InfiniteScroller = () => {
                 index
               }`}
               style={{ '--index': index } as React.CSSProperties}
+              className='size-18 md:size-24'
             >
               <Image
                 src={resolvedTheme === 'dark' ? logo.srcDark : logo.src}
