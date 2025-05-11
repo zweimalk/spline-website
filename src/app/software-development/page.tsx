@@ -10,11 +10,15 @@ import {
   AzureLogo,
   ConfluenceLogo,
   CosLogo,
+  DockerLogo,
   GitLogo,
   JiraLogo,
+  KubernetesLogo,
   PandasLogo,
   PowerBILogo,
   PythonLogo,
+  PythonTechnologyLogo,
+  ReactLogo,
   SQLLogo,
   SnowFlakeLogo,
   SparkLogo,
@@ -178,8 +182,13 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
-            <Body1>Python</Body1>
+          <div className='flex flex-wrap gap-2 items-center'>
+            <PythonTechnologyLogo />
+            <AWSLogo className='size-10' />
+            <AzureLogo className='size-10' />
+            <DockerLogo className='size-10' />
+            <KubernetesLogo className='size-10' />
+            <ReactLogo className='size-10' />
           </div>
         </div>
       </>
