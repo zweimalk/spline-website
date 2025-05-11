@@ -1,0 +1,95 @@
+.infinite-scroller-container {
+  width: 98vw;
+  padding: 1rem;
+  border-radius: 6px;
+  container-type: size;
+  margin: 0 auto;
+}
+
+.infinite-scroller-container:not([data-spill='true']) {
+  overflow: hidden;
+}
+
+.infinite-scroller-container[data-direction='horizontal'] {
+  aspect-ratio: 16 / 9;
+  min-width: 300px;
+  height: 100px;
+}
+
+ul {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.infinite-scroller-container[data-pad-diff='true'] .pad {
+}
+
+@keyframes track-translate {
+  to {
+    translate: var(--destination-x, 0) var(--destination-y, 0);
+  }
+}
+
+.infinite-scroller-container[data-direction='horizontal'] ul {
+  height: 100%;
+  width: fit-content;
+  align-items: center;
+}
+
+.infinite-scroller-container[data-direction='horizontal'] li {
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+}
+
+.infinite-scroller-container[data-play-state='running'] :is(ul, li) {
+  animation-play-state: running !important;
+}
+.infinite-scroller-container[data-play-state='paused'] :is(ul, li) {
+  animation-play-state: paused !important;
+}
+
+/* The animation stuff */
+@media (prefers-reduced-motion: no-preference) {
+  [data-translate='items'] ul {
+    gap: 0;
+  }
+  [data-translate='items'][data-direction='horizontal'].container {
+    padding-inline: 0;
+  }
+  [data-translate='items'][data-direction='vertical'].container {
+    padding-block: 0;
+  }
+  [data-translate='items'][data-spill='true'][data-direction='horizontal'].container::after {
+    --padding-x: 0rem;
+  }
+  [data-translate='items'][data-direction='vertical'][data-spill='true'].container::after {
+    --padding-y: 0rem;
+  }
+  [data-translate='items'] li {
+    --duration: calc(var(--speed) * 1s);
+    --delay: calc((var(--duration) / var(--count)) * (var(--index, 0) - (var(--count) * 0.5)));
+    animation: slide var(--duration) calc(var(--delay) - (var(--count) * 0.5s)) infinite linear paused;
+    translate: var(--origin-x) var(--origin-y);
+  }
+  [data-translate='items'][data-direction='horizontal'] li {
+    --origin-x: calc(((var(--count) - var(--index)) + var(--inset, 0)) * 100%);
+    --origin-y: 0;
+    --destination-x: calc(calc((var(--index) + 1 + var(--outset, 0)) * -100%));
+    --destination-y: 0;
+  }
+  [data-translate='items'][data-direction='vertical'] li {
+    --origin-x: 0;
+    --origin-y: calc(((var(--count) - var(--index)) + var(--inset, 0)) * 100%);
+    --destination-x: 0;
+    --destination-y: calc(calc((var(--index) + 1 + var(--outset, 0)) * -100%));
+  }
+  @keyframes slide {
+    100% {
+      translate: var(--destination-x) var(--destination-y);
+    }
+  }
+}
