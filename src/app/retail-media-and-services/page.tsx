@@ -14,19 +14,25 @@ import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
 import {
   AWSLogo,
+  AdobeCreativeCloudLogo,
   AmazonS3Logo,
   ApacheAirflowLogo,
+  AutodeskLogo,
   AzureBotFrameworkLogo,
+  BlenderLogo,
   CloudFlareLogo,
   CloudinaryLogo,
   ContentfulLogo,
+  DavinciResolveLogo,
   DialogFlowLogo,
   DockerLogo,
   Dynamics365Logo,
+  FigmaLogo,
   FullStoryLogo,
   GoogleVideFineLogo,
   GraphQLLogo,
   HotJarLogo,
+  HoudiniLogo,
   HubSpotLogo,
   IntercomLogo,
   KafkaLogo,
@@ -49,6 +55,8 @@ import {
   StripeLogo,
   TailwindCSSLogo,
   TwilioLogo,
+  UnrealEngineLogo,
+  VRayLogo,
   VertexLogo,
   ZapierLogo,
   ZendeskLogo,
@@ -194,7 +202,16 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AdobeCreativeCloudLogo className='size-10' />
+            <AutodeskLogo className='size-16' />
+            <BlenderLogo className='size-12' />
+            <DavinciResolveLogo className='size-12' />
+            <FigmaLogo className='size-12' />
+            <HoudiniLogo className='size-14' />
+            <UnrealEngineLogo className='size-12' />
+            <VRayLogo className='size-12' />
+          </div>
         </div>
       </>
     ),
