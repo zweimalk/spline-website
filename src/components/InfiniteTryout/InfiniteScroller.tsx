@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import './InfiniteScroller.css';
@@ -196,7 +197,7 @@ export const InfiniteScroller = () => {
 
   return (
     <div
-      className='infinite-scroller-container'
+      className={cn('infinite-scroller-container', 'w-[80vw]')}
       data-direction={'horizontal'}
       data-translate={'items'}
       data-play-state={'running'}
