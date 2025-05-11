@@ -73,30 +73,6 @@ const compoetenceItems: CompetenceAccordionItem[] = [
     ),
   },
   {
-    title: 'Telecommunication & Network Engineering',
-    content: (
-      <>
-        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
-          <li>Network architecture and critical support</li>
-          <li>Field network planning and integration</li>
-          <li>Mixed network communication interface technologies</li>
-          <li>Protocol configuration and diagnostics</li>
-        </ul>
-        <div className='mt-4'>
-          <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
-            <Gns3Logo className='size-10' />
-            <JuniperLogo className='size-10' />
-            <LorawanLogo className='size-10' />
-            <SolarWindsLogo className='size-10' />
-            <WireSharkLogo className='size-10' />
-            <ZigbeeLogo className='size-10' />
-          </div>
-        </div>
-      </>
-    ),
-  },
-  {
     title: 'Energy & Power Systems',
     content: (
       <>
@@ -123,6 +99,31 @@ const compoetenceItems: CompetenceAccordionItem[] = [
       </>
     ),
   },
+  {
+    title: 'Telecommunication & Network Engineering',
+    content: (
+      <>
+        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
+          <li>Network architecture and critical support</li>
+          <li>Field network planning and integration</li>
+          <li>Mixed network communication interface technologies</li>
+          <li>Protocol configuration and diagnostics</li>
+        </ul>
+        <div className='mt-4'>
+          <Body1>Tech Stack</Body1>
+          <div className='flex flex-wrap gap-2'>
+            <Gns3Logo className='size-10' />
+            <JuniperLogo className='size-10' />
+            <LorawanLogo className='size-10' />
+            <SolarWindsLogo className='size-10' />
+            <WireSharkLogo className='size-10' />
+            <ZigbeeLogo className='size-10' />
+          </div>
+        </div>
+      </>
+    ),
+  },
+
   {
     title: 'Testing & Compliance',
     content: (

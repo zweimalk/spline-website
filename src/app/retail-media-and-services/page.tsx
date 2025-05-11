@@ -101,33 +101,6 @@ const compoetenceItems: CompetenceAccordionItem[] = [
     ),
   },
   {
-    title: 'AI & Data Analytics',
-    content: (
-      <>
-        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
-          <li>AI-driven personalization and recommendation engines</li>
-          <li>Data analytics for business intelligence solutions</li>
-          <li>Predictive analytics and demand forecasting</li>
-          <li>Customer segmentation and targeted marketing</li>
-          <li>Real-time data processing and visualization</li>
-        </ul>
-        <div className='mt-4'>
-          <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2 items-center'>
-            <ApacheAirflowLogo className='size-12' />
-            <AWSLogo />
-            <KafkaLogo className='size-12' />
-            <MlFlowLogo className='size-12' />
-            <PowerBILogo className='size-18' />
-            <PythonTechnologyLogo className='size-10' />
-            <SnowFlakeLogo className='size-18' />
-            <VertexLogo />
-          </div>
-        </div>
-      </>
-    ),
-  },
-  {
     title: 'Content Management & Distribution',
     content: (
       <>
@@ -152,6 +125,34 @@ const compoetenceItems: CompetenceAccordionItem[] = [
             <NextJSLogo />
             <StrapiLogo className='size-16' />
             <ZapierLogo className='size-12' />
+          </div>
+        </div>
+      </>
+    ),
+  },
+
+  {
+    title: 'AI & Data Analytics',
+    content: (
+      <>
+        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
+          <li>AI-driven personalization and recommendation engines</li>
+          <li>Data analytics for business intelligence solutions</li>
+          <li>Predictive analytics and demand forecasting</li>
+          <li>Customer segmentation and targeted marketing</li>
+          <li>Real-time data processing and visualization</li>
+        </ul>
+        <div className='mt-4'>
+          <Body1>Tech Stack</Body1>
+          <div className='flex flex-wrap gap-2 items-center'>
+            <ApacheAirflowLogo className='size-12' />
+            <AWSLogo />
+            <KafkaLogo className='size-12' />
+            <MlFlowLogo className='size-12' />
+            <PowerBILogo className='size-18' />
+            <PythonTechnologyLogo className='size-10' />
+            <SnowFlakeLogo className='size-18' />
+            <VertexLogo />
           </div>
         </div>
       </>

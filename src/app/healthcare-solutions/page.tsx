@@ -106,34 +106,6 @@ const compoetenceItems: CompetenceAccordionItem[] = [
     ),
   },
   {
-    title: 'Digital Health Solutions',
-    content: (
-      <>
-        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
-          <li>Development of telemedicine platforms and applications</li>
-          <li>Integration with electronic health records (EHR) systems</li>
-          <li>Implementation of patient portals and mobile health solutions</li>
-          <li>Support for digital transformation in healthcare services</li>
-        </ul>
-        <div className='mt-4'>
-          <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2'>
-            <AngularLogo className='size-10' />
-            <AWSLogo className='size-10' />
-            <AzureHealthDataServicesLogo className='size-10' />
-            <HL7FHIRLogo className='size-10' />
-            <NodeJSLogo className='size-10' />
-            <PythonTechnologyLogo className='size-10' />
-            <ReactLogo className='size-10' />
-            <STM32Logo className='size-10' />
-            <TwilioLogo className='size-10' />
-            <WebRtcLogo className='size-10' />
-          </div>
-        </div>
-      </>
-    ),
-  },
-  {
     title: 'Artificial Intelligence',
     content: (
       <>
@@ -158,6 +130,34 @@ const compoetenceItems: CompetenceAccordionItem[] = [
             <PythonTechnologyLogo className='size-12' />
             <SimpleTikLogo className='size-11' />
             <SpacyLogo className='size-11' />
+          </div>
+        </div>
+      </>
+    ),
+  },
+  {
+    title: 'Digital Health Solutions',
+    content: (
+      <>
+        <ul className='list-disc list-outside flex flex-col gap-2 pl-4'>
+          <li>Development of telemedicine platforms and applications</li>
+          <li>Integration with electronic health records (EHR) systems</li>
+          <li>Implementation of patient portals and mobile health solutions</li>
+          <li>Support for digital transformation in healthcare services</li>
+        </ul>
+        <div className='mt-4'>
+          <Body1>Tech Stack</Body1>
+          <div className='flex flex-wrap gap-2'>
+            <AngularLogo className='size-10' />
+            <AWSLogo className='size-10' />
+            <AzureHealthDataServicesLogo className='size-10' />
+            <HL7FHIRLogo className='size-10' />
+            <NodeJSLogo className='size-10' />
+            <PythonTechnologyLogo className='size-10' />
+            <ReactLogo className='size-10' />
+            <STM32Logo className='size-10' />
+            <TwilioLogo className='size-10' />
+            <WebRtcLogo className='size-10' />
           </div>
         </div>
       </>

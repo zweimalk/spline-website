@@ -114,7 +114,8 @@ export const Accordion = ({ items, imageUrl, imageAlt }: AccordionProps) => {
     <div className='mx-auto w-full md:landscape:grid md:landscape:grid-cols-[1fr_1fr] md:landscape:gap-x-6'>
       <ControlledAccordion providerValue={providerValue1}>
         {items.map((item, index) => {
-          if (index > items.length / 2 - 1) return null;
+          const isOddItems = items.length % 2 !== 0;
+          if (index > items.length / 2 - 1 && (!isOddItems || index !== items.length - 1)) return null;
           return (
             <AccordionItemComponent
               className='w-full flex-1 items-center justify-between'
@@ -132,7 +133,8 @@ export const Accordion = ({ items, imageUrl, imageAlt }: AccordionProps) => {
       </ControlledAccordion>
       <ControlledAccordion providerValue={providerValue2}>
         {items.map((item, index) => {
-          if (index <= items.length / 2 - 1) return null;
+          const isOddItems = items.length % 2 !== 0;
+          if (index <= items.length / 2 - 1 || (isOddItems && index === items.length - 1)) return null;
           return (
             <AccordionItemComponent
               className='w-full flex-1 items-center justify-between'
