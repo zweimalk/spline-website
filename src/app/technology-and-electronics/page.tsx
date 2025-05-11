@@ -60,13 +60,13 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
           <div className='flex flex-wrap gap-2'>
-            <AltiumLogo />
-            <AutodeskElectricalLogo />
-            <EplanElectricLogo />
-            <GitlabLogo />
-            <JiraTechnologyLogo />
-            <LtsPiceLogo />
-            <MatlabLogo />
+            <AltiumLogo className='size-10' />
+            <AutodeskElectricalLogo className='size-10' />
+            <EplanElectricLogo className='size-10' />
+            <GitlabLogo className='size-10' />
+            <JiraTechnologyLogo className='size-10' />
+            <LtsPiceLogo className='size-10' />
+            <MatlabLogo className='size-10' />
           </div>
         </div>
       </>
@@ -85,12 +85,12 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
           <div className='flex flex-wrap gap-2'>
-            <Gns3Logo />
-            <JuniperLogo />
-            <LorawanLogo />
-            <SolarWindsLogo />
-            <WireSharkLogo />
-            <ZigbeeLogo />
+            <Gns3Logo className='size-10' />
+            <JuniperLogo className='size-10' />
+            <LorawanLogo className='size-10' />
+            <SolarWindsLogo className='size-10' />
+            <WireSharkLogo className='size-10' />
+            <ZigbeeLogo className='size-10' />
           </div>
         </div>
       </>
@@ -109,15 +109,15 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
           <div className='flex flex-wrap gap-2'>
-            <AWSIoTLogo />
-            <CanOpenLogo />
-            <IoTHubLogo />
-            <ItsPiceLogo />
-            <MatlabLogo />
-            <ModbusLogo />
-            <MqqTLogo />
-            <PlecsLogo />
-            <PsimLogo />
+            <AWSIoTLogo className='size-10' />
+            <CanOpenLogo className='size-10' />
+            <IoTHubLogo className='size-10' />
+            <ItsPiceLogo className='size-10' />
+            <MatlabLogo className='size-10' />
+            <ModbusLogo className='size-10' />
+            <MqqTLogo className='size-10' />
+            <PlecsLogo className='size-10' />
+            <PsimLogo className='size-10' />
           </div>
         </div>
       </>
@@ -136,14 +136,14 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
           <div className='flex flex-wrap gap-2'>
-            <ConfluenceTechnologyLogo />
-            <CstLogo />
-            <JenkinsLogo />
-            <JiraTechnologyLogo />
-            <KeysightLogo />
-            <LabViewLogo />
-            <PolarionLogo />
-            <PythonTechnologyLogo />
+            <ConfluenceTechnologyLogo className='size-10' />
+            <CstLogo className='size-10' />
+            <JenkinsLogo className='size-10' />
+            <JiraTechnologyLogo className='size-10' />
+            <KeysightLogo className='size-10' />
+            <LabViewLogo className='size-10' />
+            <PolarionLogo className='size-10' />
+            <PythonTechnologyLogo className='size-10' />
           </div>
         </div>
       </>
