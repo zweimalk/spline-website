@@ -197,7 +197,7 @@ export const InfiniteScroller = () => {
 
   return (
     <div
-      className={cn('infinite-scroller-container', 'w-[80vw] md:w[90vw] xl:w-[97vw]')}
+      className={cn('infinite-scroller-container', 'w-[90vw] xl:w-[97vw]')}
       data-direction={'horizontal'}
       data-translate={'items'}
       data-play-state={'running'}
