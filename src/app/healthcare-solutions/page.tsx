@@ -4,6 +4,45 @@ import { Cite } from '@/components/Typo/Cite';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
 import { HighlightsSection } from '@/components/highlights-section';
+import {
+  AWSLogo,
+  AngularLogo,
+  AzureHealthDataServicesLogo,
+  AzureLogo,
+  AzureSentinelLogo,
+  BitBucketLogo,
+  BurpSuiteLogo,
+  CPlusPlusLogo,
+  DataRobotLogo,
+  DockerLogo,
+  FreeRtosLogo,
+  GitLogo,
+  HL7FHIRLogo,
+  JWTLogo,
+  JenkinsLogo,
+  KubernetesLogo,
+  MatlabLogo,
+  MlFlowLogo,
+  NVidiaLogo,
+  NessusLogo,
+  NodeJSLogo,
+  OAuthLogo,
+  ONNXLogo,
+  OSSECLogo,
+  OWASPZAPLogo,
+  OpenCVLogo,
+  OpenSSLLogo,
+  PolarionLogo,
+  PythonTechnologyLogo,
+  ReactLogo,
+  STM32Logo,
+  SimpleTikLogo,
+  SpacyLogo,
+  TestRailLogo,
+  TwilioLogo,
+  WazuhLogo,
+  WebRtcLogo,
+} from '@/components/icons';
 import type { Card } from '@/components/infinite-cards-scroll';
 import { SeeAlsoSection } from '@/components/see-also-section';
 import Image from 'next/image';
@@ -51,7 +90,17 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2'>
+            <BitBucketLogo className='size-10' />
+            <CPlusPlusLogo className='size-10' />
+            <FreeRtosLogo className='size-10' />
+            <GitLogo className='size-10' />
+            <JenkinsLogo className='size-10' />
+            <MatlabLogo className='size-10' />
+            <PolarionLogo className='size-10' />
+            <STM32Logo className='size-10' />
+            <TestRailLogo className='size-10' />
+          </div>
         </div>
       </>
     ),
@@ -68,7 +117,18 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2'>
+            <AngularLogo className='size-10' />
+            <AWSLogo className='size-10' />
+            <AzureHealthDataServicesLogo className='size-10' />
+            <HL7FHIRLogo className='size-10' />
+            <NodeJSLogo className='size-10' />
+            <PythonTechnologyLogo className='size-10' />
+            <ReactLogo className='size-10' />
+            <STM32Logo className='size-10' />
+            <TwilioLogo className='size-10' />
+            <WebRtcLogo className='size-10' />
+          </div>
         </div>
       </>
     ),
@@ -85,7 +145,20 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AWSLogo className='size-14' />
+            <AzureLogo className='size-14' />
+            <DataRobotLogo className='size-14' />
+            <DockerLogo className='size-14' />
+            <KubernetesLogo className='size-10' />
+            <MlFlowLogo className='size-10' />
+            <NVidiaLogo className='size-10' />
+            <ONNXLogo className='size-12' />
+            <OpenCVLogo className='size-12' />
+            <PythonTechnologyLogo className='size-12' />
+            <SimpleTikLogo className='size-11' />
+            <SpacyLogo className='size-11' />
+          </div>
         </div>
       </>
     ),
@@ -102,7 +175,18 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AWSLogo className='size-10' />
+            <AzureSentinelLogo />
+            <BurpSuiteLogo />
+            <JWTLogo className='size-12' />
+            <NessusLogo className='size-14' />
+            <OAuthLogo className='size-12' />
+            <OpenSSLLogo className='size-12' />
+            <OSSECLogo className='size-12' />
+            <OWASPZAPLogo className='size-12' />
+            <WazuhLogo className='size-12' />
+          </div>
         </div>
       </>
     ),
