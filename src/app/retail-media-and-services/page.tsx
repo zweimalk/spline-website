@@ -12,6 +12,47 @@ import { Body1 } from '@/components/Typo/Body1';
 import { Cite } from '@/components/Typo/Cite';
 import { ContactPeople } from '@/components/contact-people';
 import { Hero } from '@/components/hero';
+import {
+  AWSLogo,
+  AmazonS3Logo,
+  ApacheAirflowLogo,
+  AzureBotFrameworkLogo,
+  CloudFlareLogo,
+  CloudinaryLogo,
+  ContentfulLogo,
+  DialogFlowLogo,
+  DockerLogo,
+  Dynamics365Logo,
+  FullStoryLogo,
+  GoogleVideFineLogo,
+  GraphQLLogo,
+  HotJarLogo,
+  HubSpotLogo,
+  IntercomLogo,
+  KafkaLogo,
+  LambdaLogo,
+  MagentoLogo,
+  MixPanelLogo,
+  MlFlowLogo,
+  MuleSoftLogo,
+  MuxLogo,
+  NextJSLogo,
+  NodeJSLogo,
+  PayPalLogo,
+  PowerBILogo,
+  PythonTechnologyLogo,
+  ReactLogo,
+  SalesforceLogo,
+  SanityLogo,
+  SnowFlakeLogo,
+  StrapiLogo,
+  StripeLogo,
+  TailwindCSSLogo,
+  TwilioLogo,
+  VertexLogo,
+  ZapierLogo,
+  ZendeskLogo,
+} from '@/components/icons';
 import type { Card } from '@/components/infinite-cards-scroll';
 import Image from 'next/image';
 import type { CompetenceAccordionItem } from '../software-development/competence-accordion';
@@ -31,7 +72,22 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AWSLogo />
+            <DockerLogo className='size-14' />
+            <GraphQLLogo />
+            <MagentoLogo />
+            <NextJSLogo />
+            <NodeJSLogo />
+            <PayPalLogo className='size-14' />
+            <PythonTechnologyLogo className='size-12' />
+            <ReactLogo className='size-12' />
+            <SalesforceLogo />
+            <SanityLogo className='size-12' />
+            <StrapiLogo className='size-12' />
+            <StripeLogo />
+            <TailwindCSSLogo className='size-14' />
+          </div>
         </div>
       </>
     ),
@@ -49,7 +105,16 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <ApacheAirflowLogo className='size-12' />
+            <AWSLogo />
+            <KafkaLogo className='size-12' />
+            <MlFlowLogo className='size-12' />
+            <PowerBILogo className='size-18' />
+            <PythonTechnologyLogo className='size-10' />
+            <SnowFlakeLogo className='size-18' />
+            <VertexLogo />
+          </div>
         </div>
       </>
     ),
@@ -67,7 +132,19 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AmazonS3Logo />
+            <AWSLogo />
+            <CloudFlareLogo />
+            <CloudinaryLogo />
+            <ContentfulLogo />
+            <GoogleVideFineLogo />
+            <LambdaLogo />
+            <MuxLogo />
+            <NextJSLogo />
+            <StrapiLogo className='size-16' />
+            <ZapierLogo className='size-12' />
+          </div>
         </div>
       </>
     ),
@@ -85,7 +162,21 @@ const compoetenceItems: CompetenceAccordionItem[] = [
         </ul>
         <div className='mt-4'>
           <Body1>Tech Stack</Body1>
-          <div className='flex flex-wrap gap-2' />
+          <div className='flex flex-wrap gap-2 items-center'>
+            <AzureBotFrameworkLogo />
+            <DialogFlowLogo className='size-16' />
+            <Dynamics365Logo className='size-14' />
+            <FullStoryLogo />
+            <HotJarLogo className='size-12' />
+            <HubSpotLogo className='size-14' />
+            <IntercomLogo />
+            <MixPanelLogo />
+            <MuleSoftLogo className='size-18' />
+            <SalesforceLogo />
+            <TwilioLogo className='size-16' />
+            <ZapierLogo className='size-12' />
+            <ZendeskLogo className='size-20' />
+          </div>
         </div>
       </>
     ),
