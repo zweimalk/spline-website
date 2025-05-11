@@ -12,7 +12,7 @@ const mobileNavigation = [
   { name: 'technology & electronics', href: '/technology-and-electronics' },
   { name: 'healthcare solutions', href: '/healthcare-solutions' },
   { name: 'automotive & mobility', href: '/automotive-and-mobility' },
-  { name: 'retail media & services', href: '/#what-we-do' },
+  { name: 'retail media & services', href: '/retail-media-and-services' },
   { name: 'software development', href: '/software-development' },
 ];
 
