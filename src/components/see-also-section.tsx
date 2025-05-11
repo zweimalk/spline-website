@@ -4,7 +4,7 @@ import { type Card, InfiniteCardsScroll } from './infinite-cards-scroll';
 
 export const SeeAlsoSection = ({ cards }: { cards: Card[] }) => {
   return (
-    <div className='mt-20 md:mt-40 text-center'>
+    <div className='mt-20 md:mt-40 text-center' id='what-we-do'>
       <div className='px-4'>
         <div className='max-w-lg mx-auto'>
           <Title>see also</Title>

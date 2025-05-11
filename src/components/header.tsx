@@ -18,8 +18,7 @@ const mobileNavigation = [
 
 const navigation = [
   { name: 'Our Services', href: '#what-we-do' },
-  { name: 'Useful Documents', href: '/' },
-  { name: 'Join Us', href: '#join-us' },
+  { name: 'Join Us', href: '/#join-us' },
   { name: 'Contact', href: '#contact-card' },
 ];
 
