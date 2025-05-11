@@ -16,6 +16,7 @@ import type { Card } from '@/components/infinite-cards-scroll';
 import Image from 'next/image';
 import type { CompetenceAccordionItem } from '../software-development/competence-accordion';
 import type { HowWeWorkItem } from '../software-development/how-we-work-section';
+
 const compoetenceItems: CompetenceAccordionItem[] = [
   {
     title: 'E-Commerce',
@@ -240,7 +241,7 @@ export default function RetailMediaAndServices() {
         }
         mediaElement={
           <Image
-            src={'/images/retail-media-and-services/retail-media.webp'}
+            src={'/images/retail-media-and-services/Retail-media.webp'}
             alt={'Hero image'}
             objectFit='cover'
             width={3758}
