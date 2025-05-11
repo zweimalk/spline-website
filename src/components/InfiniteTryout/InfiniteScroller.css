@@ -12,7 +12,7 @@
 
 .infinite-scroller-container[data-direction='horizontal'] {
   min-width: 300px;
-  min-height: 300px;
+  min-height: 100px;
 }
 
 ul {
