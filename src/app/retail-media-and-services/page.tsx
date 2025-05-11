@@ -256,7 +256,7 @@ export default function RetailMediaAndServices() {
         description={
           "We deliver future-proof, tailor-made solutions that support our clients' day-to-day operations and help them gain an edge over their competition. We understand that organisations we work with may be at different points."
         }
-        imageUrl={'/images/retail-media-and-services/retail-media.2.webp'}
+        imageUrl={'/images/retail-media-and-services/Retail-media.2.webp'}
         imageAlt={'Retail Media & Services'}
       />
 
