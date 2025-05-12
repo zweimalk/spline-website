@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: 'Spline Website <contact@website.spline.pl>',
       // TODO: add email to send to
-      to: ['daniel.noworyta@gmail.com'],
+      to: ['info@spline.pl'],
       subject: 'Kontakt z formularza na stronie spline.pl',
       react: await EmailTemplate({ nameAndSurname, phoneNumber, email, message }),
     });
