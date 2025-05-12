@@ -66,15 +66,15 @@ export const Footer = () => {
               <Link href='/automotive-and-mobility' className='hover:underline'>
                 Automotive and Mobility
               </Link>
-              <Link href='/retail-services-media' className='hover:underline'>
+              <Link href='/retail-media-and-services' className='hover:underline'>
                 Retail, services and media
               </Link>
-              <Link href='/documents' className='hover:underline'>
+              {/* <Link href='/documents' className='hover:underline'>
                 Useful Documents
               </Link>
               <Link href='/job-search' className='hover:underline'>
                 Job Search Panel
-              </Link>
+              </Link> */}
               <Link href='/contact' className='hover:underline'>
                 Contact
               </Link>
