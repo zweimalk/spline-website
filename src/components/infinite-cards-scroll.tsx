@@ -159,7 +159,8 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
           <div className='flex gap-4'>
             <div className='shrink-0' style={{ width: 'calc(50vw - 170px)' }} />
             {cards.map((card, index) => (
-              <div
+              <Link
+                href={card.link}
                 key={`card-${card.title}-${index}`}
                 className='relative flex flex-col justify-between gap-4 aspect-3/5 min-w-[300px] rounded-lg overflow-hidden md:aspect-5/4 md:min-w-[491px] snap-center'
               >
@@ -202,7 +203,7 @@ export const InfiniteCardsScroll = ({ cards, autoplayInterval = 5000 }: CardsScr
                     </svg>
                   </Link>
                 </div>
-              </div>
+              </Link>
             ))}
             <div className='shrink-0' style={{ width: 'calc(50vw - 170px)' }} />
           </div>
