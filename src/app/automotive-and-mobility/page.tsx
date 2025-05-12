@@ -37,6 +37,7 @@ const slides: Slide[] = [
   },
 ];
 
+// bullet points check
 const cards: Card[] = [
   {
     title: (
