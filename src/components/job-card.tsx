@@ -19,7 +19,7 @@ export const JobCard = ({
   return (
     <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all w-full md:w-[400px] md:h-[400px] grid grid-rows-[auto_auto_auto_1fr_auto]'>
       {/* Job title */}
-      <Header4 className='mb-2 text-center text-balance'>{title}</Header4>
+      <Header4 className='mb-2 text-balance w-[14ch] text-center'>{title}</Header4>
 
       {/* Location and job type */}
       <div className='text-[14px] font-light text-gray-5 dark:text-gray-1 ml-4 text-center'>
@@ -39,7 +39,7 @@ export const JobCard = ({
       </div>
 
       <div className='mt-6 ml-4'>
-        <ul className='list-disc list-inside text-sm'>
+        <ul className='list-disc list-inside text-sm text-balance'>
           {description.map((item) => (
             // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
             <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
