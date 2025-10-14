@@ -46,7 +46,8 @@ export async function getJobPosts({
           "X-Request-Sort": sort,
         },
         // Enable caching for production, disable for development
-        cache: "no-store",
+        cache:
+          process.env.NODE_ENV === "production" ? "force-cache" : "no-store",
       },
     );
 
