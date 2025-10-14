@@ -18,7 +18,7 @@ interface ParsedJobContent {
 }
 
 export function parseJobContent(fields: JobField[]): ParsedJobContent {
-  const benefitsField = fields.find((f) => f.field_id === "benefits");
+  // const benefitsField = fields.find((f) => f.field_id === "benefits");
   const tagsField = fields.find(
     (f) => f.field_id === "679c5dc7e22931b675a2a7567a60f88a",
   );
