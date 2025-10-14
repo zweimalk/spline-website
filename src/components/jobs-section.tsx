@@ -18,13 +18,15 @@ interface ParsedJobContent {
 }
 
 export function parseJobContent(fields: JobField[]): ParsedJobContent {
+  console.log(fields);
+
   // const benefitsField = fields.find((f) => f.field_id === "benefits");
-  const tagsField = fields.find(
-    (f) => f.field_id === "679c5dc7e22931b675a2a7567a60f88a",
-  );
+  // const tagsField = fields.find(
+  //   (f) => f.field_id === "679c5dc7e22931b675a2a7567a60f88a",
+  // );
 
   // Extract description from benefits field
-  const description = ["test"];
+  const description = [""];
   // benefitsField?.value
   //   .replace(/<\/?ul>/g, '') // Remove ul tags
   //   .split('</li>')
@@ -32,10 +34,10 @@ export function parseJobContent(fields: JobField[]): ParsedJobContent {
   //   .filter(Boolean) || [];
 
   // Extract tags
-  const tags =
-    tagsField?.value
-      .match(/#[\w-]+/g) // Match hashtags
-      ?.map((tag) => tag.replace("#", "")) || [];
+  const tags = [""];
+  // tagsField?.value
+  //   .match(/#[\w-]+/g) // Match hashtags
+  //   ?.map((tag) => tag.replace("#", "")) || [];
 
   return {
     description,
