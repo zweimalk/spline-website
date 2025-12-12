@@ -1,13 +1,21 @@
-'use client';
-import countries from '@/data/globe.json';
-import { OrbitControls } from '@react-three/drei';
-import { Canvas, extend, useThree } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
-import { Color, Fog, type Group, PerspectiveCamera, Scene, Vector3 } from 'three';
-import ThreeGlobe from 'three-globe';
-declare module '@react-three/fiber' {
+"use client";
+import countries from "@/data/globe.json";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas, extend, useThree } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import {
+  Color,
+  Fog,
+  type Group,
+  Object3D,
+  PerspectiveCamera,
+  Scene,
+  Vector3,
+} from "three";
+import ThreeGlobe from "three-globe";
+declare module "@react-three/fiber" {
   interface ThreeElements {
-    threeGlobe: ThreeElements['mesh'] & {
+    threeGlobe: ThreeElements["mesh"] & {
       new (): ThreeGlobe;
     };
   }
@@ -68,12 +76,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const defaultProps = {
     pointSize: 1,
-    atmosphereColor: '#ffffff',
+    atmosphereColor: "#ffffff",
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: 'rgba(255,255,255,0.7)',
-    globeColor: '#1d072e',
-    emissive: '#000000',
+    polygonColor: "rgba(255,255,255,0.7)",
+    globeColor: "#1d072e",
+    emissive: "#000000",
     emissiveIntensity: 0.1,
     shininess: 0.9,
     arcTime: 2000,
@@ -87,7 +95,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (!globeRef.current && groupRef.current) {
       globeRef.current = new ThreeGlobe();
-      (groupRef.current as Group).add(globeRef.current);
+      (groupRef.current as Group).add(globeRef.current as unknown as Object3D);
       setIsInitialized(true);
     }
   }, []);
@@ -142,7 +150,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     // remove duplicates for same lat and lng
     const filteredPoints = points.filter(
       (v, i, a) =>
-        a.findIndex((v2) => ['lat', 'lng'].every((k) => v2[k as 'lat' | 'lng'] === v[k as 'lat' | 'lng'])) === i
+        a.findIndex((v2) =>
+          ["lat", "lng"].every(
+            (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"],
+          ),
+        ) === i,
     );
 
     globeRef.current
@@ -194,7 +206,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .ringColor(() => defaultProps.polygonColor)
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod((defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings);
+      .ringRepeatPeriod(
+        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
+      );
   }, [
     isInitialized,
     data,
@@ -216,7 +230,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     const interval = setInterval(() => {
       if (!globeRef.current) return;
 
-      const newNumbersOfRings = genRandomNumbers(0, data.length, Math.floor((data.length * 4) / 5));
+      const newNumbersOfRings = genRandomNumbers(
+        0,
+        data.length,
+        Math.floor((data.length * 4) / 5),
+      );
 
       const ringsData = data
         .filter((d, i) => newNumbersOfRings.includes(i))
@@ -257,9 +275,19 @@ export function World(props: WorldProps) {
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-      <directionalLight color={globeConfig.directionalLeftLight} position={new Vector3(-400, 100, 400)} />
-      <directionalLight color={globeConfig.directionalTopLight} position={new Vector3(-200, 500, 200)} />
-      <pointLight color={globeConfig.pointLight} position={new Vector3(-200, 500, 200)} intensity={0.8} />
+      <directionalLight
+        color={globeConfig.directionalLeftLight}
+        position={new Vector3(-400, 100, 400)}
+      />
+      <directionalLight
+        color={globeConfig.directionalTopLight}
+        position={new Vector3(-200, 500, 200)}
+      />
+      <pointLight
+        color={globeConfig.pointLight}
+        position={new Vector3(-200, 500, 200)}
+        intensity={0.8}
+      />
       <Globe {...props} />
       <OrbitControls
         enablePan={false}
