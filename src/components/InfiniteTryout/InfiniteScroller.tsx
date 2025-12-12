@@ -1,190 +1,191 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import './InfiniteScroller.css';
+import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import "./InfiniteScroller.css";
 
 const logos = [
   {
-    srcDark: '/logos/autoliv.svg',
-    src: '/logos/light/autoliv.svg',
-    alt: 'Autoliv',
+    srcDark: "/logos/autoliv.svg",
+    src: "/logos/light/autoliv.svg",
+    alt: "Autoliv",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/bertrandt.svg',
-    src: '/logos/light/bertrandt.svg',
-    alt: 'Bertrandt',
+    srcDark: "/logos/bertrandt.svg",
+    src: "/logos/light/bertrandt.svg",
+    alt: "Bertrandt",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/ford.svg',
-    src: '/logos/light/ford.svg',
-    alt: 'Ford',
+    srcDark: "/logos/ford.svg",
+    src: "/logos/light/ford.svg",
+    alt: "Ford",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/jlr.svg',
-    src: '/logos/light/jlr.svg',
-    alt: 'JLR',
+    srcDark: "/logos/jlr.svg",
+    src: "/logos/light/jlr.svg",
+    alt: "JLR",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/lotus.svg',
-    src: '/logos/light/lotus.svg',
-    alt: 'Lotus',
+    srcDark: "/logos/lotus.svg",
+    src: "/logos/light/lotus.svg",
+    alt: "Lotus",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/mercedes.svg',
-    src: '/logos/light/mercedes.svg',
-    alt: 'Mercedes',
+    srcDark: "/logos/mercedes.svg",
+    src: "/logos/light/mercedes.svg",
+    alt: "Mercedes",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/ncr.svg',
-    src: '/logos/light/ncr.svg',
-    alt: 'NCR',
+    srcDark: "/logos/ncr.svg",
+    src: "/logos/light/ncr.svg",
+    alt: "NCR",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/porsche.svg',
-    src: '/logos/light/porsche.svg',
-    alt: 'Porsche',
+    srcDark: "/logos/porsche.svg",
+    src: "/logos/light/porsche.svg",
+    alt: "Porsche",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/qiagen.svg',
-    src: '/logos/light/qiagen.svg',
-    alt: 'Qiagen',
+    srcDark: "/logos/qiagen.svg",
+    src: "/logos/light/qiagen.svg",
+    alt: "Qiagen",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/qt_dark.svg',
-    src: '/logos/light/qt.svg',
-    alt: 'QT',
+    srcDark: "/logos/qt_dark.svg",
+    src: "/logos/light/qt.svg",
+    alt: "QT",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/skoda.svg',
-    src: '/logos/light/skoda.svg',
-    alt: 'Skoda',
+    srcDark: "/logos/skoda.svg",
+    src: "/logos/light/skoda.svg",
+    alt: "Skoda",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/volkswagen.svg',
-    src: '/logos/light/volkswagen.svg',
-    alt: 'Volkswagen',
+    srcDark: "/logos/volkswagen.svg",
+    src: "/logos/light/volkswagen.svg",
+    alt: "Volkswagen",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/zaiks.svg',
-    src: '/logos/light/zaiks.svg',
-    alt: 'Zaiks',
+    srcDark: "/logos/zaiks.svg",
+    src: "/logos/light/zaiks.svg",
+    alt: "Zaiks",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/autoliv.svg',
-    src: '/logos/light/autoliv.svg',
-    alt: 'Autoliv',
+    srcDark: "/logos/autoliv.svg",
+    src: "/logos/light/autoliv.svg",
+    alt: "Autoliv",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/bertrandt.svg',
-    src: '/logos/light/bertrandt.svg',
-    alt: 'Bertrandt',
+    srcDark: "/logos/bertrandt.svg",
+    src: "/logos/light/bertrandt.svg",
+    alt: "Bertrandt",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/ford.svg',
-    src: '/logos/light/ford.svg',
-    alt: 'Ford',
+    srcDark: "/logos/ford.svg",
+    src: "/logos/light/ford.svg",
+    alt: "Ford",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/jlr.svg',
-    src: '/logos/light/jlr.svg',
-    alt: 'JLR',
+    srcDark: "/logos/jlr.svg",
+    src: "/logos/light/jlr.svg",
+    alt: "JLR",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/lotus.svg',
-    src: '/logos/light/lotus.svg',
-    alt: 'Lotus',
+    srcDark: "/logos/lotus.svg",
+    src: "/logos/light/lotus.svg",
+    alt: "Lotus",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/mercedes.svg',
-    src: '/logos/light/mercedes.svg',
-    alt: 'Mercedes',
+    srcDark: "/logos/mercedes.svg",
+    src: "/logos/light/mercedes.svg",
+    alt: "Mercedes",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/ncr.svg',
-    src: '/logos/light/ncr.svg',
-    alt: 'NCR',
+    srcDark: "/logos/ncr.svg",
+    src: "/logos/light/ncr.svg",
+    alt: "NCR",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/porsche.svg',
-    src: '/logos/light/porsche.svg',
-    alt: 'Porsche',
+    srcDark: "/logos/porsche.svg",
+    src: "/logos/light/porsche.svg",
+    alt: "Porsche",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/qiagen.svg',
-    src: '/logos/light/qiagen.svg',
-    alt: 'Qiagen',
+    srcDark: "/logos/qiagen.svg",
+    src: "/logos/light/qiagen.svg",
+    alt: "Qiagen",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/qt_dark.svg',
-    src: '/logos/light/qt.svg',
-    alt: 'QT',
+    srcDark: "/logos/qt_dark.svg",
+    src: "/logos/light/qt.svg",
+    alt: "QT",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/skoda.svg',
-    src: '/logos/light/skoda.svg',
-    alt: 'Skoda',
+    srcDark: "/logos/skoda.svg",
+    src: "/logos/light/skoda.svg",
+    alt: "Skoda",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/volkswagen.svg',
-    src: '/logos/light/volkswagen.svg',
-    alt: 'Volkswagen',
+    srcDark: "/logos/volkswagen.svg",
+    src: "/logos/light/volkswagen.svg",
+    alt: "Volkswagen",
     width: 100,
     height: 100,
   },
   {
-    srcDark: '/logos/zaiks.svg',
-    src: '/logos/light/zaiks.svg',
-    alt: 'Zaiks',
+    srcDark: "/logos/zaiks.svg",
+    src: "/logos/light/zaiks.svg",
+    alt: "Zaiks",
     width: 100,
     height: 100,
   },
@@ -192,23 +193,31 @@ const logos = [
 
 export const InfiniteScroller = () => {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const renderStamp = Date.now();
 
+  // Use dark theme as default during SSR to match initial render
+  const currentTheme = mounted ? resolvedTheme : "dark";
+
   return (
     <div
-      className={cn('infinite-scroller-container', 'w-[90vw] xl:w-[97vw]')}
-      data-direction={'horizontal'}
-      data-translate={'items'}
-      data-play-state={'running'}
+      className={cn("infinite-scroller-container", "w-[90vw] xl:w-[97vw]")}
+      data-direction={"horizontal"}
+      data-translate={"items"}
+      data-play-state={"running"}
       data-spill={false}
       style={
         {
-          '--speed': 80,
-          '--count': logos.length,
-          '--scale': 1,
-          '--inset': 4,
-          '--outset': 4,
+          "--speed": 80,
+          "--count": logos.length,
+          "--scale": 1,
+          "--inset": 4,
+          "--outset": 4,
         } as React.CSSProperties
       }
     >
@@ -220,17 +229,17 @@ export const InfiniteScroller = () => {
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 index
               }`}
-              style={{ '--index': index } as React.CSSProperties}
-              className='size-18 md:size-24'
+              style={{ "--index": index } as React.CSSProperties}
+              className="size-18 md:size-24"
             >
               <Image
-                src={resolvedTheme === 'dark' ? logo.srcDark : logo.src}
-                className='block w-18 h-18 md:w-24 md:h-24'
+                src={currentTheme === "dark" ? logo.srcDark : logo.src}
+                className="block w-18 h-18 md:w-24 md:h-24"
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
                 draggable={false}
-                loading='eager'
+                loading="eager"
               />
             </li>
           );
