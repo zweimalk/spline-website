@@ -5,72 +5,11 @@ import { Body1 } from "./Typo/Body1";
 import { Title } from "./Typo/Title";
 import { JobCard } from "./job-card";
 import { Link } from "./link";
-interface JobField {
-  field_id: string;
-  name?: string;
-  value: string;
-}
-
-interface ParsedJobContent {
-  description: string[];
-  tags: string[];
-  keyRequirements: string[];
-}
-
-export function parseJobContent(fields: JobField[]): ParsedJobContent {
-  console.log(fields);
-
-  // const benefitsField = fields.find((f) => f.field_id === "benefits");
-  // const tagsField = fields.find(
-  //   (f) => f.field_id === "679c5dc7e22931b675a2a7567a60f88a",
-  // );
-
-  // Extract description from benefits field
-  const description = [""];
-  // benefitsField?.value
-  //   .replace(/<\/?ul>/g, '') // Remove ul tags
-  //   .split('</li>')
-  //   .map((item) => item.replace('<li>', '').trim())
-  //   .filter(Boolean) || [];
-
-  // Extract tags
-  const tags = [""];
-  // tagsField?.value
-  //   .match(/#[\w-]+/g) // Match hashtags
-  //   ?.map((tag) => tag.replace("#", "")) || [];
-
-  return {
-    description,
-    tags,
-    keyRequirements: description, // Since we're using benefits as description, we can reuse it here
-  };
-}
-
 const jobsWithParsedContent = (jobPosts: JobPost[]) =>
-  jobPosts.map((job) => {
-    const { description, tags } = parseJobContent(job.advert.values);
-    const geolocationField = job.advert.values.find(
-      (f: JobField) => f.field_id === "geolocation",
-    );
-    let location = "Remote";
-
-    if (geolocationField?.value) {
-      try {
-        const locationData = JSON.parse(geolocationField.value);
-        location = `${locationData.locality}, ${locationData.country}`;
-      } catch (error) {
-        console.error("Error parsing geolocation:", error);
-      }
-    }
-
-    return {
-      title: job.advert.name,
-      location,
-      url: job.url,
-      description,
-      tags,
-    };
-  });
+  jobPosts.map((job) => ({
+    title: job.advert.name,
+    url: job.url,
+  }));
 
 export default async function JobsSection() {
   const jobPosts = await getJobPosts();
