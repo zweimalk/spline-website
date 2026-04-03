@@ -65,9 +65,9 @@ const ContactCard = ({
 export const ContactPeople = () => {
   const contactPersons: ContactPersonProps[] = [
     {
-      name: 'Anna Owsińska',
+      name: 'Anna Bałanda',
       title: 'HR Senior Recruiter',
-      email: 'anna.owsinska@spline.pl',
+      email: 'anna.balanda@spline.pl',
       phone: '+48 789 115 181',
       imageSrc: '/images/ania_owsinska.png',
     },
