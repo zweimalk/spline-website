@@ -8,10 +8,10 @@ interface JobCardProps {
 
 export const JobCard = ({ title, url }: JobCardProps) => {
   return (
-    <div className='group relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all w-full md:w-[400px] md:h-[400px] flex flex-col items-center justify-center'>
+    <Link href={url} className='group cursor-pointer relative rounded-[10px] bg-background dark:bg-light-black px-5 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all w-full md:w-[400px] md:h-[400px] flex flex-col items-center justify-center'>
       <Header4 className='mb-6 text-balance text-center'>{title}</Header4>
 
-      <Link href={url} className='flex items-center gap-2 justify-center'>
+      <div className='flex items-center gap-2 justify-center'>
         <span className='text-xl font-medium text-spline-blue dark:text-white group-hover:tracking-wide transition-all duration-300'>
           See the details
         </span>
@@ -32,7 +32,7 @@ export const JobCard = ({ title, url }: JobCardProps) => {
             strokeLinejoin='round'
           />
         </svg>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
