@@ -93,7 +93,7 @@ export const Footer = () => {
                 </Link>
                 <Body1 className='hover:underline mb-2 md:mb-0'>GDPR Clauses</Body1>
                 <Body1 className='hover:underline mb-2 md:mb-0'>Protected by Recaptcha</Body1>
-                <Body1 className='hover:underline mb-2 md:mb-0'>Copyright© Spline 2025</Body1>
+                <Body1 className='hover:underline mb-2 md:mb-0'>Copyright© Spline 2026</Body1>
               </div>
             </div>
           </div>
