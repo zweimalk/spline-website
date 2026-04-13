@@ -31,7 +31,7 @@ const neueHaasGroteskDisplayPro = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Spline 2025',
+  title: 'spline.pl',
   description: 'Enabling the future of design',
   other: {
     'next-font-preload': 'true',
