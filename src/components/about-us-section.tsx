@@ -11,8 +11,8 @@ export const AboutUsSection = () => {
       <Image
         src='/images/about_us.webp'
         alt='about us'
-        width={395}
-        height={495}
+        {/* width={395}
+        height={495} */}
         className='w-full h-[167px] md:h-[495px] object-cover rounded-xl clip-diagonal-60 clip-diagonal mb-6'
       />
       <div className='flex flex-col gap-y-6 pt-10 md:grid md:grid-cols-2 md:gap-x-10 lg:grid-cols-3'>
