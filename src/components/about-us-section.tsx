@@ -9,7 +9,7 @@ export const AboutUsSection = () => {
         <Header1 className='col-span-2'>about us</Header1>
       </div>
       <Image
-        src='/images/about_us.png'
+        src='/images/about_us.webp'
         alt='about us'
         width={395}
         height={495}
