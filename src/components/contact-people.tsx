@@ -69,14 +69,14 @@ export const ContactPeople = () => {
       title: 'HR Senior Recruiter',
       email: 'anna.balanda@spline.pl',
       phone: '+48 789 115 181',
-      imageSrc: '/images/ania_owsinska.png',
+      imageSrc: '/images/ania_owsinska.webp',
     },
     {
       name: 'Sylwia Gajewska',
       title: 'Chief Business Officer',
       email: 'sylwia.gajewska@spline.pl',
       phone: '+48 571 064 598',
-      imageSrc: '/images/sylwia_gajewska.png',
+      imageSrc: '/images/sylwia_gajewska.webp',
     },
   ];
 
